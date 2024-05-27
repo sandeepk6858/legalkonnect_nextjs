@@ -17,12 +17,12 @@ const Home = () => {
               lawyers and their clients today.
             </p>
 
-            <button
+            <a href="https://legalkonnect.com/register"
               type="button"
               class="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
             >
               Get Started
-            </button>
+            </a>
           </div>
           <div class="flex flex-wrap -m-4 text-center">
             <div class="p-4 md:w-1/6 sm:w-1/4 w-full">
@@ -139,7 +139,7 @@ const Home = () => {
             <img src="https://legalkonnect.com/storage/uploads/pages/9131a843-783d-44f9-a6ba-712bb0d6797f.svg" />
           </div>
           <div class="flex-grow">
-            <h2 class="text-[#1359C3] text-[18px] title-font font-medium mb-3 leading-[22px]">Connect with Skilled Lawyers Instantly</h2>
+            <h2 class="blueprimary text-[18px] title-font font-medium mb-3 leading-[22px]">Connect with Skilled Lawyers Instantly</h2>
             <p class="leading-relaxed text-base textgrey">All of the lawyers and legal services listed on the LegalKonnect database have been verified and peer-reviewed. Sourcing qualified, trusted legal assistance has never been easier.</p>
           </div>
         </div>
@@ -150,7 +150,7 @@ const Home = () => {
           <img src="https://legalkonnect.com/storage/uploads/pages/9131a843-783d-44f9-a6ba-712bb0d6797f.svg" />
           </div>
           <div class="flex-grow">
-            <h2 class="text-[#1359C3] text-[18px] title-font font-medium mb-3 leading-[22px]">Safe, Secure Online Payments</h2>
+            <h2 class="blueprimary text-[18px] title-font font-medium mb-3 leading-[22px]">Safe, Secure Online Payments</h2>
             <p class="leading-relaxed text-base textgrey">All of the lawyers and legal services listed on the LegalKonnect database have been verified and peer-reviewed. Sourcing qualified, trusted legal assistance has never been easier.</p>
           </div>
         </div>
@@ -161,7 +161,7 @@ const Home = () => {
           <img src="https://legalkonnect.com/storage/uploads/pages/9131a843-783d-44f9-a6ba-712bb0d6797f.svg" />
           </div>
           <div class="flex-grow">
-            <h2 class="text-[#1359C3] text-[18px] title-font font-medium mb-3 leading-[22px]">Connect with Skilled Lawyers Instantly</h2>
+            <h2 class="blueprimary text-[18px] title-font font-medium mb-3 leading-[22px]">Connect with Skilled Lawyers Instantly</h2>
             <p class="leading-relaxed text-base textgrey">All of the lawyers and legal services listed on the LegalKonnect database have been verified and peer-reviewed. Sourcing qualified, trusted legal assistance has never been easier.</p>
           </div>
         </div>

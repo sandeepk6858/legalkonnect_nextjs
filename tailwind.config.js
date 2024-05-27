@@ -16,7 +16,8 @@ module.exports = {
         blackcolor: '#000', // Define custom color here
         orangeprimary: '#f16622',
         blueprimary: '#063d8f',
-        textgrey:'#000'
+        textgrey:'#000',
+        orangesecondary:'#f166221c'
       },
       container: {
         center: true,
@@ -27,12 +28,8 @@ module.exports = {
         'xl': '1280px',
         '2xl': '1536px',
       },
-      theme: {
-        extend: {
-          backgroundImage: {
-            'hero_pattern': "url('https://legalkonnect.com/storage/uploads/pages/a474d50e-b4cd-43ce-8bac-9ee3db5fa1d9.jpg')",
-          }
-        }
+      boxShadow:{
+        btnshadow: 'inset 0px 0px 0px 2px #ff6400',
       }
     },
   },
