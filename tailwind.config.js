@@ -16,7 +16,8 @@ module.exports = {
         blackcolor: '#000', // Define custom color here
         orangeprimary: '#f16622',
         blueprimary: '#063d8f',
-        textgrey:'#000'
+        textgrey:'#000',
+        orangesecondary:'#f166221c'
       },
       container: {
         center: true,
