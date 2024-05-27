@@ -93,7 +93,7 @@ const Header = () => {
                       </ul>
                       <ul className='flex items-center grow justify-end'>
                        <div className='border-2 border-orangesecondary max-w-xs w-full h-10 rounded-full flex items-center '>
-                            <input type='text' placeholder="Find Work" className='rounded-full px-2 text-xs text-blackcolor  focus:outline-0 grow'/>
+                            <input type='text' placeholder="Find Work" className='rounded-full px-4 text-sm text-blackcolor focus:outline-0 grow'/>
                             <Dropdown >
                                 <DropdownTrigger>
                                 <Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 hover:text-orangeprimary w-20 shadow-btnshadow rounded-full hover:outline-0 outline-0'> 
