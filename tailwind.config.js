@@ -17,7 +17,9 @@ module.exports = {
         orangeprimary: '#f16622',
         blueprimary: '#063d8f',
         textgrey:'#000',
-        orangesecondary:'#f166221c'
+        orangesecondary:'#f166221c',
+        grey:"#474040",
+        lightgrey:"#4740401a"
       },
       container: {
         center: true,
