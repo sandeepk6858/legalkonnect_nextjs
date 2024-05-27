@@ -28,6 +28,9 @@ module.exports = {
         'xl': '1280px',
         '2xl': '1536px',
       },
+      boxShadow:{
+        btnshadow: 'inset 0px 0px 0px 2px #ff6400',
+      }
     },
   },
   plugins: [],
