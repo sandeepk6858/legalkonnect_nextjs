@@ -2,6 +2,9 @@
 import Link from "next/link";
 
 const TermsOfServices = () => {
+
+
+  
     return (
         <>
             <div className="max-w-[1200px] m-[auto] px-7 mb-10">
@@ -14,10 +17,10 @@ const TermsOfServices = () => {
                 
                 <div className="">
                   <h1 className="text-2xl font-bold">TABLE OF CONTENTS</h1>
-                  <p className="ml-16 text-textgreen"><span>1.&nbsp;</span><Link href={""} ><span>Licence and third party content</span></Link></p>
+                  <p className="ml-16 text-textgreen"><span>1.&nbsp;</span><Link href="https://app.pactsafe.com/login?returnUrl=%2Fcontracts%2F17439%2Fedit#licensesand" target="_blank" ><span>Licence and third party content</span></Link></p>
                   <p className="ml-28 text-textgreen">
                   <span>1.1&nbsp;</span>
-                   <Link href={""} >LegalKonnect’s Provision of the Site and Limited Site License</Link>
+                   <Link href={''} target ="_blank" >LegalKonnect’s Provision of the Site and Limited Site License</Link>
                   </p>
                   <p className="ml-28 text-textgreen">
                   <span>1.2&nbsp;</span>
@@ -89,7 +92,7 @@ const TermsOfServices = () => {
                 <p className="mx-2">The Site may contain links to third-party websites. The Site may also contain applications that allow you to access third- party websites via the Site. Such third-party websites or applications are owned and operated by the third parties and/or their licensors. The inclusion of any link or application on the Site does not imply that we endorse the linked site or application, and you use the links and third-party websites on an “as is” and “as available” basis at your own risk without any warranty from LegalKonnect for any purpose.</p>
                 <h1 className="text-2xl font-bold"><span>1.6&nbsp;</span>COMPLAINTS ABOUT COPYRIGHTED CONTENT ON THE SITE</h1><br/>
                 <p className="mx-2 text-xs"><em>If you think content on the Site infringes your rights, submit your takedown request through our Proprietary Rights Infringement Reporting Procedures.</em></p><br/>
-                <p className="mx-2">If you are the owner of any copyrighted work and believe your rights under U.S. copyright law have been infringed by any material on the Site, you may take advantage of certain provisions of the Digital Millennium Copyright Act by complying with <Link href={""} className="text-textgreen">LegalKonnect’s Proprietary Rights Infringement Reporting Procedures</Link></p>
+                <p className="mx-2">If you are the owner of any copyrighted work and believe your rights under U.S. copyright law have been infringed by any material on the Site, you may take advantage of certain provisions of the Digital Millennium Copyright Act by complying with <Link href="https://www.upwork.com/legal#prirp" target="_blank" className="text-textgreen">LegalKonnect’s Proprietary Rights Infringement Reporting Procedures</Link></p>
                 <h1 className="text-2xl font-bold"><span>2&nbsp;</span>PERMITTED SITE USES</h1><br/>
                 <p className="mx-2 text-xs"><em>You may use the Services for business purposes only.  </em></p><br/>
                 <p className="mx-2">LegalKonnect offers the Services for your business purposes only and not for personal, household, or consumer use. LegalKonnect makes the Services available for Users to find one another, enter into service relationships, make and receive payments through escrow, and receive and provide professional services. In addition, certain Visitor Site Services may be used to provide and obtain general information that we believe may be of interest to Site Visitors and Users. While we try to ensure that any information we post is both timely and accurate, errors may appear from time to time. We do not make any representations or warranties with respect to informational materials posted on the Site and in no event should any content be relied on or construed as tax or legal advice or otherwise. You should independently verify the accuracy of any content.</p>
@@ -113,22 +116,12 @@ const TermsOfServices = () => {
                 <p className="mx-2">We reserve the right to investigate any potential violation of this Section 3 or any other potential violation of these Site Terms of Use and to remove, disable access to, or modify any content on the Site. We do not guarantee we will take action against all breaches of the Terms of Service, and our failure to act with respect to a breach by you or others does not waive our right to act with respect to subsequent or similar breaches.</p>
                 <p className="mx-2">We may terminate your use of the Site at any time, which will mean you lose the right to access or use the Services. Our rights to use and disclose your feedback, our and Users’ and Visitors’ rights to further re-share content you shared through the Services, and Section 3 of these Site Terms of Use shall survive any such termination, subject to applicable law.</p>
                 <h1 className="text-2xl font-bold"><span>3.3&nbsp;</span>REPORTING AND CORRECTING VIOLATIONS</h1><br/>
-                <p className="mx-2"><span>If you become aware of any violation of these Site Terms of Use, please report it to Customer Service or by clicking the link on the Site where you see this flag:<img src=""/>You agree to assist us with any investiga</span></p>
+                <p className="mx-2">If you become aware of any violation of these Site Terms of Use, please report it to Customer Service or by clicking the link on the Site where you see this flag:<span><img src="https://legalkonnect.com/storage/uploads/image003.jpg" alt="img"/></span>You agree to assist us with any investigate</p>
                 <h1 className="text-2xl font-bold"><span>4&nbsp;</span>DEFINATION</h1><br/>
                 <p className="mx-2 text-xs"><em>Provides some definitions of capitalized terms that appear in the Site Terms of Use. Other capitalized terms are defined above or in the User Agreement, which you can tell because the term is put in quotation marks and bold font. Capitalized terms not defined below or earlier in this document have the meanings described in the Terms of Service.</em></p><br/>
                 <p className="mx-2">“Affiliate” means any entity that, directly or indirectly, through one or more intermediaries, controls, is controlled by, or is under common control with LegalKonnect.</p>
                 <p className="mx-2">other definations</p>
                
-
-
-
-
-
-                
-                
-
-
-
             </div>
 
         </>
