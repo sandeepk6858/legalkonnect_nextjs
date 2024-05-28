@@ -32,8 +32,8 @@ const Register = () => {
               <br /> Sign up and connect.
             </p>
             <div className="pt-9 flex flex-col gap-6">
-              <div class="flex gap-5">
-                <div class="icon_wrpr_blue bg-blueText min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
+              <div className="flex gap-5">
+                <div className="cursor-pointer bg-bluesecondary min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
                   <svg
                     width="30"
                     height="30"
@@ -71,8 +71,8 @@ const Register = () => {
                     ></path>
                   </svg>
                 </div>
-                <div class="text_wrpr w-full max-w-[268px]">
-                  <h3 class="text-white text-[18px] pb-4">
+                <div className="text_wrpr w-full max-w-[268px]">
+                  <h3 className="text-white text-[18px] pb-4">
                     Convenient and Safe Payments
                   </h3>
                   <p className="text-white text-[16px]">
@@ -81,8 +81,8 @@ const Register = () => {
                   </p>
                 </div>
               </div>
-              <div class="flex gap-5">
-                <div class="icon_wrpr_blue bg-blueText min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
+              <div className="flex gap-5">
+                <div className="cursor-pointer bg-bluesecondary min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
                   <svg
                     width="30"
                     height="30"
@@ -120,15 +120,15 @@ const Register = () => {
                     ></path>
                   </svg>
                 </div>
-                <div class="text_wrpr w-full max-w-[268px]">
-                  <h3 class="text-white text-[18px] pb-4">Verified Lawyers</h3>
+                <div className="text_wrpr w-full max-w-[268px]">
+                  <h3 className="text-white text-[18px] pb-4">Verified Lawyers</h3>
                   <p className="text-white text-[16px]">
                     All lawyers credentials have been verified
                   </p>
                 </div>
               </div>
-              <div class="flex gap-5">
-                <div class="icon_wrpr_blue bg-blueText min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
+              <div className="flex gap-5">
+                <div className="cursor-pointer bg-bluesecondary min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
                   <svg
                     width="30"
                     height="30"
@@ -217,8 +217,8 @@ const Register = () => {
                     </defs>
                   </svg>
                 </div>
-                <div class="text_wrpr w-full max-w-[268px]">
-                  <h3 class="text-white text-[18px] pb-4">Verified Lawyers</h3>
+                <div className="text_wrpr w-full max-w-[268px]">
+                  <h3 className="text-white text-[18px] pb-4">Verified Lawyers</h3>
                   <p className="text-white text-[16px]">
                     All lawyers credentials have been verified
                   </p>
@@ -257,35 +257,60 @@ const Register = () => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-2 pt-3">
-                <div>
+              <div className="flex gap-2 pt-4">
+                <div className="flex flex-col gap-2">
                   <div className="flex justify-between">
-                    <label className="text-sm sm:text-base text-blueText">
+                    <label className="text-sm sm:text-base text-grey">
                       First name
                     </label>
                   </div>
                   <input
                     type="text"
                     className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                    placeholder="John"
                   />
                 </div>
-                <div>
+                <div className="flex flex-col gap-2">
                   <div className="flex justify-between">
-                    <label className="text-sm sm:text-base text-blueText">
+                    <label className="text-sm sm:text-base text-grey">
                       Last name
                     </label>
                   </div>
                   <input
                     type="text"
                     className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                    placeholder="White"
                   />
                 </div>
               </div>
-              <div className="flex gap-2 pt-5">
+              <div className="flex flex-col gap-2 pt-4">
+                <label className="text-[#474040] text-base">Your email</label>
+                <input
+                  type="email"
+                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                  placeholder="donald.phillips@example.com"
+                />
+              </div>
+              <div className="flex flex-col gap-2 pt-4">
+                <label className="text-[#474040] text-base">Your phone number</label>
+                <input
+                  type="text"
+                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                  placeholder="(262) 555-0131"
+                />
+              </div>
+              <p className="text-[16px] text-grey font-light pt-4">After registration you can add more license numbers (if you have) in your Profile Settings page</p>
+              <div className="flex gap-3 pt-5">
                 <div>
                   <input type="checkbox" className="w-[25px] h-[25px]" />
                 </div>
-                <p className="text-[#474040] text-base">Keep me logged in</p>
+                <p className="text-[#474040] text-base">I accept the Terms & Privacy Policy.</p>
+              </div>
+              <div className="flex gap-3 pt-5">
+                <div>
+                  <input type="checkbox" className="w-[25px] h-[25px]" />
+                </div>
+                <p className="text-[#474040] text-base">I accept receiving other promotions via, email or text by using the site</p>
               </div>
               <div className="flex flex-col md:flex-row justify-between pt-[18px] gap-2.5 md:gap-[0]">
                 <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
@@ -293,7 +318,7 @@ const Register = () => {
                 </button>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class="hover:text-orangesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
+                  className="hover:text-bluesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -327,7 +352,7 @@ const Register = () => {
                 </a>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class=" hover:text-orangesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
+                  className=" hover:text-bluesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -366,12 +391,12 @@ const Register = () => {
               </div>
               <div className="pt-6 md:pt-12">
                 <span className="text-black text-base font-light">
-                  New to legalkonnect.com?{" "}
+                  Already have an account?{" "}
                   <a
-                    className="text-blueprimary  font-semibold hover:underline"
+                    className="text-blueprimary  hover:underline"
                     href="#"
                   >
-                    Sign Up
+                    Log In
                   </a>
                 </span>
               </div>

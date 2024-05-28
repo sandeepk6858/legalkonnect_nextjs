@@ -9,36 +9,36 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-    const [isDesktop, setIsDesktop] = useState(false);
+    // const [isDesktop, setIsDesktop] = useState(false);
 
-    useEffect(() => {
-        const handleResize = () => {
-          setIsDesktop(window.innerWidth > 1200);
-        };
+    // useEffect(() => {
+    //     const handleResize = () => {
+    //       setIsDesktop(window.innerWidth > 1200);
+    //     };
     
-        handleResize(); // Set initial value
-        window.addEventListener('resize', handleResize);
+    //     handleResize(); // Set initial value
+    //     window.addEventListener('resize', handleResize);
     
-        return () => {
-          window.removeEventListener('resize', handleResize);
-        };
-      }, []);
+    //     return () => {
+    //       window.removeEventListener('resize', handleResize);
+    //     };
+    //   }, []);
     
       const toggleMenu = () => {
         setIsOpen(!isOpen);
       };
     
-      const toggleSubMenu = () => {
-        if (!isDesktop) {
-          setIsSubMenuOpen(!isSubMenuOpen);
-        }
-      };
+    //   const toggleSubMenu = () => {
+    //     if (!isDesktop) {
+    //       setIsSubMenuOpen(!isSubMenuOpen);
+    //     }
+    //   };
     
-      const closeSubMenu = () => {
-        if (isDesktop) {
-          setIsSubMenuOpen(false);
-        }
-      };
+    //   const closeSubMenu = () => {
+    //     if (isDesktop) {
+    //       setIsSubMenuOpen(false);
+    //     }
+    //   };
     
 
     return (
@@ -56,7 +56,7 @@ const Header = () => {
                         />
                     </Link>
                 </div>
-                <nav className='w-full '  style={{ maxHeight: isOpen || window.innerWidth > 1200 ? '100px' : '0', overflow: 'hidden', transition: 'max-height 0.3s ease-in-out', justifyContent: 'space-between', alignItems: 'center' }}>
+                <nav className={`w-full navbar ${isOpen ? 'open' : 'closed'}`} >
                  <div  className='flex justify-between  gap-x-5 grow'>
                       <ul className='flex items-center gap-x-5'>
                        <Dropdown><DropdownTrigger><Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary ' > Jobs 
@@ -134,7 +134,7 @@ const Header = () => {
                 </nav>
                 <button className='text-white font-normal text-sm sm:text-base rounded-full bg-orangeprimary px-3 sm:px-4 h-9 sm:h-10 cursor hover:bg-blueprimary grow whitespace-nowrap'>Sign up</button>
                 {/* Toggle button */}
-                <div className={`toggle ${window.innerWidth <= 1200 ? '' : 'hidden'} ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
+                <div className={`toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
                     <span></span>
                     <span></span>
                     <span></span>
