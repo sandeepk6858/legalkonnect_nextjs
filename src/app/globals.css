@@ -1,33 +1,109 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Proxima+Nova&display=swap');
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
+
+/* Define font family for your elements */
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    font-family: 'Proxima Nova', sans-serif !important;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.overlay_con {
+  position: relative;
+  z-index: 1;
 }
+.bg_overlay {
+  position: relative;
+}
+.bg_overlay:after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  display: block;
+  background: linear-gradient(180deg, rgb(0 0 0 / 54%) 0%, rgba(0, 0, 0, 0.24) 100%);
+  z-index: 0;
+}
+.box_item {
+  box-shadow: -1px 2px 8px 0px #D7D7D7;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  text-align: center;
+  min-width: 125px;
+  padding: 35px 0px;
+  cursor: pointer;
+}
+.box_item img {
+  width: 38px;
+  margin: 0 auto;
+  padding-bottom: 12px;
+  display: block;
+}
+.link_tooltip:hover .tooltip_dropdown_new {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.tooltip_dropdown_new {
+  position: absolute;
+  top: 100px;
+  background: #F16622;
+  border-radius: 3px;
+  padding: 10px;
+  font-weight: 300;
+  font-size: 14px;
+  color: #FFFFFF;
+  min-width: 180px;
+  left: 0;
+  text-transform: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.15s ease-in-out;
+  transform: translateY(10px);
+  right: 0;
+  right: 0;
+  bottom: 0;
+}
+
+
+
+
+
+/* HEADER CSS */
+/* components/Header.module.css */
+
+
+/* Add responsive styles */
+@media screen and (max-width: 1200px) {
+  .toggle {
+    display: flex !important;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .toggle span {
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin: 4px 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .toggle.open span:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+  
+  .toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .toggle.open span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+  
+}  

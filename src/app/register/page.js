@@ -293,7 +293,7 @@ const Register = () => {
                 </button>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class="hover:text-blueText py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
+                  class="hover:text-orangesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -327,7 +327,7 @@ const Register = () => {
                 </a>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class=" hover:text-blueText py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
+                  class=" hover:text-orangesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -368,7 +368,7 @@ const Register = () => {
                 <span className="text-black text-base font-light">
                   New to legalkonnect.com?{" "}
                   <a
-                    className="text-blueText  font-semibold hover:underline"
+                    className="text-blueprimary  font-semibold hover:underline"
                     href="#"
                   >
                     Sign Up
