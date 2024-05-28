@@ -1,11 +1,18 @@
 import React from "react";
+import { imageURL } from "@/components/utils/helper/helper";
 
 const Login = () => {
+
+  const backgroundImage = imageURL("login_s_bg.jpg");
+
   return (
     <>
       <div
-        className="bg-[url('https://legalkonnect.com/img/login_s_bg.jpg')] flex bg-cover bg-no-repeat bg-center"
-        style={{ minHeight: "calc(100vh - 70px)" }}
+        className="flex bg-cover bg-no-repeat bg-center"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          minHeight: "calc(100vh - 70px)",
+        }}
       >
         <div className="w-full max-w-[1250px] m-[auto] justify-between items-center flex px-5 flex-col lg:flex-row">
           <p className="w-full max-w-[530px] text-lg sm:text-xl md:text-4xl font-semibold text-white leading-[30px] md:leading-[44px] max-[1024px]:text-center">
@@ -26,15 +33,11 @@ const Login = () => {
               </div>
               <div className="flex flex-col gap-2 pt-3">
                 <div className="flex justify-between">
-                  <label className="text-sm sm:text-base text-orangesecondary">
+                  <label className="text-sm sm:text-base text-bluesecondary">
                     Password
                   </label>
-                  <p className="text-sm sm:text-base text-orangesecondary hover:underline cursor-pointer">
-                    <a
-                      href="/forgot"
-                    >
-                      Forgot password
-                    </a>
+                  <p className="text-sm sm:text-base text-bluesecondary hover:underline cursor-pointer">
+                    <a href="/forgot">Forgot password</a>
                   </p>
                 </div>
                 <input
@@ -54,7 +57,7 @@ const Login = () => {
                 </button>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  className="hover:text-orangesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
+                  className="hover:text-bluesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -88,7 +91,7 @@ const Login = () => {
                 </a>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  className=" hover:text-orangesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
+                  className=" hover:text-bluesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -129,7 +132,7 @@ const Login = () => {
                 <span className="text-black text-base font-light">
                   New to legalkonnect.com?{" "}
                   <a
-                    className="text-orangesecondary  font-semibold hover:underline"
+                    className="text-bluesecondary  font-semibold hover:underline"
                     href="#"
                   >
                     Sign Up
