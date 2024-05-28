@@ -16,8 +16,10 @@ module.exports = {
         blackcolor: '#000', // Define custom color here
         orangeprimary: '#f16622',
         blueprimary: '#063d8f',
-        textgrey:'#000',
-        orangesecondary:'#f166221c'
+        bluesecondary:'#1359c3',
+        orangesecondary:'#f166221c',
+        grey:"#474040",
+        lightgrey:"#4740401a",
       },
       container: {
         center: true,
@@ -30,6 +32,7 @@ module.exports = {
       },
       boxShadow:{
         btnshadow: 'inset 0px 0px 0px 2px #ff6400',
+        custom : '0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 10px 20px rgba(0, 0, 0, 0.04)'
       }
     },
   },
