@@ -20,6 +20,7 @@ module.exports = {
         orangesecondary:'#f166221c',
         grey:"#474040",
         lightgrey:"#4740401a",
+        textgreen:'#369F00'
       },
       container: {
         center: true,
