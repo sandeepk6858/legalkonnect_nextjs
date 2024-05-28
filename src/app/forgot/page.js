@@ -30,7 +30,7 @@ const Forgot = () => {
                 </button>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class="hover:text-blueText py-[10px] px-[15px] gap-[4px] min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
+                  class="hover:text-orangesecondary py-[10px] px-[15px] gap-[4px] min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -64,7 +64,7 @@ const Forgot = () => {
                 </a>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class="hover:text-blueText py-[10px] gap-[4px] px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
+                  class="hover:text-orangesecondary py-[10px] gap-[4px] px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",

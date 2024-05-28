@@ -10,14 +10,15 @@
 body {
     font-family: 'Proxima Nova', sans-serif !important;
 }
-.bg_reltive {
-  position: relative;
-}
+
 .overlay_con {
   position: relative;
   z-index: 1;
 }
 .bg_overlay {
+  position: relative;
+}
+.bg_overlay:after {
   width: 100%;
   height: 100%;
   position: absolute;

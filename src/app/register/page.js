@@ -15,7 +15,7 @@ const Register = () => {
             </p>
             <div>
                 <div class="flex">
-                    <div class="icon_wrpr_blue bg-blueText min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
+                    <div class="icon_wrpr_blue bg-orangesecondary min-h-[50px] min-w-[50px] w-[50px] h-[50px] rounded-[3px] flex justify-center items-center">
                         <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M23.85 22.5714C23.584 22.387 23.2189 22.4533 23.0346 22.7193C22.856 22.9771 22.6537 23.2277 22.4328 23.4644C22.2849 23.6231 22.0813 23.8145 21.8598 24.0029C21.6134 24.2127 21.5836 24.5825 21.7933 24.829C21.9092 24.9652 22.0741 25.0351 22.2399 25.0351C22.3741 25.0351 22.509 24.9892 22.6194 24.8954C22.8778 24.6754 23.1097 24.457 23.2899 24.2636C23.549 23.9859 23.7872 23.6909 23.9979 23.3867C24.1822 23.1208 24.116 22.7557 23.85 22.5714Z" fill="#fff"></path>
                             <path d="M21.2973 25.1987C21.1598 24.9057 20.8111 24.7796 20.518 24.917L20.4996 24.9253C20.2036 25.0559 20.0695 25.4018 20.2002 25.6979C20.2969 25.917 20.5115 26.0474 20.7365 26.0474C20.8156 26.0474 20.8959 26.0313 20.9728 25.9974C20.9871 25.9911 21.0012 25.9846 21.0155 25.978C21.3085 25.8406 21.4346 25.4918 21.2973 25.1987Z" fill="#1359C3"></path>
@@ -48,10 +48,10 @@ const Register = () => {
               </div>
               <div className="flex flex-col gap-2 pt-3">
                 <div className="flex justify-between">
-                  <label className="text-sm sm:text-base text-blueText">
+                  <label className="text-sm sm:text-base text-orangesecondary">
                     Password
                   </label>
-                  <p className="text-sm sm:text-base text-blueText hover:underline cursor-pointer">
+                  <p className="text-sm sm:text-base text-orangesecondary hover:underline cursor-pointer">
                     <a href="/forgot">Forgot password</a>
                   </p>
                 </div>
@@ -72,7 +72,7 @@ const Register = () => {
                 </button>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class="hover:text-blueText py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
+                  class="hover:text-orangesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -106,7 +106,7 @@ const Register = () => {
                 </a>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class=" hover:text-blueText py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
+                  class=" hover:text-orangesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -147,7 +147,7 @@ const Register = () => {
                 <span className="text-black text-base font-light">
                   New to legalkonnect.com?{" "}
                   <a
-                    className="text-blueText  font-semibold hover:underline"
+                    className="text-blueprimary  font-semibold hover:underline"
                     href="#"
                   >
                     Sign Up
