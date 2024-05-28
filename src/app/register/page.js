@@ -1,8 +1,10 @@
-"use client"; 
+"use client"; // Add this directive at the top
 
 import { useState } from "react";
+import { imageURL } from "@/components/utils/helper/helper";
 
 const Register = () => {
+  const backgroundImage = imageURL("sign_up_bg.jpg");
   const [selected, setSelected] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const options = [
@@ -22,12 +24,15 @@ const Register = () => {
   return (
     <>
       <div
-        className="bg-[url('https://legalkonnect.com/img/sign_up_bg.jpg')] flex bg-cover bg-no-repeat bg-center"
-        style={{ minHeight: "calc(100vh - 70px)" }}
+        className="flex bg-cover bg-no-repeat bg-center"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          minHeight: "calc(100vh - 70px)",
+        }}
       >
         <div className="w-full max-w-[1250px] m-[auto] justify-between items-center flex px-5 flex-col lg:flex-row">
-          <div className="w-full max-w-[530px]">
-            <p className="text-lg sm:text-xl md:text-4xl font-semibold text-white leading-[30px] md:leading-[44px] max-[1024px]:text-center">
+          <div className="w-full max-w-[400px] md:max-w-[530px]">
+            <p className="text-2xl mt-3 md:mt-0 md:text-4xl font-semibold text-white leading-[30px] md:leading-[44px] max-[1024px]:text-center">
               Are you new to LegalKonnect?
               <br /> Sign up and connect.
             </p>
@@ -121,7 +126,9 @@ const Register = () => {
                   </svg>
                 </div>
                 <div className="text_wrpr w-full max-w-[268px]">
-                  <h3 className="text-white text-[18px] pb-4">Verified Lawyers</h3>
+                  <h3 className="text-white text-[18px] pb-4">
+                    Verified Lawyers
+                  </h3>
                   <p className="text-white text-[16px]">
                     All lawyers credentials have been verified
                   </p>
@@ -218,7 +225,9 @@ const Register = () => {
                   </svg>
                 </div>
                 <div className="text_wrpr w-full max-w-[268px]">
-                  <h3 className="text-white text-[18px] pb-4">Verified Lawyers</h3>
+                  <h3 className="text-white text-[18px] pb-4">
+                    Verified Lawyers
+                  </h3>
                   <p className="text-white text-[16px]">
                     All lawyers credentials have been verified
                   </p>
@@ -226,7 +235,7 @@ const Register = () => {
               </div>
             </div>
           </div>
-          <div className="text-white bg-[white] rounded-[3px] shadow-custom p-[20px] md:p-[30px] w-full max-w-[400px] md:max-w-[530px] max-[1024px]:mt-[25px]">
+          <div className="text-white bg-[white] my-6 rounded-[3px] shadow-custom p-[20px] md:p-[30px] w-full max-w-[400px] md:max-w-[530px] max-[1024px]:mt-[25px]">
             <div>
               <p className="text-blueprimary text-base">
                 Create a free account to get started
@@ -257,7 +266,7 @@ const Register = () => {
                   )}
                 </div>
               </div>
-              <div className="flex gap-2 pt-4">
+              <div className="flex flex-col md:flex-row gap-2 pt-4">
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between">
                     <label className="text-sm sm:text-base text-grey">
@@ -292,25 +301,59 @@ const Register = () => {
                 />
               </div>
               <div className="flex flex-col gap-2 pt-4">
-                <label className="text-[#474040] text-base">Your phone number</label>
+                <label className="text-[#474040] text-base">
+                  Your phone number
+                </label>
                 <input
                   type="text"
                   className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
                   placeholder="(262) 555-0131"
                 />
               </div>
-              <p className="text-[16px] text-grey font-light pt-4">After registration you can add more license numbers (if you have) in your Profile Settings page</p>
+              <div className="flex flex-col md:flex-row gap-2 pt-4">
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between">
+                    <label className="text-sm sm:text-base text-grey">
+                      Password
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="flex justify-between">
+                    <label className="text-sm sm:text-base text-grey">
+                      Confirm Password
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                  />
+                </div>
+              </div>
+              <p className="text-[16px] text-grey font-light pt-4">
+                After registration you can add more license numbers (if you
+                have) in your Profile Settings page
+              </p>
               <div className="flex gap-3 pt-5">
                 <div>
                   <input type="checkbox" className="w-[25px] h-[25px]" />
                 </div>
-                <p className="text-[#474040] text-base">I accept the Terms & Privacy Policy.</p>
+                <p className="text-[#474040] text-base">
+                  I accept the Terms & Privacy Policy.
+                </p>
               </div>
               <div className="flex gap-3 pt-5">
                 <div>
                   <input type="checkbox" className="w-[25px] h-[25px]" />
                 </div>
-                <p className="text-[#474040] text-base">I accept receiving other promotions via, email or text by using the site</p>
+                <p className="text-[#474040] text-base">
+                  I accept receiving other promotions via, email or text by
+                  using the site
+                </p>
               </div>
               <div className="flex flex-col md:flex-row justify-between pt-[18px] gap-2.5 md:gap-[0]">
                 <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
@@ -392,10 +435,7 @@ const Register = () => {
               <div className="pt-6 md:pt-12">
                 <span className="text-black text-base font-light">
                   Already have an account?{" "}
-                  <a
-                    className="text-blueprimary  hover:underline"
-                    href="#"
-                  >
+                  <a className="text-blueprimary  hover:underline" href="#">
                     Log In
                   </a>
                 </span>
