@@ -54,7 +54,7 @@ const Login = () => {
                 </button>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class="hover:text-orangesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
+                  className="hover:text-orangesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
@@ -88,7 +88,7 @@ const Login = () => {
                 </a>
                 <a
                   href="https://legalkonnect.com/redirect/google"
-                  class=" hover:text-orangesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
+                  className=" hover:text-orangesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
                     boxShadow:
                       "0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04)",
