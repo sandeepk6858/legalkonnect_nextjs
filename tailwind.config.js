@@ -35,6 +35,9 @@ module.exports = {
         btnshadow: 'inset 0px 0px 0px 2px #ff6400',
         custom : '0px 0px 1px rgba(0, 0, 0, 0.04), 0px 2px 6px rgba(0, 0, 0, 0.04), 0px 10px 20px rgba(0, 0, 0, 0.04)',
         customSec : '-1px 2px 8px 0px #d7d7d7',
+      },
+      fontFamily: {
+        proxima: ['"Proxima Nova"', 'sans-serif'],
       }
     },
   },

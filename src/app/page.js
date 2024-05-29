@@ -300,21 +300,21 @@ const Home = () => {
     </div>
   </div>
 </section>
-<section class="text-gray-600 body-font overflow-hidden">
-  <div class="container px-5 pb-[60px] md:pb-[80px] mx-auto">
+<section className="text-gray-600 body-font overflow-hidden">
+  <div className="container px-5 pb-[60px] md:pb-[80px] mx-auto">
   <div className="flex flex-col text-center w-full mb-[40px]">
     <h2 className="text-blueprimary text-[18px] title-font font-[600] mb-3 leading-[22px]">Join our growing online community today.</h2>
     <p className="leading-relaxed text-base text-grey">LegalKonnect is powered by the strength of our members. Sign up today to join the team.</p>
     </div>
-    <div class="flex flex-wrap md:flex-nowrap gap-[30px] w-[100%]">
-    <div class=" md:w-1/2 flex flex-col items-start shadow-lg">
+    <div className="flex flex-wrap md:flex-nowrap gap-[30px] w-[100%]">
+    <div className=" md:w-1/2 flex flex-col items-start shadow-lg">
       <div className="h-[200px] w-[100%] mb-[20px] text-center flex-col items-center flex justify-items-center px-[15px] bg-[url('https://legalkonnect.com/storage/uploads/pages/421b42fe-47a2-4f16-9309-38945fd9a933.jpg')] bg-cover bg-no-repeat bg-center relative discenter ">
           <div className="w-full overlay_card ">
             <h2 className="text-[24px] leading-[35px] font-[600] mb-[40px] text-[#fff] text-center px-[20px]">Hire a Lawyer Today</h2>
             <Link href="https://legalkonnect.com/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register as Client</Link>
           </div>
         </div>
-        <div class="list px-[20px] md:px-[30px] mx-[30px]">
+        <div className="list px-[20px] md:px-[30px] mx-[30px]">
         <h3 className="text-[16px] with_doth3 leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Let the Lawyers Come to You</h3>
           <p className="leading-relaxed text-base text-grey mb-[20px]">Rather than calling multiple law offices for a quote, you can watch as suitable applicants reach out to you with competitive bids.</p>
           <h3 className="text-[16px] with_doth3 leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">View Profiles & Ratings</h3>
@@ -328,14 +328,14 @@ const Home = () => {
       </div>
       </div>
 
-      <div class=" md:w-1/2 flex flex-col items-start shadow-lg">
+      <div className=" md:w-1/2 flex flex-col items-start shadow-lg">
       <div className="h-[200px] w-[100%] mb-[20px] text-center flex-col items-center flex justify-items-center px-[15px] bg-[url('https://legalkonnect.com/storage/uploads/pages/421b42fe-47a2-4f16-9309-38945fd9a933.jpg')] bg-cover bg-no-repeat bg-center relative discenter ">
           <div className="w-full overlay_card ">
             <h2 className="text-[24px] leading-[35px] font-[600] mb-[40px] text-[#fff] text-center px-[20px]">Connect with New Clients</h2>
             <Link href="https://legalkonnect.com/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register as Legal Professional</Link>
           </div>
         </div>
-        <div class="list px-[20px] md:px-[30px] mx-[30px]">
+        <div className="list px-[20px] md:px-[30px] mx-[30px]">
           <h3 className="text-[16px] with_doth3 leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Find the Cases You Want</h3>
           <p className="leading-relaxed text-base text-grey mb-[20px]">Instead of dealing with everyone that walks through your door, you can choose the specific cases you want to bid on.</p>
           <h3 className="text-[16px] with_doth3 leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Highlight Your Expertise</h3>
