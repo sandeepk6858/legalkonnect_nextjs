@@ -123,8 +123,7 @@ body {
   right: unset;
 }
 
-/* Show tooltip on hover */
-li:hover .tooltip_dropdown {
+.tooltip-container:hover .tooltip_dropdown {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
@@ -167,12 +166,28 @@ li:hover .tooltip_dropdown {
   .navbar.closed {
     max-height: 0;
   }
-
+  .box_item {
+    padding: 35px 10px;
+    height: 170px;
   
 }
-@media (max-width: 1200px) {
-.box_item {
-  padding: 35px 10px;
-  height: 170px;
+}
+@media (max-width: 1024px) {
+  .tabs_div {
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+.button_tabs_right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 10px;
+}
+}
+@media (max-width: 420px) {
+  .button_tabs_right button {
+    font-size: 13px;
+    padding: 15px 10px;
 }
 }
