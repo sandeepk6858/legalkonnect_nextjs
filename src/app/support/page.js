@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react';
+import {Button} from "@nextui-org/react";
 import Modal from '@/components/popup/popup';
+import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 
 const support = () => {
     const [activeTab, setActiveTab] = useState('step1');
@@ -8,10 +10,10 @@ const support = () => {
     const renderContent = () => {
         switch (activeTab) {
             case 'step1':
-                return <div>
+                return <div className='px-[0px] xl:px-[100px]'>
 
                 <div class="text-gray-600 body-font">
-                  <div class="container px-[10px]  py-[60px] md:py-[80px] mx-auto">
+                  <div class="container px-[10px]  py-[30px] md:py-[50px] mx-auto">
                     <div class="flex flex-wrap -m-4">
                       <div class="p-2 mb-[10px] md:p-4  lg:w-1/3">
                         <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
@@ -37,10 +39,10 @@ const support = () => {
 
             </div>;
             case 'step2':
-                return <div>
+                return <div className='px-[0px] xl:px-[100px]'>
 
-<div class="text-gray-600 body-font">
-                  <div class="container px-[10px] py-[60px] md:py-[80px] mx-auto">
+              <div class="text-gray-600 body-font">
+                  <div class="container px-[10px] py-[30px] md:py-[50px] mx-auto">
                     <div class="flex flex-wrap -m-4">
                       <div class="p-2 mb-[10px] md:p-4 lg:w-1/3">
                         <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16 rounded-lg overflow-hidden relative w-[310px]">
@@ -54,10 +56,10 @@ const support = () => {
             
             </div>;
             case 'step3':
-                return <div>
+                return <div className='px-[0px] xl:px-[100px]'>
 
               <div class="text-gray-600 body-font">
-                  <div class="container px-[10px] py-[60px] md:py-[80px] mx-auto">
+                  <div class="container px-[10px] py-[30px] md:py-[50px] mx-auto">
                     <div class="flex flex-wrap -m-4">
                       <div class="p-2 mb-[10px] md:p-4 lg:w-1/3">
                         <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
@@ -77,8 +79,8 @@ const support = () => {
 
     return (
       <section className="text-gray-600 body-font">
-      <div className="container px-[10px] py-[60px] md:py-[80px] mx-auto flex flex-wrap flex-col">
-        <div className='flex flex-wrap justify-center gap-[0px] sm:gap-[0px] md:gap-[0px] lg:gap-[40px] w-[100%]'>
+      <div className=" px-[10px] py-[60px] md:py-[80px] mx-auto flex flex-wrap flex-col">
+        <div className='flex flex-wrap justify-center gap-[0px] sm:gap-[0px] md:gap-[0px] lg:gap-[40px] w-[100%] p-[15px] bg-gray-100'>
           <div className=' flex overflow-auto tabs_div'>
           <button className={`px-6 py-3 w-1/2 sm:w-auto justify-center whitespace-nowrap sm:justify-start text-[16px] font-medium inline-flex items-center leading-none text-bluesecondary`}>
             <svg fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" className="w-5 h-5 mr-3 text-orangeprimary" viewBox="0 0 24 24">
@@ -94,7 +96,11 @@ const support = () => {
          <div className='flex gap-[30px] button_tabs_right'>
           {/* <button className={`bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start text-[14px]font-medium inline-flex items-center leading-none `}> Report Site </button> */}
           <Modal />
-            <button className={`bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start text-[14px]font-medium inline-flex items-center leading-none `}> Contact Support </button>
+            {/* <button className={`bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start text-[14px]font-medium inline-flex items-center leading-none `}> Contact Support </button> */}
+
+            <Button className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 sm:w-auto justify-center sm:justify-start text-[14px] font-medium inline-flex items-center leading-none w-[160px] h-[44px]" color="primary" variant="Report Site" onClick={''}>
+            Contact Support
+            </Button>
          </div>
         </div>
         <div className="p-2 mb-[10px] md:p-4">{renderContent()}</div>

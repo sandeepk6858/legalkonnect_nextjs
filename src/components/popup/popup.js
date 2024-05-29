@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import {Button} from "@nextui-org/react";
 
 const Modal = () => {
   const [openModal, setModal] = useState(false);
@@ -9,13 +10,16 @@ const Modal = () => {
 
   return (
     <div>
-      <button
+       <Button className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 sm:w-auto justify-center sm:justify-start text-[14px] font-medium inline-flex items-center leading-none w-[160px] h-[44px]" color="primary" variant="Report Site" onClick={handleModal}>
+        Report Site
+      </Button>
+      {/* <button
         type="button"
         className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 sm:w-auto justify-center sm:justify-start text-[14px] font-medium inline-flex items-center leading-none w-[160px] h-[44px]"
         onClick={handleModal}
       >
         Report Site
-      </button>
+      </button> */}
       {openModal && (
         <div className="fixed z-[1] top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 flex justify-center items-center">
           <div className="w-[460px] bg-white shadow-lg py-[20px] px-[20px] rounded-md relative">
@@ -68,12 +72,15 @@ const Modal = () => {
                   required
                 ></textarea>
               </div>
-              <button
+              {/* <button
                 type="submit"
                 className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start text-[14px]font-medium inline-flex items-center leading-none "
               >
                 Submit
-              </button>
+              </button> */}
+              <Button className="bg-orangeprimary rounded-[30px] !text-[#fff] px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start text-[14px]font-medium inline-flex items-center leading-none " variant="Submit">
+              Submit
+              </Button>
             </form>
           </div>
         </div>
