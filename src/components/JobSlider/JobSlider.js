@@ -1,121 +1,122 @@
+'use client'
 import React from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const JobSlider = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    prevArrow: <div className="left-arrow"><svg className="left-arrow mt-[80px]" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f16622" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path></svg></div>,
+    nextArrow: <div className="right-arrow"><svg className="right-arrow mt-[80px]" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f16622" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path></svg></div>,
+  };
+  const slides = [
+    {
+      title: "Find an attorney",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/bakeel-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can find an attorney.",
+    },
+    {
+      title: "substitute Attorney",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/attorney-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can find an substitute attorney.",
+    },
+    {
+      title: "Legal jobs",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/legal_jobs-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can post and search for legal jobs.",
+    },
+    {
+      title: "substitute Attorney Jobs",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/legal_jobs-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can request and search for a substitute attorney jobs.",
+    },
+    {
+      title: "Legal Docs",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/legal_docs-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can post and search for legal Docs",
+    },
+    {
+      title: "Transcripts",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/transcripts%20(2).png",
+      alt: "Attorney",
+      tooltip: "Here, you can post and search for legal transcripts.",
+    },
+    {
+      title: "Questions Forum",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/question_forum-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can post your legal question and offer a reward for the best answer",
+    },
+    {
+      title: "Paralegal/Support",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/Icons.png",
+      alt: "Attorney",
+      tooltip: "Here, you can search for paralegals and other legal support service providers.",
+    },
+    {
+      title: "Experts",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/expert.png",
+      alt: "Attorney",
+      tooltip: "Here, you can search for experts.",
+    },
+    {
+      title: "Process Servers",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/process_servers-1.png",
+      alt: "Attorney",
+      tooltip: "Here, you can search for process servers.",
+    },
+    {
+      title: "Court Reporters",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/Captions.png",
+      alt: "Attorney",
+      tooltip: "Here, you can search for court reporters.",
+    },
+    {
+      title: "Investigatorst",
+      link: "https://legalkonnect.com/find-attorney-legal-support",
+      image: "https://legalkonnect.com/img/investigators.png",
+      alt: "Attorney",
+      tooltip: "Here, you can search for investigators.",
+    },
+  ];
+  
   return (
-    <>
-      <div className="w-full m-[auto] max-w-[1250px]">
-        <ul className="flex gap-6 justify-center">
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span> 
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney. 
-                </div>
+    <div className="w-full m-[auto] max-w-[1250px] relative">
+      <Slider {...settings}>
+        {slides.map((slide,index) => (
+          <div key={index} className="max-w-[125px] w-full my-[25px] rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container">
+            <a href={slide.link} className="flex justify-center items-center flex-col gap-2">
+              <img src={slide.image} className="maw-w-[38px] h-[52px]" alt="" />
+              <span className="text-[15px] text-center">{slide.title}</span>
+              <div className="tooltip_dropdown">
+                {slide.tooltip}
+              </div>
             </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-          <li className="max-w-[125px] w-full rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative">
-            <a
-              href="https://legalkonnect.com/find-attorney-legal-support"
-              className="flex justify-center items-center flex-col gap-2"
-            >
-              <img src="https://legalkonnect.com/img/bakeel-1.png" className="maw-w-[38px] h-[52px]" alt="" />
-                 <span className="text-[15px]">Find an attorney</span>
-                <div className="tooltip_dropdown">
-                    Here, you can find an attorney.
-                </div>
-            </a>
-          </li>
-        </ul>
-        <div className="arrow-icon flex justify-between items-center flex-wrap pt-8">
-            <div className="left-arrow">
-                <svg className="left-arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f16622" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path>
-                </svg>
-            </div>
-            <div className="right-arrow">
-                <svg className="right-arrow" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#f16622" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"></path>
-                </svg>
-            </div>
-        </div>
-      </div>
-    </>
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
