@@ -1,8 +1,7 @@
 import { imageURL } from "@/components/utils/helper/helper";
 import React from "react";
-import Link from 'next/link';
 import Image from "next/image";
-import {Button} from "@nextui-org/react";
+import { Link, Button } from "@nextui-org/react";
 
 const Home = () => {
   return (
@@ -20,13 +19,14 @@ const Home = () => {
               your fingertips. Discover how our fair bidding system helps
               lawyers and their clients today.
             </p>
-
-            <Link href="/register"
-              type="button"
-              className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+            <Button
+              href="/register"
+              as={Link}
+              color="primary"
+              className="text-white w-[150px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
             >
-              Get Started
-            </Link>
+             Get Started
+            </Button>
           </div>
           <div className="flex flex-wrap -m-4 text-center mt-[40px]">
           <div className="p-[10px] xl:w-1/6 sm:w-1/3 w-2/4">
@@ -186,8 +186,17 @@ const Home = () => {
           <div className="w-full">
             <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Find Legal Services</h2>
             <p className="leading-relaxed text-base text-grey mb-[40px]">Connecting with practicing attorneys, lawyers, and legal services professionals has never been more accessible. With a comprehensive, coast-to-coast network of legal professionals from across the country, LegalKonnect uses technology to bring the industry together like never before. Consult with specialists, hire paralegals, and do so much more, all within minutes, from anywhere. Create a profile to start hiring and networking now.</p>
-            <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Find Legal Services</Link>
+            {/* <Link href="/login" type="button" className="text-white  bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Find Legal Services</Link> */}
+            <Button
+              href="/login"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Find Legal Services
+            </Button>
           </div>
+          
         </div>
       </div>
       <div className="p-4 lg:w-1/3 md:w-1/2">
@@ -196,7 +205,15 @@ const Home = () => {
           <div className="w-full">
             <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Post Contract Jobs</h2>
             <p className="leading-relaxed text-base text-grey mb-[40px]">Searching for a lawyer used to be a stressful, time-consuming task, but those days are over. When you join LegalKonnect, you can post job requests to our marketplace and watch as legal experts come to you with their bid. The attorneys and lawyers on our platform have all been peer-reviewed and thoroughly vetted, with a profile highlighting their area of expertise. Finding qualified legal help online has never been easier.</p>
-            <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Post a Job Now</Link>
+            {/* <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Post a Job Now</Link> */}
+            <Button
+              href="/login"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Post a Job Now
+            </Button>
           </div>
         </div>
       </div>
@@ -206,7 +223,15 @@ const Home = () => {
           <div className="w-full">
             <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Hire Substitute Lawyer</h2>
             <p className="leading-relaxed text-base text-grey mb-[40px]">Overbooked yourself for the coming week? Not to worry. LegalKonnect has a substitute lawyer hiring section that makes finding a suitable, local submit the specifics of the case, and we’ll connect you to a list of qualified substitutes. This unique feature is similar to our main marketplace but has been streamlined to emphasize speed, so you get the substitute you need fast. replacement simple.</p>
-            <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Find Substitute</Link>
+            {/* <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Find Substitute</Link> */}
+            <Button
+              href="/login"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Find Substitute
+            </Button>
           </div>
         </div>
       </div>
@@ -216,7 +241,15 @@ const Home = () => {
           <div className="w-full">
             <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Get Expert Advice</h2>
             <p className="leading-relaxed text-base text-grey mb-[40px]">Our innovative legal forum is one of the many ways we are democratizing the legal industry. Central to that is the unique bounty-based voting system, where legal professionals are rewarded financially for answering user questions. This method pays legal professionals for their time, while greatly reducing the cost of expert opinions and insights for private citizens.</p>
-            <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Visit Forum</Link>
+            {/* <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Visit Forum</Link> */}
+            <Button
+              href="/login"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Visit Forum
+            </Button>
           </div>
         </div>
       </div>
@@ -226,16 +259,32 @@ const Home = () => {
           <div className="w-full">
             <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Download Court Transcripts</h2>
             <p className="leading-relaxed text-base text-grey mb-[40px]">The smart technology that we use to connect clients and lawyers can also be used to connect legal professionals to past court transcripts, petitions, legal research, and more. Have something worth sharing? Get paid for posting legal documents to the marketplace and bid on downloadable content posted by other lawyers.</p>
-            <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">View Documents</Link>
+            {/* <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">View Documents</Link> */}
+            <Button
+              href="/login"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+            >
+             View Documents
+            </Button>
           </div>
         </div>
       </div>
       <div className="p-4 lg:w-1/3 md:w-1/2 ">
         <div className="h-full text-center flex-col items-center flex justify-items-center shadow-md p-[30px] bg-[url('https://legalkonnect.com/storage/uploads/pages/a474d50e-b4cd-43ce-8bac-9ee3db5fa1d9.jpg')] bg-cover bg-no-repeat bg-center relative discenter">
-          <div className="w-full overlay_card ">
-            <h2 className="text-[24px] leading-[35px] font-[600] mb-[10px] mt-[10px] text-[#fff] text-center px-[20px]">A LEGAL SERVICES MARKETPLACE FOR THE DIGITAL AGE</h2>
+          <div className="w-full overlay_card  items-center flex justify-items-center flex-col">
+            <h2 className="text-[24px] leading-[35px] font-[600] mb-[10px] mt-[10px] text-[#fff] text-center px-[20px]">A LEGAL SERVICES MARKETPLACE FOR THE <br/> DIGITAL AGE</h2>
             <p className="leading-relaxed text-base mb-[40px] text-[#fff] text-center">LegalKonnect makes finding the exact legal service you require easier and faster by leveraging smart technology. Ready to take advantage?</p>
-            <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register Now</Link>
+            {/* <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register Now</Link> */}
+            <Button
+              href="/register"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Register Now
+            </Button>
           </div>
         </div>
       </div>
@@ -292,10 +341,18 @@ const Home = () => {
       </div>
       <div className="p-4 lg:w-1/2">
         <div className="h-full text-center flex-col items-center flex justify-items-center shadow-md p-[30px] bg-[url('https://legalkonnect.com/storage/uploads/pages/421b42fe-47a2-4f16-9309-38945fd9a933.jpg')] bg-cover bg-no-repeat bg-center relative discenter">
-          <div className="w-full overlay_card ">
+          <div className="w-full overlay_card items-center flex justify-items-center flex-col">
             <h2 className="text-[24px] leading-[35px] font-[600] mb-[10px] mt-[10px] text-[#fff] text-center px-[20px]">It’s that simple.</h2>
-            <p className="leading-relaxed text-base mb-[40px] text-[#fff] text-center">The days of running around town searching for the right lawyer are over. Post your first job to connect with a pool of qualified lawyers in your region today</p>
-            <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Get Started</Link>
+            <p className="leading-relaxed text-base mb-[30px] text-[#fff] text-center">The days of running around town searching for the right lawyer are over. Post your first job to connect with a pool of qualified lawyers in your region today</p>
+            {/* <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Get Started</Link> */}
+            <Button
+              href="/register"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Get Started
+            </Button>
           </div>
         </div>
       </div>
@@ -311,9 +368,17 @@ const Home = () => {
     <div className="flex flex-wrap md:flex-nowrap gap-[30px] w-[100%]">
     <div className=" md:w-1/2 flex flex-col items-start shadow-lg">
       <div className="h-[200px] w-[100%] mb-[20px] text-center flex-col items-center flex justify-items-center px-[15px] bg-[url('https://legalkonnect.com/storage/uploads/pages/421b42fe-47a2-4f16-9309-38945fd9a933.jpg')] bg-cover bg-no-repeat bg-center relative discenter ">
-          <div className="w-full overlay_card ">
-            <h2 className="text-[24px] leading-[35px] font-[600] mb-[40px] text-[#fff] text-center px-[20px]">Hire a Lawyer Today</h2>
-            <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register as Client</Link>
+          <div className="w-full overlay_card items-center flex justify-items-center flex-col">
+            <h2 className="text-[24px] leading-[35px] font-[600] mb-[30px] text-[#fff] text-center px-[20px]">Hire a Lawyer Today</h2>
+            {/* <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register as Client</Link> */}
+            <Button
+              href="/register"
+              as={Link}
+              color="primary"
+              className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Register as Client
+            </Button>
           </div>
         </div>
         <div className="list px-[20px] md:px-[30px] mx-[30px]">
@@ -332,9 +397,17 @@ const Home = () => {
 
       <div className=" md:w-1/2 flex flex-col items-start shadow-lg">
       <div className="h-[200px] w-[100%] mb-[20px] text-center flex-col items-center flex justify-items-center px-[15px] bg-[url('https://legalkonnect.com/storage/uploads/pages/421b42fe-47a2-4f16-9309-38945fd9a933.jpg')] bg-cover bg-no-repeat bg-center relative discenter ">
-          <div className="w-full overlay_card ">
-            <h2 className="text-[24px] leading-[35px] font-[600] mb-[40px] text-[#fff] text-center px-[20px]">Connect with New Clients</h2>
-            <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register as Legal Professional</Link>
+          <div className="w-full overlay_card items-center flex justify-items-center flex-col">
+            <h2 className="text-[24px] leading-[35px] font-[600] mb-[30px] text-[#fff] text-center px-[20px]">Connect with New Clients</h2>
+            {/* <Link href="/register" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Register as Legal Professional</Link> */}
+            <Button
+              href="/register"
+              as={Link}
+              color="primary"
+              className="text-white w-[280px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[18px]"
+            >
+             Register as Legal Professional
+            </Button>
           </div>
         </div>
         <div className="list px-[20px] md:px-[30px] mx-[30px]">

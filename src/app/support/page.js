@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import {Button} from "@nextui-org/react";
+import { Link, Button } from "@nextui-org/react";
 import Modal from '@/components/popup/popup';
 import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 
@@ -98,8 +98,17 @@ const support = () => {
           <Modal />
             {/* <button className={`bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start text-[14px]font-medium inline-flex items-center leading-none `}> Contact Support </button> */}
 
-            <Button className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 sm:w-auto justify-center sm:justify-start text-[14px] font-medium inline-flex items-center leading-none w-[160px] h-[44px]" color="primary" variant="Report Site" onClick={''}>
+            {/* <Button className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 sm:w-auto justify-center sm:justify-start text-[14px] font-medium inline-flex items-center leading-none w-[160px] h-[44px]" color="primary" variant="Report Site" onClick={''}>
             Contact Support
+            </Button> */}
+
+            <Button
+              href="/contact-support"
+              as={Link}
+              color="primary"
+              className="bg-orangeprimary rounded-[30px] text-[#fff] px-6 py-3 sm:w-auto justify-center sm:justify-start text-[14px] font-medium inline-flex items-center leading-none w-[160px] h-[44px]"
+            >
+              Contact Support
             </Button>
          </div>
         </div>
