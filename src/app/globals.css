@@ -5,7 +5,7 @@
 
 /* Define font family for your elements */
 body {
-    font-family: 'Proxima Nova', sans-serif !important;
+  font-family: "Proxima Nova", sans-serif !important;
 }
 .with_doth3 {
   position: relative;
@@ -13,7 +13,7 @@ body {
 .with_doth3:before {
   width: 10px;
   height: 10px;
-  background: #1359C3;
+  background: #1359c3;
   border-radius: 50%;
   display: block;
   content: "";
@@ -36,7 +36,11 @@ body {
   top: 0;
   content: "";
   display: block;
-  background: linear-gradient(180deg, rgb(0 0 0 / 54%) 0%, rgba(0, 0, 0, 0.24) 100%);
+  background: linear-gradient(
+    180deg,
+    rgb(0 0 0 / 54%) 0%,
+    rgba(0, 0, 0, 0.24) 100%
+  );
   z-index: 0;
 }
 .overlay_card {
@@ -50,12 +54,12 @@ body {
   height: 100%;
   display: block;
   content: "";
-  background: #1359C3;
+  background: #1359c3;
   opacity: 0.86;
   z-index: -1;
 }
 .box_item {
-  box-shadow: -1px 2px 8px 0px #D7D7D7;
+  box-shadow: -1px 2px 8px 0px #d7d7d7;
   margin-bottom: 6px;
   border-radius: 8px;
   text-align: center;
@@ -78,12 +82,12 @@ body {
 .tooltip_dropdown_new {
   position: absolute;
   top: 69px;
-  background: #F16622;
+  background: #f16622;
   border-radius: 3px;
   padding: 10px;
   font-weight: 300;
   font-size: 14px;
-  color: #FFFFFF;
+  color: #ffffff;
   min-width: 180px;
   left: 0;
   text-transform: none;
@@ -101,7 +105,6 @@ body {
   align-items: center;
 }
 
-
 /* Tooltip Dropdown CSS */
 .tooltip_dropdown {
   position: absolute;
@@ -112,7 +115,7 @@ body {
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
-  color: #FFFFFF;
+  color: #ffffff;
   min-width: 160px;
   text-transform: none;
   visibility: hidden;
@@ -129,10 +132,31 @@ body {
   transform: translateY(0);
 }
 
+.social-icon li:nth-of-type(1) {
+  animation: social_1 0.3s 1;
+  top: -40px;
+  left: -79px;
+  position: absolute;
+}
+.social-icon li:nth-of-type(2) {
+  animation: social_2 0.3s 1;
+  top: -55px;
+  left: -39px;
+  position: absolute;
+}
+.social-icon li:nth-of-type(3) {
+  animation: social_3 0.3s 1;
+  top: -32px;
+  left: 2px;
+  position: absolute;
+}
+
+
+
+
 
 /* HEADER CSS */
 /* components/Header.module.css */
-
 
 /* Add responsive styles */
 .navbar {
@@ -141,8 +165,6 @@ body {
   justify-content: space-between;
   align-items: center;
 }
-
-
 
 @media (min-width: 1200px) {
   .navbar {
@@ -162,32 +184,31 @@ body {
   .navbar.open {
     max-height: 100px;
   }
-  
+
   .navbar.closed {
     max-height: 0;
   }
   .box_item {
     padding: 35px 10px;
     height: 170px;
-  
-}
+  }
 }
 @media (max-width: 1024px) {
   .tabs_div {
     margin-bottom: 30px;
     padding-bottom: 20px;
-}
-.button_tabs_right {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  gap: 10px;
-}
+  }
+  .button_tabs_right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+  }
 }
 @media (max-width: 420px) {
   .button_tabs_right button {
     font-size: 13px;
     padding: 15px 10px;
-}
+  }
 }
