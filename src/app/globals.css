@@ -131,8 +131,7 @@ body {
   right: unset;
 }
 
-/* Show tooltip on hover */
-li:hover .tooltip_dropdown {
+.tooltip-container:hover .tooltip_dropdown {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
