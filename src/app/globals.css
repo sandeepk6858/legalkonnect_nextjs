@@ -167,8 +167,44 @@ body {
 }
 
 
+.shadow-small{
+  width: 200px !important;
+  margin: auto !important;
+  display: block !important;
+  color: #000 !important;
+  background-color: #F9F9F9 !important;
+  border-radius: 22px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  padding: 10px 15px !important;
+}
 
+.transition-background{
+  background-color: white !important;
+}
 
+.group[data-filled-within=true] .group-data-\[filled-within\=true\]\:text-foreground {
+  font-size: 16px !important;
+  padding-bottom: 8px !important;
+}
+
+#fileInput {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+@media (min-width: 1024px) {
+  .tablist{
+     display: flex !important;
+  }
+}
+@media (max-width: 1024px) {
+  .tablist{
+     display: ruby !important;
+     width: 100%;
+  }
+}
 
 /* HEADER CSS */
 /* components/Header.module.css */
@@ -177,7 +213,7 @@ body {
 .navbar {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
 }
 
