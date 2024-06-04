@@ -1,27 +1,25 @@
-"use client"
+"use client";
 import { imageURL } from "@/components/utils/helper/helper";
 import React from "react";
 import Image from "next/image";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import { Tooltip, Button, Link } from "@nextui-org/react";
-import {Select, SelectItem} from "@nextui-org/react";
+import { Select, SelectItem } from "@nextui-org/react";
 import {
-    Dropdown,
-    DropdownTrigger,
-    DropdownMenu,
-    DropdownItem,
-  } from "@nextui-org/react";
+  Dropdown,
+  DropdownTrigger,
+  DropdownMenu,
+  DropdownItem,
+} from "@nextui-org/react";
 
-5
-
-
+5;
 
 const profile = () => {
-    const [selectedKeys, setSelectedKeys] = React.useState(new Set(["By Date"]));
-    const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
-      );
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["By Date"]));
+  const selectedValue = React.useMemo(
+    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+    [selectedKeys]
+  );
   return (
     <>
       <section className="text-blackcolor body-font overflow-hidden">
@@ -31,8 +29,8 @@ const profile = () => {
       </section>
       <section className="text-blackcolor body-font overflow-hidden">
         <div className="container px-[20px]  border-2 border-slate-300 max-w-[1200px] mx-auto p-[30px]">
-          <div className="flex justify-between ">
-            <div className="flex gap-[10px]">
+          <div className="flex justify-between flex-wrap ">
+            <div className="flex gap-[10px] flex-wrap">
               <img
                 className="w-[80px] h-[80px]"
                 src={imageURL("header_profile_img.jpg")}
@@ -41,7 +39,7 @@ const profile = () => {
 
               <div>
                 <Link href="#">
-                  <h3 className="text-[26px] leading-[24px] font-medium text-blackcolor">
+                  <h3 className="text-[22px] md:text-[26px] leading-[24px] font-medium text-blackcolor">
                     Attorney Attorneys
                   </h3>
                 </Link>
@@ -49,7 +47,7 @@ const profile = () => {
                 <Link className="text-[14px] mt-[0px] text-blackcolor" href="">
                   <span>lko</span>
                 </Link>
-                <div>
+                <div className="mb10">
                   <Link
                     className="mt-[10px] bg-orangeprimary p-[5px] rounded-[50px] text-[#fff]"
                     href="mailto:attorney@attorney.com"
@@ -87,7 +85,7 @@ const profile = () => {
               </div>
             </div>
 
-            <div className="flex gap-[20px]">
+            <div className="flex gap-[20px] flex-wrap">
               <Tooltip
                 className="bg-orangeprimary p-[10px] text-white w-[150px]"
                 content="Make a bid for this attorney to handle your case"
@@ -96,16 +94,16 @@ const profile = () => {
                   href=""
                   as={Link}
                   color="primary"
-                  className="text-white w-[150px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[0px] rounded-[30px] font-[400] text-[18px]"
+                  className="text-white w-[150px] h-[50px] btn420 flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[0px] rounded-[30px] font-[400] text-[18px]"
                 >
                   Make a Bid
                 </Button>
               </Tooltip>
               <Button
-                href="/messages/3"
+                href="/messages/slug"
                 as={Link}
                 color="primary"
-                className="text-white w-[150px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[0px] rounded-[30px] font-[400] text-[18px]"
+                className="text-white w-[150px] btn420 h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[0px] rounded-[30px] font-[400] text-[18px]"
               >
                 <svg
                   width="16"
@@ -143,9 +141,9 @@ const profile = () => {
             </div>
           </div>
 
-          <div className="container flex flex-wrap mx-auto">
-            <div className="md:w-2/5 pr-[20px] md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200">
-              <Button className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mb-[30px] rounded-[30px] font-[400] text-[18px]">
+          <div className="container flex flex-wrap m0px m-[0px]">
+            <div className="md:w-1/3 pr-[0px] md:pr-[20px] md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200 wid100 mb20 ">
+              <Button href="/login" className="text-white w-[200px] btn420 h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mb-[30px] rounded-[30px] font-[400] text-[18px]">
                 {" "}
                 <svg
                   width="12"
@@ -250,13 +248,13 @@ const profile = () => {
                 </h4>
                 <p className="text-[16px] leading-[24px] text-[#858181]">
                   <Link
-                    className="bg-[#eaf1fd] py-[5px] px-[25px] rounded-[20px] mr-[10px]"
+                    className="bg-[#eaf1fd] py-[5px] px-[25px] rounded-[20px] mr-[10px] apppad"
                     href="#"
                   >
                     Appellate
                   </Link>
                   <Link
-                    className="bg-[#eaf1fd] py-[5px] px-[25px] rounded-[20px]"
+                    className="bg-[#eaf1fd] py-[5px] px-[25px] rounded-[20px] apppad"
                     href="#"
                   >
                     Personal Injury Lawyer
@@ -264,119 +262,136 @@ const profile = () => {
                 </p>
               </div>
             </div>
-            <div className="flex flex-col md:w-3/5 pl-[30px]">
+            <div className="flex flex-col md:w-2/3 pl-[0px] md:pl-[30px] wid100">
               <div className="flex flex-wrap list-none -mb-1">
-              <div className=" w-1/2">
-                <div className="">
+                <div className=" w-[100%]">
+                  <div className="">
+                  <div className="flex justify-between items-center">
                   <h3 className="text-[22px] leading-[32px] text-blackcolor font-bold">
-                    About me
-                  </h3>
-                  <p className="text-[16px] leading-[24px] text-blackcolor mb-[20px]">
-                    Attorney
-                  </p>
-                  <div className="mt-[25px]">
-                    <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
-                      Description Of Services Offered And Prices
-                    </h4>
-                    <p className="text-[16px] leading-[24px] text-[#858181]">
-                      test rtset
+                      About me
+                    </h3>
+                    <p className="text-[16px] leading-[24px] text-blackcolor">
+                      <b>Fee type</b>{" "}
+                      <span className="text-[16px] leading-[24px] text-[#858181]">
+                        fixed
+                      </span>
                     </p>
                   </div>
-                  <div className="mt-[20px]">
-                    <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
-                      Resume/CV
-                    </h4>
-                    <Link
-                      href="#"
-                      className=" flex gap-[10px] items-center text-textgreen bg-[#eafdea] p-[10px] mt-[10px]"
-                      download="Screenshot_4.png"
-                    >
-                      <div className="icon">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M10.4742 5.16591C10.7487 4.89137 10.7487 4.4463 10.4742 4.17164C10.1996 3.8971 9.75444 3.8971 9.47991 4.17164L3.79018 9.86137C2.92787 10.7238 2.92787 12.127 3.7903 12.9893C4.22145 13.4205 4.78786 13.636 5.35415 13.636C5.92056 13.636 6.48697 13.4205 6.91812 12.9893L9.63701 10.2705L9.63713 10.2704L14.2135 5.69399C15.5214 4.386 15.5214 2.25769 14.2135 0.949697C12.9055 -0.358293 10.7772 -0.358171 9.46916 0.949697L3.18678 7.23208C3.17543 7.24331 3.1653 7.2554 3.15492 7.26724L2.12489 8.29727C1.27857 9.14359 0.8125 10.2729 0.8125 11.4769C0.8125 12.6808 1.27857 13.81 2.12489 14.6563C2.9712 15.5026 4.10036 15.9687 5.30435 15.9687C6.50833 15.9687 7.63761 15.5026 8.48393 14.6563L13.6639 9.47636C13.9384 9.20182 13.9384 8.75663 13.6639 8.48209C13.3894 8.20743 12.9442 8.20743 12.6696 8.48209L7.48954 13.662C6.90885 14.2429 6.13284 14.5626 5.30435 14.5626C4.47585 14.5626 3.69984 14.2429 3.11915 13.662C2.53834 13.0814 2.21851 12.3052 2.21851 11.4769C2.21851 10.6484 2.53834 9.87235 3.11915 9.29154L8.29911 4.11158C8.31047 4.10023 8.32072 4.08814 8.3311 4.07618L10.4633 1.94397C11.2231 1.1842 12.4594 1.1842 13.2191 1.94384C13.9788 2.70361 13.9788 3.93995 13.2191 4.69972L11.6138 6.30495C11.6137 6.30507 11.6136 6.3052 11.6135 6.30532L5.92386 11.995C5.60977 12.3091 5.09866 12.3091 4.78457 11.995C4.47036 11.681 4.47036 11.1698 4.78457 10.8556L10.4742 5.16591Z"
-                            fill="#027E4A"
-                          ></path>
-                        </svg>
-                      </div>
-                      <p className="name">Screenshot_4.png</p>
-                    </Link>
-                  </div>
-                  <div className="mt-[20px]">
-                    <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
-                    Documents & Sertificates
-                    </h4>
-                    <Link
-                      href="#"
-                      className=" flex gap-[10px] items-center text-textgreen bg-[#eafdea] p-[10px] mt-[10px]"
-                      download="Screenshot_4.png"
-                    >
-                      <div className="icon">
-                        <svg
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M10.4742 5.16591C10.7487 4.89137 10.7487 4.4463 10.4742 4.17164C10.1996 3.8971 9.75444 3.8971 9.47991 4.17164L3.79018 9.86137C2.92787 10.7238 2.92787 12.127 3.7903 12.9893C4.22145 13.4205 4.78786 13.636 5.35415 13.636C5.92056 13.636 6.48697 13.4205 6.91812 12.9893L9.63701 10.2705L9.63713 10.2704L14.2135 5.69399C15.5214 4.386 15.5214 2.25769 14.2135 0.949697C12.9055 -0.358293 10.7772 -0.358171 9.46916 0.949697L3.18678 7.23208C3.17543 7.24331 3.1653 7.2554 3.15492 7.26724L2.12489 8.29727C1.27857 9.14359 0.8125 10.2729 0.8125 11.4769C0.8125 12.6808 1.27857 13.81 2.12489 14.6563C2.9712 15.5026 4.10036 15.9687 5.30435 15.9687C6.50833 15.9687 7.63761 15.5026 8.48393 14.6563L13.6639 9.47636C13.9384 9.20182 13.9384 8.75663 13.6639 8.48209C13.3894 8.20743 12.9442 8.20743 12.6696 8.48209L7.48954 13.662C6.90885 14.2429 6.13284 14.5626 5.30435 14.5626C4.47585 14.5626 3.69984 14.2429 3.11915 13.662C2.53834 13.0814 2.21851 12.3052 2.21851 11.4769C2.21851 10.6484 2.53834 9.87235 3.11915 9.29154L8.29911 4.11158C8.31047 4.10023 8.32072 4.08814 8.3311 4.07618L10.4633 1.94397C11.2231 1.1842 12.4594 1.1842 13.2191 1.94384C13.9788 2.70361 13.9788 3.93995 13.2191 4.69972L11.6138 6.30495C11.6137 6.30507 11.6136 6.3052 11.6135 6.30532L5.92386 11.995C5.60977 12.3091 5.09866 12.3091 4.78457 11.995C4.47036 11.681 4.47036 11.1698 4.78457 10.8556L10.4742 5.16591Z"
-                            fill="#027E4A"
-                          ></path>
-                        </svg>
-                      </div>
-                      <p className="name">instagram.png</p>
-                    </Link>
+                    {/* <h3 className="text-[22px] leading-[32px] text-blackcolor font-bold">
+                      About me
+                    </h3> */}
+                    <p className="text-[16px] leading-[24px] text-blackcolor mb-[20px]">
+                      Attorney
+                    </p>
+                    <div className="mt-[25px]">
+                      <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
+                        Description Of Services Offered And Prices
+                      </h4>
+                      <p className="text-[16px] leading-[24px] text-[#858181]">
+                        test rtset
+                      </p>
+                    </div>
+                    <div className="mt-[20px]">
+                      <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
+                        Resume/CV
+                      </h4>
+                      <Link
+                        href="#"
+                        className=" flex gap-[10px] items-center text-textgreen bg-[#eafdea] p-[10px] mt-[10px] max-w-[340px]"
+                        download="Screenshot_4.png"
+                      >
+                        <div className="icon">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.4742 5.16591C10.7487 4.89137 10.7487 4.4463 10.4742 4.17164C10.1996 3.8971 9.75444 3.8971 9.47991 4.17164L3.79018 9.86137C2.92787 10.7238 2.92787 12.127 3.7903 12.9893C4.22145 13.4205 4.78786 13.636 5.35415 13.636C5.92056 13.636 6.48697 13.4205 6.91812 12.9893L9.63701 10.2705L9.63713 10.2704L14.2135 5.69399C15.5214 4.386 15.5214 2.25769 14.2135 0.949697C12.9055 -0.358293 10.7772 -0.358171 9.46916 0.949697L3.18678 7.23208C3.17543 7.24331 3.1653 7.2554 3.15492 7.26724L2.12489 8.29727C1.27857 9.14359 0.8125 10.2729 0.8125 11.4769C0.8125 12.6808 1.27857 13.81 2.12489 14.6563C2.9712 15.5026 4.10036 15.9687 5.30435 15.9687C6.50833 15.9687 7.63761 15.5026 8.48393 14.6563L13.6639 9.47636C13.9384 9.20182 13.9384 8.75663 13.6639 8.48209C13.3894 8.20743 12.9442 8.20743 12.6696 8.48209L7.48954 13.662C6.90885 14.2429 6.13284 14.5626 5.30435 14.5626C4.47585 14.5626 3.69984 14.2429 3.11915 13.662C2.53834 13.0814 2.21851 12.3052 2.21851 11.4769C2.21851 10.6484 2.53834 9.87235 3.11915 9.29154L8.29911 4.11158C8.31047 4.10023 8.32072 4.08814 8.3311 4.07618L10.4633 1.94397C11.2231 1.1842 12.4594 1.1842 13.2191 1.94384C13.9788 2.70361 13.9788 3.93995 13.2191 4.69972L11.6138 6.30495C11.6137 6.30507 11.6136 6.3052 11.6135 6.30532L5.92386 11.995C5.60977 12.3091 5.09866 12.3091 4.78457 11.995C4.47036 11.681 4.47036 11.1698 4.78457 10.8556L10.4742 5.16591Z"
+                              fill="#f16622"
+                            ></path>
+                          </svg>
+                        </div>
+                        <p className="name">Screenshot_4.png</p>
+                      </Link>
+                    </div>
+                    <div className="mt-[20px]">
+                      <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
+                        Documents & Sertificates
+                      </h4>
+                      <Link
+                        href="#"
+                        className=" flex gap-[10px] items-center text-textgreen bg-[#eafdea] p-[10px] mt-[10px] max-w-[340px]"
+                        download="Screenshot_4.png"
+                      >
+                        <div className="icon">
+                          <svg
+                            width="16"
+                            height="16"
+                            viewBox="0 0 16 16"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M10.4742 5.16591C10.7487 4.89137 10.7487 4.4463 10.4742 4.17164C10.1996 3.8971 9.75444 3.8971 9.47991 4.17164L3.79018 9.86137C2.92787 10.7238 2.92787 12.127 3.7903 12.9893C4.22145 13.4205 4.78786 13.636 5.35415 13.636C5.92056 13.636 6.48697 13.4205 6.91812 12.9893L9.63701 10.2705L9.63713 10.2704L14.2135 5.69399C15.5214 4.386 15.5214 2.25769 14.2135 0.949697C12.9055 -0.358293 10.7772 -0.358171 9.46916 0.949697L3.18678 7.23208C3.17543 7.24331 3.1653 7.2554 3.15492 7.26724L2.12489 8.29727C1.27857 9.14359 0.8125 10.2729 0.8125 11.4769C0.8125 12.6808 1.27857 13.81 2.12489 14.6563C2.9712 15.5026 4.10036 15.9687 5.30435 15.9687C6.50833 15.9687 7.63761 15.5026 8.48393 14.6563L13.6639 9.47636C13.9384 9.20182 13.9384 8.75663 13.6639 8.48209C13.3894 8.20743 12.9442 8.20743 12.6696 8.48209L7.48954 13.662C6.90885 14.2429 6.13284 14.5626 5.30435 14.5626C4.47585 14.5626 3.69984 14.2429 3.11915 13.662C2.53834 13.0814 2.21851 12.3052 2.21851 11.4769C2.21851 10.6484 2.53834 9.87235 3.11915 9.29154L8.29911 4.11158C8.31047 4.10023 8.32072 4.08814 8.3311 4.07618L10.4633 1.94397C11.2231 1.1842 12.4594 1.1842 13.2191 1.94384C13.9788 2.70361 13.9788 3.93995 13.2191 4.69972L11.6138 6.30495C11.6137 6.30507 11.6136 6.3052 11.6135 6.30532L5.92386 11.995C5.60977 12.3091 5.09866 12.3091 4.78457 11.995C4.47036 11.681 4.47036 11.1698 4.78457 10.8556L10.4742 5.16591Z"
+                              fill="#f16622"
+                            ></path>
+                          </svg>
+                        </div>
+                        <p className="name">instagram.png</p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                </div>
-                <div className=" w-1/2">
+                {/* <div className=" w-1/2">
                   <div className="text-right">
-                  <p className="text-[16px] leading-[24px] text-blackcolor mb-[20px]"><b>Fee type</b> <span className="text-[16px] leading-[24px] text-[#858181]">fixed</span></p>
+                    <p className="text-[16px] leading-[24px] text-blackcolor mb-[20px]">
+                      <b>Fee type</b>{" "}
+                      <span className="text-[16px] leading-[24px] text-[#858181]">
+                        fixed
+                      </span>
+                    </p>
                   </div>
-                </div>
+                </div> */}
               </div>
 
               <div className="flex flex-wrap list-none mt-[50px] border-t-[1px] border-slate-300 pt-[40px]">
-              <div className=" w-1/2">
-                <div className="">
-                  <h3 className="text-[16px] leading-[26px] text-blackcolor font-bold">
-                  Work History & Feedback
-                  </h3>
+                <div className=" w-1/2 wid480">
+                  <div className="">
+                    <h3 className="text-[18px] leading-[26px] text-blackcolor font-bold">
+                      Work History & Feedback
+                    </h3>
+                  </div>
                 </div>
-                </div>
-                <div className=" w-1/2">
-                <div className="sort_select_wrpr flex gap-2 items-center">
-                        <label className="little_text_label text-[16px] text-black">
-                          Sort by
-                        </label>
-                        <Dropdown className="">
-                          <DropdownTrigger>
-                            <Button variant="bordered" className="sort_drop_pro">
-                              {selectedValue}
-                            </Button>
-                          </DropdownTrigger>
-                          <DropdownMenu
-                            aria-label="Single selection example"
-                            variant="flat"
-                            disallowEmptySelection
-                            selectionMode="single"
-                            selectedKeys={selectedKeys}
-                            onSelectionChange={setSelectedKeys}
-                          >
-                            <DropdownItem key="By Date">By Date</DropdownItem>
-                            <DropdownItem key="By Price">By Price</DropdownItem>
-                          </DropdownMenu>
-                        </Dropdown>
-                      </div>
+                <div className=" w-1/2 wid480">
+                  <div className="sort_select_wrpr flex gap-2 items-center justify-end">
+                    <label className="little_text_label text-[16px] text-black">
+                      Sort by
+                    </label>
+                    <Dropdown className="">
+                      <DropdownTrigger>
+                        <Button variant="bordered" className="sort_drop_pro">
+                          {selectedValue}
+                        </Button>
+                      </DropdownTrigger>
+                      <DropdownMenu
+                        aria-label="Single selection example"
+                        variant="flat"
+                        disallowEmptySelection
+                        selectionMode="single"
+                        selectedKeys={selectedKeys}
+                        onSelectionChange={setSelectedKeys}
+                      >
+                        <DropdownItem key="By Date">By Date</DropdownItem>
+                        <DropdownItem key="By Price">By Price</DropdownItem>
+                      </DropdownMenu>
+                    </Dropdown>
+                  </div>
                 </div>
               </div>
+              <p className="text-[16px] !p-[20px] mt-[30px] text-center leading-[24px] border-b-greyborder border-t-greyborder border-b-[2px] border-t-[2px]">No record found !!</p>
             </div>
           </div>
         </div>

@@ -40,6 +40,9 @@ module.exports = {
       },
       fontFamily: {
         proxima: ['"Proxima Nova"', 'sans-serif'],
+      },
+      borderColor: {
+        greyborder: '#EBEBEB',
       }
     },
   },
