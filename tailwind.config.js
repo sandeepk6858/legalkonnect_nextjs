@@ -22,7 +22,9 @@ module.exports = {
         orangesecondary:'#f166221c',
         grey:"#474040",
         lightgrey:"#4740401a",
-        textgreen:'#369F00'
+        textgreen:'#369F00',
+        hovergray:"#898989",
+        lightblue:"#EAF1FD"
       },
       container: {
         center: true,
