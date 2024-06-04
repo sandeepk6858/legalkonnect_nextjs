@@ -22,7 +22,8 @@ module.exports = {
         orangesecondary:'#f166221c',
         grey:"#474040",
         lightgrey:"#4740401a",
-        textgreen:'#369F00'
+        textgreen:'#369F00',
+        greencolour: '#2da214',
       },
       container: {
         center: true,
@@ -43,6 +44,7 @@ module.exports = {
       },
       borderColor: {
         greyborder: '#EBEBEB',
+        lightgrey: '#f5f5f5',
       }
     },
   },

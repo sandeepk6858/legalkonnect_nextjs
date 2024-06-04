@@ -8,7 +8,7 @@ import { Link, Button } from "@nextui-org/react";
 const timesheetbox = () => {
   return (
     <>
-      <div className="mb-[20px] px-[20px] py-[20px] border-2 border-slate-300 ">
+      <div className="mb-[20px] px-[20px] py-[20px] border-1 border-slate-300 ">
         <div className="flex flex-wrap md:flex-nowrap items-center gap-[30px]">
           <div className="flex flex-col pr-[0px] sm:pr-[40px] lg:pr-[100px] w-full md:w-3/4">
             <div>
@@ -39,7 +39,7 @@ const timesheetbox = () => {
             </p>
             <p className="flex justify-start md:justify-end">
               <Button
-                href=""
+                href="/view_timesheet/slug"
                 as={Link}
                 color="primary"
                 className="text-white w-[150px] flex justify-center items-center bg-orangeprimary py-[10px] px-[10px] rounded-[30px] font-[400] text-[18px] mt-[10px]"

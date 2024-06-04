@@ -34,7 +34,7 @@ const ScriptsCards = () => {
                   {isShown && (
                     <ul className="social-icon flex relative right-[-36px] top-[-24px]">
                       <li>
-                        <a
+                        <Link
                           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440%26quote%3DClient+Dev"
                           onClick={(e) => {
                             e.stopPropagation();
@@ -48,10 +48,10 @@ const ScriptsCards = () => {
                           className="facebook"
                         >
                           <img src="https://legalkonnect.com/img/social-facebook.svg" />
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
                           href="https://twitter.com/intent/tweet?text=Client+Dev+https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440"
                           onClick={(e) => {
                             e.stopPropagation();
@@ -66,10 +66,10 @@ const ScriptsCards = () => {
                           className="twitter"
                         >
                           <img src="https://legalkonnect.com/img/social-twitter.svg" />
-                        </a>
+                        </Link>
                       </li>
                       <li>
-                        <a
+                        <Link
                           href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440&amp;media=/storage/uploads/fIQuQpNGWBpdVpkVvkhZ4c0tbJbIGKaiH0UEc8hY.jpg&amp;description=Client+Dev"
                           onClick={(e) => {
                             e.stopPropagation();
@@ -87,7 +87,7 @@ const ScriptsCards = () => {
                             className="w-[35px] max-w-[none]"
                             src="https://legalkonnect.com/img/social-pinterest.svg"
                           />
-                        </a>
+                        </Link>
                       </li>
                     </ul>
                   )}
@@ -127,7 +127,7 @@ const ScriptsCards = () => {
               </p>
 
               <div className="flex items-center justify-between flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-[30px] w-full">
-                <a className="text-orangeprimary inline-flex items-center cursor-pointer font-semibold">
+                <Link className="text-orangeprimary inline-flex items-center cursor-pointer font-semibold">
                   Learn More
                   <svg
                     className="w-4 h-4 ml-2"
@@ -141,7 +141,7 @@ const ScriptsCards = () => {
                     <path d="M5 12h14"></path>
                     <path d="M12 5l7 7-7 7"></path>
                   </svg>
-                </a>
+                </Link>
                 <span className="text-blueprimary gap-[5px] inline-flex items-center leading-none text-[16px]">
                   <svg
                     width="16"
@@ -162,7 +162,7 @@ const ScriptsCards = () => {
                   6
                 </span>
               </div>
-              <a className="inline-flex items-center">
+              <Link className="inline-flex items-center">
                 {/* <img alt="blog" src="https://dummyimage.com/104x104" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"/> */}
                 <img
                   className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
@@ -173,7 +173,7 @@ const ScriptsCards = () => {
                     Demo Account
                   </span>
                 </span>
-              </a>
+              </Link>
             </div>
      
     </>

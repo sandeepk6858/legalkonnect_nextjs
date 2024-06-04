@@ -37,7 +37,7 @@ const Login = () => {
                     Password
                   </label>
                   <p className="text-sm sm:text-base text-bluesecondary hover:underline cursor-pointer">
-                    <a href="/forgot">Forgot password</a>
+                    <Link href="/forgot">Forgot password</Link>
                   </p>
                 </div>
                 <input
@@ -55,7 +55,7 @@ const Login = () => {
                 <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
                   Log In
                 </button>
-                <a
+                <Link
                   href="https://legalkonnect.com/redirect/google"
                   className="hover:text-bluesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
@@ -88,8 +88,8 @@ const Login = () => {
                     ></path>
                   </svg>
                   Log In with Google
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://legalkonnect.com/redirect/google"
                   className=" hover:text-bluesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
@@ -126,17 +126,17 @@ const Login = () => {
                     </defs>
                   </svg>
                   Log In with Facebook
-                </a>
+                </Link>
               </div>
               <div className="pt-6 md:pt-12">
                 <span className="text-black text-base font-light">
                   New to legalkonnect.com?{" "}
-                  <a
+                  <Link
                     className="text-bluesecondary  font-semibold hover:underline"
                     href="#"
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </span>
               </div>
             </div>
