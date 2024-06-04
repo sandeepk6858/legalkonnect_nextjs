@@ -1,13 +1,22 @@
+'use client'
+import React, { useState } from "react";
 import { Avatar } from "@nextui-org/react";
 import Link from "next/link";
 import HeartSvg from "@/components/Icons/heartSvg";
 import GravelSvg from "@/components/Icons/gravelSvg";
 import ShareSvg from "@/components/Icons/shareSvg";
 import CalendarSvg from "@/components/Icons/calendarSvg";
+import SocialPopup from "@/components/socialPopup";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 
 const AttronyJobsCard = () => {
+    const [socialPopupT, setSocialPopupT] = useState(false);
+
+    const SocialPopupToggle = () => {
+        setSocialPopupT(!socialPopupT);
+    }
+
     return (
         <Card className="w-[calc(25%-25px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
             <CardHeader className=" p-0 relative shadow-md w-full">
@@ -28,10 +37,9 @@ const AttronyJobsCard = () => {
                 <p className="text-base font-semibold py-4 px-5">Job Heading</p>
                 <div className="pb-5 px-5 flex justify-between">
                     <p className="text-base">Posted 2 years ago</p>
-                    <div className="flex pl-10 gap-1 cursor-pointer">
-                        <Link href="#">
-                            <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
-                        </Link>
+                    <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
+                        <SocialPopup socialPopupT={socialPopupT} />
+                        <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
                         <HeartSvg width={`20px`} height={`20px`} fill={`fill-transparent`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
                     </div>
                 </div>

@@ -1,8 +1,7 @@
 'use client'
 import React from "react";
-import { Navbar, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 import ChatQuestionMarkSvg from '@/components/Icons/chatQuestionMark'
-import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider, Image,Navbar, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 
 const ForumPage = () => {
     return (
