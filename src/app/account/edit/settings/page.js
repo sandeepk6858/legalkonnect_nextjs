@@ -127,15 +127,18 @@ const Settings = () => {
     { value: "Florida", label: "Florida" },
   ];
   return (
-    <>
+    <> 
       <div className="w-full max-w-[1250px] m-[auto]">
         <div className="flex flex-col px-4 mt-[25px] mb-[25px]">
-          <div className="flex w-full flex-col">
+          <div className="flex w-full flex-col relative ">
+            <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold absolute z-20 top-[15px] left-[20px]">
+               Settings
+            </h3>
             <Tabs
               classNames={{
                 tabList:
-                  "gap-2 w-full lg:w-[280px] relative rounded-[8px] py-4 bg-white shadow-custom lg:flex flex-col tablist",
-                tab: "max-w-[200px] px-0 h-10 ",
+                  "gap-2 w-[calc(100svw-25px)] lg:w-[280px] relative rounded-[8px] py-4 bg-white shadow-custom flex md:flex flex-col pt-12",
+                tab: "px-0 h-10 rounded-[20px] bg-[#F9F9F9] w-[200px] mb-2 lg:mb-0 py-2",
               }}
               size="lg"
               aria-label="Options"
@@ -167,16 +170,16 @@ const Settings = () => {
                             <div className="wrap_dropzone border border-[#EBEBEB]  rounded-[3px] flex justify-center items-center w-full">
                               <div className="dropzone_inner my-[35px] relative">
                                 <label
-                                  data-target-form="avatar" for="fileInput"
+                                  data-target-form="avatar" htmlFor="fileInputs"
                                   className="input_file_btn hover:text-white hover:bg-bluesecondary bg-[#EAF1FD] text-bluesecondary cursor-pointer rounded-[22px] text-[14px] py-[10px] px-[15px]"
                                 >
                                   Attach your photo or Drag &amp; Drop
                                 </label>
                                 <input
-                                  id="fileInput"
+                                  id="fileInputs"
                                   type="file"
                                   onChange={handleFileChange}
-                                  className="bg-black"
+                                  className="bg-black absolute w-0 h-0 opacity-0"
                                   />
                               </div>
                             </div>
@@ -495,12 +498,12 @@ const Settings = () => {
                           </div>
                         </div>
                         <div className="form-group w-full">
-                          <div class="input-label text-[#474040] text-base">
+                          <div className="input-label text-[#474040] text-base">
                             About me
                           </div>
-                          <div class="control-group">
+                          <div className="control-group">
                             <textarea
-                              class="form-control min-h-[182px] w-full rounded-[3px] text-[16px] py-[14px] px-[15px] border border-[#9b9898]"
+                              className="form-control min-h-[182px] w-full rounded-[3px] text-[16px] py-[14px] px-[15px] border border-[#9b9898]"
                               name="about"
                             >
                               test Indian
@@ -808,7 +811,7 @@ const Settings = () => {
                         </Button>
                       </div>
                       <div className="card card-default flex justify-center gap-2 items-center pt-3 flex-col">
-                        <h4 class="card-heading text-[16px] font-semibold text-black">
+                        <h4 className="card-heading text-[16px] font-semibold text-black">
                           Set up Google Authenticator
                         </h4>
                         <p className="text-[16px]">
@@ -1137,7 +1140,7 @@ const Settings = () => {
                       </h3>
                       <div className="flex flex-wrap justify-between">
                         <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                          <div class="icon absolute z-20 top-[74px] sm:top-[94px] left-[24px] sm:left-[42px]">
+                          <div className="icon absolute z-20 top-[74px] sm:top-[94px] left-[24px] sm:left-[42px]">
                             <svg
                               width="22"
                               height="22"
@@ -1273,9 +1276,9 @@ const Settings = () => {
                           </div>
                         </div>
                       </div>
-                      <div class="share-wrap pt-3">
+                      <div className="share-wrap pt-3">
                         <span>Share your link</span>
-                        <div class="share-items flex items-center gap-2 pt-3">
+                        <div className="share-items flex items-center gap-2 pt-3">
                           <a
                             href="#"
                             className="w-[30px] h-[30px] rounded-[10em] bg-[#f16622] flex items-center justify-center hover:bg-[#898989]"

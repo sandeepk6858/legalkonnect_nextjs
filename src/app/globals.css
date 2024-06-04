@@ -168,7 +168,6 @@ body {
 
 
 .shadow-small{
-  width: 200px !important;
   margin: auto !important;
   display: block !important;
   color: #000 !important;
@@ -188,23 +187,6 @@ body {
   padding-bottom: 8px !important;
 }
 
-#fileInput {
-  position: absolute;
-  width: 0;
-  height: 0;
-  opacity: 0;
-}
-@media (min-width: 1024px) {
-  .tablist{
-     display: flex !important;
-  }
-}
-@media (max-width: 1024px) {
-  .tablist{
-     display: ruby !important;
-     width: 100%;
-  }
-}
 
 /* HEADER CSS */
 /* components/Header.module.css */

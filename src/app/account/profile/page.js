@@ -134,7 +134,7 @@ const Profile = () => {
             <div className="flex w-full flex-col relative">
               <div className="flex gap-4 items-center absolute max-[640px]:top-[-32px] right-0 z-20">
                 <div className="right flex gap-4 items-center">
-                  <div className="share_btn relative" onClick={toggleIcons}>
+                  <div className="share_btn relative cursor-pointer" onClick={toggleIcons}>
                     <svg
                       width="23"
                       height="23"
@@ -150,7 +150,7 @@ const Profile = () => {
                       ></path>
                     </svg>
                     {isShown && (
-                      <ul className="social-icon flex relative right-[-36px] top-[-24px]">
+                      <ul className="social-icon cursor-pointer flex relative right-[-36px] top-[-24px]">
                         <li>
                           <a
                             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440%26quote%3DClient+Dev"
