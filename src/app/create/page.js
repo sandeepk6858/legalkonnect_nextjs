@@ -14,7 +14,7 @@ const Create=()=>{
     return(
         <section className="w-full max-w-[1250px] m-[auto] px-4 pt-4 gap-5 lg:flex  ">
             <div className="w-full  mx-[auto]  max-w-[600px] lg:max-w-[300px] ">
-                <div className=" w-full max-w-[600px] lg:max-w-[300px] border border-lightgrey shadow-xl	 rounded-md ">
+                <div className=" w-full max-w-[600px] lg:max-w-[300px] border border-lightgrey shadow-xl rounded-md ">
                     <div className="border-b border-lightgrey">
                         <h3 className="text-base font-medium text-bluesecondary p-5 ">Post a Job</h3>
                     </div>
