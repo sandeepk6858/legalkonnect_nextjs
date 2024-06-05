@@ -8,7 +8,7 @@ const ParalegalSupport = () => {
 
     return (
         <div className="w-full max-w-[1250px] m-[auto] px-8 py-12 z-10">
-            <div className="grid grid-cols-5 ">
+            {/* <div className="grid grid-cols-5 ">
                 <div className="border-2 rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105 ">
                     <div className="pt-5 pl-5">
                         <div className="flex gap-4 cursor-pointer relative">
@@ -103,7 +103,7 @@ const ParalegalSupport = () => {
                     </div>
 
                 </div>
-            </div>
+            </div> */}
 
         </div>
     )
