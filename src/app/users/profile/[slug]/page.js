@@ -1,10 +1,15 @@
 "use client";
 import { imageURL } from "@/components/utils/helper/helper";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import { Tooltip, Button, Link } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
+import LocationSvg from "@/components/Icons/locationSvg";
+import SocialPopup from "@/components/socialPopup";
+import ShareSvg from "@/components/Icons/shareSvg";
+import VerifiedSVG from "@/components/Icons/VerifiedSVG";
+import MakeBidPopUp from "@/components/makeBidPopUp";
 import {
   Dropdown,
   DropdownTrigger,
@@ -12,14 +17,19 @@ import {
   DropdownItem,
 } from "@nextui-org/react";
 
-5;
-
 const profile = () => {
+  const [socialPopupT, setSocialPopupT] = useState(false);
+
+  const SocialPopupToggle = () => {
+    setSocialPopupT(!socialPopupT);
+  };
+
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["By Date"]));
   const selectedValue = React.useMemo(
     () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
     [selectedKeys]
   );
+
   return (
     <>
       <section className="text-blackcolor body-font overflow-hidden">
@@ -45,11 +55,12 @@ const profile = () => {
                 </Link>
                 <br></br>
                 <Link className="text-[14px] mt-[0px] text-blackcolor" href="">
+                  <LocationSvg width={20} height={20} />
                   <span>lko</span>
                 </Link>
-                <div className="mb10">
+                <div className="mb10 mt-3 flex items-center gap-6">
                   <Link
-                    className="mt-[10px] bg-orangeprimary p-[5px] rounded-[50px] text-[#fff]"
+                    className=" bg-orangeprimary p-[5px] rounded-[50px] text-[#fff]"
                     href="mailto:attorney@attorney.com"
                   >
                     <svg
@@ -81,24 +92,36 @@ const profile = () => {
                       </defs>
                     </svg>
                   </Link>
+
+                  <span>
+                    <SocialPopup socialPopupT={socialPopupT} />
+                    <ShareSvg
+                      width={`20px`}
+                      height={`20px`}
+                      fill={`fill-blueprimary`}
+                      hover={`hover:fill-bluesecondary`}
+                      SocialPopupToggle={SocialPopupToggle}
+                    />
+                  </span>
                 </div>
               </div>
             </div>
 
             <div className="flex gap-[20px] flex-wrap">
-              <Tooltip
+              {/* <Tooltip
                 className="bg-orangeprimary p-[10px] text-white w-[150px]"
                 content="Make a bid for this attorney to handle your case"
-              >
-                <Button
+              > */}
+                {/* <Button
                   href=""
                   as={Link}
                   color="primary"
                   className="text-white w-[150px] h-[50px] btn420 flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[0px] rounded-[30px] font-[400] text-[18px]"
                 >
                   Make a Bid
-                </Button>
-              </Tooltip>
+                </Button> */}
+                <MakeBidPopUp />
+              {/* </Tooltip> */}
               <Button
                 href="/messages/slug"
                 as={Link}
@@ -143,7 +166,11 @@ const profile = () => {
 
           <div className="container flex flex-wrap m0px m-[0px]">
             <div className="md:w-1/3 pr-[0px] md:pr-[20px] md:py-8 md:border-r md:border-b-0 mb-10 md:mb-0 pb-10 border-b border-gray-200 wid100 mb20 ">
-              <Button href="/login" className="text-white w-[200px] btn420 h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mb-[30px] rounded-[30px] font-[400] text-[18px]">
+              <div className="flex items-center justify-between gap-3 mb-[30px] ">
+              <Button
+                href="/login"
+                className="text-white w-[200px] btn420 h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[18px]"
+              >
                 {" "}
                 <svg
                   width="12"
@@ -169,6 +196,17 @@ const profile = () => {
                 </svg>
                 Back to Search
               </Button>
+              <span>
+                <SocialPopup socialPopupT={socialPopupT} />
+                <ShareSvg
+                  width={`20px`}
+                  height={`20px`}
+                  fill={`fill-blueprimary`}
+                  hover={`hover:fill-bluesecondary`}
+                  SocialPopupToggle={SocialPopupToggle}
+                />
+              </span>
+              </div>
               <h3 className="text-[18px] leading-[24px] font-semibold">
                 View Profile
               </h3>
@@ -187,8 +225,8 @@ const profile = () => {
                 <h4 className="text-[16px] leading-[24px] text-blackcolor mb-[0px] font-semibold">
                   Verified
                 </h4>
-                <p className="text-[16px] leading-[24px] text-blackcolor">
-                  Attorney
+                <p className="text-[16px] leading-[24px] text-blackcolor flex gap-2">
+                  <span>Attorney</span> <span><VerifiedSVG  width={25} height={25} /></span>
                 </p>
               </div>
               <div className="mt-[25px]">
@@ -266,17 +304,17 @@ const profile = () => {
               <div className="flex flex-wrap list-none -mb-1">
                 <div className=" w-[100%]">
                   <div className="">
-                  <div className="flex justify-between items-center">
-                  <h3 className="text-[22px] leading-[32px] text-blackcolor font-bold">
-                      About me
-                    </h3>
-                    <p className="text-[16px] leading-[24px] text-blackcolor">
-                      <b>Fee type</b>{" "}
-                      <span className="text-[16px] leading-[24px] text-[#858181]">
-                        fixed
-                      </span>
-                    </p>
-                  </div>
+                    <div className="flex justify-between items-center">
+                      <h3 className="text-[22px] leading-[32px] text-blackcolor font-bold">
+                        About me
+                      </h3>
+                      <p className="text-[16px] leading-[24px] text-blackcolor">
+                        <b>Fee type</b>{" "}
+                        <span className="text-[16px] leading-[24px] text-[#858181]">
+                          fixed
+                        </span>
+                      </p>
+                    </div>
                     {/* <h3 className="text-[22px] leading-[32px] text-blackcolor font-bold">
                       About me
                     </h3> */}
@@ -391,7 +429,9 @@ const profile = () => {
                   </div>
                 </div>
               </div>
-              <p className="text-[16px] !p-[20px] mt-[30px] text-center leading-[24px] border-b-greyborder border-t-greyborder border-b-[2px] border-t-[2px]">No record found !!</p>
+              <p className="text-[16px] !p-[20px] mt-[30px] text-center leading-[24px] border-b-greyborder border-t-greyborder border-b-[2px] border-t-[2px]">
+                No record found !!
+              </p>
             </div>
           </div>
         </div>
