@@ -16,7 +16,7 @@ const Weeklysummaryfpopup = () => {
     <div>
       <Button
         href=""
-        className="text-white btn420 flex justify-center items-center bg-orangeprimary py-[15px] px-[15px] rounded-[30px] font-[400] text-[18px]"
+        className="text-white  flex justify-center items-center bg-orangeprimary py-[15px] px-[15px] rounded-[30px] font-[400] text-[0px] md:text-[18px]"
         color="primary"
         variant="Report Site"
         onClick={handleModal}

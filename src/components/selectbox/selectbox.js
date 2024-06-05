@@ -23,7 +23,7 @@ const Selectbox = () => {
     <>
       <div class="flex flex-wrap" ref={dropdownRef}>
         <div class="w-full">
-          <div class="flex h-[50px] items-center justify-between border-gray-400 border px-4 py-0 rounded-lg"
+          <div class="flex h-10 items-center justify-between border-gray-400 border px-4 py-0 rounded-lg"
           onClick={() => setIsOpen(!isOpen)}
           >
             <h2 class="text-gray-900 title-font font-medium flex-shrink-0">
