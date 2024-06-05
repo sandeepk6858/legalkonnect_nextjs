@@ -1,17 +1,23 @@
 'use client';
 import React from "react";
 import AttronyJobsCard from "@/components/card/attronyjobs";
+import Filter from "@/components/Filter/Filter";
+import Footer from "@/components/Footer/Footer";
+import JobSlider from "@/components/JobSlider/JobSlider";
 
 const JobsPage = () => {
     return (
-        <div className="w-full m-[auto] px-4 py-12 z-10 flex flex-wrap flex-row flex-col-2 gap-5 justify-center">
+              <>
+              <JobSlider />
+                <Filter />
            <AttronyJobsCard />
            <AttronyJobsCard />
            <AttronyJobsCard />
            <AttronyJobsCard />
            <AttronyJobsCard />
            <AttronyJobsCard />
-        </div>
-    )
-}
+           <Footer /> 
+           </>
+    );
+};
 export default JobsPage;
