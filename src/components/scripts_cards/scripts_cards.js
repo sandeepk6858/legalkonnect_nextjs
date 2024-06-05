@@ -1,6 +1,7 @@
 "use client";
 import { imageURL } from "@/components/utils/helper/helper";
 import React, { useState } from "react";
+import { Link, Button } from "@nextui-org/react";
 
 const ScriptsCards = () => {
   const [isShown, setIsShown] = useState(false);

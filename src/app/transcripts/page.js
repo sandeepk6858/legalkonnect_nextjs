@@ -13,12 +13,12 @@ const Transcripts = () => {
     <>
 
      <section className="text-blackcolor body-font overflow-hidden">
-        <div className="container px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
+        <div className="container px-[15px] lg:px-[40px] pt-[60px] md:pt-[80px] mx-auto ">
         <JobSlider />
         </div>
       </section>
      <section className="text-blackcolor body-font overflow-hidden">
-        <div className="container px-[15px] lg:px-[40px] pb-[60px] md:pb-[80px] mx-auto ">
+        <div className="container px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
           <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
           <ScriptsCards />
             <ScriptsCards />
