@@ -29,7 +29,7 @@ export const animals = [
 const Filter = () => {
   return (
     <>
-      <div className="bg-[#F9F9F9] mt-[20px] border-1 border-[#EBEBEB]">
+      <div className="bg-[#F9F9F9] mt-[20px] border-1 border-[#EBEBEB] mt-[60px]">
       <div class="container">
       <div className="filter_main_wrapper bg-[#F9F9F9] py-[15px] flex items-center justify-between flex-wrap">
         <div className="inner_filter_left flex items-center justify-between gap-[10px]">
