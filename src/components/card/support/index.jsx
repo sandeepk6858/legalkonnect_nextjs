@@ -7,6 +7,7 @@ import SocialPopup from "@/components/socialPopup";
 import CheckSvg from "@/components/Icons/checkSvg";
 import StarSvg from "@/components/Icons/starSvg";
 import BacthSvg from "@/components/batchSvg";
+import Image from "next/image";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider } from "@nextui-org/react";
 
@@ -20,22 +21,30 @@ const SupportCard = () => {
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-25px)] lg:w-[calc(33.33%-25px)] xl:w-[calc(25%-25px)]  border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105 shadow-lg box-border">
+              <Image className="w-full rounded-tr-[20px] rounded-tl-[20px]"
+                width={100}
+                height={100}
+                alt="cardimage"
+                src="https://legalkonnect.com/storage/specializations/Estate%20Planning%20Lawyer.png"
+                />
             <CardHeader className="px-5 relative w-full">
                 <div className="flex justify-between cursor-pointer">
                     <div className="flex relative">
                         <span className="border-2 border-white bg-lightgray rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
                         <Avatar className="w-[68px] h-[68px]" src="https://legalkonnect.com/img/no_avatar.jpg" />
                     </div>
-                    <div className="flex flex-col px-2 text-blackcolorcolor text-lg">
+                    <div className="flex flex-col px-2 text-blackcolorcolor text-lg fill-lightgrey">
                         <p className="text-base">para legal</p>
+                        <div className="flex items-center mt-[5px] gap-[10px]"> 
                         <p className="text-sm">Paralegal/Support</p>
+                            <BacthSvg className="ml-[10px]" width={`20px`} height={`20px`} color="fill-parrotgreen" />    
+                            </div>                   
                         <div className="flex py-1">
-                            <StarSvg width={`18px`} height={`18px`} color="fill-lightgray hover:fill-current text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-lightgray hover:fill-current text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-lightgray hover:fill-current text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-lightgray hover:fill-current text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-lightgray hover:fill-current text-yellow" />
-                            <BacthSvg width={`20px`} height={`20px`} fill={`green`} />
+                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-current text-yellow" />
+                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-current text-yellow" />
+                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-yellow text-yellow" />
+                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-yellow text-yellow" />
+                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-yellow text-yellow" />
                         </div>
                         
                     </div>

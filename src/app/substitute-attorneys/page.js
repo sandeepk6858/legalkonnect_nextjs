@@ -1,20 +1,27 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
-import Cards from "@/components/Cards/Cards";
+import SupportCard from "@/components/card/support";
 import Footer from "@/components/Footer/Footer";
 import JobSlider from "@/components/JobSlider/JobSlider";
-import SocialPopup from "@/components/socialPopup";
 
-const Findattorney = () => {
+const Substituteattorneys = () => {
   return (
     <>
     <JobSlider />
     <Filter />
-    <Cards />
-    <SocialPopup />
+    <section className="text-blackcolor body-font overflow-hidden">
+        <div className="px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
+          <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
+          <SupportCard />
+            <SupportCard />
+            <SupportCard />
+            <SupportCard />
+          </div>
+        </div>
+      </section>
     <Footer />  
     </>
 );
 };
 
-export default Findattorney;
+export default Substituteattorneys;

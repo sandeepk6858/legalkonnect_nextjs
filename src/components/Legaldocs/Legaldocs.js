@@ -2,14 +2,15 @@
 import { imageURL } from "@/components/utils/helper/helper";
 import React, { useState } from "react";
 import { Link, Button } from "@nextui-org/react";
+import SocialPopup from "@/components/socialPopup";
+import ShareSvg from "@/components/Icons/shareSvg";
 
 const Legaldocs = () => {
-  const [isShown, setIsShown] = useState(false);
+  const [socialPopupT, setSocialPopupT] = useState(false);
 
-  const toggleIcons = () => {
-    setIsShown(!isShown);
-  };
-  console.log("isShown", isShown);
+  const SocialPopupToggle = () => {
+      setSocialPopupT(!socialPopupT);
+  }
   return (
     <>
     <div className="w_wid p-[20px] lf:p-[30px] w-1/1 md:w-1/3 lg:w-1/4 flex flex-col items-start bg-[#fff] shadow-[-1px_2px_8px_0px_rgba(215,215,215,1)] rounded-[20px]">
@@ -17,82 +18,10 @@ const Legaldocs = () => {
                 <h2 className="text-[20px] leading-[24px] font-font-medium cursor-pointer">
                   Heading of transcript
                 </h2>
-                <div className="share_btn relative" onClick={toggleIcons}>
-                  <svg
-                    width="23"
-                    height="23"
-                    viewBox="0 0 23 23"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M14.4416 15.9352L14.478 15.9559L14.5048 15.9237C15.2924 14.9756 16.4791 14.3709 17.8047 14.3709C20.1695 14.3709 22.0934 16.2955 22.0933 18.6609C22.0933 21.0257 20.1694 22.9499 17.8046 22.9499C15.4396 22.9499 13.5154 21.0258 13.5154 18.6609C13.5154 18.1585 13.6029 17.6763 13.7623 17.228L13.7764 17.1885L13.7399 17.1678L8.55779 14.2254L8.52139 14.2048L8.49464 14.237C7.70715 15.1848 6.52058 15.7892 5.1953 15.7892C2.82994 15.7892 0.905469 13.8651 0.905469 11.5002C0.905469 9.13516 2.82994 7.21108 5.1953 7.21108C6.52058 7.21108 7.70726 7.81553 8.49474 8.76344L8.52149 8.79564L8.55789 8.77497L13.7399 5.83194L13.7764 5.81123L13.7623 5.77172C13.603 5.32337 13.5155 4.84133 13.5155 4.33902C13.5155 1.97408 15.4397 0.05 17.8047 0.05C20.1695 0.05 22.0934 1.97407 22.0932 4.33912C22.0932 6.7049 20.1693 8.62956 17.8045 8.62956C16.4788 8.62956 15.2919 8.02471 14.5044 7.0763L14.4776 7.04408L14.4412 7.06476L9.2595 10.0077L9.22304 10.0284L9.23708 10.0679C9.39637 10.5162 9.48392 10.9981 9.48392 11.5003C9.48392 12.0026 9.39637 12.4845 9.23708 12.9328L9.22304 12.9723L9.25951 12.993L14.4416 15.9352ZM20.6751 4.33902C20.6751 2.75609 19.3875 1.46838 17.8047 1.46838C16.2217 1.46838 14.9339 2.75608 14.9339 4.33902C14.9339 5.92275 16.2217 7.21108 17.8047 7.21108C19.3875 7.21108 20.6751 5.92274 20.6751 4.33902ZM2.32395 11.5003C2.32395 13.0832 3.61207 14.3709 5.1954 14.3709C6.77804 14.3709 8.06564 13.0831 8.06564 11.5003C8.06564 9.91727 6.77815 8.62956 5.1954 8.62956C3.61207 8.62956 2.32395 9.91725 2.32395 11.5003ZM14.9339 18.661C14.9339 20.2438 16.2217 21.5316 17.8047 21.5316C19.3875 21.5316 20.6751 20.2438 20.6751 18.661C20.6751 17.0776 19.3875 15.7893 17.8047 15.7893C16.2217 15.7893 14.9339 17.0775 14.9339 18.661Z"
-                      fill="#878787"
-                      stroke="white"
-                      stroke-width="0.1"
-                    ></path>
-                  </svg>
-                  {isShown && (
-                    <ul className="social-icon flex relative right-[-36px] top-[-24px]">
-                      <li>
-                        <Link
-                          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440%26quote%3DClient+Dev"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(
-                              this.href,
-                              "facebook",
-                              "width=500,height=700"
-                            );
-                            return false;
-                          }}
-                          className="facebook"
-                        >
-                          <img src="https://legalkonnect.com/img/social-facebook.svg" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="https://twitter.com/intent/tweet?text=Client+Dev+https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(
-                              this.href,
-                              "twitter",
-                              "width=500,height=700"
-                            );
-                            return false;
-                          }}
-                          target="_blank"
-                          className="twitter"
-                        >
-                          <img src="https://legalkonnect.com/img/social-twitter.svg" />
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440&amp;media=/storage/uploads/fIQuQpNGWBpdVpkVvkhZ4c0tbJbIGKaiH0UEc8hY.jpg&amp;description=Client+Dev"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open(
-                              this.href,
-                              "pinterest",
-                              "width=500,height=700"
-                            );
-                            return false;
-                          }}
-                          target="_blank"
-                          className="pinterest"
-                        >
-                          <img
-                            className="w-[35px] max-w-[none]"
-                            src="https://legalkonnect.com/img/social-pinterest.svg"
-                          />
-                        </Link>
-                      </li>
-                    </ul>
-                  )}
-                </div>
+                <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
+                        <SocialPopup socialPopupT={socialPopupT} />
+                        <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
+                    </div>
               </div>
               <span className="inline-block text-[16px] pt-[10px] font-medium mb-[40px]">
                 Posted 24-01-2022 17:40:04
