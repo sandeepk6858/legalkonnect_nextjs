@@ -18,7 +18,7 @@ const AttronyJobsCard = () => {
     }
 
     return (
-        <Card className="w-[calc(25%-25px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
+        <Card className="w-[calc(100%-25px)] md:w-[calc(50%-25px)] lg:w-[calc(33.33%-25px)] xl:w-[calc(25%-25px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
             <CardHeader className=" p-0 relative shadow-md w-full">
                 <Image
                     alt="nextui logo"
