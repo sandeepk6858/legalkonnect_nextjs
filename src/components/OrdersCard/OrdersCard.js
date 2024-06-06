@@ -1,10 +1,9 @@
 
-import Link from "next/link";
 import { useState } from "react";
 import HeartSvg from "../Icons/heartSvg"
 import ShareSvg from "../Icons/shareSvg";
 import CalendarSvg from "../Icons/calendarSvg";
-
+import MoreOption from "../Icons/moreOptionSvg";
 import SocialPopup from "../socialPopup";
 
 const OrdersCard=() => {
@@ -12,7 +11,6 @@ const OrdersCard=() => {
 
     const SocialPopupToggle=()=>{
         setSocialPopupT(!socialPopupT)
-
     }
     return(
         <>
@@ -39,11 +37,10 @@ const OrdersCard=() => {
                         <p>Milestone: </p>
                         <p className="font-semibold">{"1 to 3 months"}</p>
                     </div>
-                    <Link href={"/"} >
-                        <svg width="20" height="20" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" className="bg-blue-300 rounded-xl cursor-pointer  hover:bg-bluesecondary hover:fill-white ">
-                        <path d="M7.5 6.24999C6.8125 6.24999 6.25 6.81249 6.25 7.49999C6.25 8.18749 6.8125 8.74999 7.5 8.74999C8.1875 8.74999 8.75 8.18749 8.75 7.49999C8.75 6.81249 8.1875 6.24999 7.5 6.24999ZM11.25 6.24999C10.5625 6.24999 10 6.81249 10 7.49999C10 8.18749 10.5625 8.74999 11.25 8.74999C11.9375 8.74999 12.5 8.18749 12.5 7.49999C12.5 6.81249 11.9375 6.24999 11.25 6.24999ZM3.75 6.24999C3.0625 6.24999 2.5 6.81249 2.5 7.49999C2.5 8.18749 3.0625 8.74999 3.75 8.74999C4.4375 8.74999 5 8.18749 5 7.49999C5 6.81249 4.4375 6.24999 3.75 6.24999Z" fill="#063d8f"></path>
-                        </svg>
-                    </Link>
+                    <button >
+                      <MoreOption width={'20'} height={'20'}  className={" bg-blue-300 rounded-xl cursor-pointer fill-current text-blueprimary  hover:bg-bluesecondary hover:fill-[white]"}/>
+                    </button>
+                  
                 </div>
             </div> 
         </>
