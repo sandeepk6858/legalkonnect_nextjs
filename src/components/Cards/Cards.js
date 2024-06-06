@@ -1,6 +1,12 @@
-import React from "react";
+'use client'
+import React, { useState } from "react";
 import {Button } from "@nextui-org/react";
 import Image from "next/image";
+import SocialPopup from "@/components/socialPopup";
+import HeartSvg from "@/components/Icons/heartSvg";
+import GravelSvg from "@/components/Icons/gravelSvg";
+import ShareSvg from "@/components/Icons/shareSvg";
+import CalendarSvg from "@/components/Icons/calendarSvg";
 
 const jobicon = <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M8 0C3.58853 0 0 3.58853 0 8C0 12.4115 3.58853 16 8 16C12.4115 16 16 12.4108 16 8C16 3.58916 12.4115 0 8 0ZM8 14.7607C4.27266 14.7607 1.23934 11.728 1.23934 8C1.23934 4.27203 4.27266 1.23934 8 1.23934C11.728 1.23934 14.7607 4.27203 14.7607 8C14.7607 11.728 11.7273 14.7607 8 14.7607Z" fill="#1359C3"></path>
@@ -16,26 +22,13 @@ const hearticon = <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xm
 </svg>
 
 const Cards = () => {
+  const [socialPopupT, setSocialPopupT] = useState(false);
+
+    const SocialPopupToggle = () => {
+        setSocialPopupT(!socialPopupT);
+    }
   return (
     <>
-      <div className="bg-[#F9F9F9] mt-[20px] p-[20px]">
-      <div class="container">
-      <div className="cards_filters_topbar flex items-center gap-[20px] justify-end flex-wrap">
-        <span>Filters applied</span>
-        <Button className="bg-orangeprimary hover:bg-grey rounded-[22px] text-[#fff] text-[18px]">
-        Apply Filters
-      </Button> 
-      <Button className="bg-grey hover:bg-orangeprimary rounded-[22px] text-[#fff] text-[18px]">
-      Reset Filters
-      </Button> 
-      <Button className="bg-orangeprimary hover:bg-grey rounded-[22px] text-[#fff] text-[18px]">
-      Close Filters
-      </Button> 
-       
-      </div>
-      </div>
-      </div>
-
       <div className="cards_main_section p-[20px] flex gap-[10px] items-center flex-wrap justify-between">
       <div className="first-card lg:w-[calc(25%_-_10px)] sm:m-auto sm:mt-[15px] sm:justify-center">
       <Image className="w-full h-full rounded-tr-[20px] rounded-tl-[20px]"
@@ -136,10 +129,11 @@ const Cards = () => {
         <span><b>0</b></span>
         <span>jobs done</span>
       </div>
-      <div className="flex items-center gap-[5px]">
-        <span>{shareicon}</span>
-        <span>{hearticon}</span>
-      </div>
+      <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
+                        <SocialPopup socialPopupT={socialPopupT} />
+                        <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
+                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-transparent`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                    </div>
     </div>
     </div>
       </div>
@@ -242,10 +236,11 @@ const Cards = () => {
         <span><b>0</b></span>
         <span>jobs done</span>
       </div>
-      <div className="flex items-center gap-[5px]">
-        <span>{shareicon}</span>
-        <span>{hearticon}</span>
-      </div>
+      <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
+                        <SocialPopup socialPopupT={socialPopupT} />
+                        <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
+                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-transparent`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                    </div>
     </div>
     </div>
       </div>
@@ -348,10 +343,11 @@ const Cards = () => {
         <span><b>0</b></span>
         <span>jobs done</span>
       </div>
-      <div className="flex items-center gap-[5px]">
-        <span>{shareicon}</span>
-        <span>{hearticon}</span>
-      </div>
+      <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
+                        <SocialPopup socialPopupT={socialPopupT} />
+                        <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
+                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-transparent`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                    </div>
     </div>
     </div>
       </div>
@@ -454,10 +450,11 @@ const Cards = () => {
         <span><b>0</b></span>
         <span>jobs done</span>
       </div>
-      <div className="flex items-center gap-[5px]">
-        <span>{shareicon}</span>
-        <span>{hearticon}</span>
-      </div>
+      <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
+                        <SocialPopup socialPopupT={socialPopupT} />
+                        <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
+                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-transparent`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                    </div>
     </div>
     </div>
       </div>
