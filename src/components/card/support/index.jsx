@@ -83,7 +83,6 @@ const SupportCard = () => {
                         <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
                         <span className="text-sm font-bold pl-1">0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
                     </div>
-
                     <div className="flex gap-1 items-center">
                         <SocialPopup socialPopupT={socialPopupT} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
