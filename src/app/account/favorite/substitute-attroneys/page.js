@@ -1,20 +1,20 @@
-
 "use client"
 import React from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
-import FavoriteJobsCard from "@/components/card/favoritejobs";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import FavoriteJobsCard from "@/components/card/favoritejobs";
 
 
-const favjobs = () => {
+const subjobs = () => {
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
 
     const selectedValue = React.useMemo(
         () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
         [selectedKeys]
     );
+
     return (
         <>
 
@@ -30,14 +30,14 @@ const favjobs = () => {
                                 <h5 className="ml-2.5 text-base font-semibold text-orangeprimary whitespace-nowrap">Favorites</h5>
                             </div>
                             <ul className="flex items-center gap-x-7">
-                                <li className=" py-5 border-b-2 border-orangeprimary cursor-pointer ">
-                                    <Link href="/account/favorites/jobs" className="text-sm font-normal text-orangeprimary whitespace-nowrap"> Jobs</Link>
+                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer  hover:opacity-[0.6] ">
+                                    <Link href="/account/favorites/jobs" className="text-sm font-normal  text-blackcolor whitespace-nowrap"> Jobs</Link>
                                 </li>
                                 <li className=" py-5 border-b-0  cursor-pointer hover:opacity-[0.6]">
                                     <Link href="/account/favorites/qualified-attorney" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Qualified Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
-                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal text-blackcolor whitespace-nowrap  "> Substitute Attorneys</Link>
+                                <li className=" py-5 border-b-2 border-orangeprimary  cursor-pointer">
+                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal text-orangeprimary whitespace-nowrap  "> Substitute Attorneys</Link>
                                 </li>
                                 <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
                                     <Link href="/account/favorites/transcripts" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Transcripts</Link>
@@ -77,22 +77,19 @@ const favjobs = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full">
-                <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
-                    <FavoriteJobsCard/>
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
+
+
+            <div className="w-full my-12 mx-20 flex flex-wrap justify-evenly gap-5">
+                <div className="border-0 border-lightgrey rounded-3xl shadow-md">
+                <FavoriteJobsCard showDiv={true} showDivCount={true}/>
+                    
+
                 </div>
 
-            </div>
 
+            </div>
         </>
     );
 };
 
-export default favjobs;
+export default subjobs;
