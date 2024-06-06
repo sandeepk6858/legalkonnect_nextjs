@@ -196,7 +196,7 @@ const profile = () => {
                 </svg>
                 Back to Search
               </Button>
-              <span>
+              {/* <span>
                 <SocialPopup socialPopupT={socialPopupT} />
                 <ShareSvg
                   width={`20px`}
@@ -205,7 +205,7 @@ const profile = () => {
                   hover={`hover:fill-bluesecondary`}
                   SocialPopupToggle={SocialPopupToggle}
                 />
-              </span>
+              </span> */}
               </div>
               <h3 className="text-[18px] leading-[24px] font-semibold">
                 View Profile

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Button } from "@nextui-org/react";
 import Selectbox from "../selectbox/selectbox";
 import Link from "next/link";
-import FilterSvg from "../Icons/filterSvg";
+import FilterSettingSvg from "../Icons/filttersettingSvg";
 
 const Weeklysummaryfpopup = () => {
   const [openModal, setModal] = useState(false);
@@ -44,7 +44,7 @@ const Weeklysummaryfpopup = () => {
             stroke-linejoin="round"
           ></path>
         </svg> */}
-        <FilterSvg width={`20px`} height={`20px`} fill={`white`} />
+        <FilterSettingSvg width={`20px`} height={`20px`} fill={`white`} />
         Filters
       </Button>
       {openModal && (

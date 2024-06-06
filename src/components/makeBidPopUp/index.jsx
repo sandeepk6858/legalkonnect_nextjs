@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Tooltip, Link } from "@nextui-org/react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Textarea, Input } from "@nextui-org/react";
+import {DatePicker} from "@nextui-org/react";
 
 
 const MakeBidPopUp = () => {
@@ -54,8 +55,8 @@ const MakeBidPopUp = () => {
                                 >
                                     &times;
                                 </button>
-                                <form className='p-[20px]'>
-                                    <h2 className='text-[20px] font-semibold mb-[30px] border-b-2 pb-[20px]'>Case information</h2>
+                                <form className='p-[0px] md:p-[20px]'>
+                                    <h2 className='text-[20px] font-semibold mb-[30px] text-blueprimary pb-[20px]'>Case information</h2>
 
                                     <div className="mb-5">
                                         <label
@@ -73,7 +74,7 @@ const MakeBidPopUp = () => {
                                             required
                                         />
                                     </div>
-                                    <div className='flex gap-5'>
+                                    <div className='flex gap-5 flex-wrap md:flex-nowrap'>
                                         <div className="mb-5 w-full">
                                             <label
                                                 htmlFor="name"
@@ -85,7 +86,7 @@ const MakeBidPopUp = () => {
                                                 <DropdownTrigger>
                                                     <Button
                                                         variant="bordered"
-                                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-left"
+                                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-left countrydrop_form"
                                                         required
 
                                                     >
@@ -120,7 +121,7 @@ const MakeBidPopUp = () => {
                                                 <DropdownTrigger>
                                                     <Button
                                                         variant="bordered"
-                                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-left"
+                                                        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 text-left countrydrop_form"
                                                         required
 
                                                     >
@@ -145,7 +146,7 @@ const MakeBidPopUp = () => {
                                             </Dropdown>
                                         </div>
                                     </div>
-                                    <div className='flex gap-5'>
+                                    <div className='flex gap-5 flex-wrap md:flex-nowrap'>
                                         <div className="mt-5 w-full">
                                             <label
                                                 htmlFor="name"
@@ -204,7 +205,7 @@ const MakeBidPopUp = () => {
                             </Button> */}
 
                                     <div className='bg-white'>
-                                        <h2 className='text-[20px] font-semibold mb-[30px] border-b-2 pb-[20px]'>Payment Method :</h2>
+                                        <h2 className='text-[20px] font-semibold mb-[30px] text-blueprimary pb-[20px] mt-[60px]'>Payment Method :</h2>
                                         <div className='flex gap-2'>
                                             <input name="plan" type="radio" />
                                             <p> <b>By milestone</b><br />
@@ -233,7 +234,7 @@ const MakeBidPopUp = () => {
                                                 required
                                             />
                                         </div>
-                                        <div className='flex gap-5'>
+                                        <div className='flex gap-5 flex-wrap md:flex-nowrap'>
                                             <div className="mt-5 w-full">
                                                 <label
                                                     htmlFor="name"
@@ -259,7 +260,8 @@ const MakeBidPopUp = () => {
                                                 <div className="w-full flex flex-col gap-4 pro_input">
                                                     {variants.map((variant) => (
                                                         <div key={variant} className="flex w-full py-0 flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-                                                            <Input type="email" variant={variant} label="" className="py-0" />
+                                                            {/* <Input type="email" variant={variant} label="e" className="py-0" /> */}
+                                                            <DatePicker label="Birth date" className="w-full makedatepicker" />
                                                         </div>
                                                     ))}
                                                 </div>
