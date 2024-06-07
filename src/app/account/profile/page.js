@@ -31,25 +31,25 @@ const Profile = () => {
 
   const backgroundImage = imageURL("star_rating_grey.svg");
 
-  // const settings = {
-  //   customPaging: function (i) {
-  //     const thumbnails = [
-  //       "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
-  //       "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
-  //     ];
-  //     return (
-  //       <Link>
-  //         <img src={thumbnails[i]} alt={`thumbnail ${i + 1}`} />
-  //       </Link>
-  //     );
-  //   },
-  //   dots: true,
-  //   dotsclassName: "slick-dots slick-thumb",
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
+  const settings = {
+    customPaging: function (i) {
+      const thumbnails = [
+        "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
+        "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
+      ];
+      return (
+        <Link>
+          <img src={thumbnails[i]} alt={`thumbnail ${i + 1}`} />
+        </Link>
+      );
+    },
+    dots: true,
+    dotsclassName: "slick-dots slick-thumb",
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
   const images = [
     "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
