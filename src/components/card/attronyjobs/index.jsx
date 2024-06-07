@@ -87,6 +87,7 @@ const AttronyJobsCard = () => {
                 </div>
             </CardFooter>
         </Card>
+       
     )
 }
 export default AttronyJobsCard;

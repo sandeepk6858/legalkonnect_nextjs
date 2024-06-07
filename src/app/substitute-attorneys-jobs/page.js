@@ -1,15 +1,15 @@
+import React from "react";
 import Filter from "@/components/Filter/Filter";
 import AttronyJobsCard from "@/components/card/attronyjobs";
 import Footer from "@/components/Footer/Footer";
 import JobSlider from "@/components/JobSlider/JobSlider";
-import SocialPopup from "@/components/socialPopup";
-const JobsPage = () => {
-    return (
-        <>
-        <JobSlider />
-        <Filter/>
-        <SocialPopup/>
-        <section className="text-blackcolor body-font overflow-hidden">
+
+const Subsituteattorneyjobs = () => {
+  return (
+    <>
+    <JobSlider />
+    <Filter />
+    <section className="text-blackcolor body-font overflow-hidden">
         <div className="px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
           <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
           <AttronyJobsCard />
@@ -19,8 +19,9 @@ const JobsPage = () => {
           </div>
         </div>
       </section>
-           <Footer /> 
-        </>
-    )
-}
-export default JobsPage;
+    <Footer />  
+    </>
+);
+};
+
+export default Subsituteattorneyjobs;
