@@ -236,9 +236,21 @@ body {
   padding-right: 5px;
 }
 }
-@media (max-width: 420px) {
+@media (max-width: 420px) { 
   .button_tabs_right button {
     font-size: 13px;
     padding: 15px 10px;
   }
 }
+
+.svgArrowLeft:hover svg{
+  /* storke:blue */
+  stroke: bluesecondary;
+  
+}
+
+.svgArrowRight:hover svg{
+   /* fill:blue;  */
+  fill: bluesecondary;
+}
+

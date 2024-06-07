@@ -4,14 +4,19 @@ import React, { useState } from "react";
 import {Select, SelectItem } from "@nextui-org/select";
 import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
 import {Button} from "@nextui-org/react";
+import ArrowLeftSvg from "@/components/Icons/arrowLeftSvg";
+import ArrowRightSvg from "@/components/Icons/arrowRightSvg";
+import {Checkbox} from "@nextui-org/react";
+import WorldWideSvg from "@/components/Icons/worldwideSvg";
 
 
 const Create=()=>{
   const countryData = [{value:"country", label:"United State"}]
   const stateData = [{value:"state", label:"Choose state"}]
   
-
+  const [firstPage,setFirstPage]= useState(true)
   const [secondPage, setSecondPage]= useState(false)
+  const [thirdPage, setThirdPage]= useState(false)
 
     return(
         <section className="w-full max-w-[1250px] m-[auto] px-4 pt-4 gap-5 lg:flex  ">
@@ -40,7 +45,7 @@ const Create=()=>{
             </div>
 
 
-            {!secondPage && 
+            {firstPage && 
                 <div className="w-full max-w-[600px] m-[auto] mt-4 lg:mt-0 lg:max-w-[900px] border border-lightgrey shadow-xl rounded-md box-border">
                     <div className="px-7 pt-7 pb-10  border-b border-lightgrey">
                         <div className="text-base font-semibold	">
@@ -145,7 +150,7 @@ const Create=()=>{
                         <input className=" w-full outline-none border border-greysecondary mb-5 p-3"/>
                     </div> 
                     <div className="w-full px-8 py-5 flex justify-end">
-                        <Button onClick={()=>{setSecondPage(true)}} 
+                        <Button onClick={()=>{setSecondPage(true), setFirstPage(false)}} 
                             className="text-white bg-orangeprimary font-normal text-sm rounded-full px-3 py-3 cursor hover:bg-blueprimary flex items-center gap-1" 
                         >Next Step
                             <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -257,18 +262,144 @@ const Create=()=>{
                                 <input className=" w-full outline-none border border-greysecondary mb-5 p-3 text-base" placeholder="$ offer"/>
                             </div>
 
-                            <div className="w-full px-8 py-5 flex justify-end">
-                               <Button onClick={()=>{setSecondPage(true)}} 
-                                   className="text-white bg-orangeprimary font-normal text-sm rounded-full px-3 py-3 cursor hover:bg-blueprimary flex items-center gap-1" 
-                               >Next Step
-                                    <svg width="12" height="11" viewBox="0 0 12 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M1.54134 6.20833H9.45342L5.99676 9.665C5.72051 9.94125 5.72051 10.3946 5.99676 10.6708C6.27301 10.9471 6.71926 10.9471 6.99551 10.6708L11.6634 6.00291C11.7291 5.93738 11.7812 5.85954 11.8167 5.77385C11.8523 5.68817 11.8706 5.59631 11.8706 5.50354C11.8706 5.41077 11.8523 5.31891 11.8167 5.23322C11.7812 5.14753 11.7291 5.06969 11.6634 5.00416L7.00259 0.329162C6.93701 0.263583 6.85916 0.211563 6.77348 0.176072C6.68779 0.140581 6.59596 0.122314 6.50322 0.122314C6.41047 0.122314 6.31864 0.140581 6.23296 0.176072C6.14727 0.211563 6.06942 0.263583 6.00384 0.329162C5.93826 0.394741 5.88624 0.472594 5.85075 0.558277C5.81526 0.64396 5.79699 0.735795 5.79699 0.828538C5.79699 0.92128 5.81526 1.01311 5.85075 1.0988C5.88624 1.18448 5.93826 1.26233 6.00384 1.32791L9.45342 4.79166H1.54134C1.15176 4.79166 0.833008 5.11041 0.833008 5.5C0.833008 5.88958 1.15176 6.20833 1.54134 6.20833Z" fill="white"></path>
-                                    </svg>
-                               </Button>      
+                            <div className="w-full px-8 py-5 flex justify-end  gap-5">
+                               <div className=" svgArrowLeft flex items-center gap-1  ">
+                                  <ArrowLeftSvg width={'14px'} height={'14px'} stroke={"stroke-grey"} hover={"hover:stroke-bluesecondary"}/>
+                                  <button onClick={()=>{setSecondPage(false)}} className="text-grey text-sm hover:text-bluesecondary">Back</button>
+                               </div>
+                               <div className="">
+                                    <Button onClick={()=>{setThirdPage(true), setSecondPage(false)} } 
+                                        className="svgArrowRight text-white bg-orangeprimary font-normal text-sm rounded-full px-3 py-3 cursor  hover:bg-grey flex items-center gap-1" 
+                                    >Next Step
+                                        <ArrowRightSvg  width={"14px"} height={"14px"} fill={" fill-white"} hover={"svgArrowRight"}/> 
+                                    </Button>
+                               </div>      
                             </div>
                         </div>
                     </div>
                 </div>
+            }
+            {thirdPage &&
+              <div className="w-full max-w-[600px] m-[auto] mt-4 lg:mt-0 lg:max-w-[900px] border border-lightgrey shadow-xl rounded-md box-border">
+                    <div className="px-7 pt-7 pb-3  border-b border-lightgrey ">
+                        <div className=" text-base font-semibold">
+                            <h3 className=" mb-3 text-bluesecondary ">Preferred Qualifications</h3>
+                        </div>
+                        <div className="flex justify-between w-full gap-5 mb-3">
+                            <div className="w-full mb-5">
+                                <h3 className="mb-3">Talent type <span className="text-bluesecondary">*</span></h3>
+                                <Autocomplete
+                                    label=""
+                                    placeholder="Choose preferred Talent type"
+                                    defaultItems={countryData}
+                                    labelPlacement="outside"
+                                    className="w-full py-1 outline-none border border-greysecondary"
+                                    style={{borderRadius: '0 !important'}}
+                                    disableSelectorIconRotation
+                                    // selectorIcon={<SelectorIcon />}
+                                >
+                                    {(item) => <AutocompleteItem key={item.value} className="">{item.label}</AutocompleteItem>}
+                                </Autocomplete>
+                            </div>
+                            <div className="w-full mb-5 ">
+                                <h3 className="mb-3">Experience  <span className="text-bluesecondary">*</span></h3>
+                                <Autocomplete
+                                    label=""
+                                    placeholder="Choose Preferred Experience"
+                                    defaultItems={countryData}
+                                    labelPlacement="outside"
+                                    className="w-full py-1 outline-none border border-greysecondary"
+                                    style={{borderRadius: '0 !important'}}
+                                    disableSelectorIconRotation
+                                    // selectorIcon={<SelectorIcon />}
+                                >
+                                    {(item) => <AutocompleteItem key={item.value} className="">{item.label}</AutocompleteItem>}
+                                </Autocomplete>
+                            </div>
+                        </div>
+                        <div className="flex justify-between w-full gap-5 mb-3">
+                            <div className="w-full mb-5">
+                                <h3 className="mb-3">Cases Completed <span className="text-bluesecondary">*</span></h3>
+                                <Autocomplete
+                                    label=""
+                                    placeholder="Choose Cases Amount"
+                                    defaultItems={countryData}
+                                    labelPlacement="outside"
+                                    className="w-full py-1 outline-none border border-greysecondary"
+                                    style={{borderRadius: '0 !important'}}
+                                    disableSelectorIconRotation
+                                    // selectorIcon={<SelectorIcon />}
+                                >
+                                    {(item) => <AutocompleteItem key={item.value} className="">{item.label}</AutocompleteItem>}
+                                </Autocomplete>
+                            </div>
+                            <div className="w-full mb-5 ">
+                                <h3 className="mb-3">Firm Size  <span className="text-bluesecondary">*</span></h3>
+                                <Autocomplete
+                                    label=""
+                                    placeholder="Choose Preferred Firm Size"
+                                    defaultItems={countryData}
+                                    labelPlacement="outside"
+                                    className="w-full py-1 outline-none border border-greysecondary"
+                                    style={{borderRadius: '0 !important'}}
+                                    disableSelectorIconRotation
+                                    // selectorIcon={<SelectorIcon />}
+                                >
+                                    {(item) => <AutocompleteItem key={item.value} className="">{item.label}</AutocompleteItem>}
+                                </Autocomplete>
+                            </div>
+                        </div>
+                        <div className="flex justify-between w-full gap-5 mb-3">
+                            <div className="w-full mb-5">
+                                <h3 className="mb-3">Rating <span className="text-bluesecondary">*</span></h3>
+                                <Autocomplete
+                                    label=""
+                                    placeholder="Choose Preferred Rate"
+                                    defaultItems={countryData}
+                                    labelPlacement="outside"
+                                    className="w-full py-1 outline-none border border-greysecondary"
+                                    style={{borderRadius: '0 !important'}}
+                                    disableSelectorIconRotation
+                                    // selectorIcon={<SelectorIcon />}
+                                >
+                                    {(item) => <AutocompleteItem key={item.value} className="">{item.label}</AutocompleteItem>}
+                                </Autocomplete>
+                            </div>
+                            <div className="w-full mb-5 ">
+                                <h3 className="mb-3">Amount earned  <span className="text-bluesecondary">*</span></h3>
+                                <Autocomplete
+                                    label=""
+                                    placeholder="Choose Preferred Amount"
+                                    defaultItems={countryData}
+                                    labelPlacement="outside"
+                                    className="w-full py-1 outline-none border border-greysecondary"
+                                    style={{borderRadius: '0 !important'}}
+                                    disableSelectorIconRotation
+                                    // selectorIcon={<SelectorIcon />}
+                                >
+                                    {(item) => <AutocompleteItem key={item.value} className="">{item.label}</AutocompleteItem>}
+                                </Autocomplete>
+                            </div>
+                        </div>
+                        <div className="w-full">
+                         <h3 className="mb-3">Location</h3>
+
+                          <div className="flex gap-10">
+                            <div className="flex ">
+                                <Checkbox defaultSelected radius="none" className="mr-1"></Checkbox>
+                                <img src="https://legalkonnect.com/img/us-map-icon.svg" alt="USA Map" className="mr-2"></img>
+                                <p className="">U.S only</p>
+                            </div>
+                            <div className="flex items-center">
+                                <Checkbox defaultSelected radius="none" className="mr-1"></Checkbox>
+                                <WorldWideSvg width={"17px"} height={"17px"} />
+                                <p className="">Worldwide</p>
+                                
+                            </div>
+                          </div>    
+                        </div>
+                   </div>
+               </div>
             }
         </section>
     )
