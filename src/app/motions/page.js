@@ -1,6 +1,5 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
-import Footer from "@/components/Footer/Footer";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import Legaldocs from "@/components/Legaldocs/Legaldocs";
 
@@ -19,7 +18,6 @@ const Findattorney = () => {
           </div>
         </div>
       </section>
-    <Footer />  
     </>
 );
 };

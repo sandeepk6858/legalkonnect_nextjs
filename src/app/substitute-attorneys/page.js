@@ -1,7 +1,6 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
 import SupportCard from "@/components/card/support";
-import Footer from "@/components/Footer/Footer";
 import JobSlider from "@/components/JobSlider/JobSlider";
 
 const Substituteattorneys = () => {
@@ -19,7 +18,6 @@ const Substituteattorneys = () => {
           </div>
         </div>
       </section>
-    <Footer />  
     </>
 );
 };
