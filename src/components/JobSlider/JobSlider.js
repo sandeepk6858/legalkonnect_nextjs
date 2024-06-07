@@ -3,6 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link, Button } from "@nextui-org/react";
 
 const JobSlider = () => {
   const settings = {
@@ -150,13 +151,13 @@ const JobSlider = () => {
       <Slider {...settings}>
         {slides.map((slide,index) => (
           <div key={index} className="max-w-[125px] w-full my-[25px] rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container">
-            <a href={slide.link} className="flex justify-center items-center flex-col gap-2">
+            <Link href={slide.link} className="flex justify-center items-center flex-col gap-2">
               <img src={slide.image} className="maw-w-[38px] h-[52px]" alt="" />
               <span className="text-[15px] text-center">{slide.title}</span>
               <div className="tooltip_dropdown">
                 {slide.tooltip}
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </Slider>

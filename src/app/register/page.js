@@ -359,7 +359,7 @@ const Register = () => {
                 <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
                   Log In
                 </button>
-                <a
+                <Link
                   href="https://legalkonnect.com/redirect/google"
                   className="hover:text-bluesecondary py-2.5 px-[15px] gap-1 min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
@@ -392,8 +392,8 @@ const Register = () => {
                     ></path>
                   </svg>
                   Log In with Google
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://legalkonnect.com/redirect/google"
                   className=" hover:text-bluesecondary py-2.5 gap-1 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
@@ -430,14 +430,14 @@ const Register = () => {
                     </defs>
                   </svg>
                   Log In with Facebook
-                </a>
+                </Link>
               </div>
               <div className="pt-6 md:pt-12">
                 <span className="text-black text-base font-light">
                   Already have an account?{" "}
-                  <a className="text-blueprimary  hover:underline" href="#">
+                  <LinkclassName="text-blueprimary  hover:underline" href="#">
                     Log In
-                  </a>
+                  </Link>
                 </span>
               </div>
             </div>

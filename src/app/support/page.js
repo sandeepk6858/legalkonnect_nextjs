@@ -24,7 +24,7 @@ const support = () => {
                       <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
                         <div className="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
                           <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Where does it come from?</h2>
-                          <p className="leading-relaxed text-base text-grey mb-[40px]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetu</p>
+                          <p className="leading-relaxed text-base text-grey mb-[40px]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetu</p>
                         </div>
                       </div>
                       <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
