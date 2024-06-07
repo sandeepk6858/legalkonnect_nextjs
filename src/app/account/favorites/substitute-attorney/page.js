@@ -81,7 +81,7 @@ const subjobs = () => {
 
             <div className="w-full my-12 mx-20 flex flex-wrap justify-evenly gap-5">
                 <div className="border-0 border-lightgrey rounded-3xl shadow-md">
-                <FavoriteJobsCard showDiv={true} showDivCount={true}/>
+                <FavoriteJobsCard showDiv={true} showDivCount={true} />
                     
 
                 </div>
