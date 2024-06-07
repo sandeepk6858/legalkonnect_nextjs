@@ -6,7 +6,7 @@ import Image from "next/image";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import DropdowniconSvg from "@/components/Icons/dropdowniconSvg";
 import SearchiconheaderSvg from "@/components/Icons/searchiconheaderSvg";
-import ToggleiconheaderSvg from "@/components/Icons/ToggleiconheaderSvg";
+import ToggleiconheaderSvg from "@/components/Icons/toggleiconheaderSvg";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
