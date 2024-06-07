@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import { Tabs, Tab } from "@nextui-org/react";
 import { imageURL } from "@/components/utils/helper/helper";
-// import Slider from "react-slick";
+import Slider from "react-slick";
 import {
   Dropdown,
   DropdownTrigger,
@@ -49,10 +49,10 @@ const Profile = () => {
   //   slidesToScroll: 1,
   // };
 
-  // const images = [
-  //   "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
-  //   "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
-  // ];
+  const images = [
+    "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
+    "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
+  ];
 
   return (
     <>
@@ -134,7 +134,7 @@ const Profile = () => {
             <div className="flex w-full flex-col relative">
               <div className="flex gap-4 items-center absolute max-[640px]:top-[-32px] right-0 z-20">
                 <div className="right flex gap-4 items-center">
-                  <div className="share_btn relative" onClick={toggleIcons}>
+                  <div className="share_btn relative cursor-pointer" onClick={toggleIcons}>
                     <svg
                       width="23"
                       height="23"
@@ -150,7 +150,7 @@ const Profile = () => {
                       ></path>
                     </svg>
                     {isShown && (
-                      <ul className="social-icon flex relative right-[-36px] top-[-24px]">
+                      <ul className="social-icon cursor-pointer flex relative right-[-36px] top-[-24px]">
                         <li>
                           <Link
                             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440%26quote%3DClient+Dev"
@@ -236,9 +236,9 @@ const Profile = () => {
                 classNames={{
                   tabList:
                     "gap-6 w-full relative rounded-none p-0 border-b border-divider",
-                  cursor: "w-full bg-[#22d3ee]",
+                  cursor: "w-full bg-bluesecondary",
                   tab: "max-w-fit px-0 h-12",
-                  tabContent: "group-data-[selected=true]:text-[#06b6d4]",
+                  tabContent: "group-data-[selected=true]:text-bluesecondary",
                 }}
                 selectedKey={selected}
                 onSelectionChange={setSelected}
@@ -251,16 +251,16 @@ const Profile = () => {
                     </div>
                   }
                 >
-                  {/* <div className="slider-container">
+                  <div className="slider-container h-[500px]">
                     <Slider {...settings}>
                       {images.map((image, index) => (
                         <div key={index}>
-                          <img className="w-full" src={image} alt={`slide ${index + 1}`} />
+                          <img className="w-full h-[500px]" src={image} alt={`slide ${index + 1}`} />
                         </div>
                       ))}
                     </Slider>
-                  </div> */}
-                  <div className="tab-content-item flex flex-col gap-3">
+                  </div>
+                  <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
                     <div className="content_group">
                       <h3 className="box-title text-[16px] font-semibold text-black">
                         About me
