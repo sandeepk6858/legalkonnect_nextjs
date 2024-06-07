@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { imageURL } from "@/components/utils/helper/helper";
+import Link from "next/link";
 
 const Register = () => {
   const backgroundImage = imageURL("sign_up_bg.jpg");

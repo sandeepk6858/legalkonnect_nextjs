@@ -11,6 +11,8 @@ import {
   DropdownItem,
   Button,
 } from "@nextui-org/react";
+import Link from "next/link";
+
 
 const Profile = () => {
   const [isShown, setIsShown] = useState(false);
