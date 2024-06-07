@@ -239,6 +239,42 @@ body {
   justify-content: space-between; 
   align-items: center;
 }
+.tabCustom>span {
+  border-bottom: 2px solid #063d8f;
+  background: transparent !important;
+  border-radius: 0px !important;
+  box-shadow: none;
+  bottom: -2px;
+}
+.tabCustom>span+div {
+  color: #063d8f !important;
+}
+.input-wrapper label {
+  font-size: 16px;
+   top: 12px;
+ }
+ .input-wrapper input::placeholder {
+  font-size: 16px;
+  
+ }
+ .input-wrapper>div>div>div {
+  background: #ffffff;
+  height: 50px;
+  border-radius: 0px;
+  border: 1px solid #000;
+  width: 100%;
+  border: 1px solid #9b9898;
+  border-radius: 3px;
+  padding: 14px 15px;
+  color: #4d4c4c;
+  font-size: 16px;
+ }
+ .paymentatabs>div {
+  background: transparent;
+}
+
+
+
 @media (min-width: 1200px) {
   .toggle {
     display: none;
@@ -323,6 +359,10 @@ ul.how_it_work_section {
     width: 100%;
     gap: 10px;
   }
+  .tabbalance >div {
+    width: 100%;
+    padding: 2px 15px;
+}
   .footer_left_main {
     flex-wrap: wrap;
 }
