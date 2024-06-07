@@ -9,9 +9,9 @@ import StarSvg from "@/components/Icons/starSvg";
 import BacthSvg from "@/components/batchSvg";
 import Image from "next/image";
 
-import { Card, CardHeader, CardBody, CardFooter, Divider } from "@nextui-org/react";
+import { Card, CardHeader, CardBody, CardFooter, Divider , fillheart } from "@nextui-org/react";
 
-const SupportCard = () => {
+const SupportCard = ({fillheart}) => {
 
     const [socialPopupT, setSocialPopupT] = useState(false);
 
@@ -30,7 +30,7 @@ const SupportCard = () => {
             <CardHeader className="px-5 relative w-full">
                 <div className="flex justify-between cursor-pointer">
                     <div className="flex relative">
-                        <span className="border-2 border-white bg-lightgray rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
+                        <span className="border-2 border-white bg-gray-200 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
                         <Avatar className="w-[68px] h-[68px]" src="https://legalkonnect.com/img/no_avatar.jpg" />
                     </div>
                     <div className="flex flex-col px-2 text-blackcolorcolor text-lg fill-lightgrey">
@@ -95,7 +95,7 @@ const SupportCard = () => {
                     <div className="flex gap-1 items-center">
                         <SocialPopup socialPopupT={socialPopupT} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-transparent`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                        <HeartSvg width={`20px`} height={`20px`}fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
                     </div>
                 </div>
             </CardFooter>
