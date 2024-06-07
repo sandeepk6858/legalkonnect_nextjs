@@ -53,8 +53,7 @@ export default function Footer() {
                     <div className='footer_right_main w-full'>
                       <div className='footer_nav_right flex justify-between'>
                       <ul class="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
-                    <li class="ft-menu-title">lawyer</li>
-                    <li class="ft-menu-title">legalkonnect</li>
+                    <li class="ft-menu-title font-semibold mb-[10px]">legalkonnect</li>
 
                         <li>
                             <a href="/about">About</a>
@@ -71,14 +70,14 @@ export default function Footer() {
                                             </ul>
 
                                             <ul class="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
-                        <li class="ft-menu-title">Discover</li>
+                        <li class="ft-menu-title font-semibold mb-[10px]">Discover</li>
                                                 <li>
                             <a href="/how-it-works">How it works</a>
                         </li>
                                             </ul>
 
                                             <ul class="ft-menu-item md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
-                        <li class="ft-menu-title">Resources</li>
+                        <li class="ft-menu-title font-semibold mb-[10px]">Resources</li>
                                                     <li>
                                 <a href="/register">Become a member</a>
                             </li>
