@@ -28,7 +28,8 @@ module.exports = {
         greencolour: '#2DA214',
         yellow:"#ffc107",
         yellowlight:"#ffe495",
-        parrotgreen: "#14CE80"
+        parrotgreen: "#14CE80",
+        greybgfillter: "#ececec",
 
       },
       container: {
@@ -47,6 +48,10 @@ module.exports = {
       },
       fontFamily: {
         proxima: ['"Proxima Nova"', 'sans-serif'],
+      },
+      borderColor: {
+        greyborder: '#EBEBEB',
+        lightgrey: '#f5f5f5',
       }
     },
   },
