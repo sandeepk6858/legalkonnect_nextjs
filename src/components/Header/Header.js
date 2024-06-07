@@ -95,14 +95,14 @@ const Header = () => {
                                 </Dropdown>
                             </div>
                             <ul className='how_it_work_section flex items-center gap-x-5'> 
-                       <li>  <Link href="/about" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
+                       <li>  <Link href="/how-it-works" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                How It Works
                             </Link></li>
                      
-                        <li> <Link href="/about" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
+                        <li> <Link href="/support" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                Support
                             </Link></li>
-                        <li><Link href="/about" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
+                        <li><Link href="/login" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                               Login
                             </Link></li>
                             <li> <button className='text-white font-normal text-sm sm:text-base rounded-full bg-orangeprimary px-3 sm:px-4 h-9 sm:h-10 cursor hover:bg-blueprimary grow whitespace-nowrap'>Sign up</button></li>

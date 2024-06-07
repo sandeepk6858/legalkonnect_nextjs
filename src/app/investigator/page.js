@@ -1,10 +1,9 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
-import Footer from "@/components/Footer/Footer";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import SupportCard from "@/components/card/support";
 
-const Subsituteattorneyjobs = () => {
+const Investigator = () => {
   return (
     <>
     <JobSlider />
@@ -19,9 +18,8 @@ const Subsituteattorneyjobs = () => {
           </div>
         </div>
       </section>
-    <Footer />  
     </>
 );
 };
 
-export default Subsituteattorneyjobs;
+export default Investigator;
