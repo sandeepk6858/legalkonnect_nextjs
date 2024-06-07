@@ -20,10 +20,10 @@ const linkedin = <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xml
 export default function Footer() {
   return (
     <>
-    <div classNameName="footer_main bg-[#898989] text-[#fff] p-[40px] border-b-[1px] border-color-[#fff]">
-      <div classNameName='container'>
-        <div classNameName='footer_left_main flex items-center justify-between'>
-      <div classNameName="footer_left w-full">
+    <div className="footer_main bg-[#898989] text-[#fff] p-[40px] border-b-[1px] border-color-[#fff]">
+      <div className='container'>
+        <div className='footer_left_main flex items-center justify-between'>
+      <div className="footer_left w-full">
       <Link href="/">
                         <Image
                             src="https://legalkonnect.com/storage/uploads/03-07-2024-legal-logo.png"
@@ -31,29 +31,30 @@ export default function Footer() {
                             width={270}
                             height={40}
                             quality={100}
-                            classNameName="cursor-pointer"
+                            className="cursor-pointer"
                         />
                     </Link>
-                    <ul classNameName="social-item flex items-center gap-[20px] mt-[40px]">
-                    <li classNameName='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
+                    <ul className="social-item flex items-center gap-[20px] mt-[40px]">
+                    <li className='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
                         <a href="">{twittericon}</a>
                     </li>
-                    <li classNameName='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
+                    <li className='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
                         <a href="">{fbicon}</a>
                     </li>
-                    <li classNameName='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
+                    <li className='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
                         <a href="">{instaicon}</a>
                     </li>
-                    <li classNameName='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
+                    <li className='bg-[#f16622] rounded-[50%] w-[30px] h-[30px] flex items-center justify-center'>
                         <a href="">{linkedin}</a>
                     </li>
                 </ul>
-                <div classNameName='mt-[40px]'><p>Copyright legalkonnect.com All Rights Reserved 2024</p></div>
+                <div className='mt-[40px]'><p>Copyright legalkonnect.com All Rights Reserved 2024</p></div>
                     </div>
-                    <div classNameName='footer_right_main w-full'>
-                      <div classNameName='footer_nav_right flex justify-between'>
-                      <ul className="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
-                    <li className="ft-menu-title mb-[10px]"><strong>legalkonnect</strong></li>
+                    <div className='footer_right_main w-full'>
+                      <div className='footer_nav_right flex justify-between'>
+                      <ul class="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
+                    <li class="ft-menu-title">lawyer</li>
+                    <li class="ft-menu-title">legalkonnect</li>
 
                         <li>
                             <a href="/about">About</a>
@@ -69,15 +70,15 @@ export default function Footer() {
                             </li>
                                             </ul>
 
-                                            <ul className="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
-                        <li className="ft-menu-title mb-[10px]"><strong>Discover</strong></li>
+                                            <ul class="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
+                        <li class="ft-menu-title">Discover</li>
                                                 <li>
                             <a href="/how-it-works">How it works</a>
                         </li>
                                             </ul>
 
-                                            <ul className="ft-menu-item md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
-                        <li className="ft-menu-title mb-[10px]"><strong>Resources</strong></li>
+                                            <ul class="ft-menu-item md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
+                        <li class="ft-menu-title">Resources</li>
                                                     <li>
                                 <a href="/register">Become a member</a>
                             </li>
@@ -94,9 +95,9 @@ export default function Footer() {
       </div>
     </div>
 
-<div classNameName='footer_bottom bg-[#898989] p-[20px]'>
-  <div classNameName="container">
-<ul classNameName='flex items-center gap-[10px] text-[#fff]'>
+<div className='footer_bottom bg-[#898989] p-[20px]'>
+  <div className="container">
+<ul className='flex items-center gap-[10px] text-[#fff]'>
                 <li>
                     <a href="/terms-of-service">Terms of Service</a>
                 </li>
