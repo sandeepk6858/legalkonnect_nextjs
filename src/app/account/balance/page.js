@@ -74,7 +74,7 @@ const balance = () => {
                 <p className='text-base text-blackcolor max-w-[1250px] text-start lg:text-right mx-auto'>Balance: <span className='font-bold'>$936</span></p>
             </div>
             <Tabs aria-label="Options" className='w-full max-w-[1250px] mx-auto lg:px-4 flex h-14 py-0 tabbalance'>
-                <Tab key="Deposit" title="Deposit" className='h-14 py-0 tabCustom' >
+                <Tab key="Deposit" title="Deposit" className=' py-0 tabCustom' >
                 <Card className='max-w-[1250px] mx-auto px-0 lg:px-4 mt-8 bg-transparent bottom-0 shadow-none'>
                     <CardBody className='overflow-y-visible'>
                     <form className="input-wrapper">
@@ -155,7 +155,7 @@ const balance = () => {
                     </CardBody>
                 </Card>  
                 </Tab>
-                <Tab key="Withdrawal" title="Withdrawal" className='h-14 py-0 tabCustom'>
+                <Tab key="Withdrawal" title="Withdrawal" className=' py-0 tabCustom'>
                 <Card className='max-w-[1250px] mx-auto px-0 lg:px-4 mt-8 bg-transparent bottom-0 shadow-none'>
                     <CardBody className='overflow-y-visible'>
                     <form className="input-wrapper">
@@ -367,7 +367,7 @@ const balance = () => {
                     </CardBody>
                 </Card>  
                 </Tab>
-                <Tab key="Transactions" title="Transactions" className='h-14 py-0 tabCustom'>
+                <Tab key="Transactions" title="Transactions" className=' py-0 tabCustom'>
                 <Card className='max-w-[1250px] mx-auto px-0 lg:px-4 mt-8 bg-transparent bottom-0 shadow-none'>
                     <CardBody className='overflow-y-visible'>
                    <div>
