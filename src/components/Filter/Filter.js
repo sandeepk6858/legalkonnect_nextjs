@@ -44,7 +44,7 @@ const Filter = () => {
   return (
     <>
 
-      <div className="bg-lightgrey mt-[20px] border-1 border-lightgrey">
+      <div className="bg-lightgrey mt-[60px] border-1 border-lightgrey">
         <div className="container">
           <div className="filter_main_wrapper py-[15px] flex items-center justify-between flex-wrap">
             <div className="inner_filter_left flex items-center justify-between gap-[10px]">

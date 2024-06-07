@@ -1,20 +1,25 @@
 import Filter from "@/components/Filter/Filter";
 import AttronyJobsCard from "@/components/card/attronyjobs";
+import Footer from "@/components/Footer/Footer";
+import JobSlider from "@/components/JobSlider/JobSlider";
 import SocialPopup from "@/components/socialPopup";
-
 const JobsPage = () => {
     return (
         <>
+        <JobSlider />
         <Filter/>
         <SocialPopup/>
-        <div className="w-full m-[auto] px-4 py-12 z-10 flex flex-wrap flex-row flex-col-2 gap-5 justify-center">
+        <section className="text-blackcolor body-font overflow-hidden">
+        <div className="px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
+          <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
+          <AttronyJobsCard />
            <AttronyJobsCard />
            <AttronyJobsCard />
            <AttronyJobsCard />
-           <AttronyJobsCard />
-           <AttronyJobsCard />
-           <AttronyJobsCard />
+          </div>
         </div>
+      </section>
+           <Footer /> 
         </>
     )
 }

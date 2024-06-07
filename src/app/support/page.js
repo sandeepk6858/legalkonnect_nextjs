@@ -12,23 +12,23 @@ const support = () => {
             case 'step1':
                 return <div className='px-[0px] xl:px-[100px]'>
 
-                <div class="text-gray-600 body-font">
-                  <div class="container px-[10px]  py-[30px] md:py-[50px] mx-auto">
-                    <div class="flex flex-wrap -m-4">
-                      <div class="p-2 mb-[10px] md:p-4  lg:w-1/3">
-                        <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
+                <div className="text-gray-600 body-font">
+                  <div className="container px-[10px]  py-[30px] md:py-[50px] mx-auto">
+                    <div className="flex flex-wrap -m-4">
+                      <div className="p-2 mb-[10px] md:p-4  lg:w-1/3">
+                        <div className="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
                           <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">What is Lorem Ipsum?</h2>
                           <p className="leading-relaxed text-base text-grey mb-[40px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         </div>
                       </div>
-                      <div class="p-2 mb-[10px] md:p-4 lg:w-1/3">
-                        <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
+                      <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
+                        <div className="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
                           <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Where does it come from?</h2>
-                          <p className="leading-relaxed text-base text-grey mb-[40px]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetu</p>
+                          <p className="leading-relaxed text-base text-grey mb-[40px]">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classNameical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetu</p>
                         </div>
                       </div>
-                      <div class="p-2 mb-[10px] md:p-4 lg:w-1/3">
-                        <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
+                      <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
+                        <div className="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
                           <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Why do we use it?</h2>
                           <p className="leading-relaxed text-base text-grey mb-[40px]">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p>
                         </div>
@@ -41,11 +41,11 @@ const support = () => {
             case 'step2':
                 return <div className='px-[0px] xl:px-[100px]'>
 
-              <div class="text-gray-600 body-font">
-                  <div class="container px-[10px] py-[30px] md:py-[50px] mx-auto">
-                    <div class="flex flex-wrap -m-4">
-                      <div class="p-2 mb-[10px] md:p-4 lg:w-1/3">
-                        <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16 rounded-lg overflow-hidden relative w-[310px]">
+              <div className="text-gray-600 body-font">
+                  <div className="container px-[10px] py-[30px] md:py-[50px] mx-auto">
+                    <div className="flex flex-wrap -m-4">
+                      <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
+                        <div className="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16 rounded-lg overflow-hidden relative w-[310px]">
                           <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">Question2</h2>
                           <h2 className="text-[16px] leading-[19px] text-grey font-[600] mb-[10px] mt-[30px]">Answer2</h2>
                         </div>
@@ -58,11 +58,11 @@ const support = () => {
             case 'step3':
                 return <div className='px-[0px] xl:px-[100px]'>
 
-              <div class="text-gray-600 body-font">
-                  <div class="container px-[10px] py-[30px] md:py-[50px] mx-auto">
-                    <div class="flex flex-wrap -m-4">
-                      <div class="p-2 mb-[10px] md:p-4 lg:w-1/3">
-                        <div class="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
+              <div className="text-gray-600 body-font">
+                  <div className="container px-[10px] py-[30px] md:py-[50px] mx-auto">
+                    <div className="flex flex-wrap -m-4">
+                      <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
+                        <div className="h-full bg-gray-100 shadow-lg bg-opacity-75 px-8 pt-16 py-16rounded-lg overflow-hidden relative">
                           <h2 className="text-[16px] leading-[19px] text-blueprimary font-[600] mb-[10px] mt-[10px]">What is Lorem Ipsum?</h2>
                           <p className="leading-relaxed text-base text-grey mb-[40px]">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
                         </div>
