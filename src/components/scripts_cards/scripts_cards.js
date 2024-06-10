@@ -14,9 +14,9 @@ const ScriptsCards = () => {
     <>
     <div className="w_wid p-[20px] lf:p-[30px] w-1/1 md:w-1/3 lg:w-1/4 flex flex-col items-start bg-[#fff] shadow-lg rounded-[20px]">
               <div className="flex justify-between items-center w-[100%]">
-                <h2 className="text-[20px] leading-[24px] font-font-medium cursor-pointer">
+                <Link href="transcripts/1" className="text-[20px] leading-[24px] font-font-medium cursor-pointer text-blackcolor">
                   Heading of transcript
-                </h2>
+                </Link>
                 <div className="share_btn relative" onClick={toggleIcons}>
                   <svg
                     width="23"
@@ -97,6 +97,7 @@ const ScriptsCards = () => {
               <span className="inline-block text-[16px] pt-[10px] font-medium mb-[40px]">
                 Posted 24-01-2022 17:40:04
               </span>
+              <Link href="/transcripts/1" className="flex flex-col justify-start items-start text-blackcolor">
               <p className="text-[14px] mb-[7px] leading-[20px]">
                 Offer: <span className="font-medium text-blackcolor">66</span>
               </p>
@@ -126,6 +127,7 @@ const ScriptsCards = () => {
                   Legal issues to be mentioned here
                 </span>
               </p>
+              </Link>
 
               <div className="flex items-center justify-between flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-[30px] w-full">
                 <Link className="text-orangeprimary inline-flex items-center cursor-pointer font-semibold">
