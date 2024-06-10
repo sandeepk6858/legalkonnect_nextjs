@@ -27,14 +27,14 @@ const AttronyJobsCard = () => {
                     layout="fill"
                     src="https://legalkonnect.com/storage/specializations/Bankruptcy.png"
                 />
-                <span className="absolute top-3 right-3 text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl px-5 py-1 z-10">Bankruptcy</span>
+                <Link href="/jobs"className="absolute top-3 right-3 text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl px-5 py-1 z-10">Bankruptcy</Link>
                 <div className="absolute w-full h-12 pl-5 bottom-0 left-0 flex gap-2 z-10 items-center bg-gradient-to-b from-transparent to-gray-900/50">
                     <CalendarSvg cuClass={`flex`} width={`16px`} height={`16px`} fill={`white`} />
-                    <span className="text-white"> Project Length: <b>1 - 3 weeks</b></span>
+                    <Link href="jobs/538" className="text-white"> Project Length: <b>1 - 3 weeks</b></Link>
                 </div>
             </CardHeader>
             <CardBody className="p-0">
-                <p className="text-base font-semibold py-4 px-5">Job Heading</p>
+            <Link href="jobs/538" className="text-base font-semibold py-4 px-5">Job Heading</Link>
                 <div className="pb-5 px-5 flex justify-between">
                     <p className="text-base">Posted 2 years ago</p>
                     <div className="flex pl-10 gap-1 cursor-pointer relative z-50">
@@ -44,7 +44,7 @@ const AttronyJobsCard = () => {
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />
-                <div className="p-5 cursor-pointer">
+                <Link href="jobs/538" className="p-5 cursor-pointer">
                     <div className="flex">
                         <h6 className="text-gray text-sm">Offer: </h6>
                         <p className="pl-1">90</p>
@@ -65,7 +65,7 @@ const AttronyJobsCard = () => {
                         <h6 className="text-gray text-sm">Court Address: </h6>
                         <p className="pl-1">Park road,civil line</p>
                     </div>
-                </div>
+                </Link>
                 <Divider className="bg-lightgrey" />
                 <p className="p-5 text-base"> This is job description</p>
 

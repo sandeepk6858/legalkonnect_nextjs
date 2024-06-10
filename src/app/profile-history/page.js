@@ -14,7 +14,7 @@ import {
 import Link from "next/link";
 
 
-const Profile = () => {
+const Profilehistory = () => {
   const [isShown, setIsShown] = useState(false);
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["By Date"]));
   const [selected, setSelected] = React.useState("Portfolio");
@@ -58,13 +58,13 @@ const Profile = () => {
 
   return (
     <>
-      <div className="px-[30px]">
+      <div className="px-[15px] md:px-[30px]">
         <JobSlider />
         <div className="w-full max-w-[1250px] m-[auto] flex-col lg:justify-center items-center lg:items-start lg:flex-row flex gap-3 mt-16 pb-8">
-          <div className="card_item attorney_card shadow-customSec p-[20px] h-[300px] w-[100%] max-w-[400px] lg:w-[30%]">
+          <div className="card_item attorney_card  attorney_card2 shadow-customSec p-[20px] h-[300px] w-[100%] max-w-[400px] lg:w-[30%]">
             <div className="card_header flex gap-4">
               <div className="img_wrpr_wrpr relative">
-                <span className="online_status online block absolute bg-[#14CE80] border border-white w-[20px] h-[20px] rounded-[50%] right-[0] left-[50px]"></span>
+                <span className="online_status online block absolute bg-[#14CE80] border border-white w-[20px] h-[20px] rounded-[50%] right-[0] left left2-[50px]"></span>
                 <div className="img_wrpr">
                   <img
                     src="https://legalkonnect.com/storage/uploads/fIQuQpNGWBpdVpkVvkhZ4c0tbJbIGKaiH0UEc8hY.jpg"
@@ -132,9 +132,9 @@ const Profile = () => {
               </ul>
             </div>
           </div>
-          <div className="profile_s_header max-[640px]:pt-[50px] p-[20px] w-[100%] max-w-[700px] lg:w-[70%] shadow-customSec">
-            <div className="flex w-full flex-col relative">
-              <div className="flex gap-4 items-center absolute max-[640px]:top-[-32px] right-0 z-20">
+          <div className="profile_s_header  profile_s_header2 overflow-auto tabs_div  max-[640px]:pt-[50px] p-[20px] w-[100%] max-w-[700px] lg:w-[70%] shadow-customSec">
+            <div className="flex w-full flex-col relative overhidsec">
+              <div className="flex gap-4 items-center absolute right-0 z-20 ">
                 <div className="right flex gap-4 items-center">
                   <div className="share_btn relative cursor-pointer" onClick={toggleIcons}>
                     <svg
@@ -237,7 +237,7 @@ const Profile = () => {
                 variant="underlined"
                 classNames={{
                   tabList:
-                    "gap-6 w-full relative rounded-none p-0 border-b border-divider",
+                    "gap-6 w-full relative rounded-none p-0 border-b border-divider taboverflow",
                   cursor: "w-full bg-bluesecondary",
                   tab: "max-w-fit px-0 h-12",
                   tabContent: "group-data-[selected=true]:text-bluesecondary",
@@ -438,7 +438,7 @@ const Profile = () => {
                     </div>
                   }
                 >
-                  <div className="flex justify-between max-[426px]:flex-col max-[426px]:gap-2 items-center">
+                  <div className="flex justify-between max-[426px]:flex-col max-[426px]:gap-2 items-center mt-[20px] md:mt-[0px]">
                     <h3 className="box-title text-bluesecondary text-[16px] font-semibold">
                       Work history & feedback
                     </h3>
@@ -468,9 +468,9 @@ const Profile = () => {
                   </div>
                   <div className="feedback_items_wrpr flex gap-4 flex-col pt-4">
                     <div className="feedback_item p-[20px] border border-[#EBEBEB] rounded-[3px]">
-                      <div className="feedback_item_header flex justify-between max-[426px]:flex-col max-[426px]:gap-2">
-                        <div className="left flex gap-2 items-center">
-                          <h3 className="feedback_item_title text-[16px]">
+                      <div className="feedback_item_header feedback_item_header2 flex justify-between max-[426px]:flex-col max-[426px]:gap-2">
+                        <div className="left left2 flex gap-2 items-center">
+                          <h3 className="feedback_item_title feedback_item_title2 text-[16px]">
                             test 123
                           </h3>
                           <ul className="stars_rating flex gap-1">
@@ -485,15 +485,15 @@ const Profile = () => {
                             ))}
                           </ul>
                         </div>
-                        <div className="job_progress bg-[#20C9AC50] text-[#14CE80] py-[5px] px-[10px] rounded-[3px] text-[14px] whitespace-nowrap flex justify-center items-center">
+                        <div className="job_progress  job_progress2 bg-[#20C9AC50] text-[#14CE80] py-[5px] px-[10px] rounded-[3px] text-[14px] whitespace-nowrap flex justify-center items-center">
                           Job in Progress
                         </div>
                       </div>
                       <div className="feedback_item_body flex justify-between pt-3">
-                        <div className="left">
+                        <div className="left left2">
                           <p className="text-[16px] break-all">test</p>
                         </div>
-                        <div className="right flex flex-col max-[426px]:gap-2 gap-8">
+                        <div className="right flex flex-col max-[426px]:gap-2 gap-8 right_text2">
                           <span className="date text-[16px] text-black">
                             May 2024
                           </span>
@@ -508,8 +508,8 @@ const Profile = () => {
                     </div>
                     <div className="feedback_item p-[20px] border border-[#EBEBEB] rounded-[3px]">
                       <div className="feedback_item_header flex justify-between max-[426px]:flex-col max-[426px]:gap-2">
-                        <div className="left flex gap-2 items-center">
-                          <h3 className="feedback_item_title text-[16px]">
+                        <div className="left left2 flex gap-2 items-center">
+                          <h3 className="feedback_item_title feedback_item_title2 text-[16px]">
                             test 123
                           </h3>
                           <ul className="stars_rating flex gap-1">
@@ -524,15 +524,15 @@ const Profile = () => {
                             ))}
                           </ul>
                         </div>
-                        <div className="job_progress bg-[#20C9AC50] text-[#14CE80] py-[5px] px-[10px] rounded-[3px] text-[14px] whitespace-nowrap flex justify-center items-center">
+                        <div className="job_progress  job_progress2 bg-[#20C9AC50] text-[#14CE80] py-[5px] px-[10px] rounded-[3px] text-[14px] whitespace-nowrap flex justify-center items-center">
                           Job in Progress
                         </div>
                       </div>
                       <div className="feedback_item_body flex justify-between pt-3">
-                        <div className="left">
+                        <div className="left left2">
                           <p className="text-[16px] break-all">test</p>
                         </div>
-                        <div className="right flex flex-col max-[426px]:gap-2 gap-8">
+                        <div className="right flex flex-col max-[426px]:gap-2 gap-8 right_text2">
                           <span className="date text-[16px] text-black">
                             May 2024
                           </span>
@@ -546,9 +546,9 @@ const Profile = () => {
                       </div>
                     </div>
                     <div className="feedback_item p-[20px] border border-[#EBEBEB] rounded-[3px]">
-                      <div className="feedback_item_header flex justify-between max-[426px]:flex-col max-[426px]:gap-2">
-                        <div className="left flex gap-2 items-center">
-                          <h3 className="feedback_item_title text-[16px]">
+                      <div className="feedback_item_header feedback_item_header2 flex justify-between max-[426px]:flex-col max-[426px]:gap-2">
+                        <div className="left left2 flex gap-2 items-center">
+                          <h3 className="feedback_item_title feedback_item_title2 text-[16px]">
                             test 123
                           </h3>
                           <ul className="stars_rating flex gap-1">
@@ -563,15 +563,15 @@ const Profile = () => {
                             ))}
                           </ul>
                         </div>
-                        <div className="job_progress bg-[#20C9AC50] text-[#14CE80] py-[5px] px-[10px] rounded-[3px] text-[14px] whitespace-nowrap flex justify-center items-center">
+                        <div className="job_progress  job_progress2 bg-[#20C9AC50] text-[#14CE80] py-[5px] px-[10px] rounded-[3px] text-[14px] whitespace-nowrap flex justify-center items-center">
                           Job in Progress
                         </div>
                       </div>
                       <div className="feedback_item_body flex justify-between pt-3">
-                        <div className="left">
+                        <div className="left left2">
                           <p className="text-[16px] break-all">test</p>
                         </div>
-                        <div className="right flex flex-col max-[426px]:gap-2 gap-8">
+                        <div className="right flex flex-col max-[426px]:gap-2 gap-8 right_text2">
                           <span className="date text-[16px] text-black">
                             May 2024
                           </span>
@@ -595,7 +595,7 @@ const Profile = () => {
                   }
                 >
                   <div>
-                    <div className="flex justify-between max-[426px]:flex-col max-[426px]:gap-3 items-center">
+                    <div className="flex justify-between max-[426px]:flex-col max-[426px]:gap-3 items-center profilesort">
                       <h3 className="box-title text-bluesecondary text-[16px] font-semibold">
                         Portfolio
                       </h3>
@@ -625,7 +625,7 @@ const Profile = () => {
                     </div>
                     <div className="flex flex-wrap gap-3 pt-4 justify-between">
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
-                        <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
+                        <div className="portfolio_item_header  portfolio_item_header2 max-[426px]:flex-col flex gap-3 pb-4">
                           <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
@@ -633,11 +633,11 @@ const Profile = () => {
                             Control your workflow: hire, classNameify and pay
                             your talent
                           </Link>
-                          <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
+                          <span className="portfolio_item_date portfolio_item_date2 flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div className="item_text break-words">
+                        <div className="item_text break-words break-words2">
                           <p className="text-[16px] text-black font-light">
                             Control your workflow: hire, classNameify and pay your
                             talent
@@ -645,7 +645,7 @@ const Profile = () => {
                         </div>
                       </div>
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
-                        <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
+                        <div className="portfolio_item_header  portfolio_item_header2 max-[426px]:flex-col flex gap-3 pb-4">
                           <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
@@ -653,11 +653,11 @@ const Profile = () => {
                             Control your workflow: hire, classNameify and pay
                             your talent
                           </Link>
-                          <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
+                          <span className="portfolio_item_date portfolio_item_date2 flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div className="item_text break-words">
+                        <div className="item_text break-words break-words2">
                           <p className="text-[16px] text-black font-light">
                             Control your workflow: hire, classNameify and pay your
                             talent
@@ -665,7 +665,7 @@ const Profile = () => {
                         </div>
                       </div>
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
-                        <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
+                        <div className="portfolio_item_header  portfolio_item_header2 max-[426px]:flex-col flex gap-3 pb-4">
                           <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
@@ -673,11 +673,11 @@ const Profile = () => {
                             Control your workflow: hire, classNameify and pay
                             your talent
                           </Link>
-                          <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
+                          <span className="portfolio_item_date portfolio_item_date2 flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div className="item_text break-words">
+                        <div className="item_text break-words break-words2">
                           <p className="text-[16px] text-black font-light">
                             Control your workflow: hire, classNameify and pay your
                             talent
@@ -685,7 +685,7 @@ const Profile = () => {
                         </div>
                       </div>
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
-                        <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
+                        <div className="portfolio_item_header  portfolio_item_header2 max-[426px]:flex-col flex gap-3 pb-4">
                           <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
@@ -693,11 +693,11 @@ const Profile = () => {
                             Control your workflow: hire, classNameify and pay
                             your talent
                           </Link>
-                          <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
+                          <span className="portfolio_item_date portfolio_item_date2 flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div className="item_text break-words">
+                        <div className="item_text break-words break-words2">
                           <p className="text-[16px] text-black font-light">
                             Control your workflow: hire, classNameify and pay your
                             talent
@@ -716,4 +716,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Profilehistory;
