@@ -17,10 +17,10 @@ const Create=()=>{
   
   const [firstPage,setFirstPage]= useState(true)
   const [secondPage, setSecondPage]= useState(false)
-  const [thirdPage, setThirdPage]= useState(false)
+  const [thirdPage, setThirdPage]= useState(false)  
   const [forthpage, setFourthPage]= useState(false)
-  const [checkedCheckbox, SetCheckedCheckbox] = useState(false)
-  console.log("checkedCheckbox", checkedCheckbox)
+  const [isChecked, SetIsChecked] = useState(false)
+
 
     return(
         <section className="w-full max-w-[1250px] m-[auto] px-4 pt-4 gap-5 lg:flex  ">
@@ -450,10 +450,10 @@ const Create=()=>{
                         <div className="w-full  text-base font-semibold">
                             <h3 className="mb-5">Or select from our suggested questions:</h3>
                             <div className="w-full font-normal ">  
-                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetCheckedCheckbox(!checkedCheckbox)}} ><p className={` ${checkedCheckbox ? "text-bluesecondary" : "text-grey"}`}>Do you have any questions about the job description?</p></Checkbox>
-                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetCheckedCheckbox(!checkedCheckbox)}} ><p className={` ${checkedCheckbox ? "text-bluesecondary" : "text-grey"}`}>Do you have any suggestion to make this project/case run successfully?</p></Checkbox>
-                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetCheckedCheckbox(!checkedCheckbox)}} ><p className={` ${checkedCheckbox ? "text-bluesecondary" : "text-grey"}`}>What challenging part of this job are you most experienced in?</p></Checkbox>                                
-                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetCheckedCheckbox(!checkedCheckbox)}} ><p className={` ${checkedCheckbox ? "text-bluesecondary" : "text-grey"}`}>Indicate 3 similar cases or projects that you have had like this one. What is your availability to work on my case? How long does it take you to respond to communications? Are there times when you do not respond to communication?</p></Checkbox>
+                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetIsChecked(!isChecked)}} ><p className={` ${isChecked ? "text-bluesecondary" : "text-grey"}`}>Do you have any questions about the job description?</p></Checkbox>
+                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetIsChecked(!isChecked)}} ><p className={` ${isChecked ? "text-bluesecondary" : "text-grey"}`}>Do you have any suggestion to make this project/case run successfully?</p></Checkbox>
+                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetIsChecked(!isChecked)}} ><p className={` ${isChecked ? "text-bluesecondary" : "text-grey"}`}>What challenging part of this job are you most experienced in?</p></Checkbox>                                
+                                <Checkbox  className="mb-3 flex items-start" radius="none" onClick={()=>{SetIsChecked(!isChecked)}} ><p className={` ${isChecked ? "text-bluesecondary" : "text-grey"}`}>Indicate 3 similar cases or projects that you have had like this one. What is your availability to work on my case? How long does it take you to respond to communications? Are there times when you do not respond to communication?</p></Checkbox>
                             </div>
                         </div>
                         <div className=" flex items-center ">
@@ -465,7 +465,7 @@ const Create=()=>{
                         
                     </div>
                     <div className="pt-7 pb-2 px-7">
-                        <Checkbox  className=" pt-[30px] mb-3" radius="none" ><p className={`${checkedCheckbox ? "text-bluesecondary" : "text-grey"}`}>Require a Cover letter</p></Checkbox>
+                        <Checkbox  className=" pt-8 mb-3" radius="none" ><p className={`${isChecked ? "text-bluesecondary" : "text-grey"}`}>Require a Cover letter</p></Checkbox>
                     </div>
                     <div className="w-full px-8 py-5 flex justify-end gap-5 ">
                         <div className=" svgArrowLeft flex items-center gap-1">
