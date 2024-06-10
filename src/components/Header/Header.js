@@ -1,49 +1,44 @@
 // components/Header.js
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from "next/image";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-
+import DropdowniconSvg from "@/components/Icons/dropdowniconSvg";
+import SearchiconheaderSvg from "@/components/Icons/searchiconheaderSvg";
+import ToggleiconheaderSvg from "@/components/Icons/toggleiconheaderSvg";
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
-    // const [isDesktop, setIsDesktop] = useState(false);
 
-    // useEffect(() => {
-    //     const handleResize = () => {
-    //       setIsDesktop(window.innerWidth > 1200);
-    //     };
-    
-    //     handleResize(); // Set initial value
-    //     window.addEventListener('resize', handleResize);
-    
-    //     return () => {
-    //       window.removeEventListener('resize', handleResize);
-    //     };
-    //   }, []);
-    
-      const toggleMenu = () => {
+    const toggleMenu = () => {
         setIsOpen(!isOpen);
-      };
-    
-    //   const toggleSubMenu = () => {
-    //     if (!isDesktop) {
-    //       setIsSubMenuOpen(!isSubMenuOpen);
-    //     }
-    //   };
-    
-    //   const closeSubMenu = () => {
-    //     if (isDesktop) {
-    //       setIsSubMenuOpen(false);
-    //     }
-    //   };
-    
+    };
+
+    const navItems = [
+        { title: 'Jobs', links: ['Job Posts', 'Contracts', 'Posts A Job'] },
+        { title: 'Talent', links: ['Hires', 'Recently Viewed', 'Saved Talent'] },
+        { title: 'Reports', links: ['Reports', 'Recently Viewed', 'Saved Talent'] },
+    ];
+
+    const subNavItems = [
+        { title: 'Find An Attorney', href: '/find-attorney-legal-support' },
+        { title: 'Substitute Attorney', href: '/substitute-attorneys' },
+        { title: 'Legal Jobs', href: '/jobs' },
+        { title: 'Substitute Attorney Jobs', href: '/substitute-attorneys-jobs' },
+        { title: 'Legal Docs', href: '/motions' },
+        { title: 'Transcripts', href: '/transcripts' },
+        { title: 'Questions Forum', href: '/forum' },
+        { title: 'Paralegal/Support', href: '/paralegal-support' },
+        { title: 'Experts', href: '/experts' },
+        { title: 'Process Servers', href: '/process-servers' },
+        { title: 'Court Reporters', href: '/court-reporters' },
+        { title: 'Investigators', href: '/investigator' },
+    ];
 
     return (
-       <>
-            <div className='flex justify-between px-4 py-5 bg-white gap-x-2 sm:gap-x-5 border-b-[0.1px] border-lightgrey sticky top-0'>
+        <>
+            <div className='flex justify-between px-4 py-5 bg-white gap-x-2 sm:gap-x-5 border-b-[0.1px] border-lightgrey sticky top-0 z-[99999]'>
                 <div className='flex items-center max-w-72 min-w-40'>
                     <Link href="/">
                         <Image
@@ -56,155 +51,82 @@ const Header = () => {
                         />
                     </Link>
                 </div>
-                <nav className={`w-full navbar ${isOpen ? 'open' : 'closed'}`} >
-                 <div  className='flex justify-between  gap-x-5 grow'>
-                      <ul className='flex items-center gap-x-5'>
-                       <Dropdown><DropdownTrigger><Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary ' > Jobs 
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.73666 0.419155L3.99999 2.68249L6.26333 0.419155C6.31733 0.365149 6.38145 0.322309 6.45201 0.293082C6.52257 0.263854 6.5982 0.24881 6.67457 0.24881C6.75095 0.24881 6.82658 0.263854 6.89714 0.293082C6.9677 0.322309 7.03182 0.365149 7.08583 0.419155C7.13983 0.473161 7.18267 0.537276 7.2119 0.607838C7.24113 0.678401 7.25617 0.754029 7.25617 0.830405C7.25617 0.906782 7.24113 0.98241 7.2119 1.05297C7.18267 1.12353 7.13983 1.18765 7.08583 1.24166L4.40832 3.91916C4.35436 3.97323 4.29026 4.01614 4.21969 4.04541C4.14912 4.07468 4.07347 4.08975 3.99707 4.08975C3.92068 4.08975 3.84503 4.07468 3.77446 4.04541C3.70389 4.01614 3.63979 3.97323 3.58582 3.91916L0.908324 1.24166C0.854247 1.18769 0.811344 1.12359 0.782072 1.05302C0.752799 0.982452 0.737732 0.906804 0.737732 0.830405C0.737732 0.754007 0.752799 0.678359 0.782072 0.607791C0.811344 0.537223 0.854247 0.473122 0.908324 0.419155C1.13582 0.197489 1.50916 0.191655 1.73666 0.419155Z" fill="currentColor"></path></svg>
-                               </Button></DropdownTrigger>
-                                <DropdownMenu  className='w-52 shadow-lg roounded-md bg-white'>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Job Posts</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Contracts</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Posts A Job</Link></DropdownItem>
-                                   
-                        </DropdownMenu>
-                         </Dropdown>
-                         <Dropdown>
-                                <DropdownTrigger><Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary'> Talent
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.73666 0.419155L3.99999 2.68249L6.26333 0.419155C6.31733 0.365149 6.38145 0.322309 6.45201 0.293082C6.52257 0.263854 6.5982 0.24881 6.67457 0.24881C6.75095 0.24881 6.82658 0.263854 6.89714 0.293082C6.9677 0.322309 7.03182 0.365149 7.08583 0.419155C7.13983 0.473161 7.18267 0.537276 7.2119 0.607838C7.24113 0.678401 7.25617 0.754029 7.25617 0.830405C7.25617 0.906782 7.24113 0.98241 7.2119 1.05297C7.18267 1.12353 7.13983 1.18765 7.08583 1.24166L4.40832 3.91916C4.35436 3.97323 4.29026 4.01614 4.21969 4.04541C4.14912 4.07468 4.07347 4.08975 3.99707 4.08975C3.92068 4.08975 3.84503 4.07468 3.77446 4.04541C3.70389 4.01614 3.63979 3.97323 3.58582 3.91916L0.908324 1.24166C0.854247 1.18769 0.811344 1.12359 0.782072 1.05302C0.752799 0.982452 0.737732 0.906804 0.737732 0.830405C0.737732 0.754007 0.752799 0.678359 0.782072 0.607791C0.811344 0.537223 0.854247 0.473122 0.908324 0.419155C1.13582 0.197489 1.50916 0.191655 1.73666 0.419155Z" fill="currentColor"></path></svg></Button></DropdownTrigger>
-                                <DropdownMenu className='w-52 shadow-lg roounded-md bg-white'>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Hires</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Recently Viewed</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Saved Talent</Link></DropdownItem>
-                                </DropdownMenu>
-                         </Dropdown>
-                         <Dropdown>
-                                <DropdownTrigger><Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary'> Reports
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.73666 0.419155L3.99999 2.68249L6.26333 0.419155C6.31733 0.365149 6.38145 0.322309 6.45201 0.293082C6.52257 0.263854 6.5982 0.24881 6.67457 0.24881C6.75095 0.24881 6.82658 0.263854 6.89714 0.293082C6.9677 0.322309 7.03182 0.365149 7.08583 0.419155C7.13983 0.473161 7.18267 0.537276 7.2119 0.607838C7.24113 0.678401 7.25617 0.754029 7.25617 0.830405C7.25617 0.906782 7.24113 0.98241 7.2119 1.05297C7.18267 1.12353 7.13983 1.18765 7.08583 1.24166L4.40832 3.91916C4.35436 3.97323 4.29026 4.01614 4.21969 4.04541C4.14912 4.07468 4.07347 4.08975 3.99707 4.08975C3.92068 4.08975 3.84503 4.07468 3.77446 4.04541C3.70389 4.01614 3.63979 3.97323 3.58582 3.91916L0.908324 1.24166C0.854247 1.18769 0.811344 1.12359 0.782072 1.05302C0.752799 0.982452 0.737732 0.906804 0.737732 0.830405C0.737732 0.754007 0.752799 0.678359 0.782072 0.607791C0.811344 0.537223 0.854247 0.473122 0.908324 0.419155C1.13582 0.197489 1.50916 0.191655 1.73666 0.419155Z" fill="currentColor"></path></svg></Button></DropdownTrigger>
-                                <DropdownMenu className='w-52 shadow-lg roounded-md bg-white'>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Reports</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Recently Viewed</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Saved Talent</Link></DropdownItem>
-                                </DropdownMenu>
-                         </Dropdown>
-                      </ul>
-                      <ul className='flex items-center grow justify-end gap-x-5'>
-                       <div className='border-2 border-orangesecondary max-w-xs w-full h-11 rounded-full flex items-center '>
-                            <input type='text' placeholder="Find Work" className='rounded-full px-4 text-sm text-blackcolor focus:outline-0 grow'/>
-                            <Dropdown >
-                                <DropdownTrigger>
-                                <Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 hover:text-orangeprimary w-20 h-11 shadow-btnshadow rounded-full hover:outline-0 outline-0'> 
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="#000" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.4023 16.3898L13.2609 12.2484C14.2875 10.9969 14.9062 9.39375 14.9062 7.64648C14.9062 3.63867 11.6543 0.386719 7.64648 0.386719C3.63516 0.386719 0.386719 3.63867 0.386719 7.64648C0.386719 11.6543 3.63516 14.9062 7.64648 14.9062C9.39375 14.9062 10.9934 14.291 12.2449 13.2645L16.3863 17.4023C16.6676 17.6836 17.1211 17.6836 17.4023 17.4023C17.6836 17.1246 17.6836 16.6676 17.4023 16.3898ZM7.64648 13.4613C4.43672 13.4613 1.82812 10.8527 1.82812 7.64648C1.82812 4.44023 4.43672 1.82812 7.64648 1.82812C10.8527 1.82812 13.4648 4.44023 13.4648 7.64648C13.4648 10.8527 10.8527 13.4613 7.64648 13.4613Z" fill="currentColor"></path>
-                                </svg>
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="#000" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.73666 0.419155L3.99999 2.68249L6.26333 0.419155C6.31733 0.365149 6.38145 0.322309 6.45201 0.293082C6.52257 0.263854 6.5982 0.24881 6.67457 0.24881C6.75095 0.24881 6.82658 0.263854 6.89714 0.293082C6.9677 0.322309 7.03182 0.365149 7.08583 0.419155C7.13983 0.473161 7.18267 0.537276 7.2119 0.607838C7.24113 0.678401 7.25617 0.754029 7.25617 0.830405C7.25617 0.906782 7.24113 0.98241 7.2119 1.05297C7.18267 1.12353 7.13983 1.18765 7.08583 1.24166L4.40832 3.91916C4.35436 3.97323 4.29026 4.01614 4.21969 4.04541C4.14912 4.07468 4.07347 4.08975 3.99707 4.08975C3.92068 4.08975 3.84503 4.07468 3.77446 4.04541C3.70389 4.01614 3.63979 3.97323 3.58582 3.91916L0.908324 1.24166C0.854247 1.18769 0.811344 1.12359 0.782072 1.05302C0.752799 0.982452 0.737732 0.906804 0.737732 0.830405C0.737732 0.754007 0.752799 0.678359 0.782072 0.607791C0.811344 0.537223 0.854247 0.473122 0.908324 0.419155C1.13582 0.197489 1.50916 0.191655 1.73666 0.419155Z" fill="currentColor"></path></svg></Button></DropdownTrigger>
-                                <DropdownMenu className='w-52 shadow-lg roounded-md bg-white'>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support">Find Work</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Find Attorney</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Substitute Attorneys</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Substitute Attorneys Jobs</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Legal Docs</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Transcript</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Questions Forum</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Paralegal</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Experts</Link></DropdownItem>
-                                </DropdownMenu>
-                         </Dropdown>
-                       </div>
-                       <ul className='flex items-center gap-x-5 '> 
-                       <li>  <Link href="/about" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
+                <nav className={`w-full navbar ${isOpen ? 'open' : 'closed'}`}>
+                    <div className='jobs_header_section flex justify-between gap-x-5 grow'>
+                        <ul className='flex items-center gap-x-5 jobs_header_section'>
+                            {navItems.map((item, index) => (
+                                <Dropdown key={index}>
+                                    <DropdownTrigger>
+                                        <Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary'>
+                                            {item.title}
+                                            <DropdowniconSvg cuClass width={`8px`} height={`8px`} fill={`black`} />
+                                        </Button>
+                                    </DropdownTrigger>
+                                    <DropdownMenu className='w-52 shadow-lg rounded-md bg-white'>
+                                        {item.links.map((link, linkIndex) => (
+                                            <DropdownItem key={linkIndex} className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'>
+                                                <Link className='text-blackcolor font-normal text-base' href={`/${link.toLowerCase().replace(/ /g, '-')}`}>
+                                                    {link}
+                                                </Link>
+                                            </DropdownItem>
+                                        ))}
+                                    </DropdownMenu>
+                                </Dropdown>
+                            ))}
+                        </ul>
+                        <ul className='flex items-center grow justify-end gap-x-5 jobs_header_section'>
+                            <div className='border-2 border-orangesecondary max-w-xs w-full h-11 rounded-full flex items-center'>
+                                <input type='text' placeholder="Find Work" className='rounded-full px-4 text-sm text-blackcolor focus:outline-0 grow' />
+                                <Dropdown>
+                                    <DropdownTrigger>
+                                        <Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 hover:text-orangeprimary w-20 h-11 shadow-btnshadow rounded-full hover:outline-0 outline-0'>
+                                        <SearchiconheaderSvg cuClass width={`18px`} height={`18px`} fill={`black`} />
+                                        </Button>
+                                    </DropdownTrigger>
+                                    <DropdownMenu className='w-52 shadow-lg rounded-md bg-white'>
+                                        {subNavItems.map((subNavItem, subNavIndex) => (
+                                            <DropdownItem key={subNavIndex} className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'>
+                                                <Link className='text-blackcolor font-normal text-base' href={subNavItem.href}>
+                                                    {subNavItem.title}
+                                                </Link>
+                                            </DropdownItem>
+                                        ))}
+                                    </DropdownMenu>
+                                </Dropdown>
+                            </div>
+                            <ul className='how_it_work_section flex items-center gap-x-5'> 
+                       <li>  <Link href="/how-it-works" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                How It Works
                             </Link></li>
                      
-                        <li> <Link href="/about" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
+                        <li> <Link href="/support" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                Support
                             </Link></li>
-                        <li><Link href="/about" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
+                        <li><Link href="/login" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                               Login
                             </Link></li>
+                            <li> <button className='text-white font-normal text-sm sm:text-base rounded-full bg-orangeprimary px-3 sm:px-4 h-9 sm:h-10 cursor hover:bg-blueprimary grow whitespace-nowrap'>Sign up</button></li>
                        </ul>
                       
-                      </ul>
+                        </ul>
                     </div>
-                    
                 </nav>
-                <button className='text-white font-normal text-sm sm:text-base rounded-full bg-orangeprimary px-3 sm:px-4 h-9 sm:h-10 cursor hover:bg-blueprimary grow whitespace-nowrap'>Sign up</button>
-                {/* Toggle button */}
-                <div className={`toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div className='xl:hidden flex items-center'>
+                    <button className='mobile-menu-button' onClick={toggleMenu}>
+                        <ToggleiconheaderSvg className= "text-blackcolor" width={`24px`} height={`24px`} fill={`black`}/>
+                    </button>
                 </div>
             </div>
-           <ul className='flex items-center gap-3 sm:gap-x-7  px-4 py-5 flex-wrap'> 
-                       <li>  <Link href="/find-attorney-legal-support" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                         Find An Attorney
-                            </Link></li>
-                     
-                        <li> <Link href="/substitute-attorneys" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                        Substitute Attorney
-                            </Link></li>
-                        <li><Link href="/jobs" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                        Legal Jobs
-                            </Link></li>
-                        <li><Link href="/substitute-attorneys-jobs" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                        Substitute Attorney Jobs
-                            </Link></li>
-                        <li><Link href="/motions" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                        Legal Docs
-                            </Link></li>
-                        <li><Link href="/transcripts" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                            Transcripts
-                            </Link></li>
-                        <li><Link href="/forum" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                            Questions Forum
-                            </Link></li>
-                        <li><Link href="/paralegal-support" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                            Paralegal/Support
-                            </Link></li>
-                        <li><Link href="/experts" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                        Experts
-                            </Link></li>
-                        <li><Link href="/process-servers" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                        Process Servers
-                            </Link></li>
-                            <li><Link href="/court-reporters" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                            Court Reporters
-                            </Link></li>
-                            <li><Link href="/investigator" className='font-medium text-base text-grey hover:text-orangeprimary'>
-                                Investigators
-                            </Link></li>
-                      
-            </ul>
-            <div className='border-2 border-orangesecondary w-1/3 min-h-14  h-11 rounded-full flex items-center '>
-                            <input type='text' placeholder="Find Work" className='rounded-full px-4 text-sm text-blackcolor focus:outline-0 grow'/>
-                            <Dropdown >
-                                <DropdownTrigger>
-                                <Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 hover:text-orangeprimary w-20 h-11 shadow-btnshadow rounded-full hover:outline-0 outline-0'> 
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="#000" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M17.4023 16.3898L13.2609 12.2484C14.2875 10.9969 14.9062 9.39375 14.9062 7.64648C14.9062 3.63867 11.6543 0.386719 7.64648 0.386719C3.63516 0.386719 0.386719 3.63867 0.386719 7.64648C0.386719 11.6543 3.63516 14.9062 7.64648 14.9062C9.39375 14.9062 10.9934 14.291 12.2449 13.2645L16.3863 17.4023C16.6676 17.6836 17.1211 17.6836 17.4023 17.4023C17.6836 17.1246 17.6836 16.6676 17.4023 16.3898ZM7.64648 13.4613C4.43672 13.4613 1.82812 10.8527 1.82812 7.64648C1.82812 4.44023 4.43672 1.82812 7.64648 1.82812C10.8527 1.82812 13.4648 4.44023 13.4648 7.64648C13.4648 10.8527 10.8527 13.4613 7.64648 13.4613Z" fill="currentColor"></path>
-                                </svg>
-                                <svg width="8" height="5" viewBox="0 0 8 5" fill="#000" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.73666 0.419155L3.99999 2.68249L6.26333 0.419155C6.31733 0.365149 6.38145 0.322309 6.45201 0.293082C6.52257 0.263854 6.5982 0.24881 6.67457 0.24881C6.75095 0.24881 6.82658 0.263854 6.89714 0.293082C6.9677 0.322309 7.03182 0.365149 7.08583 0.419155C7.13983 0.473161 7.18267 0.537276 7.2119 0.607838C7.24113 0.678401 7.25617 0.754029 7.25617 0.830405C7.25617 0.906782 7.24113 0.98241 7.2119 1.05297C7.18267 1.12353 7.13983 1.18765 7.08583 1.24166L4.40832 3.91916C4.35436 3.97323 4.29026 4.01614 4.21969 4.04541C4.14912 4.07468 4.07347 4.08975 3.99707 4.08975C3.92068 4.08975 3.84503 4.07468 3.77446 4.04541C3.70389 4.01614 3.63979 3.97323 3.58582 3.91916L0.908324 1.24166C0.854247 1.18769 0.811344 1.12359 0.782072 1.05302C0.752799 0.982452 0.737732 0.906804 0.737732 0.830405C0.737732 0.754007 0.752799 0.678359 0.782072 0.607791C0.811344 0.537223 0.854247 0.473122 0.908324 0.419155C1.13582 0.197489 1.50916 0.191655 1.73666 0.419155Z" fill="currentColor"></path></svg></Button></DropdownTrigger>
-                                <DropdownMenu className='w-52 shadow-lg roounded-md bg-white'>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support">Find Work</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3 '><Link className='text-blackcolor font-normal text-base' href="/support"> Find Attorney</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Substitute Attorneys</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Substitute Attorneys Jobs</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Legal Docs</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Transcript</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Questions Forum</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Paralegal</Link></DropdownItem>
-                                    <DropdownItem className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'><Link className='text-blackcolor font-normal text-base' href="/support"> Find Experts</Link></DropdownItem>
-                                </DropdownMenu>
-                         </Dropdown>
-                       </div>
-          
-       </>
+            <div className='bg-lightblue px-8 py-2 lg:flex items-center justify-center flex-wrap'>
+                <div className='flex gap-4 items-cente main_navbar_section_sub xlg:gap-8'>
+                    {subNavItems.map((item, index) => (
+                        <Link key={index} href={item.href} className='hover:text-orangeprimary text-md'>
+                            {item.title}
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </>
     );
 };
 

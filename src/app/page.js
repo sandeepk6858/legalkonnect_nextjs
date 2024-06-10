@@ -96,7 +96,7 @@ const Home = () => {
               <div className="border-2 box_item border-gray-200 px-0 py-0 rounded-lg grid justify-items-center relative">
                 <Link href="/paralegal-support" className="text-[16px] capitalize text-[#fff] flex-col flex justify-center gap-2 link_tooltip">
                 <img className="h-[52px]" src={imageURL("Icons.png")} />
-                  Paralegal/Support
+                  Paralegal/ Support
                     <div className="tooltip_dropdown_new">Here, you can search for paralegals and other legal support service providers.</div>
                   </Link>
               </div>

@@ -7,6 +7,47 @@
 body {
   font-family: "Proxima Nova", sans-serif !important;
 }
+[type="checkbox"]:focus-visible, [type="radio"]:focus-visible {
+  outline: 0;
+  height: 20px !important;
+  width: 20px !important;
+}
+
+/* .pro_input >div >div >div >div {
+  background: red;
+  height: 45px;
+} */
+.makedatepicker > div {
+  height: 36px !important;
+  background: none !important;
+  border: 1px solid #d1d5db !important;
+}
+.countrydrop_form {
+  background: none !important;
+}
+.w_wid {
+  width: 23% !important;
+}
+
+.relative.w-full.inline-flex.tap-highlight-transparent.flex-row.items-center.shadow-sm.px-3.gap-3.bg-default-100.data-\[hover\=true\]\:bg-default-200.group-data-\[focus\=true\]\:bg-default-100.h-10.min-h-10.rounded-medium.\!h-auto.transition-background.motion-reduce\:transition-none.\!duration-150.outline-none.group-data-\[focus-visible\=true\]\:z-10.group-data-\[focus-visible\=true\]\:ring-2.group-data-\[focus-visible\=true\]\:ring-focus.group-data-\[focus-visible\=true\]\:ring-offset-2.group-data-\[focus-visible\=true\]\:ring-offset-background.py-2 {
+    background: none;
+}
+.makedatepicker > div span {
+  display: none !important;
+}
+.sort_drop_pro {
+  width: 220px;
+  border-radius: unset;
+}
+.pro_svgcall {
+  background: #14ce80;
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 50px;
+  margin-top: -32px;
+}
 .m-wid {
   width: 49%;
   height: 100%;
@@ -167,7 +208,25 @@ body {
 }
 
 
+.shadow-small{
+  margin: auto !important;
+  display: block !important;
+  color: #000 !important;
+  background-color: #F9F9F9 !important;
+  border-radius: 22px !important;
+  text-align: center !important;
+  font-size: 14px !important;
+  padding: 10px 15px !important;
+}
 
+.transition-background{
+  background-color: white !important;
+}
+
+.group[data-filled-within=true] .group-data-\[filled-within\=true\]\:text-foreground {
+  font-size: 16px !important;
+  padding-bottom: 8px !important;
+}
 
 
 /* HEADER CSS */
@@ -177,15 +236,46 @@ body {
 .navbar {
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
-  justify-content: space-between;
+  justify-content: space-between; 
   align-items: center;
 }
+.tabCustom>span {
+  border-bottom: 2px solid #063d8f;
+  background: transparent !important;
+  border-radius: 0px !important;
+  box-shadow: none;
+  bottom: -2px;
+}
+.tabCustom>span+div {
+  color: #063d8f !important;
+}
+.input-wrapper label {
+  font-size: 16px;
+   top: 12px;
+ }
+ .input-wrapper input::placeholder {
+  font-size: 16px;
+  
+ }
+ .input-wrapper>div>div>div {
+  background: #ffffff;
+  height: 50px;
+  border-radius: 0px;
+  border: 1px solid #000;
+  width: 100%;
+  border: 1px solid #9b9898;
+  border-radius: 3px;
+  padding: 14px 15px;
+  color: #4d4c4c;
+  font-size: 16px;
+ }
+ .paymentatabs>div {
+  background: transparent;
+}
+
+
 
 @media (min-width: 1200px) {
-  .navbar {
-    max-height: 100px;
-  }
-
   .toggle {
     display: none;
   }
@@ -195,8 +285,38 @@ body {
     width: 100%;
     height: auto;
 }
+.navbar.closed {
+  max-height: 0;
+}
 .pdd-b {
   padding-bottom: 0px !important;
+}
+.navbar {
+  position: fixed;
+  background-color: #ffff;
+  top: 50px;
+  left: 0;
+  right: 0;
+}
+.jobs_header_section {
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  margin-top:15px;
+}
+.jobs_header_section button {
+  margin: 5px 0 5px 0;
+}
+.jobs_header_section input {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.main_navbar_section_sub {
+  flex-wrap: wrap;
+}
+ul.how_it_work_section {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 }
 @media (max-width: 1200px) {
@@ -205,11 +325,7 @@ body {
     cursor: pointer;
   }
   .navbar.open {
-    max-height: 100px;
-  }
-
-  .navbar.closed {
-    max-height: 0;
+    max-height: auto;
   }
   .box_item {
     /* padding: 35px 10px; */
@@ -218,6 +334,20 @@ body {
 }
 
 @media (max-width: 1024px) {
+  .apppad {
+    margin: 10px 0px;
+  }
+
+  .sort_drop_pro {
+    width: 90px;
+    border-radius: unset;
+}
+  /* .wid100 {
+    width: 100%;
+  }
+  .sort_select_wrpr {
+    justify-content: start;
+  } */
   .tabs_div {
     margin-bottom: 30px;
     padding-bottom: 20px;
@@ -229,17 +359,130 @@ body {
     width: 100%;
     gap: 10px;
   }
+  .tabbalance >div {
+    width: 100%;
+    padding: 2px 15px;
+}
+  .footer_left_main {
+    flex-wrap: wrap;
+}
+  .w_wid {
+    width: 31% !important;
+  }
+}
+@media (max-width: 991px) {
+ 
+  .padt0 {
+    padding-top: 20px;
+  }
+  .padr0 {
+    padding-right: 0px;
+  }
+  
+  .mediawrap {
+    display: flex;
+    flex-direction: column;
+  }
+  .mediacol {
+    width: 100% !important;
+    border: none;
+  }
+}
+@media (max-width: 768px) {
+  
+  .btnvid {
+    gap: 20px;
+  }
+  .call_btn {
+    margin-top: -17px;
+  }
+  .m0px {
+    margin: 0px;
+  }
+  .mb10 {
+    margin-bottom: 10px;
+  }
+  .mb20 {
+    margin-top: 20px;
+  }
+  .wid100 {
+    width: 100%;
+  }
+  .w_wid {
+    width: 48% !important;
+  }
+}
+@media (max-width: 704px) {
+  .call_btn {
+    margin-top: 32px;
+  }
 }
 @media (max-width: 665px) {
-.mpad {
-  padding-left: 5px;
-  padding-right: 5px;
-}
+  .mpad {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .footer_right_main {
+    margin-top: 30px;
+  }
 }
 @media (max-width: 420px) { 
+  .footer_nav_right {
+    flex-direction: column;
+  }
+}
+@media (max-width: 580px) {
+  .w_wid {
+    width: 100% !important;
+  }
+  .procal {
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+  }
+}
+@media (max-width: 480px) {
+  .sort_drop_pro {
+    width: 200px;
+  }
+  .wid480 {
+    width: 100%;
+    margin: 10px 0px;
+  }
+  .sort_select_wrpr  {
+    justify-content: center;
+  }
+  .wid480 h3 {
+    text-align: center;
+  }
+  .widwrap {
+    flex-direction: column;
+  }
+  .call_btn {
+    margin: auto;
+    padding-top: 40px;
+  }
+    
+}
+@media (max-width: 420px) {
+ 
+  .btn420 {
+    width: 100%;
+  }
   .button_tabs_right button {
     font-size: 13px;
     padding: 15px 10px;
+  }
+  .box_item {
+    /* padding: 35px 10px; */
+    height: 150px;
+  }
+  .box_item a {
+    font-size: 12px;
+  }
+  .tooltip_dropdown_new {
+    top: 0px;
+    font-size: 12px;
   }
 }
 
