@@ -10,7 +10,7 @@ import BacthSvg from "@/components/batchSvg";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider , fillheart } from "@nextui-org/react";
 
-const SupportCard = ({fillheart}) => {
+const SupportCard = ({fillheart, showDivCount }) => {
 
     const [socialPopupT, setSocialPopupT] = useState(false);
 
@@ -81,7 +81,7 @@ const SupportCard = ({fillheart}) => {
                 <div className="flex justify-between py-2 cursor-pointer w-full">
                     <div className="flex">
                         <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
-                        <span className="text-sm font-bold pl-1">0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
+                        <span className="text-sm font-bold pl-1"  style={{ display: showDivCount ? 'block' : 'none' }}>0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
                     </div>
                     <div className="flex gap-1 items-center">
                         <SocialPopup socialPopupT={socialPopupT} />

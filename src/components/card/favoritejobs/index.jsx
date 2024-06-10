@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import { Avatar, LinkIcon } from "@nextui-org/react";
+import { Avatar, Button, LinkIcon } from "@nextui-org/react";
 import Link from "next/link";
 import HeartSvg from "@/components/Icons/heartSvg";
 import GravelSvg from "@/components/Icons/gravelSvg";
@@ -12,7 +12,7 @@ import CourtSvg from "@/components/courtaddress";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 
-const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
+const FavoriteJobsCard = ({ showDiv, showDivCount, showCount }) => {
     const [socialPopupT, setSocialPopupT] = useState(false);
 
     const SocialPopupToggle = () => {
@@ -35,6 +35,13 @@ const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
                     <Link href="#">
                         <span className=" text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl  px-5 py-1 inline-block h-max">Bankruptcy</span>
                     </Link>
+                    
+                    <Button className="text-lg font-semibold text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-sm h-7"> 2 more</Button>
+
+                    {/* <Button className="text-lg font-semibold text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-sm h-7"> hide tags</Button> */}
+                    
+
+
 
                 </div>
                 <div className="absolute w-full h-12 p-5 pb-10 bottom-0 left-0 flex gap-2 z-10 items-center bg-gradient-to-b from-transparent to-gray-900/50">
@@ -45,21 +52,21 @@ const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
             </CardHeader>
             <CardBody className="p-0">
                 <Link href="#">
-                    <p className="text-base font-bold py-4 px-5">Job Heading</p>
+                    <p className="line-clamp-1 overflow-hidden text-lg font-semibold my-4 px-6">Job Heading</p>
                 </Link>
                 <div className="pb-5 px-5 flex justify-between">
                     <p className="text-base">Posted 2 years ago</p>
                     <div className="flex gap-1 cursor-pointer relative z-50">
                         <SocialPopup socialPopupT={socialPopupT} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }}/>
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />
                 <div className="py-2 px-5 flex flex-wrap" style={{ display: showDiv ? 'block' : 'none' }}>
                     <Link href="#">
                         <CourtSvg width={`18px`} height={`18px`} />
-                        <p className="py-1 font-semibold">Court Address: 300 E 26th St # 116A, Bryan, TX 77803, United States</p>
+                        <p className="py-1 font-medium text-base">Court Address: 300 E 26th St # 116A, Bryan, TX 77803, United States</p>
                     </Link>
 
                 </div>
@@ -73,7 +80,8 @@ const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
 
                 </div>
                 <Divider className="bg-lightgrey" />
-                <p className="p-5 text-base line-clamp-2"> This is job description</p>
+                <p className="my-4 px-5 text-base line-clamp-2"> This is job description</p>
+                <Divider className="bg-lightgrey" />
 
             </CardBody>
 
