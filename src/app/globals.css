@@ -272,7 +272,13 @@ body {
  .paymentatabs>div {
   background: transparent;
 }
-
+body .dropdownlist li {
+  padding: 0px !important;
+  }
+  body .dropdownlist li a {
+    padding:  10px !important;
+    display: block;
+    }
 
 
 @media (min-width: 1200px) {

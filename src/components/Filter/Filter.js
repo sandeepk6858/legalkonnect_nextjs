@@ -4,6 +4,7 @@ import { Input, Button, Checkbox, CheckboxGroup, Select, SelectItem } from "@nex
 import StarSvg from "../Icons/starSvg";
 import SearchSvg from "../Icons/searchSvg";
 import FillterSvg from "../Icons/filterSvg";
+import Link from "next/link";
 
 
 export const animals = [
@@ -64,9 +65,9 @@ const Filter = () => {
                 </Button>
               </div>
               <div className="">
-                <Button className="bg-orangeprimary text-white text-lg rounded-[22px] px-6 py-[10px]">
+                <Link href="/jobs/create" className="bg-orangeprimary text-white text-lg rounded-[22px] px-6 py-[10px]">
                   Post a Job
-                </Button>
+                </Link>
               </div>
               <span>Sort By</span>
               <Select
