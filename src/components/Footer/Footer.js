@@ -71,9 +71,18 @@ export default function Footer() {
 
                                             <ul class="ft-menu-item mb-[20px] md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">
                         <li class="ft-menu-title font-semibold mb-[10px]">Discover</li>
+                                                    <li>
+                                <a href="#">Browse lawyer</a>
+                            </li>
+                            <li>
+                                <a href="#">Find work</a>
+                            </li>
                                                 <li>
                             <a href="/how-it-works">How it works</a>
                         </li>
+                                                    <li>
+                                <a href="#">Post a project</a>
+                            </li>
                                             </ul>
 
                                             <ul class="ft-menu-item md:mt-[30px] md:w-full sm:mt-[30px] sm:w-full">

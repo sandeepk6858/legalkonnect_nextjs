@@ -14,6 +14,8 @@ import ArrowSvg from "@/components/Icons/arrowSvg";
 import ShareSvg from "@/components/Icons/shareSvg";
 import SocialPopup from "@/components/socialPopup";
 import FlagSvg from "@/components/Icons/flagSvg";
+import Attachment from "@/components/Icons/attachment";
+import StarSvg from "@/components/Icons/starSvg";
 const Jobslug = () => {
     const [socialPopupT, setSocialPopupT] = useState(false);
     const SocialPopupToggle = () => {
@@ -22,9 +24,9 @@ const Jobslug = () => {
     return (
         <div>
         <JobSlider/>
-        <div className=" mt-12 pt-10 border-t border-lightergray">
-            <div className="w-full px-4 box-border z-10 flex justify-between gap-5 max-w-[1250px] mx-auto">
-                <div className="max-w-[333px] shadow-[-1px_2px_8px_0px_#D7D7D7] w-full rounded-[3px]">
+        <div className=" mt-12 pt-10 border-t border-lightergray pb-10 ">
+            <div className="w-full px-4 box-border z-10 flex justify-between gap-5 max-w-[1250px] mx-auto flex-col lg:flex-row">
+                <div className=" w-full lg:max-w-[333px] shadow-[-1px_2px_8px_0px_#D7D7D7] w-full rounded-[3px] h-fit">
                     <div className="p-4">
                         <p className="text-base text-blackcolor">Heading Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it </p>
                     </div>
@@ -100,51 +102,199 @@ const Jobslug = () => {
                     </div>
                 </div>
                 <div className="shadow-[-1px_2px_8px_0px_#D7D7D7] rounded-[3px] w-full">
-                    <div className="py-3 px-5 flex flex-wrap gap-10">
+                    <div className="py-3 px-4 lg:px-5 flex flex-wrap gap-3 lg:gap-10">
                         <div className="flex">
                             <Button color="bg-orangeprimary" className="flex gap-2 items-center text-base border rounded-full py-5 px-3  text-white bg-orangeprimary hover:bg-hovergray " >
                             <ArrowSvg width={`20px`} height={`20px`} /> 
                             Back to Search </Button>
                         </div>
                         <div className="flex gap-3 items-center ">
+                           <div className="absolute cursor-pointer">
                            <SocialPopup socialPopupT={socialPopupT} /> 
-                            <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} /> 
-                            <Button color="bg-orangeprimary" className=" text-base border rounded-full py-5 text-white bg-orangeprimary hover:bg-hovergray " >
+                           <ShareSvg  width={`20px`} height={`20px`} fill={`fill-grey`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} /> 
+                           </div>
+                            <Button color="bg-orangeprimary" className=" text-base border rounded-full py-5 text-white bg-orangeprimary hover:bg-hovergray ml-10" >
                             <FlagSvg width={`18px`} height={`18px`} className="fill-white" /> 
                             Flag </Button>
                         </div>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="py-5 px-8">
-                        <p className=" text-bluesecondary font-semibold">General information</p>
-                        <p className="text-gray">test by sbtest1</p>
-                        <p className="pt-2 text-bluesecondary font-semibold">Preferred qualifications</p>
-                        <div className="flex justify-between py-2 gap-5">
-                            <span className="flex px-1 w-56 h-10 font-light rounded-sm items-center border-0 bg-lightgrey p-1 ">
-                                <b className="px-1 font-medium">Talent Type: </b>Attorney
-                            </span>
-                            <span className="flex px-1 w-56 h-10  rounded-sm items-center border-0 bg-lightgrey p-1">
-                                <b className="px-1 font-medium">Location: </b>
-                            </span>
-                            <span className="flex px-1 w-56 h-10  rounded-sm items-center border-0 bg-lightgrey p-1">
-                                <b className="px-1 font-medium">Education: </b>
-                            </span>
+                    <div className="p-4 lg:p-8">
+                        <div className="mb-5">
+                            <p className=" text-bluesecondary font-semibold mb-1">General information</p>
+                            <p className="text-gray">job description Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it</p>
                         </div>
-                        <div className="flex justify-between py-5 gap-5">
-                            <span className="flex px-1 w-56 h-10 font-light rounded-sm items-center border-0 bg-lightgrey p-1">
-                                <b className="px-1 font-medium">Experience: </b>10 yrs and more
-                            </span>
-                            <span className="flex px-1 w-56 h-10 font-light rounded-sm items-center border-0 bg-lightgrey p-1">
-                                <b className="px-1 font-medium">Done cases: </b>50 - 25
-                            </span>
-                            <span className="flex gap-2 px-1 w-56 h-10  rounded-sm items-center border-0 bg-lightgrey p-1">
-                                <Link href="#">
-                                {/* <BacthSvg width={`20px`} height={`20px`} /> */}
+                        <div className="mb-5">
+                            <p className=" text-bluesecondary font-semibold mb-3">Attached documents</p>
+                            <div className="flex flex-wrap gap-2.5">
+                                <Link href="#" className="flex gap-2 items-center bg-lightGreen p-2.5 w-[48%] text-base text-textgreen">
+                                    <Attachment/> pepsi.png
                                 </Link>
-                                <b className="px-1 font-medium">Certified Attorney </b>
-                            </span>
+                                <Link href="#" className="flex gap-2 items-center bg-lightGreen p-2.5 w-[48%] text-base text-textgreen">
+                                    <Attachment/> pepsi.png
+                                </Link>
+                                <Link href="#" className="flex gap-2 items-center bg-lightGreen p-2.5 w-[48%] text-base text-textgreen">
+                                    <Attachment/> pepsi.png
+                                </Link>
+                                <Link href="#" className="flex gap-2 items-center bg-lightGreen p-2.5  w-[48%] text-base text-base text-textgreen">
+                                    <Attachment/> pepsi.png
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="mb-5">
+                            <p className=" text-bluesecondary font-semibold mb-3">Preferred qualifications</p>
+                            <div className="flex flex-wrap gap-2.5">
+                               <div className="bg-lightgrey p-2.5 flex items-center gap-1 w-full lg:w-[32%]">
+                                 <p className="text-[15px]">Talent Type:</p>
+                                 <p className="opacity-[0.7] text-[15px]">Law Firm</p>
+                               </div>
+                               <div className="bg-lightgrey p-2.5 flex items-center gap-1 w-full lg:w-[32%]">
+                                 <p className="text-[15px]">Location:</p>
+                                 <p className="opacity-[0.7] text-[15px]">U.S. only, Worldwide</p>
+                               </div>
+                               <div className="bg-lightgrey p-2.5 flex items-center gap-1 w-full lg:w-[32%]">
+                                 <p className="text-[15px]">Education:</p>
+                                 <p className="opacity-[0.7] text-[15px]">xyz</p>
+                               </div>
+                               <div className="bg-lightgrey p-2.5 flex items-center gap-1 w-full lg:w-[32%]">
+                                 <p className="text-[15px]">Experience:</p>
+                                 <p className="opacity-[0.7] text-[15px]">5 yrs - 3 yrs</p>
+                               </div>
+                               <div className="bg-lightgrey p-2.5 flex items-center gap-1 w-full lg:w-[32%]">
+                                 <p className="text-[15px]">Done cases:</p>
+                                 <p className="opacity-[0.7] text-[15px]">50 and more</p>
+                               </div>
+                               <div className="bg-lightgrey p-2.5 flex items-center gap-1 w-full lg:w-[32%]">
+                                 <BacthSvg width={`18px`} height={`18px`} />
+                                 <p className="text-[15px]">Certified Attorney</p>
+                                
+                               </div>
+                            </div>
+                        </div>
+                        <div className="mb-5">
+                            <p className=" text-bluesecondary font-semibold mb-3">Clients recent history</p>
+                            <div>
+                                <div className="p-5 border-1 border-lightblue mb-4">
+                                   <div>
+                                        <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
+                                            <div className="flex gap-x-2 items-start max-w-[567px]">
+                                                <p className="text-base text-blackcolor font-semibold">test heading history</p>
+                                                <ul className="flex">
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`gray`} /></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                            <div className="bg-statusbg text-parrotgreen py-1.5 px-2.5 text-sm w-fit">Job in Progress</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-4 justify-between mt-4 flex-col sm:flex-row">
+                                            <p className="max-w-[567px] text-base">
+                                            et wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd f
+                                            </p>
+                                            <div className="flex justify-between flex-row sm:flex-col items-start ">
+                                                <p className="text-base whitespace-nowrap">2 weeks ago</p>
+                                                <p className="text-base whitespace-nowrap">Fixed Price <b className="font-semibold">$</b></p>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div className="p-5 border-1 border-lightblue mb-4">
+                                   <div>
+                                        <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
+                                            <div className="flex gap-x-2 items-start max-w-[567px]">
+                                                <p className="text-base text-blackcolor font-semibold">test heading history</p>
+                                                <ul className="flex">
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`gray`} /></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                            <div className="bg-statusbg text-parrotgreen py-1.5 px-2.5 text-sm w-fit">Job in Progress</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-4 justify-between mt-4 flex-col sm:flex-row">
+                                            <p className="max-w-[567px] text-base">
+                                            et wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd f
+                                            </p>
+                                            <div className="flex justify-between flex-row sm:flex-col items-start ">
+                                                <p className="text-base whitespace-nowrap">2 weeks ago</p>
+                                                <p className="text-base whitespace-nowrap">Fixed Price <b className="font-semibold">$</b></p>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div className="p-5 border-1 border-lightblue mb-4">
+                                   <div>
+                                        <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
+                                            <div className="flex gap-x-2 items-start max-w-[567px]">
+                                                <p className="text-base text-blackcolor font-semibold">test heading history</p>
+                                                <ul className="flex">
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`gray`} /></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                            <div className="bg-statusbg text-parrotgreen py-1.5 px-2.5 text-sm w-fit">Job in Progress</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-4 justify-between mt-4 flex-col sm:flex-row">
+                                            <p className="max-w-[567px] text-base">
+                                            et wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd f
+                                            </p>
+                                            <div className="flex justify-between flex-row sm:flex-col items-start ">
+                                                <p className="text-base whitespace-nowrap">2 weeks ago</p>
+                                                <p className="text-base whitespace-nowrap">Fixed Price <b className="font-semibold">$</b></p>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div className="p-5 border-1 border-lightblue mb-4">
+                                   <div>
+                                        <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
+                                            <div className="flex gap-x-2 items-start max-w-[567px]">
+                                                <p className="text-base text-blackcolor font-semibold">test heading history</p>
+                                                <ul className="flex">
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`orange`} /></li>
+                                                    <li><StarSvg width={`18px`} height={`18px`} fill={`gray`} /></li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                            <div className="bg-statusbg text-parrotgreen py-1.5 px-2.5 text-sm w-fit">Job in Progress</div>
+                                            </div>
+                                        </div>
+                                        <div className="flex gap-4 justify-between mt-4 flex-col sm:flex-row">
+                                            <p className="max-w-[567px] text-base">
+                                            et wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd fet wear erwerrcqc wefcvxc jdfjksdf sdf dlfkdfljkdsd jkdfkljdf lkjdfklsdfd f
+                                            </p>
+                                            <div className="flex justify-between flex-row sm:flex-col items-start ">
+                                                <p className="text-base whitespace-nowrap">2 weeks ago</p>
+                                                <p className="text-base whitespace-nowrap">Fixed Price <b className="font-semibold">$</b></p>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                               
+                                
+                               
+                                <Button className="bg-lightgrey  text-sm rounded-full mt-4 hover:text-white hover:bg-blueprimary">View more <b>(20)</b></Button>
+                            </div>
                         </div>
                     </div>
+                   
+
                 </div>
             </div>
         </div>

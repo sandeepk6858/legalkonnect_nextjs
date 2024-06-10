@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from "react";
 import Filter from "@/components/Filter/Filter";
-import AttronyJobsCard from "@/components/card/attronyjobs";
+import AttronyJobsCard from "@/components/attronyjobs";
 import JobSlider from "@/components/JobSlider/JobSlider";
 
 const Subsituteattorneyjobs = () => {

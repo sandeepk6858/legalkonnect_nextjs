@@ -134,7 +134,7 @@ const Login = () => {
                   New to legalkonnect.com?{" "}
                   <Link
                     className="text-bluesecondary  font-semibold hover:underline"
-                    href="#"
+                    href="/register"
                   >
                     Sign Up
                   </Link>

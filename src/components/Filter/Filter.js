@@ -17,7 +17,8 @@ import {
 import StarSvg from "../Icons/starSvg";
 import SearchSvg from "../Icons/searchSvg";
 import FillterSvg from "../Icons/filterSvg";
-import { counter } from "@fortawesome/fontawesome-svg-core";
+import Link from "next/link";
+
 
 export const animals = [
   { key: "cat", label: "Cat" },
@@ -127,9 +128,9 @@ const Filter = ({ showRequestButton, showSortBy, dropdownDateShow, counrtsMap })
                 </Button>
               </div>
               <div className="">
-                <Button className="bg-orangeprimary text-white text-lg rounded-[22px] px-6 py-[10px]">
+                <Link href="/jobs/create" className="bg-orangeprimary text-white text-lg rounded-[22px] px-6 py-[10px]">
                   Post a Job
-                </Button>
+                </Link>
               </div>
 
               {!showSortBy && <span>Sort By</span>}

@@ -5,7 +5,7 @@ import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import support from "@/app/support/page";
-import SupportCard from "@/components/card/support";
+import SupportCard from "@/components/support";
 const favQualifyAttorney = () => {
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
 
