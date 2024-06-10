@@ -5,9 +5,10 @@ import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import FavoriteJobsCard from "@/components/favoritejobs";
+import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
 
-const subjobs = () => {
+const transcriptsjobs = () => {
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
 
     const selectedValue = React.useMemo(
@@ -36,11 +37,11 @@ const subjobs = () => {
                                 <li className=" py-5 border-b-0  cursor-pointer hover:opacity-[0.6]">
                                     <Link href="/account/favorites/qualified-attorney" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Qualified Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-2 border-orangeprimary  cursor-pointer">
-                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal text-orangeprimary whitespace-nowrap  "> Substitute Attorneys</Link>
+                                <li className=" py-5 border-b-0 border-blackcolor  cursor-pointer">
+                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal whitespace-nowrap text-blackcolor"> Substitute Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
-                                    <Link href="/account/favorites/transcripts" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Transcripts</Link>
+                                <li className=" py-5 border-b-2 border-orangeprimary  cursor-pointer hover:opacity-[0.6] ">
+                                    <Link href="/account/favorites/transcripts" className="text-sm font-normal  text-orangeprimary whitespace-nowrap"> Transcripts</Link>
                                 </li>
                                 <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
                                     <Link href="/account/favorites/motion" className="text-sm font-normal text-blackcolor whitespace-nowrap "> Motions</Link>
@@ -79,17 +80,25 @@ const subjobs = () => {
             </div>
 
 
-            <div className="w-full my-12 mx-20 flex flex-wrap justify-evenly gap-5">
-                <div className="border-0 border-lightgrey rounded-3xl shadow-md">
-                <FavoriteJobsCard showDiv={true} showDivCount={true} />
-                    
+            
+
+            <div className="w-full relative px-4 lg:px-6">
+                    <div className=" flex flex-wrap justify-evenly gap-4">
+                    <ScriptsCards/>
+                 <ScriptsCards/>
+                 <ScriptsCards/>
+                 <ScriptsCards/>
+                 <ScriptsCards/>
+                 <ScriptsCards/>
+                 <ScriptsCards/>
+                 <ScriptsCards/>
+
+
+                    </div>
 
                 </div>
-
-
-            </div>
         </>
     );
 };
 
-export default subjobs;
+export default transcriptsjobs;

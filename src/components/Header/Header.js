@@ -16,10 +16,32 @@ const Header = () => {
     };
 
     const navItems = [
-        { title: 'Jobs', links: ['Job Posts', 'Contracts', 'Posts A Job'] },
-        { title: 'Talent', links: ['Hires', 'Recently Viewed', 'Saved Talent'] },
-        { title: 'Reports', links: ['Reports', 'Recently Viewed', 'Saved Talent'] },
+        { 
+            title: 'Jobs', 
+            links: [
+                { title: 'Jobs', link: 'jobs' },
+                { title: 'Orders', link: 'orders' },
+                { title: 'Create Job', link: 'jobs/create' }
+            ]
+        },
+        { 
+            title: 'Talent', 
+            links: [
+                { title: 'Orders', link: 'orders' },
+                { title: 'Recent Viewed Jobs', link: 'account/recent-view/jobs' },
+                { title: 'Favorites Jobs', link: 'account/favorites/jobs' }
+            ]
+        },
+        { 
+            title: 'Reports', 
+            links: [
+                { title: 'Weekly Summary', link: 'weekly_summary' },
+                { title: 'Balance', link: 'account/balance' },
+                { title: 'Timesheet', link: 'timesheet' }
+            ]
+        }
     ];
+    
 
     const subNavItems = [
         { title: 'Find An Attorney', href: '/find-attorney-legal-support' },
@@ -54,25 +76,28 @@ const Header = () => {
                 <nav className={`w-full navbar ${isOpen ? 'open' : 'closed'}`}>
                     <div className='jobs_header_section flex justify-between gap-x-5 grow'>
                         <ul className='flex items-center gap-x-5 jobs_header_section'>
-                            {navItems.map((item, index) => (
-                                <Dropdown key={index}>
-                                    <DropdownTrigger>
-                                        <Button className='text-blackcolor font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary'>
-                                            {item.title}
-                                            <DropdowniconSvg cuClass width={`8px`} height={`8px`} fill={`black`} />
-                                        </Button>
-                                    </DropdownTrigger>
-                                    <DropdownMenu className='w-52 shadow-lg rounded-md bg-white'>
-                                        {item.links.map((link, linkIndex) => (
-                                            <DropdownItem key={linkIndex} className='hover:bg-orangesecondary outline-0 hover:outline-0 p-3'>
-                                                <Link className='text-blackcolor font-normal text-base' href={`/${link.toLowerCase().replace(/ /g, '-')}`}>
-                                                    {link}
-                                                </Link>
-                                            </DropdownItem>
-                                        ))}
-                                    </DropdownMenu>
-                                </Dropdown>
-                            ))}
+                        {navItems.map((item, index) => (
+                    <li key={index}>
+                        <Dropdown>
+                            <DropdownTrigger>
+                                <Button className="text-black font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary">
+                                    {item.title}
+                                    <DropdowniconSvg cuClass width="8px" height="8px" fill="black" />
+                                </Button>
+                            </DropdownTrigger>
+                            <DropdownMenu className="w-52 shadow-lg rounded-md bg-white dropdownlist">
+                                {item.links.map((linkItem, linkIndex) => (
+                                    
+                                    <DropdownItem key={linkIndex} className="hover:bg-orangesecondary outline-0 hover:outline-0 p-3">
+                                        <Link className="text-black font-normal text-base" href={`/${linkItem.link}`}>
+                                            {linkItem.title}
+                                        </Link>
+                                    </DropdownItem>
+                                ))}
+                            </DropdownMenu>
+                        </Dropdown>
+                    </li>
+                ))}
                         </ul>
                         <ul className='flex items-center grow justify-end gap-x-5 jobs_header_section'>
                             <div className='border-2 border-orangesecondary max-w-xs w-full h-11 rounded-full flex items-center'>
@@ -105,7 +130,7 @@ const Header = () => {
                         <li><Link href="/login" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                               Login
                             </Link></li>
-                            <li> <button className='text-white font-normal text-sm sm:text-base rounded-full bg-orangeprimary px-3 sm:px-4 h-9 sm:h-10 cursor hover:bg-blueprimary grow whitespace-nowrap'>Sign up</button></li>
+                            <li> <Link href="/register" className='text-white font-normal text-sm sm:text-base rounded-full bg-orangeprimary px-3 sm:px-4 h-9 sm:h-10 cursor hover:bg-blueprimary grow whitespace-nowrap block flex items-center'>Sign up</Link></li>
                        </ul>
                       
                         </ul>

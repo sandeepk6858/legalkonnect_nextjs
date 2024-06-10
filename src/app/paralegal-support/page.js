@@ -1,4 +1,4 @@
-import SupportCard from "@/components/card/support";
+import SupportCard from "@/components/support";
 import Filter from "@/components/Filter/Filter";
 import Footer from "@/components/Footer/Footer";
 import JobSlider from "@/components/JobSlider/JobSlider";

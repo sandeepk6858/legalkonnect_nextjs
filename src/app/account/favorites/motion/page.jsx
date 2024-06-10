@@ -1,13 +1,16 @@
+
 "use client"
 import React from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import FavoriteJobsCard from "@/components/favoritejobs";
+import Legaldocs from "@/components/Legaldocs/Legaldocs";
 
 
-const subjobs = () => {
+
+const Motion=()=>{
+
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
 
     const selectedValue = React.useMemo(
@@ -15,13 +18,12 @@ const subjobs = () => {
         [selectedKeys]
     );
 
-    return (
+    return(
         <>
-
-            <div className="my-10">
-                <JobSlider />
-            </div>
-            <div className="relative mt-10">
+       <div className="my-10">
+            <JobSlider/>
+        </div>
+            <div className="relative mt-10 ">
                 <div className="bg-gray-100 mb-6">
                     <div className="max-w-[1250px] mx-auto px-4 box-border flex justify-between flex-col lg:flex-row">
                         <div className="flex items-center gap-x-9 overflow-x-auto" >
@@ -36,14 +38,14 @@ const subjobs = () => {
                                 <li className=" py-5 border-b-0  cursor-pointer hover:opacity-[0.6]">
                                     <Link href="/account/favorites/qualified-attorney" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Qualified Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-2 border-orangeprimary  cursor-pointer">
-                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal text-orangeprimary whitespace-nowrap  "> Substitute Attorneys</Link>
+                                <li className=" py-5 border-b-0 border-blackcolor  cursor-pointer hover:opacity-[0.6]">
+                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal whitespace-nowrap text-blackcolor"> Substitute Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
-                                    <Link href="/account/favorites/transcripts" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Transcripts</Link>
+                                <li className=" py-5 border-b-0 border-blackcolor  cursor-pointer hover:opacity-[0.6] ">
+                                    <Link href="/account/favorites/transcripts" className="text-sm font-normal  text-blackcolor whitespace-nowrap"> Transcripts</Link>
                                 </li>
-                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
-                                    <Link href="/account/favorites/motion" className="text-sm font-normal text-blackcolor whitespace-nowrap "> Motions</Link>
+                                <li className=" py-5 border-b-2 border-orangeprimary cursor-pointer  ">
+                                    <Link href="/account/favorites/motion" className="text-sm font-normal text-orangeprimary whitespace-nowrap "> Motions</Link>
                                 </li>
                                 <li className=" py-5 border-b-0 border-blackcolo cursor-pointer hover:opacity-[0.6] ">
                                     <Link href="/account/favorites/forum" className="text-sm font-normal text-blackcolor whitespace-nowrap "> Forums</Link>
@@ -77,19 +79,14 @@ const subjobs = () => {
                     </div>
                 </div>
             </div>
-
-
-            <div className="w-full my-12 mx-20 flex flex-wrap justify-evenly gap-5">
-                <div className="border-0 border-lightgrey rounded-3xl shadow-md">
-                <FavoriteJobsCard showDiv={true} showDivCount={true} />
-                    
-
+            <div className="w-full relative px-4 lg:px-6">
+                <div className=" flex flex-wrap justify-evenly gap-4">
+                    <Legaldocs />
+                    <Legaldocs/>
+                    <Legaldocs/>    
                 </div>
-
-
             </div>
         </>
-    );
-};
-
-export default subjobs;
+    )
+}
+export default Motion;

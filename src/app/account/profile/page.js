@@ -253,7 +253,7 @@ const Profile = () => {
                     </div>
                   }
                 >
-                  <div className="slider-container h-[500px]">
+                  {/* <div className="slider-container h-[500px]">
                     <Slider {...settings}>
                       {images.map((image, index) => (
                         <div key={index}>
@@ -261,7 +261,7 @@ const Profile = () => {
                         </div>
                       ))}
                     </Slider>
-                  </div>
+                  </div> */}
                   <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
                     <div className="content_group">
                       <h3 className="box-title text-[16px] font-semibold text-black">
