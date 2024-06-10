@@ -1,6 +1,6 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
-import SupportCard from "@/components/card/support";
+import SupportCard from "@/components/support";
 import JobSlider from "@/components/JobSlider/JobSlider";
 
 const Findattorney = () => {

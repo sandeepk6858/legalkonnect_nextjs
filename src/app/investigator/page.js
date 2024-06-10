@@ -1,7 +1,7 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
 import JobSlider from "@/components/JobSlider/JobSlider";
-import SupportCard from "@/components/card/support";
+import SupportCard from "@/components/support";
 
 const Investigator = () => {
   return (
