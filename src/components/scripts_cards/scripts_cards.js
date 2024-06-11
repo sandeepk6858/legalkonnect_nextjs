@@ -171,11 +171,13 @@ const ScriptsCards = () => {
                   className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
                   src={imageURL("no_avatar.jpg")}
                 />
-                <span className="flex-grow flex flex-col pl-4">
-                  <span className="title-font font-medium text-gray-900">
-                    Demo Account
+                  <span className="flex-grow flex flex-col pl-4">
+                    <span className="title-font font-medium text-gray-900">
+                     <Link href="/users/profile/3">
+                        Demo Account
+                      </Link>  
+                    </span>
                   </span>
-                </span>
               </Link>
             </div>
      
