@@ -31,7 +31,7 @@ const Jobslug = () => {
                         <p className="text-base text-blackcolor">Heading Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it </p>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="p-5">
+                    <div className="p-4 sm:p-5">
                         <div className="flex gap-1 text-sm">
                             <b >Fixed price</b>
                             <Link href="#">
@@ -42,11 +42,11 @@ const Jobslug = () => {
                         <p className="text-sm">Posted 1 years ago</p>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="p-5 flex gap-3 flex-wrap">
+                    <div className="p-4 sm:p-5 flex gap-3 flex-wrap">
                         <Button radius="full" className="text-sm bg-lightblue hover:bg-blueprimary hover:opacity-100 hover:text-white text-primary px-8 " > Corporate </Button>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="p-5 ">
+                    <div className="p-4 sm:p-5 ">
                         <div className="flex flex-wrap justify-between">
                             <div className="flex gap-1">
                                 <Link href="#">
@@ -62,7 +62,7 @@ const Jobslug = () => {
                         </div>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="p-5 flex justify-between items-center">
+                    <div className="p-4 sm:p-5 flex justify-between items-center">
                         <div className="flex gap-2 items-center relative">
                             <span className="border-2 border-textgreen bg-textgreen rounded-full w-2 h-2 absolute top-[3px] left-[30px] z-[5]"></span>
                             <Avatar src="https://legalkonnect.com/storage/uploads/fIQuQpNGWBpdVpkVvkhZ4c0tbJbIGKaiH0UEc8hY.jpg" size="md" />
@@ -79,7 +79,7 @@ const Jobslug = () => {
                         </div>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="p-5">
+                    <div className="p-4 sm:p-5">
                         <div className="flex items-center">
                             <BacthSvg width={`18px`} height={`18px`} />
                             <p className="ml-3 text-[13px]">Payment method verified</p>
@@ -92,7 +92,7 @@ const Jobslug = () => {
                         </div>
                     </div>
                     <hr className="w-full text-lightergray"></hr>
-                    <div className="p-5 ">
+                    <div className="p-4 sm:p-5">
                         <span className="flex justify-around w-24 rounded-sm items-center p-1 border-0 bg-lightgrey">
                             <Link href="#">
                                 <LocationstrokeSvg width={`18px`} height={`18px`} className="fill-[red]"/>
@@ -172,9 +172,31 @@ const Jobslug = () => {
                             </div>
                         </div>
                         <div className="mb-5">
+                            <p className=" text-bluesecondary font-semibold mb-3">Orders</p>
+                            <div className="flex flex-wrap gap-2.5 p-4 sm:p-5 border-1 border-lightblue">
+                                <div className="w-full">
+                                    <div className="flex justify-between gap-y-3 sm:gap-y-0 sm:gap-x-3 flex-col sm:flex-row">
+                                        <div className="flex justify-start cursor-pointer gap-x-2 items-center">
+                                            <div className="flex relative">
+                                                <span className="border-2 border-white bg-gray-200 rounded-full w-[10px] h-[10px] absolute top-[8px] z-[5] right-[-2px] top-[1px]"></span>
+                                                <Avatar className="w-[30px] h-[30px]" src="https://legalkonnect.com/img/no_avatar.jpg" />
+                                            </div>
+                                            <Link href="users/profile/671" className="text-sm">Attorney Attorneys</Link>
+                                        </div>
+                                        <div className="bg-statusbg text-parrotgreen py-1.5 px-2.5 text-sm w-fit">Pending</div>
+                                    </div>
+                                    <div className="flex justify-between gapx-3 mt-3">
+                                        <p className="text-base font-light">Fixed price $0</p>
+                                        <p className="text-base">1 year ago</p>
+                                    </div>
+                                    <Link href="/orders/info/117" className="font-normal text-white bg-orangeprimary rounded-full py-2 px-4 mt-3 block max-w-[150px] text-center">View</Link>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="mb-5">
                             <p className=" text-bluesecondary font-semibold mb-3">Clients recent history</p>
                             <div>
-                                <div className="p-5 border-1 border-lightblue mb-4">
+                                <div className="p-4 sm:p-5 border-1 border-lightblue mb-4">
                                    <div>
                                         <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
                                             <div className="flex gap-x-2 items-start max-w-[567px]">
@@ -202,7 +224,7 @@ const Jobslug = () => {
                                         </div>
                                    </div>
                                 </div>
-                                <div className="p-5 border-1 border-lightblue mb-4">
+                                <div className="p-4 sm:p-5 border-1 border-lightblue mb-4">
                                    <div>
                                         <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
                                             <div className="flex gap-x-2 items-start max-w-[567px]">
@@ -230,7 +252,7 @@ const Jobslug = () => {
                                         </div>
                                    </div>
                                 </div>
-                                <div className="p-5 border-1 border-lightblue mb-4">
+                                <div className="p-4 sm:p-5 border-1 border-lightblue mb-4">
                                    <div>
                                         <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
                                             <div className="flex gap-x-2 items-start max-w-[567px]">
@@ -258,7 +280,7 @@ const Jobslug = () => {
                                         </div>
                                    </div>
                                 </div>
-                                <div className="p-5 border-1 border-lightblue mb-4">
+                                <div className="p-4 sm:p-5 border-1 border-lightblue mb-4">
                                    <div>
                                         <div className="flex justify-between flex-col gap-y-3 sm:gap-y-0 sm:flex-row">
                                             <div className="flex gap-x-2 items-start max-w-[567px]">
@@ -293,8 +315,6 @@ const Jobslug = () => {
                             </div>
                         </div>
                     </div>
-                   
-
                 </div>
             </div>
         </div>
