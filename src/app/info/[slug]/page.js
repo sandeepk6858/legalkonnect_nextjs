@@ -9,8 +9,10 @@ import Slider from "react-slick";
 import Filter from "@/components/Filter/Filter";
 import MoreOptionSvg from "@/components/Icons/moreOptionSvg";
 import CertifiedSvg from "@/components/Icons/certifiedSvg";
+import { DatePicker } from "@nextui-org/react";
 
 const InfoJob = () => {
+  const variants = ["bordered"];
   return (
     <>
       <section className="text-blackcolor body-font overflow-hidden">
@@ -19,10 +21,10 @@ const InfoJob = () => {
         </div>
       </section>
       <section className="text-blackcolor body-font overflow-hidden bg-bglightgrey">
-        <div className="container max-w-[1200px] mx-auto px-[15px] lg:px-[20px] pt-[30px] md:pt-[30px] mb-[20px]">
+        <div className="container max-w-[1200px] mx-auto px-[15px] lg:px-[20px] pt-[30px] md:pt-[30px] mb-[6px]">
           <div className="flex flex-wrap justify-between gap-[20px] xl:gap-[30px] ">
             <Link
-              href="#"
+              href="/orders"
               className="flex items-center gap-2 text-[16px] font-semibold text-bluesecondary cursor-pointer"
             >
               <svg
@@ -68,12 +70,12 @@ const InfoJob = () => {
           <h2 className="text-[36px] leading-[40px] font-[400] text-bluesecondary mt-[50px]">
             Divorce
           </h2>
-          <div className="flex justify-between items-center">
+          <div className="flex flex-wrap sm:flex-nowrap justify-between items-center">
             <ul className="flex gap-[20px] mt-[50px]">
               <li>
                 <Link
-                  href="#"
-                  className="text-gray-500 hover:text-bluesecondary"
+                  href="/jobs/48"
+                  className="text-gray-500 hover:text-bluesecondary text-[14px]"
                 >
                   View Job posting
                 </Link>
@@ -81,19 +83,19 @@ const InfoJob = () => {
               <li className="relative">
                 <Link
                   href="#"
-                  className="text-bluesecondary font-bold before:content-[''] before:absolute before:w-full before:h-[1px] pb-[20px] before:bg-bluesecondary before:bottom-[-2px] before:left-0"
+                  className="text-bluesecondary font-bold before:content-[''] before:absolute before:w-full before:h-[1px] pb-[20px] before:bg-bluesecondary before:bottom-[-2px] before:left-0 text-[14px]"
                 >
                   Job Details
                 </Link>
               </li>
             </ul>
-            <div className="flex gap-[40px] items-center mt-[30px]">
-              <p className="text-yellow bg-yellowbglight py-[5px] px-[10px]">
+            <div className="flex gap-[15px] md:gap-[40px] items-center mt-[30px]">
+              <p className="text-yellow bg-yellowbglight py-[5px] px-[10px] text-[14px]">
                 Sign contract to start
               </p>
               <div className="flex gap-[10px] items-center">
                 <img src={imageURL("no_avatar.jpg")} height={30} width={30} />
-                <p>Attorney Attorneys</p>
+                <p className="text-[14px]">Attorney Attorneys</p>
               </div>
             </div>
           </div>
@@ -196,9 +198,19 @@ const InfoJob = () => {
       <section className="text-blackcolor body-font overflow-hidden">
         <div className="container max-w-[1200px] mx-auto px-[15px] lg:px-[20px] pt-[30px] md:pt-[30px] mb-[10px]">
           <div className=" myshadow p-[20px]">
-            <h3 className="text-[16px] font-[600] text-bluesecondary mb-[20px]">
-              Terms
-            </h3>
+            <div className="flex justify-between items-center mb-[20px]">
+              <h3 className="text-[16px] font-[600] text-bluesecondary mb-[20px]">
+                Terms
+              </h3>
+              <Button
+                href=""
+                as={Link}
+                color="primary"
+                className="text-bluesecondary flex justify-center items-center bg-[#eaf1fd] rounded-[30px] font-[400] text-[18px]"
+              >
+                Milestones
+              </Button>
+            </div>
             <div className="flex flex-wrap md:flex-nowrap justify-between gap-[20px] xl:gap-[30px]">
               <div className=" w-full md:w-1/3">
                 <div className="mb-[20px]">
@@ -239,22 +251,27 @@ const InfoJob = () => {
             <div className="flex flex-wrap md:flex-nowrap justify-between gap-[20px] xl:gap-[30px]">
               <div className=" w-full md:w-1/2">
                 <label className="text-[16px] font-[400] text-black mb-[10px]">
-                Amount*
+                  Amount*
                 </label>
                 <div>
-                <div>
-                  <input type="text" className="gap-[10px] w-full flex justify-between bg-bglightgrey p-[15px] mb-[15px]"
-                  />
-                </div>
+                  <div>
+                    <input
+                      type="text"
+                      className="gap-[10px] w-full flex justify-between bg-bglightgrey p-[15px] mb-[15px]"
+                    />
+                  </div>
                 </div>
               </div>
               <div className=" w-full md:w-1/2">
                 <label className="text-[16px] font-[400] text-black mb-[10px]">
-                Date*
+                  Date*
                 </label>
                 <div>
-                  <input type="text" className="gap-[10px] w-full flex justify-between bg-bglightgrey p-[15px] mb-[15px]"
-                  />
+                  {/* <input
+                    type="date"
+                    className="gap-[10px] w-full flex justify-between bg-bglightgrey p-[15px] mb-[15px]"
+                  /> */}
+                   <DatePicker label="" className="datepicker_info gap-[10px] w-full flex justify-between bg-bglightgrey mb-[15px]" />
                 </div>
               </div>
             </div>
@@ -324,22 +341,24 @@ const InfoJob = () => {
                   <div className="relative">
                     <textarea className="w-full h-[200px] border-1 border-slate-200 "></textarea>
                     <Button
-                      href="/"
+                      href="#"
                       as={Link}
                       color="primary"
-                      className="text-bluesecondary w-[250px] absolute top-0 bottom-0 left-0 right-0 z[1] h-[50px] flex justify-center items-center bg-[#eaf1fd] py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[16px]"
+                      className="text-bluesecondary w-[250px] absolute top-0 bottom-0 left-0 right-0 z[1] h-[50px] flex justify-center items-center bg-[#eaf1fd] py-[15px] px-[25px] !mt-[78px] rounded-[30px] font-[400] text-[16px] mx-auto"
                     >
                       Touch to write your signature
                     </Button>
                   </div>
-                  <Button
-                    href="/"
+                 <div className="flex justify-end">
+                 <Button
+                    href=""
                     as={Link}
                     color="primary"
-                    className="text-white w-[150px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
+                    className="text-white w-[140px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[15px] mt-[40px] rounded-[30px] font-[400] text-[18px]"
                   >
                     Confirm
                   </Button>
+                 </div>
                 </div>
               </div>
             </div>
