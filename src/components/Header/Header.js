@@ -129,7 +129,7 @@ const Header = () => {
                                     </DropdownMenu>
                                 </Dropdown>
                             </div>
-                            {/* <ul className='how_it_work_section flex items-center gap-x-5'> 
+                            <ul className='how_it_work_section flex items-center gap-x-5'> 
                                 <li>
                                     <Link href="/how-it-works" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                         How It Works
@@ -150,11 +150,11 @@ const Header = () => {
                                     Sign up
                                     </Link>
                                 </li>
-                            </ul> */}
+                            </ul>
                         </ul>
                     </div>
                 </nav>
-                <ul className='how_it_work_section flex items-center w-[100%] xl:w-max  flex justify-end items-center'> 
+                            {/* <ul className='how_it_work_section flex items-center w-[100%] xl:w-max  flex justify-end items-center'> 
                                 <li className='w-[22px] h-[20px]'>
                                     <Link href="/account/favorites/jobs" className='font-normal text-base text-blackcolor hover:text-orangeprimary '>
                                         <Headerheart />
@@ -165,8 +165,8 @@ const Header = () => {
                                     <Notify/>
                                     <span className='w-[10px] h-[10px] border-1 border-white rounded-full bg-orangeprimary block absolute top-[-2px] right-[-5px]'></span>
                                     </Link>
-                                    {/*Note here is code for notification dropdown   */}
-                                    {/* <div className='fixed bg-white shadow-[1px_2px_8px_0px_rgba(215,215,215,1)] p-4 left-[15px]  sm:left-[unset] right-[15px] max-w-full sm:max-w-[500px] top-[80px] h-[350px] overflow-y-auto scrollbar-thin rounded-[3px]'>
+                                   
+                                    <div className='fixed bg-white shadow-[1px_2px_8px_0px_rgba(215,215,215,1)] p-4 left-[15px]  sm:left-[unset] right-[15px] max-w-full sm:max-w-[500px] top-[80px] h-[350px] overflow-y-auto scrollbar-thin rounded-[3px]'>
                                        <div className='mb-[10px]'>
                                             <p className='text-[13px] text-orangeprimary font-semibold'>2024-05-23 11:23:15</p>
                                             <p className='text-[15px] text-blackcolor font-normal'>Milestone test sh for <Link href="order/420" className='underline decoration-1'>test 123</Link> is confirmed, payment of $97 credited to your account.</p>
@@ -204,7 +204,7 @@ const Header = () => {
                                             <p className='text-[15px] text-blackcolor font-normal'>Milestone test sh for <Link href="order/420" className='underline decoration-1'>test 123</Link> is confirmed, payment of $97 credited to your account.</p>
                                         </div>
                                         <p className='text-gray text-center cursor-pointer'>Show more</p>
-                                    </div> */}
+                                    </div> 
                                 </li>
                                 <li className='w-[22px] h-[20px] ml-2 sm:ml-5'>
                                     <Link href="/account/favorites/jobs" className='font-normal text-base text-blackcolor hover:text-orangeprimary relative'>
@@ -275,12 +275,7 @@ const Header = () => {
                                                     </DropdownMenu>
                                     </Dropdown>
                                 </div>
-                              
-
-                                
-                                
-                               
-                            </ul>
+                             </ul> */}
                 <div className='xl:hidden flex items-center'>
                     <button className='mobile-menu-button' onClick={toggleMenu}>
                         <ToggleiconheaderSvg className= "text-blackcolor" width={`24px`} height={`24px`} fill={`black`}/>
