@@ -35,7 +35,7 @@ module.exports = {
         lightgreen: "#eafdea",
         lightGreen: "#EAFDEA",
         statusbg:"#20C9AC50",
- 
+        darkcoffie: "#2d1d1d",
         
 
       },

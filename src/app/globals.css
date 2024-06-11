@@ -260,8 +260,22 @@ body {
   font-size: 16px !important;
   padding-bottom: 8px !important;
 }
-
-
+ ::marker {
+  font-size: 30px;
+  color: #063d8f;
+ }
+.promos_slick .slick-dots {
+  bottom: 15px !important;
+}
+.promos_slick .slick-dots li button:before {
+  font-size: 18px;
+}
+.promos_slick .slick-dots li.slick-active button:before {
+  color: white !important;
+}
+.promos_slick .slick-dots li button:before {
+  color: #fff;
+}
 /* HEADER CSS */
 /* components/Header.module.css */
 
@@ -470,7 +484,10 @@ ul.how_it_work_section {
   }
 }
 @media (max-width: 768px) {
-  
+  .textslide {
+    padding: 20px 20px 60px 20px;
+  }
+
   .btnvid {
     gap: 20px;
   }
@@ -506,6 +523,12 @@ ul.how_it_work_section {
   .footer_right_main {
     margin-top: 30px;
   }
+}
+@media (max-width: 600px) { 
+  /* .imgwid {
+    width: 110px !important;
+    height: 110px !important;
+  } */
 }
 @media (max-width: 420px) { 
   .footer_nav_right {
