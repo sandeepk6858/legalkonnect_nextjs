@@ -28,7 +28,7 @@ const Motion=()=>{
                     <div className="max-w-[1250px] mx-auto px-4 box-border flex justify-between flex-col lg:flex-row">
                         <div className="flex items-center gap-x-9 overflow-x-auto" >
                             <div className="flex items-center">
-                                <HeartSvg width={20} height={19} fill={`fill-orangeprimary`} />
+                                <HeartSvg width={22} height={20} fill={`fill-orangeprimary`} />
                                 <h5 className="ml-2.5 text-base font-semibold text-orangeprimary whitespace-nowrap">Favorites</h5>
                             </div>
                             <ul className="flex items-center gap-x-7">
