@@ -2,11 +2,13 @@
 import { useState , useEffect } from "react";
 import { Tabs, Tab, Card, CardBody, Switch, Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
+import JobSlider from "@/components/JobSlider/JobSlider";
 
 const Settings = () => {
   const [isCardSelected, setIsCardSelected] = useState(true);
   const [isBankSelected, setIsBankSelected] = useState(false);
   const [isViewportLessThan1024, setIsViewportLessThan1024] = useState(false);
+  const [disable2FaOpen, setDisable2FaOpen] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
@@ -125,11 +127,17 @@ const Settings = () => {
     { value: "Delaware", label: "Delaware" },
     { value: "Florida", label: "Florida" },
   ];
+
+
+  const disable2Fa = () => {
+    setDisable2FaOpen(prevState => !prevState);
+  }
   return (
     <> 
-      <div className="w-full max-w-[1250px] m-[auto]">
+      <JobSlider/>
+      <div className=" w-full max-w-[1250px] m-[auto]">
         <div className="flex flex-col px-4 mt-[25px] mb-[25px]">
-          <div className="flex w-full flex-col relative ">
+          <div className="flex w-full flex-col relative mt-[50px]">
             <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold absolute z-20 top-[15px] left-[20px]">
                Settings
             </h3>
@@ -799,16 +807,17 @@ const Settings = () => {
               >
                 <Card>
                   <CardBody>
-                    <div className="flex justify-center items-center flex-col">
+                    <div className="flex justify-center items-center flex-col py-3">
                       <div>
                         <Button
                           radius="full"
-                          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+                          className="bg-orangeprimary text-white text-[14px]"
+                          onClick={disable2Fa}
                         >
-                          Disable 2fa
+                           {disable2FaOpen ? 'Disable 2fa' : 'Enable 2fa'}
                         </Button>
                       </div>
-                      <div className="card card-default flex justify-center gap-2 items-center pt-3 flex-col">
+                      { disable2FaOpen && <div className="card card-default flex justify-center gap-2 items-center pt-3 flex-col">
                         <h4 className="card-heading text-[16px] font-semibold text-black">
                           Set up Google Authenticator
                         </h4>
@@ -850,14 +859,14 @@ const Settings = () => {
                           continuing. You will be unable to login otherwise
                         </p>
                         <div>
-                          <Button
-                            radius="full"
-                            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                          >
-                            Complete Registration
-                          </Button>
+                        <Button
+                          radius="full"
+                          className="bg-orangeprimary text-white text-[14px]"
+                        >
+                           Complete Registration
+                        </Button>
                         </div>
-                      </div>
+                      </div>}
                     </div>
                   </CardBody>
                 </Card>
@@ -1197,9 +1206,9 @@ const Settings = () => {
                       <div className="mt-5">
                         <Button
                           radius="full"
-                          className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
+                          className="bg-orangeprimary text-white text-[14px]"
                         >
-                          Add license number
+                           Add license number
                         </Button>
                       </div>
                     </div>
@@ -1226,9 +1235,8 @@ const Settings = () => {
                           </label>
                           <div>
                             <select className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey">
-                              <option value="Instagram">
-                                Instagram
-                              </option>
+                              <option>Choose social media</option>
+                              <option value="Instagram">Instagram</option>
                               <option value="facebook">Facebook</option>
                               <option value="twitter">Twitter</option>
                               <option value="linkedin">LinkedIn</option>
@@ -1249,12 +1257,12 @@ const Settings = () => {
                           </div>
                         </div>
                         <div className="pb-[6px]">
-                          <Button
-                            radius="full"
-                            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                          >
-                            Add license number
-                          </Button>
+                        <Button
+                          radius="full"
+                          className="bg-orangeprimary text-white text-[14px]"
+                        >
+                           Add
+                        </Button>
                         </div>
                       </div>
                       <div className="pt-[30px]">
@@ -1385,19 +1393,19 @@ const Settings = () => {
                       </h3>
                       <div className="flex gap-3 flex-col sm:flex-row">
                         <div>
-                          <Button
-                            radius="full"
-                            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                          >
-                            Basic Plan
-                          </Button>
+                        <Button
+                          radius="full"
+                          className="bg-orangeprimary text-white text-[14px]"
+                        >
+                           Basic Plan
+                        </Button>
                         </div>
                         <div>
                           <Button
                             radius="full"
-                            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                          >
-                            Change membership
+                            className="bg-orangeprimary text-white text-[14px]"
+                            >
+                              Change membership
                           </Button>
                         </div>
                       </div>
@@ -1492,9 +1500,9 @@ const Settings = () => {
                         <div className="pt-4">
                           <Button
                             radius="full"
-                            className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                          >
-                            Change Password
+                            className="bg-orangeprimary text-white text-[14px]"
+                            >
+                              Change Password
                           </Button>
                         </div>
                       </div>
