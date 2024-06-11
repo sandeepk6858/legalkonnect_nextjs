@@ -8,6 +8,7 @@ import CheckSvg from "@/components/Icons/checkSvg";
 import StarSvg from "@/components/Icons/starSvg";
 import BacthSvg from "@/components/batchSvg";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider , fillheart } from "@nextui-org/react";
 
@@ -28,7 +29,7 @@ const SupportCard = ({fillheart}) => {
                 src="https://legalkonnect.com/storage/specializations/Estate%20Planning%20Lawyer.png"
                 />
             <CardHeader className="px-5 relative w-full">
-                <div className="flex justify-between cursor-pointer">
+                <Link href="users/profile/671" className="flex justify-between cursor-pointer">
                     <div className="flex relative">
                         <span className="border-2 border-white bg-gray-200 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
                         <Avatar className="w-[68px] h-[68px]" src="https://legalkonnect.com/img/no_avatar.jpg" />
@@ -48,11 +49,11 @@ const SupportCard = ({fillheart}) => {
                         </div>
                         
                     </div>
-                </div>
+                </Link>
             </CardHeader>
             <CardBody className="p-0">
                 <Divider className="bg-lightgrey" />
-                <div className="p-5 cursor-pointer">
+                <Link href="users/profile/671" className="p-5 cursor-pointer">
                     <div className="flex">
                         <h6 className="text-gray text-sm">Fee Accepted:</h6>
                         <p className="pl-1 ">N/A</p>
@@ -73,11 +74,11 @@ const SupportCard = ({fillheart}) => {
                         <h6 className="text-gray text-sm">Country:</h6>
                         <p className="pl-1">N/A</p>
                     </div>
-                </div>
+                </Link>
                 <Divider className="bg-lightgrey" />
             </CardBody>
             <CardFooter className="flex flex-col px-5">
-                <div className="flex justify-between cursor-pointer w-full">
+                <div className="flex justify-between  w-full">
                     <div className="flex ">
                         <h5 className="text-sm font-bold">?</h5>
                         <p className="text-darkgray pl-1 text-sm">yrs experience</p>
@@ -87,7 +88,7 @@ const SupportCard = ({fillheart}) => {
                         <p className="text-darkgray pl-1 text-sm">earned</p>
                     </div>
                 </div>
-                <div className="flex justify-between py-2 cursor-pointer w-full">
+                <div className="flex justify-between py-2  w-full">
                     <div className="flex">
                         <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
                         <span className="text-sm font-bold pl-1">0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
