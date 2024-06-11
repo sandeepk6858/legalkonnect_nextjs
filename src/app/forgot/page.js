@@ -112,7 +112,7 @@ const Forgot = () => {
                   New to legalkonnect.com?{" "}
                   <Link
                     className="text-[#1359C3] font-semibold hover:underline"
-                    href="#"
+                    href="/register"
                   >
                     Sign Up
                   </Link>

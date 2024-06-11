@@ -1,9 +1,9 @@
 import React from "react";
 import Filter from "@/components/Filter/Filter";
+import SupportCard from "@/components/Cards/Cards";
 import JobSlider from "@/components/JobSlider/JobSlider";
-import SupportCard from "@/components/support";
 
-const Processservers = () => {
+const Attorneys = () => {
   return (
     <>
     <JobSlider />
@@ -22,4 +22,4 @@ const Processservers = () => {
 );
 };
 
-export default Processservers;
+export default Attorneys;
