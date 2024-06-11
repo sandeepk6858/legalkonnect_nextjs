@@ -1,10 +1,12 @@
 
 'use client'
+import React from "react";
 import { useState } from "react";
-import {Select, SelectItem } from "@nextui-org/select";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import OrdersCard from "@/components/OrdersCard/OrdersCard";
 import SearchSvg from "@/components/Icons/searchSvg";
 import OrderSvg from "@/components/Icons/orderSvg";
+
 
 
 const Orders = () => {
@@ -37,6 +39,13 @@ const Orders = () => {
     }
   }
 
+  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
+
+    const selectedValue = React.useMemo(
+        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+        [selectedKeys]
+    );
+
   return(
     <>
       <section className="bg-greytoolight w-full m-auto mb-6">
@@ -46,43 +55,49 @@ const Orders = () => {
               <OrderSvg width={"20px"} height={"20px"} className="fill-current text-orangeprimary"/>
               <h5>My Orders</h5>
             </div>
-            <div className="ml-7 border-r border-lightgrey ">
-              <ul className="text-sm flex items-center justify-center whitespace-nowrap">
-                <li className={`py-6 mr-7 ${activeContracts ? "text-orangeprimary border-b-2  border-orangeprimary hover:text-orangeprimary":"hover:text-greysecondary"}`}>
+            <div className="ml-7 border-r border-lightgrey flex items-center">
+              <ul className="text-sm flex justify-center whitespace-nowrap">
+                <li className={`py-4 mr-7 ${activeContracts ? "text-orangeprimary border-b-2  border-orangeprimary  hover:text-orangeprimary":"hover:text-greysecondary"}`}>
                   <button onClick={activeContractsHandler}>Active contracts</button>
                 </li>
-                <li className={`py-6 mr-7 ${ closedContracts ? "text-orangeprimary border-b-2 border-orangeprimary hover:text-orangeprimary":"hover:text-greysecondary"}`}>
+                <li className={`py-4 mr-7 ${ closedContracts ? "text-orangeprimary border-b-2 border-orangeprimary hover:text-orangeprimary":"hover:text-greysecondary"}`}>
                   <button onClick={closedContractsHandler}>Closed contracts</button>
                 </li>
-                <li className={`py-6  mr-7 ${ submittedJobs ? "text-orangeprimary border-b-2 border-orangeprimary hover:text-orangeprimary": "hover:text-greysecondary" }`}>
+                <li className={`py-4  mr-7 ${ submittedJobs ? "text-orangeprimary border-b-2 border-orangeprimary hover:text-orangeprimary": "hover:text-greysecondary" }`}>
                   <button onClick={SubmittedJobsHandler}>Submitted Jobs</button>
                 </li>    
               </ul>
             </div>
-            <div className=" w-full flex py-3 ml-7 gap-8" >
-              <div className="flex gap-2 py-3 align items-center ">
+            <div className=" w-full flex  ml-7 gap-8" >
+              <div className="flex gap-2 py-3 align items-center "> 
                 <SearchSvg width={"20px"} height={"20px"} fill={"fill-orangeprimary"}/>
                 <input className="outline-none w-14 text-lg bg-greytoolight" placeholder="Search"></input>
-              </div>
-              <div className="flex items-center gap-2 ">
-                <label className="text-nowrap text-sm">Sort by</label>
-                <Select
-                  label=""
-                  placeholder="By date "
-                  selectionMode="multiple"
-                  className="w-40 py-1  outline-none bg-white border border-greysecondary">
-                  <SelectItem
-                      className=" w-full" 
-                      key={'first'}>
-                      By date
-                  </SelectItem>
-                  <SelectItem 
-                      className=" w-full"
-                      key={'second'}>
-                      By Price
-                  </SelectItem>
-                </Select>      
-              </div>
+              </div>              
+              <div className="flex items-center gap-x-2.5 py-5 lg:py-0  ">
+                <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
+                <Dropdown>
+                  <DropdownTrigger>
+                    <Button
+                      className="capitalize bg-gray-50 border-1 border-blackcolor rounded-none min-w-36 text-grey text-left flex justify-start "
+                    >
+                      {selectedValue}
+                    </Button>
+                  </DropdownTrigger>
+                  <DropdownMenu
+                    aria-label="Single selection example"
+                    variant="flat"
+                    disallowEmptySelection
+                    selectionMode="single"
+                    selectedKeys={selectedKeys}
+                    onSelectionChange={setSelectedKeys}
+                  >
+                    <DropdownItem key="Default">Default</DropdownItem>
+                    <DropdownItem key="By Date">By Date</DropdownItem>
+                    <DropdownItem key="By Price">By Price</DropdownItem>
+                  </DropdownMenu>
+                </Dropdown>
+              </div>    
+
             </div>
           </div>
         </div>
