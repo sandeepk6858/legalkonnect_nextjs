@@ -1,14 +1,52 @@
 "use client";
-import { useState , useEffect } from "react";
+import { useState , useEffect , useRef  } from "react";
 import { Tabs, Tab, Card, CardBody, Switch, Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import JobSlider from "@/components/JobSlider/JobSlider";
+import { Calendar } from "@nextui-org/react";
+import { today, getLocalTimeZone } from "@internationalized/date";
 
 const Settings = () => {
   const [isCardSelected, setIsCardSelected] = useState(true);
   const [isBankSelected, setIsBankSelected] = useState(false);
   const [isViewportLessThan1024, setIsViewportLessThan1024] = useState(false);
   const [disable2FaOpen, setDisable2FaOpen] = useState(false)
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const inputRef = useRef(null);
+
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+    setShowCalendar(false);
+  };
+
+  const handleInputFocus = () => {
+    setShowCalendar(true);
+  };
+
+  const handleClickOutside = (event) => {
+    if (inputRef.current && !inputRef.current.contains(event.target)) {
+      setShowCalendar(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const formatDate = (date) => {
+    if (!date) return "";
+    const year = date.year;
+    const month = String(date.month).padStart(2, '0');
+    const day = String(date.day).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  };
+
+
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -219,7 +257,7 @@ const Settings = () => {
                             placeholder="Dev"
                           />
                         </div>
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
+                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)] relative" ref={inputRef}>
                           <label className="text-[#474040] text-base">
                             Birth date
                           </label>
@@ -227,7 +265,20 @@ const Settings = () => {
                             type="text"
                             className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
                             placeholder="Birth date"
+                            onFocus={handleInputFocus}
+                            value={formatDate(selectedDate)}
+                            readOnly
                           />
+                          {showCalendar && (
+                            <div className="absolute z-10 top-[106px] left-[44px]">
+                              <Calendar
+                                aria-label="Date (Min Date Value)"
+                                defaultValue={today(getLocalTimeZone())}
+                                minValue={today(getLocalTimeZone())}
+                                onSelect={handleDateSelect}
+                              />
+                            </div>
+                          )}
                         </div>
                         <div className="flex flex-col gap-2 pt-3 w-full  sm:w-[calc(50%_-_10px)] ">
                           <Autocomplete
