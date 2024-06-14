@@ -57,6 +57,8 @@ body {
 }
 .countrydrop_form {
   background: none !important;
+  height: 52px !important;
+  border-radius: 0px !important;
 }
 .w_wid {
   width: 23% !important;
@@ -240,8 +242,10 @@ body {
   position: absolute;
 }
 
-
-.shadow-small{
+.m-wid {
+  border-radius: 0px !important;
+}
+/* .shadow-small{
   margin: auto !important;
   display: block !important;
   color: #000 !important;
@@ -250,7 +254,7 @@ body {
   text-align: center !important;
   font-size: 14px !important;
   padding: 10px 15px !important;
-}
+} */
 
 .transition-background{
   background-color: white !important;
@@ -321,7 +325,7 @@ body {
 }
 body .transition-background {
   background-color: #f9f9f9 !important;
-  height: 52px;
+  height: 52px !important;
   border-radius: 0px;
 
 }
