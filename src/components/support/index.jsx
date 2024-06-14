@@ -88,7 +88,7 @@ const SupportCard = ({fillheart}) => {
                         <p className="text-darkgray pl-1 text-sm">earned</p>
                     </div>
                 </div>
-                <div className="flex justify-between py-2  w-full">
+                <div className="flex justify-between py-2 mt-[20px]  w-full">
                     <div className="flex">
                         <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
                         <span className="text-sm font-bold pl-1">0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
