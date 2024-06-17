@@ -10,12 +10,15 @@ import SocialPopup from "@/components/socialPopup";
 import ShareSvg from "@/components/Icons/shareSvg";
 import VerifiedSVG from "@/components/Icons/VerifiedSVG";
 import MakeBidPopUp from "@/components/makeBidPopUp";
+
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
+
+
 
 const profile = () => {
   const [socialPopupT, setSocialPopupT] = useState(false);

@@ -19,7 +19,7 @@ const OrdersCard=() => {
                 <h3 className=" w-full px-5 pt-4 font-semibold cursor-pointer">
                   <Link href="/jobs/1">Divorce</Link>
                 </h3>
-                <div className=" w-full px-5 py-4 flex justify-between items-center border-b border-lightgrey ">
+                <div className=" w-full px-5 py-4 flex justify-between items-center border-b border-lightgrey gap-[20px]">
                     <div className="w-full">
                         <p className="">Posted 2 years ago</p>
                     </div>

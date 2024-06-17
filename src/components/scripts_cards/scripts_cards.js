@@ -129,7 +129,7 @@ const ScriptsCards = () => {
               </p>
               </Link>
 
-              <div className="flex items-center justify-between flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-[30px] w-full">
+              {/* <div className="flex items-center justify-between flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-[30px] w-full">
                 <Link className="text-orangeprimary inline-flex items-center cursor-pointer font-semibold">
                   Learn More
                   <svg
@@ -145,7 +145,24 @@ const ScriptsCards = () => {
                     <path d="M12 5l7 7-7 7"></path>
                   </svg>
                 </Link>
-                <span className="text-blueprimary gap-[5px] inline-flex items-center leading-none text-[16px]">
+                
+              </div> */}
+             <div className="flex justify-between items-center w-full mt-[30px]">
+             <Link className="inline-flex items-center">
+                {/* <img alt="blog" src="https://dummyimage.com/104x104" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"/> */}
+                <img
+                  className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
+                  src={imageURL("no_avatar.jpg")}
+                />
+                  <span className="flex-grow flex flex-col pl-4">
+                    <span className="title-font font-medium text-black">
+                     <Link href="/users/profile/3" className="text-black">
+                        Demo Account
+                      </Link>  
+                    </span>
+                  </span>
+              </Link>
+              <span className="text-blueprimary gap-[5px] inline-flex items-center leading-none text-[16px]">
                   <svg
                     width="16"
                     height="16"
@@ -164,21 +181,7 @@ const ScriptsCards = () => {
                   </svg>
                   6
                 </span>
-              </div>
-              <Link className="inline-flex items-center">
-                {/* <img alt="blog" src="https://dummyimage.com/104x104" className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"/> */}
-                <img
-                  className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
-                  src={imageURL("no_avatar.jpg")}
-                />
-                  <span className="flex-grow flex flex-col pl-4">
-                    <span className="title-font font-medium text-gray-900">
-                     <Link href="/users/profile/3">
-                        Demo Account
-                      </Link>  
-                    </span>
-                  </span>
-              </Link>
+             </div>
             </div>
      
     </>

@@ -3,10 +3,8 @@ import { useState } from 'react';
 import { Link, Button } from "@nextui-org/react";
 import Modal from '@/components/popup/popup';
 import {Autocomplete, AutocompleteItem} from "@nextui-org/react";
-import { Input } from "@nextui-org/input";
-import { Textarea } from "@nextui-org/react";
 
-const contactsupport = () => {
+const supporttabscontent = () => {
     const [activeTab, setActiveTab] = useState('step1');
 
     const renderContent = () => {
@@ -14,7 +12,7 @@ const contactsupport = () => {
             case 'step1':
                 return <div className='px-[0px] xl:px-[100px]'>
 
-                {/* <div className="text-gray-600 body-font">
+                <div className="text-gray-600 body-font">
                   <div className="container px-[10px]  py-[30px] md:py-[50px] mx-auto">
                     <div className="flex flex-wrap -m-4">
                       <div className="p-2 mb-[10px] md:p-4  lg:w-1/3">
@@ -37,13 +35,13 @@ const contactsupport = () => {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
 
             </div>;
             case 'step2':
                 return <div className='px-[0px] xl:px-[100px]'>
 
-              {/* <div className="text-gray-600 body-font">
+              <div className="text-gray-600 body-font">
                   <div className="container px-[10px] py-[30px] md:py-[50px] mx-auto">
                     <div className="flex flex-wrap -m-4">
                       <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
@@ -54,13 +52,13 @@ const contactsupport = () => {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
             
             </div>;
             case 'step3':
                 return <div className='px-[0px] xl:px-[100px]'>
 
-              {/* <div className="text-gray-600 body-font">
+              <div className="text-gray-600 body-font">
                   <div className="container px-[10px] py-[30px] md:py-[50px] mx-auto">
                     <div className="flex flex-wrap -m-4">
                       <div className="p-2 mb-[10px] md:p-4 lg:w-1/3">
@@ -71,7 +69,7 @@ const contactsupport = () => {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
 
                 </div>;
             default:
@@ -80,9 +78,8 @@ const contactsupport = () => {
     };
 
     return (
-      <>
       <section className="text-gray-600 body-font">
-      <div className=" px-[10px] py-[40px] md:py-[40px] mx-auto flex flex-wrap flex-col">
+      <div className=" px-[10px] py-[60px] md:py-[80px] mx-auto flex flex-wrap flex-col">
         <div className='flex flex-wrap justify-center gap-[0px] sm:gap-[0px] md:gap-[0px] lg:gap-[40px] w-[100%] p-[15px] bg-gray-100'>
           <div className=' flex overflow-auto tabs_div'>
           <button className={`px-6 py-3 w-1/2 sm:w-auto justify-center whitespace-nowrap sm:justify-start text-[16px] font-medium inline-flex items-center leading-none text-bluesecondary`}>
@@ -118,51 +115,7 @@ const contactsupport = () => {
         <div className="p-2 mb-[10px] md:p-4">{renderContent()}</div>
       </div>
     </section>
-    <section className="px-[15px]">
-        <div className="container max-w-[700px] mx-auto mb-[50px] shadow-lg py-[40px] px-[15px] md:px-[40px] mt-[0px]">
-          <h2 className="text-[24px] leading-[35px] font-[600] mb-[50px] text-bluesecondary text-center px-[20px]">
-            Contact Support
-          </h2>
-          <form className="flex w-full flex-wrap flex-col md:flex-nowrap gap-4">
-            <div>
-              <label>Your email</label>
-              <Input
-                isReadOnly
-                type="email"
-                variant="bordered"
-                defaultValue="donald.phillips@example.com"
-                className="w-full mt-[10px]"
-              />
-            </div>
-
-            <div>
-              <label className="">Your message</label>
-              <Textarea
-                variant="bordered"
-                placeholder="Write about your issue here..."
-                disableAnimation
-                disableAutosize
-                classNames={{
-                  base: "w-full",
-                  input: "resize-y min-h-[150px]",
-                }}
-                className="mt-[10px]"
-              />
-            </div>
-
-            <Button
-              href="#"
-              as={Link}
-              color="primary"
-              className="text-white w-[150px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[20px] rounded-[30px] font-[400] text-[18px]"
-            >
-              Send
-            </Button>
-          </form>
-        </div>
-      </section>
-    </>
     );
 };
 
-export default contactsupport;
+export default supporttabscontent;
