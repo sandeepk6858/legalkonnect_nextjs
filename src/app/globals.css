@@ -12,11 +12,44 @@ body {
   height: 20px !important;
   width: 20px !important;
 }
-
-/* .pro_input >div >div >div >div {
-  background: red;
-  height: 45px;
-} */
+.myshadow {
+  border-radius: 3px;
+  /* box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04); */
+  box-shadow: -1px 2px 8px 0px #d7d7d7;
+}
+/*********10 *******************/
+.right_text2 {
+  text-align: right;
+}
+.portfolio_item_header {
+  text-align: left;
+}
+.break-words2 {
+  text-align: left;
+}
+.feedback_item_header .left2 {
+  margin-bottom: 10px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: start;
+}
+.feedback_item_title2 {
+  margin-bottom: 10px;
+  margin-left: -18px;
+}
+.portfolio_item_date2  {
+  height: 30px;
+}
+.job_progress2 {
+  height: 30px;
+}
+.taboverflow {
+  min-width: 600px;
+}
+.overhidsec .inline-flex {
+  overflow: auto;
+}
+/****************************/
 .makedatepicker > div {
   height: 36px !important;
   background: none !important;
@@ -299,6 +332,9 @@ body .dropdownlist li {
 }
 
 
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 0px;
+    }
 
 @media (min-width: 1200px) {
   .toggle {
@@ -322,6 +358,7 @@ body .dropdownlist li {
   top: 50px;
   left: 0;
   right: 0;
+  z-index: -1;
 }
 .jobs_header_section {
   flex-direction: column;
@@ -357,8 +394,43 @@ ul.how_it_work_section {
     height: 170px;
   }
 }
-
+@media (max-width: 1199px) {
+  /* .attorney_card2 {
+    max-width: 100%;
+  } */
+.section_with_sidebar .main_content {
+  width: 100%;
+}
+.feedback_item .feedback_item_body {
+  gap: 20px;
+}
+.profile_s_header2 {
+  padding: 15px !important;
+  align-items: start;
+  width: 100%;
+}
+/* .feedback_item .feedback_item_body .left p {
+  text-align: left;
+}
+.feedback_item_header .left {
+  flex-direction: column !important;
+  text-align: left;
+  margin-bottom: 10px;
+}
+.left .stars_rating {
+  margin: 0;
+} */
+}
 @media (max-width: 1024px) {
+  .profilesort {
+    flex-direction: row !important;
+  }
+  .profile_s_header2  {
+    max-width: 100%;
+  }
+   .attorney_card2 {
+    max-width: 100%;
+  }
   .apppad {
     margin: 10px 0px;
   }
