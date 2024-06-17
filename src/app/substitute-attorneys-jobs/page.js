@@ -4,7 +4,7 @@ import Filter from "@/components/Filter/Filter";
 import AttronyJobsCard from "@/components/attronyjobs";
 import JobSlider from "@/components/JobSlider/JobSlider";
 
-const Subsituteattorneyjobs = () => {
+const Substituteattorneyjobs = () => {
   const [showRequestButton, setShowRequestButton] = useState(true);
   const [showSortBy, setShowSortBy] = useState(true);
   const [dropdownDateShow, setdropdownDateShow] = useState(true);
@@ -29,4 +29,4 @@ const Subsituteattorneyjobs = () => {
 );
 };
 
-export default Subsituteattorneyjobs;
+export default Substituteattorneyjobs;
