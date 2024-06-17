@@ -312,6 +312,26 @@ body .dropdownlist li {
     padding:  10px !important;
     display: block;
     }
+
+.custom-scrollbar-blue::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-thumb {
+  background-color: #1359C3;
+  border-radius: 6px;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-blue {
+  scrollbar-width: thin;
+  scrollbar-color: #1359C3 transparent;
+}
+
+
     .scrollbar-thin::-webkit-scrollbar {
       width: 0px;
     }
