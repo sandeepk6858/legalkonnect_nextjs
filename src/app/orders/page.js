@@ -91,7 +91,7 @@ const Orders = () => {
                     selectedKeys={selectedKeys}
                     onSelectionChange={setSelectedKeys}
                   >
-                    <DropdownItem key="Default">Default</DropdownItem>
+                    <DropdownItem key="By Date">By Date</DropdownItem>
                     <DropdownItem key="By Date">By Date</DropdownItem>
                     <DropdownItem key="By Price">By Price</DropdownItem>
                   </DropdownMenu>

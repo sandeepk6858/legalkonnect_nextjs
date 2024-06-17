@@ -85,12 +85,12 @@ const Header = () => {
                 </div>
                 <nav className={`w-full navbar ${isOpen ? 'open' : 'closed'}`}>
                     <div className='jobs_header_section flex justify-between gap-x-5 grow'>
-                        <ul className='flex items-center gap-x-5 jobs_header_section '>
+                        <ul className='flex items-center jobs_header_section '>
                         {navItems.map((item, index) => (
                     <li key={index}>
                         <Dropdown>
                             <DropdownTrigger>
-                                <Button className="text-black font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary">
+                                <Button className="text-black dropfirst font-normal text-base flex px-0 gap-x-2 outline-0 hover:text-orangeprimary">
                                     {item.title}
                                     <DropdowniconSvg cuClass width="8px" height="8px" fill="black" />
                                 </Button>
@@ -282,8 +282,8 @@ const Header = () => {
                     </button>
                 </div>
             </div>
-            <div className='bg-lightblue px-8 py-2 lg:flex items-center justify-center flex-wrap'>
-                <div className='flex gap-4 items-cente main_navbar_section_sub xlg:gap-8'>
+            <div className='bg-lightblue px-[15px] py-2 lg:flex items-center justify-start '>
+                <div className='flex gap-4 items-cente flex-wrap main_navbar_section_sub xlg:gap-8'>
                     {subNavItems.map((item, index) => (
                         <Link key={index} href={item.href} className='hover:text-orangeprimary text-md'>
                             {item.title}

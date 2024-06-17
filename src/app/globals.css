@@ -12,6 +12,24 @@ body {
   height: 20px !important;
   width: 20px !important;
 }
+body .inner_filter_right .transition-background {
+  background-color: unset !important;
+  height: auto !important;
+  border-radius: 0px;
+}
+body .filter_serach_section .transition-background {
+  height: auto !important;
+  border-radius: 0px;
+}
+.main_navbar_section_sub  a {
+  white-space: nowrap;
+}
+.jobs_header_section button {
+  background: none;
+}
+.jobs_header_section ul > li:nth-child(2) {
+  margin-left: -10px;
+}
 .myshadow {
   border-radius: 3px;
   /* box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04); */
