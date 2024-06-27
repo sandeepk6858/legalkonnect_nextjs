@@ -5,7 +5,7 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import Legaldocs from "@/components/Legaldocs/Legaldocs";
+import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
 
 
@@ -28,7 +28,7 @@ const Motion=()=>{
                     <div className="max-w-[1250px] mx-auto px-4 box-border flex justify-between flex-col lg:flex-row">
                         <div className="flex items-center gap-x-9 overflow-x-auto" >
                             <div className="flex items-center">
-                                <HeartSvg width={20} height={19} fill={`fill-orangeprimary`} />
+                                <HeartSvg width={22} height={20} fill={`fill-orangeprimary`} />
                                 <h5 className="ml-2.5 text-base font-semibold text-orangeprimary whitespace-nowrap">Favorites</h5>
                             </div>
                             <ul className="flex items-center gap-x-7">
@@ -52,7 +52,7 @@ const Motion=()=>{
                                 </li>
                             </ul>
                         </div>
-                        <div className="flex items-center gap-x-2.5 py-5 lg:py-0 ">
+                        <div className="flex items-center gap-x-2.5 py-5 lg:py-0  ">
                             <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
                             <Dropdown>
                                 <DropdownTrigger>
@@ -79,13 +79,22 @@ const Motion=()=>{
                     </div>
                 </div>
             </div>
-            <div className="w-full relative px-4 lg:px-6">
-                <div className=" flex flex-wrap justify-evenly gap-4">
-                    <Legaldocs />
-                    <Legaldocs/>
-                    <Legaldocs/>    
-                </div>
-            </div>
+            <section className="text-blackcolor body-font overflow-hidden">
+              <div className="container px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
+                    <div className="flex flex-wrap gap-[20px] xl:gap-[30px]">
+                        <ScriptsCards/>
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                        <ScriptsCards />
+                    </div>
+               </div>
+           </section>
         </>
     )
 }

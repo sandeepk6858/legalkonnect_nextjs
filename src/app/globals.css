@@ -12,7 +12,29 @@ body {
   height: 20px !important;
   width: 20px !important;
 }
-
+body .inner_filter_right .transition-background {
+  background-color: unset !important;
+  height: auto !important;
+  border-radius: 0px;
+}
+body .filter_serach_section .transition-background {
+  height: auto !important;
+  border-radius: 0px;
+}
+.main_navbar_section_sub  a {
+  white-space: nowrap;
+}
+.jobs_header_section button {
+  background: none;
+}
+.jobs_header_section ul > li:nth-child(2) {
+  margin-left: -10px;
+}
+.myshadow {
+  border-radius: 3px;
+  /* box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.04), 0px 0px 2px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.04); */
+  box-shadow: -1px 2px 8px 0px #d7d7d7;
+}
 /*********10 *******************/
 .right_text2 {
   text-align: right;
@@ -53,6 +75,8 @@ body {
 }
 .countrydrop_form {
   background: none !important;
+  height: 52px !important;
+  border-radius: 0px !important;
 }
 .w_wid {
   width: 23% !important;
@@ -236,8 +260,10 @@ body {
   position: absolute;
 }
 
-
-.shadow-small{
+.m-wid {
+  border-radius: 0px !important;
+}
+/* .shadow-small{
   margin: auto !important;
   display: block !important;
   color: #000 !important;
@@ -246,7 +272,7 @@ body {
   text-align: center !important;
   font-size: 14px !important;
   padding: 10px 15px !important;
-}
+} */
 
 .transition-background{
   background-color: white !important;
@@ -256,8 +282,22 @@ body {
   font-size: 16px !important;
   padding-bottom: 8px !important;
 }
-
-
+ ::marker {
+  font-size: 30px;
+  color: #063d8f;
+ }
+.promos_slick .slick-dots {
+  bottom: 15px !important;
+}
+.promos_slick .slick-dots li button:before {
+  font-size: 18px;
+}
+.promos_slick .slick-dots li.slick-active button:before {
+  color: white !important;
+}
+.promos_slick .slick-dots li button:before {
+  color: #fff;
+}
 /* HEADER CSS */
 /* components/Header.module.css */
 
@@ -301,6 +341,12 @@ body {
  .paymentatabs>div {
   background: transparent;
 }
+body .transition-background {
+  background-color: #f9f9f9 !important;
+  height: 52px !important;
+  border-radius: 0px;
+
+}
 body .dropdownlist li {
   padding: 0px !important;
   }
@@ -309,6 +355,28 @@ body .dropdownlist li {
     display: block;
     }
 
+.custom-scrollbar-blue::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-thumb {
+  background-color: #1359C3;
+  border-radius: 6px;
+}
+
+.custom-scrollbar-blue::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar-blue {
+  scrollbar-width: thin;
+  scrollbar-color: #1359C3 transparent;
+}
+
+
+    .scrollbar-thin::-webkit-scrollbar {
+      width: 0px;
+    }
 
 @media (min-width: 1200px) {
   .toggle {
@@ -332,6 +400,7 @@ body .dropdownlist li {
   top: 50px;
   left: 0;
   right: 0;
+  z-index: -1;
 }
 .jobs_header_section {
   flex-direction: column;
@@ -418,6 +487,7 @@ ul.how_it_work_section {
   .sort_select_wrpr {
     justify-content: start;
   } */
+ 
   .tabs_div {
     margin-bottom: 30px;
     padding-bottom: 20px;
@@ -459,7 +529,10 @@ ul.how_it_work_section {
   }
 }
 @media (max-width: 768px) {
-  
+  .textslide {
+    padding: 20px 20px 60px 20px;
+  }
+
   .btnvid {
     gap: 20px;
   }
@@ -495,6 +568,12 @@ ul.how_it_work_section {
   .footer_right_main {
     margin-top: 30px;
   }
+}
+@media (max-width: 600px) { 
+  /* .imgwid {
+    width: 110px !important;
+    height: 110px !important;
+  } */
 }
 @media (max-width: 420px) { 
   .footer_nav_right {

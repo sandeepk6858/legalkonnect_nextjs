@@ -267,17 +267,17 @@ const MakeBidPopUp = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className='flex gap-2 mt-[20px]'>
+                                        <div className='flex gap-2 mt-[60px]'>
                                             <input name="plan" type="radio" />
-                                            <p> <b>By milestone</b><br />
-                                                Divide you project into smaller segments, called milestones. You pay as milestones have been completed and approved by you.</p>
+                                            <p> <b>Propose a flat fee payment for your project</b><br />
+                                            Get your entire payment at the end, When all work has been delivered.</p>
                                         </div>
                                         <div className="mb-5 mt-[20px]">
                                             <label
                                                 htmlFor="issue"
                                                 className="block mb-2 text-sm font-bold text-gray-900 dark:text-white"
                                             >
-                                                Description
+                                                Describe Terms of your Bid
                                             </label>
                                             <Textarea
                                                 isRequired

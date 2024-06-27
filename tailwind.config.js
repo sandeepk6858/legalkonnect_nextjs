@@ -30,9 +30,12 @@ module.exports = {
         yellowlight:"#ffe495",
         parrotgreen: "#14CE80",
         greybgfillter: "#ececec",
+        bglightgrey: "#f9f9f9",
+        yellowbglight: "#fff9d8",
+        lightgreen: "#eafdea",
         lightGreen: "#EAFDEA",
         statusbg:"#20C9AC50",
- 
+        darkcoffie: "#2d1d1d",
         
 
       },

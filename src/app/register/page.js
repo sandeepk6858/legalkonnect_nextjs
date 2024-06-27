@@ -9,6 +9,7 @@ const Register = () => {
   const [selected, setSelected] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const options = [
+    "Attorney",
     "Employer",
     "Client",
     "Paraleqal",
@@ -35,7 +36,7 @@ const Register = () => {
           <div className="w-full max-w-[400px] md:max-w-[530px]">
             <p className="text-2xl mt-3 md:mt-0 md:text-4xl font-semibold text-white leading-[30px] md:leading-[44px] max-[1024px]:text-center">
               Are you new to LegalKonnect?
-              <br /> Sign up and connect.
+              <br/> Sign up and connect.
             </p>
             <div className="pt-9 flex flex-col gap-6">
               <div className="flex gap-5">
@@ -358,7 +359,7 @@ const Register = () => {
               </div>
               <div className="flex flex-col md:flex-row justify-between pt-[18px] gap-2.5 md:gap-[0]">
                 <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
-                  Log In
+                  Sign Up
                 </button>
                 <Link
                   href="https://legalkonnect.com/redirect/google"

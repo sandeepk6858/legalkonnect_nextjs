@@ -89,8 +89,12 @@ const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
                             <p className="text-darkgray pl-1 text-sm">earned</p>
                         </div>
                     </div>
+                    <div className="flex ">
+                        <h5 className="text-sm font-bold">$0</h5>
+                        <p className="text-darkgray pl-1 text-sm">earned</p>
+                    </div>
                 </Link>
-                <div className="flex justify-between py-2  w-full">
+                <div className="flex justify-between py-2 mt-[20px]  w-full">
                     <div className="flex">
                         <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`}  />
                         <span className="text-sm font-bold pl-1" style={{ display: showDivCount ? 'block' : 'none' }}>0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
