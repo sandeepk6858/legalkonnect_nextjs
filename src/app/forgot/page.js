@@ -1,5 +1,6 @@
 import React from "react";
 import { imageURL } from "@/components/utils/helper/helper";
+import Link from "next/link";
 
 const Forgot = () => {
   const backgroundImage = imageURL("login_s_bg.jpg");
@@ -33,7 +34,7 @@ const Forgot = () => {
                 <button className="flex justify-center items-center py-[10px] px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
                   Reset
                 </button>
-                <a
+                <Link
                   href="https://legalkonnect.com/redirect/google"
                   className="hover:text-bluesecondary py-[10px] px-[15px] gap-[4px] min-h-[37px] max-h-[37px] text-[14px] rounded-[22px] bg-white text-black flex justify-center items-center"
                   style={{
@@ -66,8 +67,8 @@ const Forgot = () => {
                     ></path>
                   </svg>
                   Log In with Google
-                </a>
-                <a
+                </Link>
+                <Link
                   href="https://legalkonnect.com/redirect/google"
                   className="hover:text-bluesecondary py-[10px] gap-[4px] px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] text-[14px] bg-white text-black flex justify-center items-center"
                   style={{
@@ -104,17 +105,17 @@ const Forgot = () => {
                     </defs>
                   </svg>
                   Log In with Facebook
-                </a>
+                </Link>
               </div>
               <div className="pt-6 md:pt-12">
                 <span className="text-black text-base font-light">
                   New to legalkonnect.com?{" "}
-                  <a
+                  <Link
                     className="text-[#1359C3] font-semibold hover:underline"
-                    href="#"
+                    href="/register"
                   >
                     Sign Up
-                  </a>
+                  </Link>
                 </span>
               </div>
             </div>

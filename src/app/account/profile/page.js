@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import { Tabs, Tab } from "@nextui-org/react";
 import { imageURL } from "@/components/utils/helper/helper";
-// import Slider from "react-slick";
+import Slider from "react-slick";
 import {
   Dropdown,
   DropdownTrigger,
@@ -11,6 +11,8 @@ import {
   DropdownItem,
   Button,
 } from "@nextui-org/react";
+import Link from "next/link";
+
 
 const Profile = () => {
   const [isShown, setIsShown] = useState(false);
@@ -29,30 +31,30 @@ const Profile = () => {
 
   const backgroundImage = imageURL("star_rating_grey.svg");
 
-  // const settings = {
-  //   customPaging: function (i) {
-  //     const thumbnails = [
-  //       "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
-  //       "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
-  //     ];
-  //     return (
-  //       <a>
-  //         <img src={thumbnails[i]} alt={`thumbnail ${i + 1}`} />
-  //       </a>
-  //     );
-  //   },
-  //   dots: true,
-  //   dotsClass: "slick-dots slick-thumb",
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  // };
+  const settings = {
+    customPaging: function (i) {
+      const thumbnails = [
+        "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
+        "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
+      ];
+      return (
+        <Link>
+          <img src={thumbnails[i]} alt={`thumbnail ${i + 1}`} />
+        </Link>
+      );
+    },
+    dots: true,
+    dotsclassName: "slick-dots slick-thumb",
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
 
-  // const images = [
-  //   "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
-  //   "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
-  // ];
+  const images = [
+    "https://legalkonnect.com/storage/uploads/cUrGJNCIWco3ptFZ76goRAKO5qJGmebdFUuxb2ac.png",
+    "https://legalkonnect.com/storage/uploads/40AqTwGbmp0TwDu6EPRrPBqc266XZ5IJ9XnK5s57.jpg",
+  ];
 
   return (
     <>
@@ -72,9 +74,9 @@ const Profile = () => {
                 </div>
               </div>
               <div className="right_info">
-                <a href="" className="attorney_name text-[16px]">
+                <Link href="" className="attorney_name text-[16px]">
                   Client Dev
-                </a>
+                </Link>
                 <div className="attorney_verif text-[14px]">
                   <span>Admin</span>
                 </div>
@@ -95,9 +97,9 @@ const Profile = () => {
             </div>
             <div className="card_row border-b py-4 border-[#F9F9F9]">
               <div className="card_tags hover:bg-[#1359C3] hover:text-white rounded-[50px] px-[21px] py-[5px] text-[14px] text-center text-bluesecondary bg-[#EAF1FD] block max-w-[92px]">
-                <a href="" className="card_tag">
+                <Link href="" className="card_tag">
                   Criminal
-                </a>
+                </Link>
               </div>
             </div>
             <div className="card_row">
@@ -134,7 +136,7 @@ const Profile = () => {
             <div className="flex w-full flex-col relative">
               <div className="flex gap-4 items-center absolute max-[640px]:top-[-32px] right-0 z-20">
                 <div className="right flex gap-4 items-center">
-                  <div className="share_btn relative" onClick={toggleIcons}>
+                  <div className="share_btn relative cursor-pointer" onClick={toggleIcons}>
                     <svg
                       width="23"
                       height="23"
@@ -150,9 +152,9 @@ const Profile = () => {
                       ></path>
                     </svg>
                     {isShown && (
-                      <ul className="social-icon flex relative right-[-36px] top-[-24px]">
+                      <ul className="social-icon cursor-pointer flex relative right-[-36px] top-[-24px]">
                         <li>
-                          <a
+                          <Link
                             href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440%26quote%3DClient+Dev"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -166,10 +168,10 @@ const Profile = () => {
                             className="facebook"
                           >
                             <img src="https://legalkonnect.com/img/social-facebook.svg" />
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="https://twitter.com/intent/tweet?text=Client+Dev+https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -184,10 +186,10 @@ const Profile = () => {
                             className="twitter"
                           >
                             <img src="https://legalkonnect.com/img/social-twitter.svg" />
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a
+                          <Link
                             href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Flegalkonnect.com%2Fusers%2Fprofile%2F440&amp;media=/storage/uploads/fIQuQpNGWBpdVpkVvkhZ4c0tbJbIGKaiH0UEc8hY.jpg&amp;description=Client+Dev"
                             onClick={(e) => {
                               e.stopPropagation();
@@ -202,7 +204,7 @@ const Profile = () => {
                             className="pinterest"
                           >
                             <img className="w-[35px] max-w-[none]" src="https://legalkonnect.com/img/social-pinterest.svg" />
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     )}
@@ -236,9 +238,9 @@ const Profile = () => {
                 classNames={{
                   tabList:
                     "gap-6 w-full relative rounded-none p-0 border-b border-divider",
-                  cursor: "w-full bg-[#22d3ee]",
+                  cursor: "w-full bg-bluesecondary",
                   tab: "max-w-fit px-0 h-12",
-                  tabContent: "group-data-[selected=true]:text-[#06b6d4]",
+                  tabContent: "group-data-[selected=true]:text-bluesecondary",
                 }}
                 selectedKey={selected}
                 onSelectionChange={setSelected}
@@ -251,16 +253,16 @@ const Profile = () => {
                     </div>
                   }
                 >
-                  {/* <div className="slider-container">
+                  {/* <div className="slider-container h-[500px]">
                     <Slider {...settings}>
                       {images.map((image, index) => (
                         <div key={index}>
-                          <img className="w-full" src={image} alt={`slide ${index + 1}`} />
+                          <img className="w-full h-[500px]" src={image} alt={`slide ${index + 1}`} />
                         </div>
                       ))}
                     </Slider>
                   </div> */}
-                  <div className="tab-content-item flex flex-col gap-3">
+                  <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
                     <div className="content_group">
                       <h3 className="box-title text-[16px] font-semibold text-black">
                         About me
@@ -316,12 +318,12 @@ const Profile = () => {
                         </div>
                       </div>
                     </div>
-                    <div class="content_group">
-                      <h3 class="box-title text-[16px] font-semibold">
+                    <div className="content_group">
+                      <h3 className="box-title text-[16px] font-semibold">
                         Specialization
                       </h3>
-                      <div class="blue_infos_block pt-2">
-                        <div class="blue_info_item bg-[#EAF1FD] text-bluesecondary rounded-[3px] py-[10px] px-[15px] max-[426px]:w-full w-[calc(50%_-_10px)] flex flex-col gap-2">
+                      <div className="blue_infos_block pt-2">
+                        <div className="blue_info_item bg-[#EAF1FD] text-bluesecondary rounded-[3px] py-[10px] px-[15px] max-[426px]:w-full w-[calc(50%_-_10px)] flex flex-col gap-2">
                           <p>Criminal</p>
                         </div>
                       </div>
@@ -366,18 +368,18 @@ const Profile = () => {
                         test rtset
                       </div>
                     </div>
-                    <div class="content_group">
-                      <h3 class="box-title text-[16px] font-semibold">
+                    <div className="content_group">
+                      <h3 className="box-title text-[16px] font-semibold">
                       Resume/CV
                       </h3>
-                      <div class="blue_infos_block pt-2">
-                        <div class="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2">
-                          <a
+                      <div className="blue_infos_block pt-2">
+                        <div className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2">
+                          <Link
                             href="/storage/uploads/G7qQDQVlKoxhN6XzWyQtin6KRPd2CF4pydctpHwE.jpg"
-                            class="atached_file_item flex items-center gap-1"
+                            className="atached_file_item flex items-center gap-1"
                             download="SB.jpg"
                           >
-                            <div class="icon">
+                            <div className="icon">
                               <svg
                                 width="16"
                                 height="16"
@@ -391,23 +393,23 @@ const Profile = () => {
                                 ></path>
                               </svg>
                             </div>
-                            <p class="name text-[#027E4A]">SB.jpg</p>
-                          </a>
+                            <p className="name text-[#027E4A]">SB.jpg</p>
+                          </Link>
                         </div>
                       </div>
                     </div>
-                    <div class="content_group">
-                      <h3 class="box-title text-[16px] font-semibold">
+                    <div className="content_group">
+                      <h3 className="box-title text-[16px] font-semibold">
                       Documents & Sertificates
                       </h3>
-                      <div class="blue_infos_block pt-2">
-                        <div class="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2">
-                          <a
+                      <div className="blue_infos_block pt-2">
+                        <div className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2">
+                          <Link
                             href="/storage/uploads/G7qQDQVlKoxhN6XzWyQtin6KRPd2CF4pydctpHwE.jpg"
-                            class="atached_file_item flex items-center gap-1"
+                            className="atached_file_item flex items-center gap-1"
                             download="SB.jpg"
                           >
-                            <div class="icon">
+                            <div className="icon">
                               <svg
                                 width="16"
                                 height="16"
@@ -421,8 +423,8 @@ const Profile = () => {
                                 ></path>
                               </svg>
                             </div>
-                            <p class="name text-[#027E4A]">aaaa.png</p>
-                          </a>
+                            <p className="name text-[#027E4A]">aaaa.png</p>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -624,80 +626,80 @@ const Profile = () => {
                     <div className="flex flex-wrap gap-3 pt-4 justify-between">
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
                         <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
-                          <a
+                          <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
                           >
                             Control your workflow: hire, classNameify and pay
                             your talent
-                          </a>
+                          </Link>
                           <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div class="item_text break-words">
+                        <div className="item_text break-words">
                           <p className="text-[16px] text-black font-light">
-                            Control your workflow: hire, classify and pay your
+                            Control your workflow: hire, classNameify and pay your
                             talent
                           </p>
                         </div>
                       </div>
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
                         <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
-                          <a
+                          <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
                           >
                             Control your workflow: hire, classNameify and pay
                             your talent
-                          </a>
+                          </Link>
                           <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div class="item_text break-words">
+                        <div className="item_text break-words">
                           <p className="text-[16px] text-black font-light">
-                            Control your workflow: hire, classify and pay your
+                            Control your workflow: hire, classNameify and pay your
                             talent
                           </p>
                         </div>
                       </div>
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
                         <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
-                          <a
+                          <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
                           >
                             Control your workflow: hire, classNameify and pay
                             your talent
-                          </a>
+                          </Link>
                           <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div class="item_text break-words">
+                        <div className="item_text break-words">
                           <p className="text-[16px] text-black font-light">
-                            Control your workflow: hire, classify and pay your
+                            Control your workflow: hire, classNameify and pay your
                             talent
                           </p>
                         </div>
                       </div>
                       <div className="p-[20px] border border-[#EBEBEB] rounded-[3px] text-center w-full sm:w-[calc(50%_-_10px)]">
                         <div className="portfolio_item_header max-[426px]:flex-col flex gap-3 pb-4">
-                          <a
+                          <Link
                             href=""
                             className="portfolio_item_title text-[16px] text-bluesecondary"
                           >
                             Control your workflow: hire, classNameify and pay
                             your talent
-                          </a>
+                          </Link>
                           <span className="portfolio_item_date flex justify-center items-center whitespace-nowrap text-[14px] text-bluesecondary py-[5px] px-[10px] rounded-[3px] bg-[#EAF1FD]">
                             Feb 2023
                           </span>
                         </div>
-                        <div class="item_text break-words">
+                        <div className="item_text break-words">
                           <p className="text-[16px] text-black font-light">
-                            Control your workflow: hire, classify and pay your
+                            Control your workflow: hire, classNameify and pay your
                             talent
                           </p>
                         </div>

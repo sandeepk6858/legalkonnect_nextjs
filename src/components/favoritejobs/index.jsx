@@ -31,18 +31,15 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount }) => {
                     layout="fill"
                     src="https://legalkonnect.com/storage/specializations/Bankruptcy.png"
                 />
-                <div className="py-2 absolute top-3 right-4 left-4 flex flex-wrap justify-end gap-2 h-40 overflow-y-auto z-10">
-                    <Link href="#">
-                        <span className=" text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl  px-5 py-1 inline-block h-max">Bankruptcy</span>
+                <div className="absolute top-3 right-4 left-4 flex flex-wrap justify-end gap-2 overflow-y-auto z-10">
+                    <Link href="#" className="flex flex-wrap gap-1">
+                        <span className="p-2 text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl  px-5 py-1 inline-block h-max">Bankruptcy</span>
                     </Link>
                     
                     <Button className="text-lg font-semibold text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-sm h-7"> 2 more</Button>
 
                     {/* <Button className="text-lg font-semibold text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-sm h-7"> hide tags</Button> */}
                     
-
-
-
                 </div>
                 <div className="absolute w-full h-12 p-5 pb-10 bottom-0 left-0 flex gap-2 z-10 items-center bg-gradient-to-b from-transparent to-gray-900/50">
                     <CalendarSvg cuClass={`flex`} width={`16px`} height={`16px`} fill={`white`} />
@@ -106,10 +103,7 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount }) => {
                 </div>
             </CardFooter>
 
-
-
-
         </Card>
-    )
-}
+    );
+};
 export default FavoriteJobsCard;

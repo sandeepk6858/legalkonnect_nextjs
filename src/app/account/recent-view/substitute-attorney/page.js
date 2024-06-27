@@ -4,7 +4,7 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import ClockSvg from "@/components/recent veiw clock";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import FavoriteJobsCard from "@/components/card/favoritejobs";
+import FavoriteJobsCard from "@/components/favoritejobs";
 ;
 
 

@@ -32,10 +32,12 @@ const TranscriptCard = ({ showDiv, showDivCount }) => {
 
             <Divider className="bg-lightgrey" />
             <div className="p-5 flex flex-wrap text-center">
+                <Link href="#" className="flex flex-wrap gap-2">
                 <span className="text-sm font-medium text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl px-5 py-2 "> Criminal</span>
+                </Link>
             </div>
             <div className="flex flex-wrap" style={{ display: showDiv ? 'block' : 'none' }}>
-                <Divider className="bg-lightgrey nn" />
+                <Divider className="bg-lightgrey" />
 
                 <div className="p-5 flex flex-wrap">
                     <span className="flex flex-wrap" >jkhkljgh hjvfhgcf </span>
@@ -46,7 +48,7 @@ const TranscriptCard = ({ showDiv, showDivCount }) => {
 
             <div className="p-5 flex flex-wrap" style={{ display: showDivCount ? 'block' : 'none' }}>
 
-                <span className="text-sm font-semibold flex gap-1">
+                <span className="text-sm font-semibold flex gap-1 cursor-pointer">
                     <LocationSvg width={`18px`} height={`18px`} fill={`blackcolor`} stroke={`fill-current blackcolor`} />
                     1004 9th Ave N, Texas City, TX 77590, United States
                 </span>
@@ -61,7 +63,7 @@ const TranscriptCard = ({ showDiv, showDivCount }) => {
                     <div className="flex">
                         <b className="font-semibold text-blueprimary">10$</b>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 cursor-pointer">
                         <SocialPopup socialPopupT={socialPopupT} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
                         <HeartSvg width={`20px`} height={`20px`} fill={`orangeprimary`} stroke={`fill-orangeprimary`} />
@@ -77,18 +79,18 @@ const TranscriptCard = ({ showDiv, showDivCount }) => {
                 <div className="flex gap-1 py-2 relative">
                     <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-2 h-2 absolute top-[10px] left-[25px] z-[5]"></span>
                     <Avatar className="w-8 h-8" src="https://legalkonnect.com/img/no_avatar.jpg" />
-                    <Link href="#" className="flex items-center gap-1 ">
+                    <Link href="/users/profile/670" className="flex items-center gap-1 ">
                         <p className="text-sm font-normal">Demo Account</p>
                     </Link>
 
                 </div>
                 <div className="flex py-2">
-                    <div className="flex gap-2 items-center">
-                        <Link href="#" className="flex flex-wrap items-center gap-1 ">
+                    <div className="flex flex-wrap items-center gap-1 cursor-pointer">
+                        
                             <GravelSvg width={`16px`} height={`16px`} fill={`fill-blueprimary`} />
                             <span className="text-blueprimary" >5</span>
 
-                        </Link>
+                        
                     </div>
                 </div>
 

@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import ClockSvg from "@/components/recent veiw clock";
 import Link from "next/link";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Divider, Avatar } from "@nextui-org/react";
-import TranscriptCard from "@/components/card/transcripts";
+import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import RecentForum from "@/components/recentforum";
 
 
 
@@ -20,7 +20,6 @@ const forum = () => {
     const SocialPopupToggle = () => {
         setSocialPopupT(!socialPopupT);
     }
-
 
 
     return (
@@ -101,9 +100,17 @@ const forum = () => {
                 </div>
             </div>
 
-            <div className="w-full lg:my-10 xl:px-10 my-5 md:px-5 flex flex-wrap justify-evenly gap-5">
-
-
+            <div className="w-full lg:my-10 xl:px-2 my-5 md:px-5 flex flex-wrap justify-evenly gap-4">
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                <RecentForum/>
+                
             </div>
         </>
     );

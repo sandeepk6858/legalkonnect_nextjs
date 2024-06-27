@@ -96,7 +96,7 @@ const Home = () => {
               <div className="border-2 box_item border-gray-200 px-0 py-0 rounded-lg grid justify-items-center relative">
                 <Link href="/paralegal-support" className="text-[16px] capitalize text-[#fff] flex-col flex justify-center gap-2 link_tooltip">
                 <img className="h-[52px]" src={imageURL("Icons.png")} />
-                  Paralegal/Support
+                  Paralegal/ Support
                     <div className="tooltip_dropdown_new">Here, you can search for paralegals and other legal support service providers.</div>
                   </Link>
               </div>
@@ -207,7 +207,7 @@ const Home = () => {
             <p className="leading-relaxed text-base text-grey mb-[40px]">Searching for a lawyer used to be a stressful, time-consuming task, but those days are over. When you join LegalKonnect, you can post job requests to our marketplace and watch as legal experts come to you with their bid. The attorneys and lawyers on our platform have all been peer-reviewed and thoroughly vetted, with a profile highlighting their area of expertise. Finding qualified legal help online has never been easier.</p>
             {/* <Link href="/login" type="button" className="text-white w-[150px] bg-orangeprimary py-[15px] px-[25px] rounded-[30px] font-[400] text-[14px] sm:text-[18px]">Post a Job Now</Link> */}
             <Button
-              href="/create"
+              href="/jobs/create"
               as={Link}
               color="primary"
               className="text-white w-[200px] h-[50px] flex justify-center items-center bg-orangeprimary py-[15px] px-[25px] mt-[40px] rounded-[30px] font-[400] text-[18px]"

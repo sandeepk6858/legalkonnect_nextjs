@@ -4,7 +4,7 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import ClockSvg from "@/components/recent veiw clock";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import SupportCard from "@/components/card/support";
+import SupportCard from "@/components/support";
 
 const AttorneylegalSupport = () => {
 

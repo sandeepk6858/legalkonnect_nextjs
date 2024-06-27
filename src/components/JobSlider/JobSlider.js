@@ -3,6 +3,7 @@ import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Link, Button } from "@nextui-org/react";
 
 const JobSlider = () => {
   const settings = {
@@ -61,84 +62,84 @@ const JobSlider = () => {
   const slides = [
     {
       title: "Find an attorney",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/find-attorney-legal-support",
       image: "https://legalkonnect.com/img/bakeel-1.png",
       alt: "Attorney",
       tooltip: "Here, you can find an attorney.",
     },
     {
       title: "substitute Attorney",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/substitute-attorneys",
       image: "https://legalkonnect.com/img/attorney-1.png",
       alt: "Attorney",
       tooltip: "Here, you can find an substitute attorney.",
     },
     {
       title: "Legal jobs",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/jobs",
       image: "https://legalkonnect.com/img/legal_jobs-1.png",
       alt: "Attorney",
       tooltip: "Here, you can post and search for legal jobs.",
     },
     {
       title: "substitute Attorney Jobs",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/substitute-attorneys-jobs",
       image: "https://legalkonnect.com/img/legal_jobs-1.png",
       alt: "Attorney",
       tooltip: "Here, you can request and search for a substitute attorney jobs.",
     },
     {
       title: "Legal Docs",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/motions",
       image: "https://legalkonnect.com/img/legal_docs-1.png",
       alt: "Attorney",
       tooltip: "Here, you can post and search for legal Docs",
     },
     {
       title: "Transcripts",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/transcripts",
       image: "https://legalkonnect.com/img/transcripts%20(2).png",
       alt: "Attorney",
       tooltip: "Here, you can post and search for legal transcripts.",
     },
     {
       title: "Questions Forum",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/forum",
       image: "https://legalkonnect.com/img/question_forum-1.png",
       alt: "Attorney",
       tooltip: "Here, you can post your legal question and offer a reward for the best answer",
     },
     {
       title: "Paralegal/Support",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/paralegal-support",
       image: "https://legalkonnect.com/img/Icons.png",
       alt: "Attorney",
       tooltip: "Here, you can search for paralegals and other legal support service providers.",
     },
     {
       title: "Experts",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/experts",
       image: "https://legalkonnect.com/img/expert.png",
       alt: "Attorney",
       tooltip: "Here, you can search for experts.",
     },
     {
       title: "Process Servers",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/process-servers",
       image: "https://legalkonnect.com/img/process_servers-1.png",
       alt: "Attorney",
       tooltip: "Here, you can search for process servers.",
     },
     {
       title: "Court Reporters",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/court-reporters",
       image: "https://legalkonnect.com/img/Captions.png",
       alt: "Attorney",
       tooltip: "Here, you can search for court reporters.",
     },
     {
       title: "Investigatorst",
-      link: "https://legalkonnect.com/find-attorney-legal-support",
+      link: "/investigator",
       image: "https://legalkonnect.com/img/investigators.png",
       alt: "Attorney",
       tooltip: "Here, you can search for investigators.",
@@ -150,13 +151,13 @@ const JobSlider = () => {
       <Slider {...settings}>
         {slides.map((slide,index) => (
           <div key={index} className="max-w-[125px] w-full my-[25px] rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container">
-            <a href={slide.link} className="flex justify-center items-center flex-col gap-2">
+            <Link href={slide.link} className="flex justify-center items-center flex-col gap-2">
               <img src={slide.image} className="maw-w-[38px] h-[52px]" alt="" />
               <span className="text-[15px] text-center">{slide.title}</span>
               <div className="tooltip_dropdown">
                 {slide.tooltip}
               </div>
-            </a>
+            </Link>
           </div>
         ))}
       </Slider>

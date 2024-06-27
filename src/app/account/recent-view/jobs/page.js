@@ -4,7 +4,7 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import ClockSvg from "@/components/recent veiw clock";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import FavoriteJobsCard from "@/components/card/favoritejobs";
+import FavoriteJobsCard from "@/components/favoritejobs";
 
 const recentjobs = () => {
 
@@ -95,7 +95,7 @@ const recentjobs = () => {
             </div>
 
             <div className="w-full ">
-                <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
+                <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly md:gap-5 gap-7">
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
