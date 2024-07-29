@@ -80,23 +80,23 @@ const transcriptsjobs = () => {
             </div>
 
 
-            
+
 
             <div className="w-full relative px-4 lg:px-6">
-                    <div className=" flex flex-wrap justify-evenly gap-4">
-                    <ScriptsCards/>
-                 <ScriptsCards/>
-                 <ScriptsCards/>
-                 <ScriptsCards/>
-                 <ScriptsCards/>
-                 <ScriptsCards/>
-                 <ScriptsCards/>
-                 <ScriptsCards/>
+                <div className=" flex flex-wrap justify-evenly gap-4">
+                    <ScriptsCards />
+                    <ScriptsCards />
+                    <ScriptsCards />
+                    <ScriptsCards />
+                    <ScriptsCards />
+                    <ScriptsCards />
+                    <ScriptsCards />
+                    <ScriptsCards />
 
-
-                    </div>
 
                 </div>
+
+            </div>
         </>
     );
 };
