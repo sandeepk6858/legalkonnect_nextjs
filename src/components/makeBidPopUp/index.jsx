@@ -215,7 +215,7 @@ const MakeBidPopUp = () => {
 
                                         <div className='flex gap-3 items-center *: mt-[50px] mb-[50px]'>
                                             <h2 className='text-[20px] font-semibold '>Terms :</h2>
-                                            <a class="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity bg-[#eaf1fd] px-[15px] rounded-[20px] h-[40px] apppad" tabindex="0" role="link" href="#">Personal Injury Lawyer</a>
+                                            <a className="relative inline-flex items-center tap-highlight-transparent outline-none data-[focus-visible=true]:z-10 data-[focus-visible=true]:outline-2 data-[focus-visible=true]:outline-focus data-[focus-visible=true]:outline-offset-2 text-medium text-primary no-underline hover:opacity-80 active:opacity-disabled transition-opacity bg-[#eaf1fd] px-[15px] rounded-[20px] h-[40px] apppad" tabindex="0" role="link" href="#">Personal Injury Lawyer</a>
                                         </div>
 
                                         <div className="mb-5">
