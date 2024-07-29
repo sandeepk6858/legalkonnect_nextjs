@@ -1,13 +1,48 @@
-import React from "react";
+"use client";
+import React,{useState} from "react";
 import { imageURL } from "@/components/utils/helper/helper";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { validateInput, onInputChange, onFocusOut } from "@/components/lib/validation/form/login";
 
 const Login = () => {
-
+  const router = useRouter();
   const backgroundImage = imageURL("login_s_bg.jpg");
+  const [formState, setFormState] = useState({
+    email: { value: "", hasError: false, error: "", touched: false },
+    password: { value: "", hasError: false, error: "", touched: false },
+    isFormValid: false,
+  });
+  
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const { email, password } = formState;
+
+    try {
+        const response = await signIn("credentials", {
+            email: email.value,
+            password: password.value,
+            redirect: false,
+        });
+
+        if (response?.error) {
+          console.log(response.error);
+        }
+
+        if (response?.ok) {
+            router.push("/");
+            router.refresh();
+        } else {
+          console.log("Network response was not ok");
+        }
+    } catch (error) {
+        console.log("Login Failed:", error);
+    }
+};
 
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <div
         className="flex bg-cover bg-no-repeat bg-center"
         style={{
@@ -30,7 +65,13 @@ const Login = () => {
                   type="email"
                   className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
                   placeholder="donald.phillips@example.com"
+                  value={formState.email.value}
+                  onChange={(e) => onInputChange("email", e.target.value, formState, setFormState)}
+                  onBlur={(e) => onFocusOut("email", e.target.value, formState, setFormState)}
                 />
+                {formState.email.touched && formState.email.hasError && (
+                  <p className="text-red-500 text-sm">{formState.email.error}</p>
+                )}
               </div>
               <div className="flex flex-col gap-2 pt-3">
                 <div className="flex justify-between">
@@ -44,7 +85,13 @@ const Login = () => {
                 <input
                   type="password"
                   className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                  value={formState.password.value}
+                  onChange={(e) => onInputChange("password", e.target.value, formState, setFormState)}
+                  onBlur={(e) => onFocusOut("password", e.target.value, formState, setFormState)}
                 />
+                {formState.password.touched && formState.password.hasError && (
+                  <p className="text-red-500 text-sm">{formState.password.error}</p>
+                )}
               </div>
               <div className="flex gap-2 pt-5">
                 <div>
@@ -53,7 +100,8 @@ const Login = () => {
                 <p className="text-[#474040] text-base">Keep me logged in</p>
               </div>
               <div className="flex flex-col md:flex-row justify-between pt-[18px] gap-2.5 md:gap-[0]">
-                <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
+                <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]"
+                >
                   Log In
                 </button>
                 <Link
@@ -105,7 +153,7 @@ const Login = () => {
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g clip-path="url(#clip0)">
+                    <g clipPath="url(#clip0)">
                       <path
                         d="M15.1169 16.5001C15.6046 16.5001 16 16.1047 16 15.617V1.38306C16 0.895312 15.6046 0.5 15.1169 0.5H0.883062C0.39525 0.5 0 0.895312 0 1.38306V15.617C0 16.1047 0.39525 16.5001 0.883062 16.5001H15.1169Z"
                         fill="#395185"
@@ -144,7 +192,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </>
+    </form>
   );
 };
 
