@@ -1,20 +1,42 @@
-
 "use client"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import FavoriteJobsCard from "@/components/favoritejobs";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import axios from "axios";
 
 
 const favjobs = () => {
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
+    const [jobs, setJobs] = useState(null);
 
     const selectedValue = React.useMemo(
         () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
         [selectedKeys]
     );
+
+    useEffect(() => {
+        const getAllJobs = async () => {
+            try {
+                const headers = {
+                    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 
+                    'Content-Type': 'application/json' 
+                };
+
+                const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/getFavorites`, {}, {headers});
+                setJobs(response.data);
+            } catch (error) {
+                console.error("Error fetching jobs:", error.message);
+            }
+        };
+
+        getAllJobs();
+    }, []);
+
+
+    if(!jobs){return <h1>Loading...</h1>}
     return (
         <>
 
@@ -79,14 +101,11 @@ const favjobs = () => {
             </div>
             <div className="w-full">
                 <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
-                    <FavoriteJobsCard/>
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
-                    <FavoriteJobsCard />
+                    {
+                        jobs.data.items.map((job) => (
+                            job.jobs &&<FavoriteJobsCard key={job.id} data={job} />
+                        ))
+                    }
                 </div>
 
             </div>

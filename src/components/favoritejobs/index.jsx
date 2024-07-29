@@ -12,15 +12,37 @@ import CourtSvg from "@/components/courtaddress";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 
-const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
+const FavoriteJobsCard = ({ showDiv, showDivCount, data }) => {
     const [socialPopupT, setSocialPopupT] = useState(false);
 
     const SocialPopupToggle = () => {
         setSocialPopupT(!socialPopupT);
     }
 
-    return (
+    function diffForHumans(dateString) {
+        const date = new Date(dateString); // Convert the input string to a Date object
+        const now = new Date();
+        const seconds = Math.floor((now - date) / 1000);
+        const intervals = {
+            year: 31536000,
+            month: 2592000,
+            week: 604800,
+            day: 86400,
+            hour: 3600,
+            minute: 60,
+            second: 1
+        };
 
+        for (const [unit, value] of Object.entries(intervals)) {
+            const interval = Math.floor(seconds / value);
+            if (interval >= 1) {
+                return interval === 1 ? `1 ${unit} ago` : `${interval} ${unit}s ago`;
+            }
+        }
+        return 'Just now';
+    }
+
+    return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
 
             <CardHeader className=" p-0 relative shadow-md w-full">
@@ -35,7 +57,9 @@ const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
                     <Link href="#">
                         <span className=" text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl  px-5 py-1 inline-block h-max">Bankruptcy</span>
                     </Link>
-
+                    <Link href="#">
+                        <span className=" text-blueprimary bg-lightblue hover:bg-blueprimary hover:text-white rounded-3xl  px-5 py-1 inline-block h-max">Criminal</span>
+                    </Link>
                 </div>
                 <div className="absolute w-full h-12 p-5 pb-10 bottom-0 left-0 flex gap-2 z-10 items-center bg-gradient-to-b from-transparent to-gray-900/50">
                     <CalendarSvg cuClass={`flex`} width={`16px`} height={`16px`} fill={`white`} />
@@ -45,10 +69,10 @@ const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
             </CardHeader>
             <CardBody className="p-0">
                 <Link href="#">
-                    <p className="text-base font-bold py-4 px-5">Job Heading</p>
+                    <p className="text-base font-bold py-4 px-5">{data.jobs.heading}</p>
                 </Link>
                 <div className="pb-5 px-5 flex justify-between">
-                    <p className="text-base">Posted 2 years ago</p>
+                    <p className="text-base">Posted {diffForHumans(data.jobs.created_at)}</p>
                     <div className="flex gap-1 cursor-pointer relative z-50">
                         <SocialPopup socialPopupT={socialPopupT} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
@@ -59,21 +83,21 @@ const FavoriteJobsCard = ({ showDiv , showDivCount }) => {
                 <div className="py-2 px-5 flex flex-wrap" style={{ display: showDiv ? 'block' : 'none' }}>
                     <Link href="#">
                         <CourtSvg width={`18px`} height={`18px`} />
-                        <p className="py-1 font-semibold">Court Address: 300 E 26th St # 116A, Bryan, TX 77803, United States</p>
+                        <p className="py-1 font-semibold">Court Address: {data.jobs.court_address}</p>
                     </Link>
 
                 </div>
 
                 <Divider className="bg-lightgrey" />
                 <div className="px-5 py-3 flex gap-2 items-center">
-                    <b>776$</b>
+                    <b>{data.jobs.fixed_price}$</b>
                     <Link href="#">
                         <FixedSvg width={`18px`} height={`18px`} stroke={`blueprimary`} />
-                    </Link>1
+                    </Link>{data.jobs.hire_count}
 
                 </div>
                 <Divider className="bg-lightgrey" />
-                <p className="p-5 text-base line-clamp-2"> This is job description</p>
+                <p className="p-5 text-base line-clamp-2">{data.jobs.description}</p>
 
             </CardBody>
 
