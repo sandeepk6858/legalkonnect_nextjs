@@ -103,7 +103,7 @@ const favjobs = () => {
                 <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
                     {
                         jobs?.data?.items.map((job) => (
-                            job.jobs &&<FavoriteJobsCard key={job.id} data={job} />
+                            job?.jobs &&<FavoriteJobsCard key={job.id} data={job} />
                         ))
                     }
                 </div>
