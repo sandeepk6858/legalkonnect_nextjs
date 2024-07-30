@@ -1,10 +1,11 @@
 "use client";
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { imageURL } from "@/components/utils/helper/helper";
 import Link from "next/link";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { validateInput, onInputChange, onFocusOut } from "@/components/lib/validation/form/login";
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
   const router = useRouter();
@@ -14,32 +15,39 @@ const Login = () => {
     password: { value: "", hasError: false, error: "", touched: false },
     isFormValid: false,
   });
-  
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password } = formState;
 
     try {
-        const response = await signIn("credentials", {
-            email: email.value,
-            password: password.value,
-            redirect: false,
-        });
-
-        if (response?.error) {
+      const response = await signIn("credentials", {
+        email: email.value,
+        password: password.value,
+        redirect: false,
+      });
+  
+      if (response) {
+        if (response.error) {
           console.log(response.error);
-        }
-
-        if (response?.ok) {
-            router.push("/");
-            router.refresh();
+          toast.error(response.error); 
+          // Display error message to the user if needed
+        } else if (response.ok) {
+          toast.success('Login successful!');
+          router.push("/");
+          router.refresh();
         } else {
-          console.log("Network response was not ok");
+          toast.error("Unexpected response structure:"); 
+          console.warn("Unexpected response structure:", response);
         }
+      } else {
+        toast.error("Bad Request"); 
+      }
     } catch (error) {
-        console.log("Login Failed:", error);
+      toast.error(error);
     }
-};
+
+  };
 
   return (
     <form onSubmit={handleSubmit}>

@@ -16,8 +16,8 @@ import MyorderSvg from '../Icons/myorderSvg';
 import SupportSvg from '../Icons/supportSvg';
 import HistorySvg from '../Icons/historySvg';
 import LogoutSvg from '../Icons/logoutSvg';
-
-
+import { signOut } from "next-auth/react"
+//export default () => <button onClick={() => signOut()}>Sign out</button>
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -141,6 +141,9 @@ const Header = () => {
                                     </Link>
                                 </li>
                                 <li>
+                                
+
+
                                     <Link href="/login" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                         Login
                                     </Link>
