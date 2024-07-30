@@ -9,7 +9,7 @@ const ScriptsCards = () => {
   const toggleIcons = () => {
     setIsShown(!isShown);
   };
-  console.log("isShown", isShown);
+  // console.log("isShown", isShown);
   return (
     <>
     <div className="w_wid p-[20px] lf:p-[30px] w-1/1 md:w-1/3 lg:w-1/4 flex flex-col items-start bg-[#fff] shadow-lg rounded-[20px]">

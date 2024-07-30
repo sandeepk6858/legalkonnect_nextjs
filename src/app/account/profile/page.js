@@ -27,7 +27,7 @@ const Profile = () => {
   const toggleIcons = () => {
     setIsShown(!isShown);
   };
-  console.log("isShown", isShown);
+  // console.log("isShown", isShown);
 
   const backgroundImage = imageURL("star_rating_grey.svg");
 

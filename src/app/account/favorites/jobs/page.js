@@ -17,6 +17,7 @@ const favjobs = () => {
         [selectedKeys]
     );
 
+    // console.log(Array.from(selectedKeys)[0]);
     useEffect(() => {
         const getAllJobs = async () => {
             try {
@@ -33,7 +34,7 @@ const favjobs = () => {
         };
 
         getAllJobs();
-    }, []);
+    }, [selectedKeys]);
 
 
     if(!jobs){return <h1>Loading...</h1>}
