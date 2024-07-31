@@ -29,7 +29,7 @@ const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
                 src="https://legalkonnect.com/storage/specializations/Estate%20Planning%20Lawyer.png"
             />
             <CardHeader className="px-5 relative w-full">
-                <Link href="users/profile/671" className="flex justify-between cursor-pointer">
+                <div className="flex justify-between">
                     <div className="flex relative">
                         <span className="border-2 border-white bg-gray-200 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
                         <Avatar className="w-[68px] h-[68px]" src="https://legalkonnect.com/img/no_avatar.jpg" />
@@ -49,11 +49,11 @@ const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
                         </div>
 
                     </div>
-                </Link>
+                </div>
             </CardHeader>
             <CardBody className="p-0">
                 <Divider className="bg-lightgrey" />
-                <Link href="users/profile/671" className="p-5 cursor-pointer">
+                <div className="p-5">
                     <div className="flex">
                         <h6 className="text-gray text-sm">Fee Accepted:</h6>
                         <p className="pl-1 ">N/A</p>
@@ -74,12 +74,12 @@ const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
                         <h6 className="text-gray text-sm">Country:</h6>
                         <p className="pl-1">N/A</p>
                     </div>
-                </Link>
+                </div>
                 <Divider className="bg-lightgrey" />
             </CardBody>
             <CardFooter className="flex flex-col px-5">
-                <Link href="users/profile8461">
-                    <div className="flex justify-between  w-full">
+                <div className="w-full">
+                    <div className="flex justify-between w-full">
                         <div className="flex ">
                             <h5 className="text-sm font-bold">?</h5>
                             <p className="text-darkgray pl-1 text-sm">yrs experience</p>
@@ -89,21 +89,18 @@ const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
                             <p className="text-darkgray pl-1 text-sm">earned</p>
                         </div>
                     </div>
-                    <div className="flex ">
-                        <h5 className="text-sm font-bold">$0</h5>
-                        <p className="text-darkgray pl-1 text-sm">earned</p>
-                    </div>
-                </Link>
+                </div>
                 <div className="flex justify-between py-2 mt-[20px]  w-full">
                     <div className="flex">
-                        <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`}  />
+                        <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
                         <span className="text-sm font-bold pl-1" style={{ display: showDivCount ? 'block' : 'none' }}>0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
                     </div>
                     <div className="flex gap-1 items-center">
                         <SocialPopup socialPopupT={socialPopupT} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <Link href="/account/favorite/8461">
-                        <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} /></Link>
+                        <Link href="#">
+                            <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                        </Link>
                     </div>
                 </div>
             </CardFooter>

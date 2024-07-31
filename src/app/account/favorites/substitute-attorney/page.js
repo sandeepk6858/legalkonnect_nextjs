@@ -80,12 +80,7 @@ const subjobs = () => {
 
 
             <div className="w-full my-12 px-[5px] md:px-20 flex flex-wrap justify-center md:justify-start gap-5">
-            <FavoriteJobsCard showDiv={true} showDivCount={true} />
-                {/* <div className="w-full">
-                <FavoriteJobsCard showDiv={true} showDivCount={true} />
-                    
-
-                </div> */}
+            {/* <FavoriteJobsCard showDiv={true} showDivCount={true} /> */}
 
 
             </div>

@@ -1,11 +1,12 @@
 "use client"
-import React from "react";
+import React, { useState, useEffect } from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import support from "@/app/support/page";
 import SupportCard from "@/components/support";
+import axios from "axios";
+
 const favQualifyAttorney = () => {
     const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
 
@@ -13,6 +14,30 @@ const favQualifyAttorney = () => {
         () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
         [selectedKeys]
     );
+
+    const [qualAtt, setqualAtt] = useState(null);
+    useEffect(() => {
+        const getQualifiedAttorney = async () => {
+            try {
+                const headers = {
+                    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`,
+                    'Content-Type': 'application/json'
+                };
+                const body = {
+                    filter: "qualified-attorney",
+                    sort: Array.from(selectedKeys)[0] === 'By Price' ? 'price' : 'date'
+                }
+                const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/getFavorites`, body, { headers });
+                setqualAtt(response.data.data.items);
+            } catch (error) {
+                console.error("Error fetching jobs:", error.message);
+            }
+        };
+
+        getQualifiedAttorney();
+    }, [selectedKeys]);
+
+    if (!qualAtt) { return <h1>Loading...</h1> }
 
     return (
         <>
@@ -78,21 +103,15 @@ const favQualifyAttorney = () => {
                     </div>
                 </div>
 
-
                 <div className="w-full relative lg:px-6">
                     <div className=" flex flex-wrap justify-evenly gap-4">
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-
-
+                        {qualAtt.length >0 ? qualAtt.map((item) => (
+                            item &&<SupportCard key={item.id} item={item} fillheart="orangeprimary" />
+                        ))
+                        :
+                        <div>No item found</div>
+                        }
                     </div>
-
                 </div>
             </div>
 

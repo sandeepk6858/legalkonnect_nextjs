@@ -16,8 +16,6 @@ const favjobs = () => {
         () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
         [selectedKeys]
     );
-
-    // console.log(Array.from(selectedKeys)[0]);
     useEffect(() => {
         const getAllJobs = async () => {
             try {
@@ -25,8 +23,11 @@ const favjobs = () => {
                     'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 
                     'Content-Type': 'application/json' 
                 };
-
-                const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/getFavorites`, {}, {headers});
+                const body = {
+                    filter: "jobs",
+                    sort: Array.from(selectedKeys)[0] === 'By Price' ? 'price' : 'date'
+                }
+                const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/getFavorites`, body, {headers});  
                 setJobs(response.data);
             } catch (error) {
                 console.error("Error fetching jobs:", error.message);
@@ -34,8 +35,7 @@ const favjobs = () => {
         };
 
         getAllJobs();
-    }, [selectedKeys]);
-
+    }, [selectedKeys]);     
 
     if(!jobs){return <h1>Loading...</h1>}
     return (
@@ -103,9 +103,11 @@ const favjobs = () => {
             <div className="w-full">
                 <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
                     {
-                        jobs?.data?.items.map((job) => (
-                            job?.jobs &&<FavoriteJobsCard key={job.id} data={job} />
+                        jobs?.data?.items.length > 0 ? jobs?.data?.items.map((job) => (
+                            job?.jobs && <FavoriteJobsCard key={job.id} data={job} jobs={jobs} setJobs={setJobs}/>
                         ))
+                        :
+                        <div>No jobs found</div>
                     }
                 </div>
 

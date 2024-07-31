@@ -3,7 +3,7 @@ import PintrestSvg from "../Icons/pintrestSvg";
 import TwitterSvg from "../Icons/twitterSvg";
 import Link from 'next/link'
 
-const SocialPopup = ({ socialPopupT, facebook_url, twitter_url, pintrest_url }) => {
+const SocialPopup = ({ socialPopupT, facebook_url='https://www.facebook.com', twitter_url='https://twitter.com', pintrest_url='https://www.pinterest.com' }) => {
 
     return (
         socialPopupT && (

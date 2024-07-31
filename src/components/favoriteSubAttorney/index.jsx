@@ -11,9 +11,8 @@ import FixedSvg from "@/components/Icons/fixedprice";
 import CourtSvg from "@/components/courtaddress";
 
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
-import axios from "axios";
 
-const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJobs }) => {
+const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data }) => {
     const [socialPopupT, setSocialPopupT] = useState(false);
 
     const SocialPopupToggle = () => {
@@ -44,32 +43,6 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
     }
     // hide toggle functionality
     const [showHideToggle, setshowHideToggle] = useState(false);
-    const handleFavorite = async(id) => {
-        try {
-            const headers = {
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 
-                'Content-Type': 'application/json' 
-            };
-            const body = {
-                model: "job",
-                id
-            }
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/togglefavorite`, body, {headers});
-            if(response.data.success){
-                const filterJobs = jobs.data.items.filter(j => j.jobs?.id !== id);
-                const newJobs = {
-                    ...jobs,
-                    data: {
-                        ...jobs.data,
-                        items: filterJobs
-                    }
-                }
-                setJobs(newJobs);
-            }
-        } catch (error) {
-            console.error("Error fetching jobs:", error.message);
-        }
-    };
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
@@ -112,18 +85,16 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
                 </div>
             </CardHeader>
             <CardBody className="p-0">
-                <Link href={`/jobs/${data?.jobs?.id}`}>
+                <Link href="#">
                     <p className="text-base font-bold py-4 px-5">{data?.jobs?.heading}</p>
+                    <p className="line-clamp-1 overflow-hidden text-lg font-semibold my-4 px-6">Job Heading</p>
                 </Link>
                 <div className="pb-5 px-5 flex justify-between">
                     <p className="text-base">Posted {diffForHumans(data?.jobs?.created_at)}</p>
                     <div className="flex gap-1 cursor-pointer relative z-50">
-                        <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
+                        <SocialPopup socialPopupT={socialPopupT} facebook_url={"https://www.facebook.com"} twitter_url={"https://www.twitter.com"} pintrest_url={"https://in.pinterest.com/"} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-
-                        <div onClick={() => handleFavorite(data.jobs?.id)} >
-                            <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }} />
-                        </div>
+                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }} />
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />
