@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { validateInput, onInputChange, onFocusOut } from "@/components/lib/validation/form/login";
 import { toast } from 'react-hot-toast';
 
-const Login = () => {
+const Login = ({session}) => {
   const router = useRouter();
   const backgroundImage = imageURL("login_s_bg.jpg");
   const [formState, setFormState] = useState({
@@ -19,32 +19,56 @@ const Login = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const { email, password } = formState;
-
+    const userPostData = {
+      "email": email?.value,
+      "password": password?.value,
+      "fcm_token": ""
+    };
+   
     try {
-      const response = await signIn("credentials", {
-        email: email.value,
-        password: password.value,
-        redirect: false,
+      const response = await fetch(`${process.env.API_URL}/users/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(userPostData),
       });
-  
-      if (response) {
-        if (response.error) {
-          console.log(response.error);
-          toast.error(response.error); 
-          // Display error message to the user if needed
-        } else if (response.ok) {
-          toast.success('Login successful!');
-          router.push("/");
-          router.refresh();
-        } else {
-          toast.error("Unexpected response structure:"); 
-          console.warn("Unexpected response structure:", response);
-        }
-      } else {
-        toast.error("Bad Request"); 
+
+      const userData = await response.json();
+
+      if (!userData.success) {
+        toast.error(userData.message);
+        return;
       }
+      
+      try {
+        
+        const response = await signIn("credentials", {
+          first_name: userData.data.user.first_name,
+          last_name: userData.data.user.last_name,
+          email: userData.data.user.email,
+          token: userData.data.token,
+          redirect: false,
+        });
+        if (response) {
+          if (response.error) {
+            console.log(response.error);
+            toast.error(response.error);
+          } else if (response.ok) {
+           
+            toast.success('Login successful!');
+            router.push("/");
+            router.refresh();
+          } else {
+            console.warn("Unexpected response structure:", response);
+          }
+        } else {
+          toast.error("Bad Request");
+        }
+      } catch (error) {
+        toast.error(error);
+      }
+
     } catch (error) {
-      toast.error(error);
+      throw new Error(`${error.message}`);
     }
 
   };

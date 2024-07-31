@@ -3,12 +3,9 @@ import { imageURL } from "@/components/utils/helper/helper";
 import React from "react";
 import Image from "next/image";
 import { Link, Button } from "@nextui-org/react";
-import { getServerSession } from 'next-auth/next';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 
 const Home = async () => {
   // Fetch session from the server
-  const session = await getServerSession(authOptions);
 
   return (
     <>
@@ -25,6 +22,7 @@ const Home = async () => {
               your fingertips. Discover how our fair bidding system helps
               lawyers and their clients today.
             </p>
+
             <Button
               href="/register"
               as={Link}

@@ -1,78 +1,66 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from 'next-auth/providers/credentials';
+import { cookies } from "next/headers";
 
 const authOptions = {
-  session: {
-    strategy: 'jwt',
-  },
-  pages: {
-    signIn: '/login',
-  },
   providers: [
     CredentialsProvider({
       credentials: {
-        email: { label: 'Email', type: 'text' },
-        password: { label: 'Password', type: 'password' },
+        first_name: { label: 'First Name', type: 'text' },
+        last_name: { label: 'Last Name', type: 'text' },
+        email: { label: 'Email', type: 'email' },
+        token: { label: 'Token', type: 'text' },
+        fcm_token: { label: 'Fcm Token', type: 'text' },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         if (!credentials) {
           throw new Error('No credentials provided');
         }
+   
+        // Simulate user retrieval from a database
+        cookies().set('next-auth-session', credentials.token, { httpOnly: true });
+        const user = {
+          first_name: credentials.first_name,
+          last_name: credentials.last_name,
+          email: credentials.email,
+          token: credentials.token,
+        };
 
-        try {
-          const response = await fetch(`${process.env.API_URL}/users/login`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(credentials),
-          });
-
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-
-          const userData = await response.json();
-
-          if (!userData.success) {
-            throw new Error(userData.message || 'Sign-in failed');
-          }
-
-          return {
-            id: userData.data.user.id,
-            first_name: userData.data.user.first_name,
-            last_name: userData.data.user.last_name,
-            email: userData.data.user.email,
-            token: userData.data.token,
-          };
-        } catch (error) {
-          throw new Error(`Authorization error: ${error.message}`);
-        }
+        return user;
       },
     }),
   ],
   callbacks: {
-    async session({ session, token }) {
-      session.id = token.id;
-      session.name = token.name;
-      session.email = token.email;
-      return session;
+    async signIn({ user, account, profile, email, credentials }) {
+      return true;
     },
-    async jwt({ token, user }) {
+    async jwt({ token, user, account, profile }) {
       if (user) {
-        token.id = user.id;
-        token.name = `${user.first_name} ${user.last_name}`;
+        token.name = user.first_name + " " + user.last_name;
         token.email = user.email;
-        token.token = user.token;
+        token.customToken = user.token; // Store the token in the JWT
       }
-      return token;
+      return {
+        ...token,
+        jwt: user?.jwt, // Ensure user.jwt is defined
+      };
+    },
+    async session({ session, token, sessionToken }) {
+      session.user = {
+        name: token.name,
+        email: token.email,
+      };
+      session.jwt = token.jwt;
+      session.user = await getUserFromTheAPIServer(token.jwt);
+      return session;
     },
   },
   cookies: {
-    // Define cookie options here
     sessionToken: {
       name: `next-auth.session-token`,
       options: {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Set to true in production
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         path: '/',
       },
@@ -81,12 +69,17 @@ const authOptions = {
       name: `next-auth.csrf-token`,
       options: {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Set to true in production
+        secure: process.env.NODE_ENV === 'production',
         sameSite: 'lax',
         path: '/',
-      },
+      }, 
     },
   },
+  session: { strategy: 'jwt' },
+  secret: process.env.NEXTAUTH_SECRET,
+  pages: {
+    signIn: '/login',
+  }
 };
 
 export const handler = NextAuth(authOptions);
