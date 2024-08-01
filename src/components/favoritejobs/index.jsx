@@ -9,7 +9,6 @@ import CalendarSvg from "@/components/Icons/calendarSvg";
 import SocialPopup from "@/components/socialPopup";
 import FixedSvg from "@/components/Icons/fixedprice";
 import CourtSvg from "@/components/courtaddress";
-
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 import axios from "axios";
 

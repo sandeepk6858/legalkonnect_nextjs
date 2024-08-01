@@ -32,6 +32,7 @@ export default function Footer() {
                                     height={40}
                                     quality={100}
                                     className="cursor-pointer"
+                                    priority 
                                 />
                             </Link>
                             <ul className="social-item flex items-center gap-[20px] mt-[40px]">

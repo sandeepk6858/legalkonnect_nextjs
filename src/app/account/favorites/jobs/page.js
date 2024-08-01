@@ -1,42 +1,15 @@
-"use client"
-import React, { useEffect, useState } from "react";
+import React from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import FavoriteJobsCard from "@/components/favoritejobs";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import axios from "axios";
+import { fetchJobs } from "@/actions/favoriteData";
+import DropdownComponent from "@/components/Dropdown";
 
+const favjobs = async ({ searchParams }) => {
 
-const favjobs = () => {
-    const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
-    const [jobs, setJobs] = useState(null);
-
-    const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
-    );
-    useEffect(() => {
-        const getAllJobs = async () => {
-            try {
-                const headers = {
-                    'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 
-                    'Content-Type': 'application/json' 
-                };
-                const body = {
-                    filter: "jobs",
-                    sort: Array.from(selectedKeys)[0] === 'By Price' ? 'price' : 'date'
-                }
-                const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/getFavorites`, body, {headers});  
-                setJobs(response.data);
-            } catch (error) {
-                console.error("Error fetching jobs:", error.message);
-            }
-        };
-
-        getAllJobs();
-    }, [selectedKeys]);     
-
+    const sort = searchParams.sort || 'date';
+    let jobs = await fetchJobs("jobs", sort);
     if(!jobs){return <h1>Loading...</h1>}
     return (
         <>
@@ -75,27 +48,7 @@ const favjobs = () => {
                         </div>
                         <div className="flex items-center gap-x-2.5 py-5 lg:py-0 ">
                             <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
-                            <Dropdown>
-                                <DropdownTrigger>
-                                    <Button
-                                        className="capitalize bg-gray-50 border-1 border-blackcolor rounded-none min-w-36 text-grey text-left flex justify-start "
-                                    >
-                                        {selectedValue}
-                                    </Button>
-                                </DropdownTrigger>
-                                <DropdownMenu
-                                    aria-label="Single selection example"
-                                    variant="flat"
-                                    disallowEmptySelection
-                                    selectionMode="single"
-                                    selectedKeys={selectedKeys}
-                                    onSelectionChange={setSelectedKeys}
-                                >
-                                    <DropdownItem key="Default">Default</DropdownItem>
-                                    <DropdownItem key="By Date">By Date</DropdownItem>
-                                    <DropdownItem key="By Price">By Price</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
+                            <DropdownComponent initialSort={sort} />
                         </div>
                     </div>
                 </div>
@@ -104,7 +57,7 @@ const favjobs = () => {
                 <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
                     {
                         jobs?.data?.items.length > 0 ? jobs?.data?.items.map((job) => (
-                            job?.jobs && <FavoriteJobsCard key={job.id} data={job} jobs={jobs} setJobs={setJobs}/>
+                            job?.jobs && <FavoriteJobsCard key={job.id} data={job} jobs={[]} setJobs={[]}/>
                         ))
                         :
                         <div>No jobs found</div>
