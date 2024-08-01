@@ -1,23 +1,18 @@
-"use client"
-import React from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import FavoriteJobsCard from "@/components/favoritejobs";
+import FavoriteSubstitueAttorney from "@/components/favoriteSubAttorney";
+import DropdownComponent from "@/components/Dropdown";
+import { fetchData } from "@/actions/favoriteData";
 
+const subjobs = async ({ searchParams }) => {
 
-const subjobs = () => {
-    const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
-
-    const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
-    );
+    const sort = searchParams.sort || 'date';
+    let subAtt = await fetchData("substitute-attorney", sort);
 
     return (
         <>
-
             <div className="my-10">
                 <JobSlider />
             </div>
@@ -52,27 +47,7 @@ const subjobs = () => {
                         </div>
                         <div className="flex items-center gap-x-2.5 py-5 lg:py-0 ">
                             <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
-                            <Dropdown>
-                                <DropdownTrigger>
-                                    <Button
-                                        className="capitalize bg-gray-50 border-1 border-blackcolor rounded-none min-w-36 text-grey text-left flex justify-start "
-                                    >
-                                        {selectedValue}
-                                    </Button>
-                                </DropdownTrigger>
-                                <DropdownMenu
-                                    aria-label="Single selection example"
-                                    variant="flat"
-                                    disallowEmptySelection
-                                    selectionMode="single"
-                                    selectedKeys={selectedKeys}
-                                    onSelectionChange={setSelectedKeys}
-                                >
-                                    <DropdownItem key="Default">Default</DropdownItem>
-                                    <DropdownItem key="By Date">By Date</DropdownItem>
-                                    <DropdownItem key="By Price">By Price</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
+                            <DropdownComponent model={"substitute-attorney"} />
                         </div>
                     </div>
                 </div>
@@ -80,9 +55,12 @@ const subjobs = () => {
 
 
             <div className="w-full my-12 px-[5px] md:px-20 flex flex-wrap justify-center md:justify-start gap-5">
-            {/* <FavoriteJobsCard showDiv={true} showDivCount={true} /> */}
-
-
+                {subAtt.data.items.length > 0 ? subAtt.data.items.map((item) => (
+                    item && <FavoriteSubstitueAttorney showDiv={true} showDivCount={true} key={item.id} data={item} />
+                ))
+                    :
+                    <div>No item found</div>
+                }
             </div>
         </>
     );

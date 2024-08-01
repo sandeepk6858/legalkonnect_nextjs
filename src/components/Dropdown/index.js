@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-const DropdownComponent = () => {
+const DropdownComponent = ({model}) => {
     const router = useRouter();
     const [selectedKeys, setSelectedKeys] = useState(new Set(["Default"]));
 
@@ -16,7 +16,7 @@ const DropdownComponent = () => {
         const newSelectedValue = Array.from(keys).join(", ").replaceAll("_", " ");
         const sort = newSelectedValue === 'By Price' ? 'price' : 'date';
 
-        router.push(`/account/favorites/jobs?sort=${sort}`);
+        router.push(`/account/favorites/${model}?sort=${sort}`);
     };
 
     return (

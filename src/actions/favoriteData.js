@@ -1,7 +1,7 @@
 "use server"
 import axios from 'axios';
 
-export async function fetchJobs(filter, sort) {
+export async function fetchData(filter, sort) {
     try {
         const headers = {
             'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 

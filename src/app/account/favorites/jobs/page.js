@@ -3,14 +3,16 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import FavoriteJobsCard from "@/components/favoritejobs";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
-import { fetchJobs } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favoriteData";
 import DropdownComponent from "@/components/Dropdown";
 
 const favjobs = async ({ searchParams }) => {
 
     const sort = searchParams.sort || 'date';
-    let jobs = await fetchJobs("jobs", sort);
+    let jobs = await fetchData("jobs", sort);
+
     if(!jobs){return <h1>Loading...</h1>}
+
     return (
         <>
 
@@ -48,7 +50,7 @@ const favjobs = async ({ searchParams }) => {
                         </div>
                         <div className="flex items-center gap-x-2.5 py-5 lg:py-0 ">
                             <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
-                            <DropdownComponent initialSort={sort} />
+                            <DropdownComponent model="jobs" />
                         </div>
                     </div>
                 </div>
