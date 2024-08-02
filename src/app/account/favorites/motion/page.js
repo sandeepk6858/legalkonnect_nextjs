@@ -1,23 +1,15 @@
-
-"use client"
-import React from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
+import DropdownComponent from "@/components/Dropdown";
+import { fetchData } from "@/actions/favoriteData";
 import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
+const Motion=async({searchParams})=>{
 
-
-const Motion=()=>{
-
-    const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
-
-    const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
-    );
-
+    const sort = searchParams.sort || 'date';
+    let transcripts = await fetchData("motion", sort);
+    
     return(
         <>
        <div className="my-10">
@@ -54,27 +46,7 @@ const Motion=()=>{
                         </div>
                         <div className="flex items-center gap-x-2.5 py-5 lg:py-0  ">
                             <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
-                            <Dropdown>
-                                <DropdownTrigger>
-                                    <Button
-                                        className="capitalize bg-gray-50 border-1 border-blackcolor rounded-none min-w-36 text-grey text-left flex justify-start "
-                                    >
-                                        {selectedValue}
-                                    </Button>
-                                </DropdownTrigger>
-                                <DropdownMenu
-                                    aria-label="Single selection example"
-                                    variant="flat"
-                                    disallowEmptySelection
-                                    selectionMode="single"
-                                    selectedKeys={selectedKeys}
-                                    onSelectionChange={setSelectedKeys}
-                                >
-                                    <DropdownItem key="Default">Default</DropdownItem>
-                                    <DropdownItem key="By Date">By Date</DropdownItem>
-                                    <DropdownItem key="By Price">By Price</DropdownItem>
-                                </DropdownMenu>
-                            </Dropdown>
+                            <DropdownComponent model="motion" />
                         </div>
                     </div>
                 </div>
@@ -82,16 +54,13 @@ const Motion=()=>{
             <section className="text-blackcolor body-font overflow-hidden">
               <div className="container px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
                     <div className="flex flex-wrap gap-[20px] xl:gap-[30px]">
-                        <ScriptsCards/>
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
-                        <ScriptsCards />
+                    {
+                        transcripts?.data?.items.length > 0 ? transcripts?.data?.items.map((item) => (
+                            <ScriptsCards data={item} key={item?.id} model="motions"/>
+                        ))
+                        :
+                        <div>No jobs found</div>
+                    }
                     </div>
                </div>
            </section>

@@ -8,7 +8,7 @@ const Jobslug = ({params}) => {
     
     const { slug } = params;  
 
-    console.log(slug);
+    // console.log(slug);
 
     return (
         <div>

@@ -185,14 +185,14 @@ const profile = () => {
                   <path
                     d="M10.666 5.5L1.33268 5.5"
                     stroke="#fff"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   ></path>
                   <path
                     d="M6 10.1667L1.33333 5.49999L6 0.83332"
                     stroke="#fff"
-                    stroke-width="1.5"
+                    strokeWidth="1.5"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   ></path>

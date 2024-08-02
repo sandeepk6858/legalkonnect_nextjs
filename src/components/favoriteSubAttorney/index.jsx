@@ -9,8 +9,8 @@ import CalendarSvg from "@/components/Icons/calendarSvg";
 import SocialPopup from "@/components/socialPopup";
 import FixedSvg from "@/components/Icons/fixedprice";
 import CourtSvg from "@/components/courtaddress";
-
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
+import { diffForHumans } from "../utils/helper/helper";
 
 const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) => {
     const [socialPopupT, setSocialPopupT] = useState(false);
@@ -19,29 +19,6 @@ const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) =
         setSocialPopupT(!socialPopupT);
     }
 
-    function diffForHumans(dateString) {
-        const date = new Date(dateString); // Convert the input string to a Date object
-        const now = new Date();
-        const seconds = Math.floor((now - date) / 1000);
-        const intervals = {
-            year: 31536000,
-            month: 2592000,
-            week: 604800,
-            day: 86400,
-            hour: 3600,
-            minute: 60,
-            second: 1
-        };
-
-        for (const [unit, value] of Object.entries(intervals)) {
-            const interval = Math.floor(seconds / value);
-            if (interval >= 1) {
-                return interval === 1 ? `1 ${unit} ago` : `${interval} ${unit}s ago`;
-            }
-        }
-        return 'Just now';
-    }
-    // hide toggle functionality
     const [showHideToggle, setshowHideToggle] = useState(false);
 
     return (
@@ -121,9 +98,12 @@ const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) =
 
             <CardFooter className="flex flex-wrap justify-between justify-items-center px-5">
                 <div className="flex flex-wrap items-center gap-1 py-2 relative">
-
-                    <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
-                    {/* <span className="border-2 border-textgreen bg-green-600 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span> */}
+                    {
+                        data?.substituteAttorney?.user?.isOnline ?
+                        <span className="border-2 border-textgreen bg-green-600 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
+                        :
+                        <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
+                    }
                     <Avatar className="w-12 h-12 " src={(data?.substituteAttorney?.user?.avatar[0]?.url) ? data?.substituteAttorney?.user?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
                     <div className="flex items-center gap-1 ">
                         <p>{data?.substituteAttorney?.user?.first_name + " " + data?.substituteAttorney?.user?.last_name}</p>

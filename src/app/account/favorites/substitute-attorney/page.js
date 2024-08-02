@@ -1,7 +1,6 @@
 import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
 import FavoriteSubstitueAttorney from "@/components/favoriteSubAttorney";
 import DropdownComponent from "@/components/Dropdown";
 import { fetchData } from "@/actions/favoriteData";
