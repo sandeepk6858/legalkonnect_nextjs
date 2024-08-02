@@ -1,10 +1,11 @@
 "use server"
+import { user_token } from '@/components/utils/helper/helper';
 import axios from 'axios';
 
 export async function fetchData(filter, sort) {
     try {
         const headers = {
-            'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 
+            'Authorization': `Bearer ${user_token()}`, 
             'Content-Type': 'application/json' 
         };
         const body = {

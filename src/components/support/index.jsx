@@ -40,7 +40,7 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                         <Avatar className="w-[68px] h-[68px]" src={(data.users?.avatar[0]?.url) ? data.users?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
                     </div>
                     <div className="flex flex-col px-2 text-blackcolorcolor text-lg fill-lightgrey">
-                        <p className="text-base">{data.users.first_name + " " + data.users.last_name}</p>
+                        <Link href={`/users/profile/${data.users.id}`} className="text-base">{data.users.first_name + " " + data.users.last_name}</Link>
                         <div className="flex items-center mt-[5px] gap-[10px]">
                             <p className="text-sm">{data.users.role.name}</p>
                             {/* <BacthSvg className="ml-[10px]" width={`20px`} height={`20px`} color="fill-parrotgreen" /> */}

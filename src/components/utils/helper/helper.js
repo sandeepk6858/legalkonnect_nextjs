@@ -1,3 +1,7 @@
+export const user_token = () => {
+    return `${process.env.NEXT_PUBLIC_API_TOKEN}`
+}
+
 export const imageURL = (path) => {
     return `${process.env.IMAGES_ORIGIN}${path}`
 }

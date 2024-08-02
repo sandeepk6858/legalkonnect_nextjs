@@ -14,7 +14,7 @@ const ScriptsCards = ({ data, model }) => {
         <>
             <div className="w_wid p-[20px] lf:p-[30px] w-1/1 md:w-1/3 lg:w-1/4 flex flex-col items-start bg-[#fff] shadow-lg rounded-[20px]">
                 <div className="flex justify-between items-center w-[100%]">
-                    <Link href={`/transcripts/${data[model].id}`} className="text-[20px] leading-[24px] font-font-medium cursor-pointer text-blackcolor">
+                    <Link href={`/${model}/${data[model].id}`} className="text-[20px] leading-[24px] font-font-medium cursor-pointer text-blackcolor">
                         {data[model].title}
                     </Link>
                     <div className="share_btn relative" onClick={toggleIcons}>
@@ -112,9 +112,9 @@ const ScriptsCards = ({ data, model }) => {
                         />
                         <span className="flex-grow flex flex-col pl-4">
                             <span className="title-font font-medium text-black">
-                                <div className="text-black">
+                                <Link href={"/users/profile/" + data[model].user?.id} className="text-black">
                                     {data[model].user?.first_name + " " + (data[model].user?.last_name ? data[model].user.last_name : "")}
-                                </div>
+                                </Link>
                             </span>
                         </span>
                     </div>

@@ -42,7 +42,9 @@ const FavoriteForum = ({ data }) => {
                 </div>
             </CardHeader>
             <CardBody className="p-0">
-                <p className="text-base font-semibold py-4 px-5">{data.forum?.question}</p>
+                <Link href={`/forum/${data.forum.id}`}>
+                    <p className="text-base font-semibold py-4 px-5">{data.forum?.question}</p>
+                </Link>
                 <Divider className="bg-lightgrey" />
                 <div className="flex justify-between py-4 px-5">
                     <p className="text-small" >{formatDateString(data.forum.created_at)}</p>
@@ -102,7 +104,9 @@ const FavoriteForum = ({ data }) => {
                             <span className="bg-gray-500 w-3 h-3 rounded-full absolute z-10 right-[-0.1rem] top-[-0.1rem]" ></span>
                     }
                 </div>
-                <p className="text-base text-black">{data.forum.author?.first_name} {data.forum.author?.last_name}<br />{data.forum.author?.role?.name}</p>
+                <Link href={`/users/profile/${data.forum.author?.id}`}>
+                    <p className="text-base text-black">{data.forum.author?.first_name} {data.forum.author?.last_name}<br />{data.forum.author?.role?.name}</p>
+                </Link>
             </CardFooter>
         </Card>
     )

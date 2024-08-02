@@ -135,10 +135,9 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
                         <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
                     }
                     <Avatar className="w-12 h-12 " src={(data?.jobs?.JobUser?.avatar[0]?.url) ? data?.jobs?.JobUser?.avatar[0]?.url :"https://legalkonnect.com/img/no_avatar.jpg"} />
-                    <Link href="#" className="flex items-center gap-1 ">
+                    <Link href={`/users/profile/${data?.jobs?.JobUser?.id}`} className="flex items-center gap-1 ">
                         <p>{data?.jobs?.JobUser?.first_name + " " + data?.jobs?.JobUser?.last_name}</p>
                     </Link>
-
                 </div>
                 <div className="flex gap-4 py-2">
                     <div className="flex gap-2 items-center">

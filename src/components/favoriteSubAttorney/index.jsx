@@ -105,9 +105,9 @@ const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) =
                         <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
                     }
                     <Avatar className="w-12 h-12 " src={(data?.substituteAttorney?.user?.avatar[0]?.url) ? data?.substituteAttorney?.user?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
-                    <div className="flex items-center gap-1 ">
+                    <Link href={`/users/profile/${data?.substituteAttorney?.user?.id}`} className="flex items-center gap-1 ">
                         <p>{data?.substituteAttorney?.user?.first_name + " " + data?.substituteAttorney?.user?.last_name}</p>
-                    </div>
+                    </Link>
 
                 </div>
                 <div className="flex gap-4 py-2">
