@@ -131,6 +131,7 @@ const Login = () => {
             last_name: userData.data.user.last_name,
             email: userData.data.user.email,
             token: userData.data.token,
+            id: userData.data.user.id,
             redirect: false,
           });
           if (response) {

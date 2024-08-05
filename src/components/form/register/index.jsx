@@ -3,7 +3,9 @@ import { useState, useReducer } from 'react';
 import Link from "next/link";
 import { validateInput } from "@/components/lib/validation/form/register";
 import FormField from './filed';
-
+import RegisterUser from '@/actions/user/register';
+import { useRouter } from "next/navigation";
+import { toast } from 'react-hot-toast';
 // Action type constants
 const UPDATE_FORM = 'UPDATE_FORM';
 const SET_FORM_VALIDITY = 'SET_FORM_VALIDITY';
@@ -68,6 +70,7 @@ const validateForm = (formState, dispatch) => {
 };
 
 const RegisterForm = ({ roles }) => {
+    const router = useRouter();
     const [selected, setSelected] = useState("");
     const [isOpen, setIsOpen] = useState(false);
 
@@ -112,15 +115,32 @@ const RegisterForm = ({ roles }) => {
                 }
             });
         });
+      
 
-        // Check if the form is valid
         if (isValid) {
             console.log("Form is valid", registerForm);
+            const userPostData = {
+                "Who_you_are": registerForm?.role?.value,
+                "first_name": registerForm?.first_name?.value,
+                "last_name": registerForm?.last_name?.value,
+                "email": registerForm?.email?.value,
+                "phone_number": registerForm?.phone?.value,
+                "password": registerForm?.password?.value
+            } 
+            const result = await RegisterUser(userPostData);
+   
+            if (result.success) {
+              toast.success('Registration successful');
+              router.push("/login");
+              router.refresh();
+            } else {
+              toast.error(`Registration failed: ${result.message}`);
+            }
         } else {
-            console.log("Form is not valid!!!");
+            toast.error(`Form is not valid!!!`);
         }
     };
-
+     
     return (
         <form onSubmit={submitHandler}>
             <p className="text-blueprimary text-base">

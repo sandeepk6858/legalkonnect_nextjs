@@ -10,20 +10,20 @@ const authOptions = {
         last_name: { label: 'Last Name', type: 'text' },
         email: { label: 'Email', type: 'email' },
         token: { label: 'Token', type: 'text' },
-        fcm_token: { label: 'Fcm Token', type: 'text' },
+        fcm_token: { label: 'Fcm Token', type: 'text' }
       },
       async authorize(credentials, req) {
         if (!credentials) {
           throw new Error('No credentials provided');
         }
-   
+    
         // Simulate user retrieval from a database
         cookies().set('next-auth-session', credentials.token, { httpOnly: true });
         const user = {
           first_name: credentials.first_name,
           last_name: credentials.last_name,
           email: credentials.email,
-          token: credentials.token,
+          token: credentials.token
         };
 
         return user;
@@ -38,7 +38,7 @@ const authOptions = {
       if (user) {
         token.name = user.first_name + " " + user.last_name;
         token.email = user.email;
-        token.customToken = user.token; // Store the token in the JWT
+        token.customToken = user.token;
       }
       return {
         ...token,
@@ -48,7 +48,7 @@ const authOptions = {
     async session({ session, token, sessionToken }) {
       session.user = {
         name: token.name,
-        email: token.email,
+        email: token.email
       };
       session.jwt = token.jwt;
       session.user = await getUserFromTheAPIServer(token.jwt);
@@ -82,5 +82,5 @@ const authOptions = {
   }
 };
 
-export const handler = NextAuth(authOptions);
+const handler = NextAuth(authOptions);
 export { handler as GET, handler as POST };
