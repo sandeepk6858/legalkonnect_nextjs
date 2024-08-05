@@ -96,6 +96,7 @@ const recentjobs = () => {
 
             <div className="w-full ">
                 <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly md:gap-5 gap-7">
+                    {/* <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
@@ -104,8 +105,7 @@ const recentjobs = () => {
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
                     <FavoriteJobsCard showDiv={false} showDivCount={false} />
-                    <FavoriteJobsCard showDiv={false} showDivCount={false} />
-                    <FavoriteJobsCard showDiv={false} showDivCount={false} />
+                    <FavoriteJobsCard showDiv={false} showDivCount={false} /> */}
                 </div>
 
             </div>

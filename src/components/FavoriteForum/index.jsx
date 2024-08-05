@@ -3,10 +3,19 @@ import { Card, CardHeader, CardBody, CardFooter, Divider, Image, Button } from "
 import Link from "next/link";
 import { useState } from "react";
 import { formatDateString, imageURL } from "../utils/helper/helper";
+import BacthSvg from "../batchSvg";
 
 const FavoriteForum = ({ data }) => {
 
     const [showHideToggle, setshowHideToggle] = useState(false);
+
+    function isPlanActive(id, expire_date) {
+        const today = new Date();
+    
+        const expireDate = new Date(expire_date);
+        
+        return id === 2 && expireDate > today;
+    }
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
@@ -16,7 +25,7 @@ const FavoriteForum = ({ data }) => {
                     className="w-screen max-w-full h-64 rounded-b-none"
                     height={250}
                     layout="fill"
-                    src={data.forum?.attachments[0]?.url ? data.forum?.attachments[0]?.url : "https://dummyimage.com/600x400/000/fff"}
+                    src={data?.forum?.attachments[0]?.url ? data.forum?.attachments[0]?.url : "https://dummyimage.com/600x400/000/fff"}
                 />
                 <div className="absolute top-3 right-4 left-4 flex flex-wrap justify-end gap-2 overflow-y-auto z-10">
 
@@ -104,11 +113,23 @@ const FavoriteForum = ({ data }) => {
                             <span className="bg-gray-500 w-3 h-3 rounded-full absolute z-10 right-[-0.1rem] top-[-0.1rem]" ></span>
                     }
                 </div>
+
+            <div className="flex flex-col flex-wrap">
                 <Link href={`/users/profile/${data.forum.author?.id}`}>
-                    <p className="text-base text-black">{data.forum.author?.first_name} {data.forum.author?.last_name}<br />{data.forum.author?.role?.name}</p>
+                    <p className="text-base text-black">{data.forum.author?.first_name} {data.forum.author?.last_name}</p>
                 </Link>
-            </CardFooter>
-        </Card>
+                <div className="flex gap-2">
+                    <span className="text-sm text-black">{data.forum.author?.role?.name}</span>
+                    {
+                        isPlanActive(data.forum.author.subscriptionPlans[0].id , data.forum.author.subscriptionPlans[0].user_subscriptions.expire_date) &&
+                        <div className="cursor-pointer">
+                            <BacthSvg width={`20px`} height={`20px`} />
+                        </div>
+                    }
+                </div>
+            </div>
+        </CardFooter>
+        </Card >
     )
 }
 
