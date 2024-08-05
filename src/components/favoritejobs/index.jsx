@@ -1,6 +1,6 @@
 'use client'
 import React, { useState } from "react";
-import { Avatar, Button, LinkIcon } from "@nextui-org/react";
+import { Avatar, Button } from "@nextui-org/react";
 import Link from "next/link";
 import HeartSvg from "@/components/Icons/heartSvg";
 import GravelSvg from "@/components/Icons/gravelSvg";
@@ -21,32 +21,6 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
     }
 
     const [showHideToggle, setshowHideToggle] = useState(false);
-    const handleFavorite = async(id) => {
-        try {
-            const headers = {
-                'Authorization': `Bearer ${process.env.NEXT_PUBLIC_API_TOKEN}`, 
-                'Content-Type': 'application/json' 
-            };
-            const body = {
-                model: "job",
-                id
-            }
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/togglefavorite`, body, {headers});
-            if(response.data.success){
-                const filterJobs = jobs.data.items.filter(j => j.jobs?.id !== id);
-                const newJobs = {
-                    ...jobs,
-                    data: {
-                        ...jobs.data,
-                        items: filterJobs
-                    }
-                }
-                setJobs(newJobs);
-            }
-        } catch (error) {
-            console.error("Error fetching jobs:", error.message);
-        }
-    };
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
@@ -98,7 +72,7 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
                         <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
 
-                        <div onClick={() => handleFavorite(data.jobs?.id)} >
+                        <div>
                             <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }} />
                         </div>
                     </div>
