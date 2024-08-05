@@ -10,10 +10,10 @@ import SocialPopup from "@/components/socialPopup";
 import FixedSvg from "@/components/Icons/fixedprice";
 import CourtSvg from "@/components/courtaddress";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
-import axios from "axios";
 import { diffForHumans } from "../utils/helper/helper";
+import { favoriteToggler } from "@/actions/favorite/favoriteData";
 
-const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJobs }) => {
+const FavoriteJobsCard = ({ showDiv, data, showCount }) => {
     const [socialPopupT, setSocialPopupT] = useState(false);
 
     const SocialPopupToggle = () => {
@@ -21,6 +21,10 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
     }
 
     const [showHideToggle, setshowHideToggle] = useState(false);
+
+    const handleFavorite = async(model_id) => {
+        const res = await favoriteToggler(model_id, "job", '/account/favorites/jobs');
+    }
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
@@ -72,7 +76,7 @@ const FavoriteJobsCard = ({ showDiv, showDivCount, showCount, data, jobs, setJob
                         <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
 
-                        <div>
+                        <div onClick={() => handleFavorite(data?.jobs?.id)}>
                             <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }} />
                         </div>
                     </div>

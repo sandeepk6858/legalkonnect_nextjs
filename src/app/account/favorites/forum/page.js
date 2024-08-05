@@ -3,7 +3,7 @@ import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import DropdownComponent from "@/components/Dropdown";
 import FavoriteForum from "@/components/FavoriteForum";
-import { fetchData } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favorite/favoriteData";
 
 const Forum = async ({ searchParams }) => {
 
@@ -53,7 +53,7 @@ const Forum = async ({ searchParams }) => {
             </div>
 
             <div className="w-full justify-center py-12 flex gap-5 flex-wrap px-5 mx-auto">
-                {forum.data.items.length > 0 ? forum.data.items.map((item) => (
+                {forum?.data?.items?.length > 0 ? forum.data.items.map((item) => (
                     item && <FavoriteForum  key={item.id} data={item} />
                 ))
                     :

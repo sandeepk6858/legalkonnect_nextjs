@@ -2,7 +2,7 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import DropdownComponent from "@/components/Dropdown";
-import { fetchData } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favorite/favoriteData";
 import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
 
@@ -57,7 +57,7 @@ const transcriptsjobs = async({searchParams}) => {
             <div className="w-full relative px-4 lg:px-6">
                 <div className=" flex flex-wrap justify-evenly gap-4">
                     {
-                        transcripts?.data?.items.length > 0 ? transcripts?.data?.items.map((item) => (
+                        transcripts?.data?.items?.length > 0 ? transcripts?.data?.items.map((item) => (
                             <ScriptsCards data={item} key={item?.id} model="transcripts"/>
                         ))
                         :

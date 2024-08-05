@@ -3,7 +3,7 @@ import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import SupportCard from "@/components/support";
 import DropdownComponent from "@/components/Dropdown";
-import { fetchData } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favorite/favoriteData";
 
 const favQualifyAttorney = async({ searchParams }) => {
 
@@ -53,7 +53,7 @@ const favQualifyAttorney = async({ searchParams }) => {
 
                 <div className="w-full relative lg:px-6">
                     <div className=" flex flex-wrap justify-evenly gap-4">
-                        {qualAtt.data.items.length >0 ? qualAtt.data.items.map((item) => (
+                        {qualAtt?.data?.items?.length >0 ? qualAtt.data.items.map((item) => (
                             item && <SupportCard key={item.id} data={item} fillheart="orangeprimary" />
                         ))
                         :

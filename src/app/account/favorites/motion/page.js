@@ -2,7 +2,7 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import DropdownComponent from "@/components/Dropdown";
-import { fetchData } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favorite/favoriteData";
 import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
 const Motion=async({searchParams})=>{
@@ -55,7 +55,7 @@ const Motion=async({searchParams})=>{
               <div className="container px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
                     <div className="flex flex-wrap gap-[20px] xl:gap-[30px]">
                     {
-                        transcripts?.data?.items.length > 0 ? transcripts?.data?.items.map((item) => (
+                        transcripts?.data?.items?.length > 0 ? transcripts?.data?.items.map((item) => (
                             <ScriptsCards data={item} key={item?.id} model="motions"/>
                         ))
                         :

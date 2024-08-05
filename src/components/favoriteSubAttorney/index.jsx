@@ -11,6 +11,7 @@ import FixedSvg from "@/components/Icons/fixedprice";
 import CourtSvg from "@/components/courtaddress";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image } from "@nextui-org/react";
 import { diffForHumans } from "../utils/helper/helper";
+import { favoriteToggler } from "@/actions/favorite/favoriteData";
 
 const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) => {
     const [socialPopupT, setSocialPopupT] = useState(false);
@@ -20,6 +21,10 @@ const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) =
     }
 
     const [showHideToggle, setshowHideToggle] = useState(false);
+
+    const handleFavorite = async (model_id) => {
+        const res = await favoriteToggler(model_id, "substitute-attorney", '/account/favorites/substitute-attorney');
+    }
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">
@@ -70,7 +75,9 @@ const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) =
                     <div className="flex gap-1 cursor-pointer relative z-50">
                         <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }} />
+                        <div onClick={() => handleFavorite(data?.substituteAttorney?.id)}>
+                            <HeartSvg width={`20px`} height={`20px`} fill={`fill-orangeprimary`} stroke={`stroke-orangeprimary`} style={{ display: showCount ? 'block' : 'none' }} />
+                        </div>
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />
@@ -100,9 +107,9 @@ const FavoriteSubstitueAttorney = ({ showDiv, showDivCount, showCount, data }) =
                 <div className="flex flex-wrap items-center gap-1 py-2 relative">
                     {
                         data?.substituteAttorney?.user?.isOnline ?
-                        <span className="border-2 border-textgreen bg-green-600 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
-                        :
-                        <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
+                            <span className="border-2 border-textgreen bg-green-600 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
+                            :
+                            <span className="border-2 border-lightgrey bg-gray-200 rounded-full w-3 h-3 absolute top-[7px] left-[27px] z-[5]"></span>
                     }
                     <Avatar className="w-12 h-12 " src={(data?.substituteAttorney?.user?.avatar[0]?.url) ? data?.substituteAttorney?.user?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
                     <Link href={`/users/profile/${data?.substituteAttorney?.user?.id}`} className="flex items-center gap-1 ">

@@ -3,7 +3,7 @@ import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import FavoriteSubstitueAttorney from "@/components/favoriteSubAttorney";
 import DropdownComponent from "@/components/Dropdown";
-import { fetchData } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favorite/favoriteData";
 
 const subjobs = async ({ searchParams }) => {
 
@@ -54,7 +54,7 @@ const subjobs = async ({ searchParams }) => {
 
 
             <div className="w-full my-12 px-[5px] md:px-20 flex flex-wrap justify-center md:justify-start gap-5">
-                {subAtt?.data?.items.length > 0 ? subAtt.data.items.map((item) => (
+                {subAtt?.data?.items?.length > 0 ? subAtt.data.items.map((item) => (
                     item && <FavoriteSubstitueAttorney showDiv={true} showDivCount={true} key={item.id} data={item} />
                 ))
                     :

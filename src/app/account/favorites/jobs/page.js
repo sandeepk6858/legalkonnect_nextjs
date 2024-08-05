@@ -1,5 +1,5 @@
 import FavoriteJobsCard from "@/components/favoritejobs";
-import { fetchData } from "@/actions/favoriteData";
+import { fetchData } from "@/actions/favorite/favoriteData";
 
 const favjobs = async ({ searchParams }) => {
 
@@ -13,7 +13,7 @@ const favjobs = async ({ searchParams }) => {
             <div className="w-full">
                 <div className="xl:m-8 lg:m-4 md:m-4 m-3 flex flex-wrap justify-evenly gap-5">
                     {
-                        jobs?.data?.items.length > 0 ? jobs?.data?.items.map((job) => (
+                        jobs?.data?.items?.length > 0 ? jobs?.data?.items.map((job) => (
                             job?.jobs && <FavoriteJobsCard key={job.id} data={job} jobs={[]} setJobs={[]}/>
                         ))
                         :

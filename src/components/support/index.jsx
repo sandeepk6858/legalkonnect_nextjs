@@ -6,11 +6,10 @@ import ShareSvg from "@/components/Icons/shareSvg";
 import SocialPopup from "@/components/socialPopup";
 import CheckSvg from "@/components/Icons/checkSvg";
 import StarSvg from "@/components/Icons/starSvg";
-import BacthSvg from "@/components/batchSvg";
-import Image from "next/image";
 import Link from "next/link";
-
 import { Card, CardHeader, CardBody, CardFooter, Divider, fillheart } from "@nextui-org/react";
+import { favoriteToggler } from "@/actions/favorite/favoriteData";
+import Image from "next/image";
 
 const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
 
@@ -18,6 +17,10 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
 
     const SocialPopupToggle = () => {
         setSocialPopupT(!socialPopupT);
+    }
+    const handleFavorite = async(model_id) => {
+        const res = await favoriteToggler(model_id, "qualified-attorney", 'account/favorites/qualified-attorney');
+        console.log(res);
     }
 
     return (
@@ -100,12 +103,12 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                         <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
                         <span className="text-sm font-bold pl-1" style={{ display: showDivCount ? 'block' : 'none' }}>0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
                     </div>
-                    <div className="flex gap-1 items-center">
+                    <div className="flex gap-1 items-center cursor-pointer">
                     <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <Link href="#">
+                        <div onClick={() => handleFavorite(data.users.id)}>
                             <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
-                        </Link>
+                        </div>
                     </div>
                 </div>
             </CardFooter>
