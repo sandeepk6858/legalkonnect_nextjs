@@ -21,12 +21,12 @@ const Selectbox = () => {
     }, []);
   return (
     <>
-      <div class="flex flex-wrap" ref={dropdownRef}>
-        <div class="w-full">
-          <div class="flex h-10 items-center justify-between border-gray-400 border px-4 py-0 rounded-lg"
+      <div className="flex flex-wrap" ref={dropdownRef}>
+        <div className="w-full">
+          <div className="flex h-10 items-center justify-between border-gray-400 border px-4 py-0 rounded-lg"
           onClick={() => setIsOpen(!isOpen)}
           >
-            <h2 class="text-gray-900 title-font font-medium flex-shrink-0">
+            <h2 className="text-gray-900 title-font font-medium flex-shrink-0">
               Select dates
             </h2>
             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="23">

@@ -212,7 +212,7 @@ const Profilehistory = () => {
                   <div>
                     <button
                       className="brrad_btn_w_icon gap-2 items-center flex hover:bg-[#1359C3] hover:text-white rounded-[50px] px-[20px] py-[10px] text-[14px] text-center text-bluesecondary bg-[#EAF1FD] max-w-[130px]"
-                      onclick="window.location.href = '/account/edit/settings';"
+                      onClick="window.location.href = '/account/edit/settings';"
                     >
                       <svg
                         width="12"

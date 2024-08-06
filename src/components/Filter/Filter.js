@@ -1136,7 +1136,7 @@ const Filter = ({
                     </AutocompleteItem>
                   ))}
                 </Autocomplete>
-                <div class="icon absolute z-20 top-[37px] left-[25px] sm:left-[40px]">
+                <div className="icon absolute z-20 top-[37px] left-[25px] sm:left-[40px]">
                   <svg
                     width="22"
                     height="22"

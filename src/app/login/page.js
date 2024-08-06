@@ -1,13 +1,166 @@
-import React from "react";
+"use client";
+import { useReducer } from 'react';
 import { imageURL } from "@/components/utils/helper/helper";
 import Link from "next/link";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { validateInput } from "@/components/lib/validation/form/login";
+import { toast } from 'react-hot-toast';
+// Action Types
+const UPDATE_FORM = 'UPDATE_FORM';
+const SET_FORM_VALIDITY = 'SET_FORM_VALIDITY';
+
+// Initial State
+const initialFormState = {
+  email: { value: "", hasError: false, error: "", touched: false },
+  password: { value: "", hasError: false, error: "", touched: false },
+  isFormValid: false,
+};
+
+// Form Reducer
+const formReducer = (state, action) => {
+  switch (action.type) {
+    case UPDATE_FORM:
+      const { name, value, hasError, error, touched } = action.data;
+      return {
+        ...state,
+        [name]: { ...state[name], value, hasError, error, touched },
+      };
+    case SET_FORM_VALIDITY:
+      return { ...state, isFormValid: action.isFormValid };
+    default:
+      return state;
+  }
+};
+
+// Validate Form
+const validateForm = (formState, dispatch) => {
+  let isFormValid = true;
+  for (const name in formState) {
+    if (name !== "isFormValid") {
+      const { value } = formState[name];
+      const { hasError, error } = validateInput(name, value, formState);
+
+      if (hasError) {
+        isFormValid = false;
+      }
+
+      dispatch({
+        type: UPDATE_FORM,
+        data: {
+          name,
+          value,
+          hasError,
+          error,
+          touched: true,
+        },
+      });
+    }
+  }
+
+  dispatch({ type: SET_FORM_VALIDITY, isFormValid });
+};
 
 const Login = () => {
-
+  const router = useRouter();
   const backgroundImage = imageURL("login_s_bg.jpg");
 
+  const [loginForm, dispatchForm] = useReducer(formReducer, initialFormState);
+
+
+  const handleInputChange = (name) => (e) => {
+    const { value } = e.target;
+    const { hasError, error } = validateInput(name, value, loginForm);
+    dispatchForm({
+      type: UPDATE_FORM,
+      data: { name, value, hasError, error, touched: true },
+    });
+  };
+
+  // Handle Blur
+  const handleBlur = (name) => (e) => {
+    const { value } = e.target;
+    const { hasError, error } = validateInput(name, value, loginForm);
+    dispatchForm({
+      type: UPDATE_FORM,
+      data: { name, value, hasError, error, touched: true },
+    });
+  };
+
+
+  const submitHandler = async (event) => {
+    event.preventDefault();
+
+    const isValid = await new Promise((resolve) => {
+      validateForm(loginForm, (action) => {
+        dispatchForm(action);
+        if (action.type === SET_FORM_VALIDITY) {
+          resolve(action.isFormValid);
+        }
+      });
+    });
+
+    // Check if the form is valid
+    if (isValid) {
+      // Extract email and password from form state
+      const { email, password } = loginForm;
+      const userPostData = {
+        email: email.value,
+        password: password.value,
+        fcm_token: "" // Add FCM token if needed
+      };
+
+      try {
+        const response = await fetch(`${process.env.API_URL}/users/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(userPostData),
+        });
+
+        const userData = await response.json();
+
+        if (!userData.success) {
+          toast.error(userData.message);
+          return;
+        }
+
+        try {
+
+          const response = await signIn("credentials", {
+            first_name: userData.data.user.first_name,
+            last_name: userData.data.user.last_name,
+            email: userData.data.user.email,
+            token: userData.data.token,
+            id: userData.data.user.id,
+            redirect: false,
+          });
+          if (response) {
+            if (response.error) {
+              console.log(response.error);
+              toast.error(response.error);
+            } else if (response.ok) {
+
+              toast.success('Login successful!');
+              router.push("/account/profile");
+              router.refresh();
+            } else {
+              console.warn("Unexpected response structure:", response);
+            }
+          } else {
+            toast.error("Bad Request");
+          }
+        } catch (error) {
+          toast.error(error);
+        }
+
+      } catch (error) {
+        throw new Error(`${error.message}`);
+      }
+    }
+  };
+
   return (
-    <>
+    <form onSubmit={submitHandler}>
       <div
         className="flex bg-cover bg-no-repeat bg-center"
         style={{
@@ -30,7 +183,13 @@ const Login = () => {
                   type="email"
                   className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
                   placeholder="donald.phillips@example.com"
+                  value={loginForm.email.value}
+                  onChange={handleInputChange("email")}
+                  onBlur={handleBlur("email")}
                 />
+                {loginForm.email.touched && loginForm.email.hasError && (
+                  <p className="text-red-500 text-sm">{loginForm.email.error}</p>
+                )}
               </div>
               <div className="flex flex-col gap-2 pt-3">
                 <div className="flex justify-between">
@@ -44,7 +203,13 @@ const Login = () => {
                 <input
                   type="password"
                   className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
+                  value={loginForm.password.value}
+                  onChange={handleInputChange("password")}
+                  onBlur={handleBlur("password")}
                 />
+                {loginForm.password.touched && loginForm.password.hasError && (
+                  <p className="text-red-500 text-sm">{loginForm.password.error}</p>
+                )}
               </div>
               <div className="flex gap-2 pt-5">
                 <div>
@@ -53,7 +218,8 @@ const Login = () => {
                 <p className="text-[#474040] text-base">Keep me logged in</p>
               </div>
               <div className="flex flex-col md:flex-row justify-between pt-[18px] gap-2.5 md:gap-[0]">
-                <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]">
+                <button className="flex justify-center items-center py-2.5 px-[15px] min-h-[37px] max-h-[37px] rounded-[22px] bg-[#f16622] text-[14px]"
+                >
                   Log In
                 </button>
                 <Link
@@ -144,7 +310,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </>
+    </form>
   );
 };
 
