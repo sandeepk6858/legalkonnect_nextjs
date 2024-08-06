@@ -20,7 +20,7 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
     }
     const handleFavorite = async(model_id) => {
         const res = await favoriteToggler(model_id, "qualified-attorney", 'account/favorites/qualified-attorney');
-        console.log(res);
+        // console.log(res);
     }
 
     return (
