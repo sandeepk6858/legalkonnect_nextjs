@@ -14,7 +14,7 @@ const ForumPage = async ({ searchParams }) => {
     const forum = await getForums(params);
     const currentSort = searchParams?.sort || 'new';
 
-    console.log(forum);
+    // console.log(forum);
 
     return (
         <>
