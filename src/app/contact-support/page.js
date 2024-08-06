@@ -15,7 +15,7 @@ const ContactSupport = () => {
     event.preventDefault();
     try {
       const result = await submitForm(email, message);
-      console.log(result)
+      // console.log(result)
       if (result.success) {
         setEmailPrompt('Email sent successfully');
         // Reset form fields
