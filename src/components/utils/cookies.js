@@ -4,13 +4,14 @@ import {jwtDecode} from 'jwt-decode';
 export function getSessionCookie() {
     const cookieStore = cookies();
     const sessionCookie = cookieStore.get('next-auth-session');
+    const sessionCookieAuth = cookieStore.get('next-auth.session-token');
     if (!sessionCookie) {
         return null;
     }
     try {
         if(sessionCookie?.value){
             const decodedToken = jwtDecode(sessionCookie?.value);
-            return {token:sessionCookie?.value,id:decodedToken?.userId,role:decodedToken?.role}
+            return {token:sessionCookie?.value,id:decodedToken?.userId,role:decodedToken?.role,sessionCookieAuth}
         }
         return [];
     } catch (error) {

@@ -377,7 +377,11 @@ body .dropdownlist li {
     .scrollbar-thin::-webkit-scrollbar {
       width: 0px;
     }
-
+    .important-absolute {
+      position: absolute !important;
+      right: 0 !important;
+      top: 0;
+    }
 @media (min-width: 1200px) {
   .toggle {
     display: none;
