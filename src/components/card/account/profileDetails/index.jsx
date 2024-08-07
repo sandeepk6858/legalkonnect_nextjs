@@ -16,6 +16,7 @@ import SocialPopup from "@/components/socialPopup";
 import AttachmentSvg from "@/components/Icons/attachment";
 import WorkHistoryCard from "@/components/card/account/workHistory";
 import PortfolioCard from "@/components/card/account/portfolio";
+import SlickSlider from "@/components/slickslider";
 
 const ProfileDetails = ({ profileData }) => {
     const router = useRouter();
@@ -56,7 +57,7 @@ const ProfileDetails = ({ profileData }) => {
         const date = new Date(dateString);
         return date.getFullYear();
     };
-    console.log("profileData",profileData);
+
     
     return (
         <div className="profile_s_header max-[640px]:pt-[50px] p-[20px] w-[100%] max-w-[700px] lg:w-[70%] shadow-customSec">
@@ -102,6 +103,9 @@ const ProfileDetails = ({ profileData }) => {
                         }
                     >
                         <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
+                            <div className="content_group">
+                               <SlickSlider data={ profileData?.gallery}/>
+                            </div>
                             <div className="content_group">
                                 <h3 className="box-title text-[16px] font-semibold text-black">
                                     About me
@@ -243,7 +247,7 @@ const ProfileDetails = ({ profileData }) => {
                                     Description of Services offered and prices
                                 </h3>
                                 <div className="simple_p_wrapper text-[16px] font-light">
-                                    test rtset
+                                {profileData && profileData?.service_description}
                                 </div>
                             </div>
                             <div className="content_group">
