@@ -2,20 +2,12 @@
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image, Button } from "@nextui-org/react";
 import Link from "next/link";
 import { useState } from "react";
-import { formatDateString, imageURL } from "../utils/helper/helper";
+import { formatDateString, imageURL, isPlanActive } from "../utils/helper/helper";
 import BacthSvg from "../batchSvg";
 
 const FavoriteForum = ({ data }) => {
 
     const [showHideToggle, setshowHideToggle] = useState(false);
-
-    function isPlanActive(id, expire_date) {
-        const today = new Date();
-    
-        const expireDate = new Date(expire_date);
-        
-        return id === 2 && expireDate > today;
-    }
 
     return (
         <Card className="w-[calc(100%-25px)] md:w-[calc(50%-10px)] lg:w-[calc(25%-20px)] xl:w-[calc(25%-40px)] border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105">

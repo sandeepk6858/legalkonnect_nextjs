@@ -2,20 +2,13 @@
 import { useState } from "react";
 import { Card, CardHeader, CardBody, CardFooter, Divider, Image, Link, Button } from "@nextui-org/react";
 import BacthSvg from "../batchSvg";
-import { formatDateString, imageURL } from "../utils/helper/helper";
+import { formatDateString, imageURL, isPlanActive } from "../utils/helper/helper";
 
 
 const forumsCard = ({ data }) => {
 
     const [showHideToggle, setshowHideToggle] = useState(false);
 
-    function isPlanActive(id, expire_date) {
-        const today = new Date();
-
-        const expireDate = new Date(expire_date);
-
-        return id === 2 && expireDate > today;
-    }
     return (
         <>
             <Card className="w-[calc(100%-25px)] md:w-[calc(50%-25px)] lg:w-[calc(33.33%-25px)] xl:w-[calc(25%-25px)]  border-2 border-lightgrey rounded-3xl transition duration-300 ease-out hover:ease-in hover:scale-105 shadow-md box-border ">
