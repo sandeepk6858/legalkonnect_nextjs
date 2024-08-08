@@ -6,10 +6,10 @@ import RefreshToken from '@/actions/refreshToken';
 export async function middleware(req) {
   // Retrieve cookies from the request
   const cookies = getSessionCookie();
-  const token = cookies.token;
-  const userId = cookies.userId;
-  const role = cookies.role;
-  const sessionCookieAuth = cookies.sessionCookieAuth;
+  const token = cookies?.token;
+  const userId = cookies?.userId;
+  const role = cookies?.role;
+  const sessionCookieAuth = cookies?.sessionCookieAuth;
 
   // If sessionCookieAuth is true, validate token
   if (sessionCookieAuth) {
