@@ -93,7 +93,7 @@ const Filter = ({
 
   return (
     <>
-      <div className="bg-lightgrey mt-[60px] border-1 border-lightgrey overflow-x-auto 2xl:overflow-x-visible lg:w-full">
+      <div className="bg-lightgrey mt-[20px] lg:mt-[60px] border-1 border-lightgrey overflow-x-auto 2xl:overflow-x-visible lg:w-full">
         <div className="min-w-[1440px] m-[auto]">
           <div className="filter_main_wrapper py-[15px] flex items-center justify-between flex-wrap max-w-[1440px] m-[auto] px-[25px]">
             <div className="inner_filter_left flex items-center justify-between gap-[10px]">

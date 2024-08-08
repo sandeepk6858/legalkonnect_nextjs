@@ -188,7 +188,7 @@ JobSlider = () => {
   ];
 
   return (
-    <div className="w-full m-[auto] px-[15px] lg:px-[40px] max-w-[1250px] relative mt-[25px] pb-[40px]">
+    <div className="w-full m-[auto] px-[15px] lg:px-[40px] max-w-[1250px] relative mt-[25px] ">
       <Slider {...settings} className="categorySlider">
         {slides.map((slide, index) => (
           <div key={index} className="max-w-[125px] w-full  rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container min-h-[106px]">
