@@ -1,15 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import Link from "next/link";
-import { Button, Avatar } from "@nextui-org/react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import JobSlugs from "@/components/jobslugs/JobSlugs";
-const Jobslug = () => {
-   
+
+const Jobslug = ({params}) => {
+    
+    const { slug } = params;  
+
+    // console.log(slug);
+
     return (
         <div>
             <JobSlider/>
-            <JobSlugs></JobSlugs>
+            <JobSlugs />
         </div>
     )
 }

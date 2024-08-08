@@ -1,18 +1,14 @@
-"use client"
-import React from "react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button } from "@nextui-org/react";
-import support from "@/app/support/page";
 import SupportCard from "@/components/support";
-const favQualifyAttorney = () => {
-    const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Default"]));
+import DropdownComponent from "@/components/Dropdown";
+import { fetchData } from "@/actions/favorite/favoriteData";
 
-    const selectedValue = React.useMemo(
-        () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-        [selectedKeys]
-    );
+const favQualifyAttorney = async({ searchParams }) => {
+
+    const sort = searchParams.sort || 'date';
+    let qualAtt = await fetchData("qualified-attorney", sort);
 
     return (
         <>
@@ -49,55 +45,23 @@ const favQualifyAttorney = () => {
                             </div>
                             <div className="flex items-center gap-x-2.5 py-5 lg:py-0 ">
                                 <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
-                                <Dropdown>
-                                    <DropdownTrigger>
-                                        <Button
-                                            className="capitalize bg-gray-50 border-1 border-blackcolor rounded-none min-w-36 text-grey text-left flex justify-start "
-
-                                        >
-                                            {selectedValue}
-                                        </Button>
-                                    </DropdownTrigger>
-                                    <DropdownMenu
-                                        aria-label="Single selection example"
-                                        variant="flat"
-                                        disallowEmptySelection
-                                        selectionMode="single"
-                                        selectedKeys={selectedKeys}
-                                        onSelectionChange={setSelectedKeys}
-
-                                    >
-                                        <DropdownItem key="Default">Default</DropdownItem>
-                                        <DropdownItem key="By Date">By Date</DropdownItem>
-                                        <DropdownItem key="By Price">By Price</DropdownItem>
-
-                                    </DropdownMenu>
-                                </Dropdown>
+                                <DropdownComponent model={"qualified-attorney"}/>
                             </div>
                         </div>
                     </div>
                 </div>
 
-
                 <div className="w-full relative lg:px-6">
                     <div className=" flex flex-wrap justify-evenly gap-4">
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-                        <SupportCard fillheart="orangeprimary" />
-
-
+                        {qualAtt?.data?.items?.length >0 ? qualAtt.data.items.map((item) => (
+                            item && <SupportCard key={item.id} data={item} fillheart="orangeprimary" />
+                        ))
+                        :
+                        <div>No item found</div>
+                        }
                     </div>
-
                 </div>
             </div>
-
-
-
         </>
     );
 };

@@ -24,7 +24,7 @@ const JobSlider = () => {
       </div>
     );
   };
-  
+
   const NextArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -97,6 +97,8 @@ const JobSlider = () => {
     prevArrow: <PrevArrow />,
     nextArrow: <NextArrow />,
   };
+
+
   const slides = [
     {
       title: "Find an attorney",
@@ -183,11 +185,11 @@ const JobSlider = () => {
       tooltip: "Here, you can search for investigators.",
     },
   ];
-  
+
   return (
     <div className="w-full m-[auto] px-[40px] max-w-[1250px] relative">
       <Slider {...settings}>
-        {slides.map((slide,index) => (
+        {slides.map((slide, index) => (
           <div key={index} className="max-w-[125px] w-full my-[25px] rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container">
             <Link href={slide.link} className="flex justify-center items-center flex-col gap-2">
               <img src={slide.image} className="maw-w-[38px] h-[52px]" alt="" />

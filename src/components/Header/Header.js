@@ -68,6 +68,7 @@ const Header = () => {
                             height={40}
                             quality={100}
                             className="cursor-pointer"
+                            priority 
                         />
                     </Link>
                 </div>

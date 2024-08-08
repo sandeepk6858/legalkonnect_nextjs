@@ -2,18 +2,10 @@ import JobSlider from "@/components/JobSlider/JobSlider";
 import HeartSvg from "@/components/Icons/heartSvg";
 import Link from "next/link";
 import DropdownComponent from "@/components/Dropdown";
-import { fetchData } from "@/actions/favorite/favoriteData";
-import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
-
-const transcriptsjobs = async({searchParams}) => {
-
-    const sort = searchParams.sort || 'date';
-    let transcripts = await fetchData("transcripts", sort);
-
+export default function JobsFavoriteLayout({ children }) {
     return (
         <>
-
             <div className="my-10">
                 <JobSlider />
             </div>
@@ -26,17 +18,17 @@ const transcriptsjobs = async({searchParams}) => {
                                 <h5 className="ml-2.5 text-base font-semibold text-orangeprimary whitespace-nowrap">Favorites</h5>
                             </div>
                             <ul className="flex items-center gap-x-7">
-                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer  hover:opacity-[0.6] ">
-                                    <Link href="/account/favorites/jobs" className="text-sm font-normal  text-blackcolor whitespace-nowrap"> Jobs</Link>
+                                <li className=" py-5 border-b-2 border-orangeprimary cursor-pointer ">
+                                    <Link href="/account/favorites/jobs" className="text-sm font-normal text-orangeprimary whitespace-nowrap"> Jobs</Link>
                                 </li>
                                 <li className=" py-5 border-b-0  cursor-pointer hover:opacity-[0.6]">
                                     <Link href="/account/favorites/qualified-attorney" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Qualified Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-0 border-blackcolor  cursor-pointer">
-                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal whitespace-nowrap text-blackcolor"> Substitute Attorneys</Link>
+                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
+                                    <Link href="/account/favorites/substitute-attorney" className="text-sm font-normal text-blackcolor whitespace-nowrap  "> Substitute Attorneys</Link>
                                 </li>
-                                <li className=" py-5 border-b-2 border-orangeprimary  cursor-pointer hover:opacity-[0.6] ">
-                                    <Link href="/account/favorites/transcripts" className="text-sm font-normal  text-orangeprimary whitespace-nowrap"> Transcripts</Link>
+                                <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
+                                    <Link href="/account/favorites/transcripts" className="text-sm font-normal text-blackcolor whitespace-nowrap"> Transcripts</Link>
                                 </li>
                                 <li className=" py-5 border-b-0 border-blackcolor cursor-pointer hover:opacity-[0.6] ">
                                     <Link href="/account/favorites/motion" className="text-sm font-normal text-blackcolor whitespace-nowrap "> Motions</Link>
@@ -48,25 +40,12 @@ const transcriptsjobs = async({searchParams}) => {
                         </div>
                         <div className="flex items-center gap-x-2.5 py-5 lg:py-0 ">
                             <p className="text-sm font-normal text-blackcolor whitespace-nowrap">Sort by</p>
-                            <DropdownComponent model="transcripts" />
+                            <DropdownComponent model="jobs" />
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div className="w-full relative px-4 lg:px-6">
-                <div className=" flex flex-wrap justify-evenly gap-4">
-                    {
-                        transcripts?.data?.items?.length > 0 ? transcripts?.data?.items.map((item) => (
-                            <ScriptsCards data={item} key={item?.id} model="transcripts"/>
-                        ))
-                        :
-                        <div>No jobs found</div>
-                    }
-                </div>
-            </div>
+            {children}
         </>
-    );
-};
-
-export default transcriptsjobs;
+    )
+}

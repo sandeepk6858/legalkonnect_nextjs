@@ -18,7 +18,7 @@ const Register = () => {
           <div className="w-full max-w-[400px] md:max-w-[530px]">
             <p className="text-2xl mt-3 md:mt-0 md:text-4xl font-semibold text-white leading-[30px] md:leading-[44px] max-[1024px]:text-center">
               Are you new to LegalKonnect?
-              <br/> Sign up and connect.
+              <br /> Sign up and connect.
             </p>
             <div className="pt-9 flex flex-col gap-6">
               <div className="flex gap-5">
@@ -220,7 +220,7 @@ const Register = () => {
             </div>
           </div>
           <div className="text-white bg-[white] my-6 rounded-[3px] shadow-custom p-[20px] md:p-[30px] w-full max-w-[400px] md:max-w-[530px] max-[1024px]:mt-[25px]">
-            <RegisterForm roles={RegisterUserRoles}/>
+            <RegisterForm roles={RegisterUserRoles} />
           </div>
         </div>
       </div>

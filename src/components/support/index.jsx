@@ -6,18 +6,21 @@ import ShareSvg from "@/components/Icons/shareSvg";
 import SocialPopup from "@/components/socialPopup";
 import CheckSvg from "@/components/Icons/checkSvg";
 import StarSvg from "@/components/Icons/starSvg";
-import BacthSvg from "@/components/batchSvg";
-import Image from "next/image";
 import Link from "next/link";
-
 import { Card, CardHeader, CardBody, CardFooter, Divider, fillheart } from "@nextui-org/react";
+import { favoriteToggler } from "@/actions/favorite/favoriteData";
+import Image from "next/image";
 
-const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
+const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
 
     const [socialPopupT, setSocialPopupT] = useState(false);
 
     const SocialPopupToggle = () => {
         setSocialPopupT(!socialPopupT);
+    }
+    const handleFavorite = async(model_id) => {
+        const res = await favoriteToggler(model_id, "qualified-attorney", 'account/favorites/qualified-attorney');
+        console.log(res);
     }
 
     return (
@@ -29,81 +32,83 @@ const SupportCard = ({ fillheart, showDiv, showDivCount }) => {
                 src="https://legalkonnect.com/storage/specializations/Estate%20Planning%20Lawyer.png"
             />
             <CardHeader className="px-5 relative w-full">
-                <Link href="users/profile/671" className="flex justify-between cursor-pointer">
+                <div className="flex justify-between">
                     <div className="flex relative">
-                        <span className="border-2 border-white bg-gray-200 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
-                        <Avatar className="w-[68px] h-[68px]" src="https://legalkonnect.com/img/no_avatar.jpg" />
+                        {
+                            data.users?.isOnline ?
+                            <span className="border-2 border-green-500 bg-green-500 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
+                            :
+                            <span className="border-2 border-white bg-gray-200 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
+                        }
+                        <Avatar className="w-[68px] h-[68px]" src={(data.users?.avatar[0]?.url) ? data.users?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
                     </div>
                     <div className="flex flex-col px-2 text-blackcolorcolor text-lg fill-lightgrey">
-                        <p className="text-base">para legal</p>
+                        <Link href={`/users/profile/${data.users.id}`} className="text-base">{data.users.first_name + " " + data.users.last_name}</Link>
                         <div className="flex items-center mt-[5px] gap-[10px]">
-                            <p className="text-sm">Paralegal/Support</p>
-                            <BacthSvg className="ml-[10px]" width={`20px`} height={`20px`} color="fill-parrotgreen" />
+                            <p className="text-sm">{data.users.role.name}</p>
+                            {/* <BacthSvg className="ml-[10px]" width={`20px`} height={`20px`} color="fill-parrotgreen" /> */}
                         </div>
                         <div className="flex ">
-                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-current text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-current text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-yellow text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-yellow text-yellow" />
-                            <StarSvg width={`18px`} height={`18px`} color="fill-silver hover:fill-yellow text-yellow" />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 1 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 2 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 3 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 4 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating === 5 ? 'fill-current text-yellow' : ''}`}/>
                         </div>
 
                     </div>
-                </Link>
+                </div>
             </CardHeader>
             <CardBody className="p-0">
                 <Divider className="bg-lightgrey" />
-                <Link href="users/profile/671" className="p-5 cursor-pointer">
+                <div className="p-5">
                     <div className="flex">
                         <h6 className="text-gray text-sm">Fee Accepted:</h6>
-                        <p className="pl-1 ">N/A</p>
+                        <p className="pl-1 ">{data.users.userData.fee_type}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Rate:</h6>
-                        <p className="pl-1">$</p>
+                        <p className="pl-1">${data.users.userData.rate}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Country:</h6>
-                        <p className="pl-1">N/A</p>
+                        <p className="pl-1">{data.users.userData.country}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">State:</h6>
-                        <p className="pl-1">N/A</p>
+                        <p className="pl-1">{data.users.userData.state}</p>
                     </div>
                     <div className="flex">
-                        <h6 className="text-gray text-sm">Country:</h6>
-                        <p className="pl-1">N/A</p>
+                        <h6 className="text-gray text-sm">County:</h6>
+                        <p className="pl-1">{data.users.userData.county}</p>
                     </div>
-                </Link>
+                </div>
                 <Divider className="bg-lightgrey" />
             </CardBody>
             <CardFooter className="flex flex-col px-5">
-                <Link href="users/profile8461">
-                    <div className="flex justify-between  w-full">
+                <div className="w-full">
+                    <div className="flex justify-between w-full">
                         <div className="flex ">
-                            <h5 className="text-sm font-bold">?</h5>
+                            <h5 className="text-sm font-bold">{data.users.userData.experience}</h5>
                             <p className="text-darkgray pl-1 text-sm">yrs experience</p>
                         </div>
                         <div className="flex ">
-                            <h5 className="text-sm font-bold">$0</h5>
+                            <h5 className="text-sm font-bold">${data.users.userData.earned}</h5>
                             <p className="text-darkgray pl-1 text-sm">earned</p>
                         </div>
                     </div>
-                    <div className="flex ">
-                        <h5 className="text-sm font-bold">$0</h5>
-                        <p className="text-darkgray pl-1 text-sm">earned</p>
-                    </div>
-                </Link>
+                </div>
                 <div className="flex justify-between py-2 mt-[20px]  w-full">
                     <div className="flex">
-                        <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`}  />
+                        <CheckSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} />
                         <span className="text-sm font-bold pl-1" style={{ display: showDivCount ? 'block' : 'none' }}>0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
                     </div>
-                    <div className="flex gap-1 items-center">
-                        <SocialPopup socialPopupT={socialPopupT} />
+                    <div className="flex gap-1 items-center cursor-pointer">
+                    <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <Link href="/account/favorite/8461">
-                        <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} /></Link>
+                        <div onClick={() => handleFavorite(data.users.id)}>
+                            <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                        </div>
                     </div>
                 </div>
             </CardFooter>
