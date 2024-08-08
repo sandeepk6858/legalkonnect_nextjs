@@ -11,17 +11,18 @@ import { Card, CardHeader, CardBody, CardFooter, Divider, fillheart } from "@nex
 import Image from "next/image";
 import BacthSvg from "@/components/batchSvg";
 import { isPlanActive } from "../utils/helper/helper";
+import { userfavoriteToggler } from "@/actions/UsersByRole/getuserdata";
 
-const UserComponent = ({ fillheart, showDiv, showDivCount, data }) => {
+const UserComponent = ({ fillheart, showDiv, showDivCount, data, path }) => {
 
     const [socialPopupT, setSocialPopupT] = useState(false);
 
-    const SocialPopupToggle = () => {
+    const SocialPopupToggle = () => {     
         setSocialPopupT(!socialPopupT);
     }
     const handleFavorite = async (model_id) => {
-        // const res = await favoriteToggler(model_id,  'account/favorites/qualified-attorney');
-        console.log("favorite toggler clicked ", model_id);
+        const res = await userfavoriteToggler(model_id,path, "account/favorites/qualified-attorney");
+        console.log(res);
     }
     
 

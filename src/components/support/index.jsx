@@ -45,15 +45,15 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                     <div className="flex flex-col px-2 text-blackcolorcolor text-lg fill-lightgrey">
                         <Link href={`/users/profile/${data.users.id}`} className="text-base">{data.users.first_name + " " + data.users.last_name}</Link>
                         <div className="flex items-center mt-[5px] gap-[10px]">
-                            <p className="text-sm">{data.users.role.name}</p>
+                            <p className="text-sm">{data.users.role?.name}</p>
                             {/* <BacthSvg className="ml-[10px]" width={`20px`} height={`20px`} color="fill-parrotgreen" /> */}
                         </div>
                         <div className="flex ">
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 1 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 2 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 3 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 4 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating === 5 ? 'fill-current text-yellow' : ''}`}/>
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0]?.rating >= 1 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0]?.rating >= 2 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0]?.rating >= 3 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0]?.rating >= 4 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0]?.rating === 5 ? 'fill-current text-yellow' : ''}`}/>
                         </div>
 
                     </div>
@@ -64,23 +64,23 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                 <div className="p-5">
                     <div className="flex">
                         <h6 className="text-gray text-sm">Fee Accepted:</h6>
-                        <p className="pl-1 ">{data.users.userData.fee_type}</p>
+                        <p className="pl-1 ">{data.users.userData?.fee_type}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Rate:</h6>
-                        <p className="pl-1">${data.users.userData.rate}</p>
+                        <p className="pl-1">${data.users.userData?.rate}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Country:</h6>
-                        <p className="pl-1">{data.users.userData.country}</p>
+                        <p className="pl-1">{data.users.userData?.country}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">State:</h6>
-                        <p className="pl-1">{data.users.userData.state}</p>
+                        <p className="pl-1">{data.users.userData?.state}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">County:</h6>
-                        <p className="pl-1">{data.users.userData.county}</p>
+                        <p className="pl-1">{data.users.userData?.county}</p>
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />

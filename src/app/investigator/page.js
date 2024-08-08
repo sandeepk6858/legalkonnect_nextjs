@@ -19,7 +19,7 @@ const Investigator = async ({searchParams}) => {
           <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
             {data?.data?.users ?
               data?.data?.users?.map((item) => (
-                <UserComponent key={item.id} data={item} />
+                <UserComponent key={item.id} data={item} path="investigator" />
               ))
               :
               <div className="w-screen flex justify-center items-center">No item found</div>

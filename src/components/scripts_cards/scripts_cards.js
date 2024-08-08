@@ -14,8 +14,8 @@ const ScriptsCards = ({ data, model }) => {
         <>
             <div className="w_wid p-[20px] lf:p-[30px] w-1/1 md:w-1/3 lg:w-1/4 flex flex-col items-start bg-[#fff] shadow-lg rounded-[20px]">
                 <div className="flex justify-between items-center w-[100%]">
-                    <Link href={`/${model}/${data[model].id}`} className="text-[20px] leading-[24px] font-font-medium cursor-pointer text-blackcolor">
-                        {data[model].title}
+                    <Link href={`/${model}/${data[model]?.id}`} className="text-[20px] leading-[24px] font-font-medium cursor-pointer text-blackcolor">
+                        {data[model]?.title}
                     </Link>
                     <div className="share_btn relative" onClick={toggleIcons}>
                         <svg
@@ -71,36 +71,36 @@ const ScriptsCards = ({ data, model }) => {
                     </div>
                 </div>
                 <span className="inline-block text-[16px] pt-[10px] font-medium mb-[40px]">
-                    Posted {formatDateString(data[model].created_at)}
+                    Posted {formatDateString(data[model]?.created_at)}
                 </span>
                 <div className="flex flex-col justify-start items-start text-blackcolor">
                     <p className="text-[14px] mb-[7px] leading-[20px]">
-                        Offer: <span className="font-medium text-blackcolor">{data[model].offer}</span>
+                        Offer: <span className="font-medium text-blackcolor">{data[model]?.offer}</span>
                     </p>
                     <p className="text-[14px] mb-[7px] leading-[20px]">
                         Document Type:{" "}
-                        <span className="font-medium text-blackcolor">{data[model].doc_type}</span>
+                        <span className="font-medium text-blackcolor">{data[model]?.doc_type}</span>
                     </p>
                     <p className="text-[14px] mb-[7px] leading-[20px]">
                         Country:{" "}
                         <span className="font-medium text-blackcolor">
-                            {model === "motions" ? data[model].Country.name : data[model].country_name.name}
+                            {model === "motions" ? data[model]?.Country?.name : data[model]?.country_name?.name}
                         </span>
                     </p>
                     <p className="text-[14px] mb-[7px] leading-[20px]">
                         State:{" "}
-                        <span className="font-medium text-blackcolor">{data[model].state}</span>
+                        <span className="font-medium text-blackcolor">{data[model]?.state}</span>
                     </p>
                     <p className="text-[14px] mb-[7px] leading-[20px]">
                         County:{" "}
                         <span className="font-medium text-blackcolor">
-                            {data[model].county}
+                            {data[model]?.county}
                         </span>
                     </p>
                     <p className="text-[14px] mb-[7px] leading-[20px]">
                         Legal Issue:{" "}
                         <span className="font-medium text-blackcolor">
-                            {data[model].legal_issue}
+                            {data[model]?.legal_issue}
                         </span>
                     </p>
                 </div>
@@ -108,12 +108,12 @@ const ScriptsCards = ({ data, model }) => {
                     <div className="inline-flex items-center">
                         <img
                             className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
-                            src={data[model].user?.avatar[0]?.url ? data[model].user.avatar[0].url : imageURL("no_avatar.jpg")}
+                            src={data[model]?.user?.avatar[0]?.url ? data[model]?.user.avatar[0].url : imageURL("no_avatar.jpg")}
                         />
                         <span className="flex-grow flex flex-col pl-4">
                             <span className="title-font font-medium text-black">
-                                <Link href={"/users/profile/" + data[model].user?.id} className="text-black">
-                                    {data[model].user?.first_name + " " + (data[model].user?.last_name ? data[model].user.last_name : "")}
+                                <Link href={"/users/profile/" + data[model]?.user?.id} className="text-black">
+                                    {data[model]?.user?.first_name + " " + (data[model]?.user?.last_name ? data[model]?.user.last_name : "")}
                                 </Link>
                             </span>
                         </span>
@@ -135,7 +135,7 @@ const ScriptsCards = ({ data, model }) => {
                                 fill="#1359C3"
                             ></path>
                         </svg>
-                        {data[model].orders?.length}
+                        {data[model]?.orders?.length}
                     </span>
                 </div>
             </div>
