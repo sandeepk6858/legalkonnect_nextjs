@@ -36,6 +36,6 @@ export const favoriteToggler = async(model_id, model, path) => {
         revalidatePath(path);
         return response.data;
     } catch (error) {
-        console.error("Error fetching jobs:", error.message);
+        console.error("Error fetching data:", error.message);
     }
 };

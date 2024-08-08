@@ -1,4 +1,4 @@
-
+'use client'
 import { useState } from "react";
 import HeartSvg from "../Icons/heartSvg"
 import ShareSvg from "../Icons/shareSvg";
