@@ -19,8 +19,8 @@ import SearchSvg from "../Icons/searchSvg";
 import FillterSvg from "../Icons/filterSvg";
 import { counter } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
-import CourtsMapComponent from "../court-filter-functins/CourtsMap";
-import CourtMapComponent from "../court-filter-functins/CourtMap";
+import CourtsMapComponent from "../Court-Filter/CourtsMap";
+import CourtMapComponent from "../Court-Filter/CourtMap";
 
 
 export const animals = [

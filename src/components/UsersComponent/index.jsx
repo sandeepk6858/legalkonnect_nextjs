@@ -8,7 +8,6 @@ import CheckSvg from "@/components/Icons/checkSvg";
 import StarSvg from "@/components/Icons/starSvg";
 import Link from "next/link";
 import { Card, CardHeader, CardBody, CardFooter, Divider, fillheart } from "@nextui-org/react";
-import { favoriteToggler } from "@/actions/favorite/favoriteData";
 import Image from "next/image";
 import BacthSvg from "@/components/batchSvg";
 import { isPlanActive } from "../utils/helper/helper";
@@ -21,7 +20,7 @@ const UserComponent = ({ fillheart, showDiv, showDivCount, data }) => {
         setSocialPopupT(!socialPopupT);
     }
     const handleFavorite = async (model_id) => {
-        // const res = await favoriteToggler(model_id, "qualified-attorney", 'account/favorites/qualified-attorney');
+        // const res = await favoriteToggler(model_id,  'account/favorites/qualified-attorney');
         console.log("favorite toggler clicked ", model_id);
     }
     
@@ -77,15 +76,15 @@ const UserComponent = ({ fillheart, showDiv, showDivCount, data }) => {
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Country:</h6>
-                        <p className="pl-1">{data.userData.country}</p>
+                        <p className="pl-1">{data.country}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">State:</h6>
-                        <p className="pl-1">{data.userData.state}</p>
+                        <p className="pl-1">{data.state}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">County:</h6>
-                        <p className="pl-1">{data.userData.county}</p>
+                        <p className="pl-1">{data.county}</p>
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />
@@ -113,7 +112,7 @@ const UserComponent = ({ fillheart, showDiv, showDivCount, data }) => {
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
                         <div onClick={() => handleFavorite(data.id)}>
                             {
-                                data.favorite === 1 ?
+                                data.favorite ?
                                     <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : `fill-orangeprimary`} hover={`hover:fill-transparent`} stroke={`stroke-orangeprimary`} />
                                     :
                                     <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />

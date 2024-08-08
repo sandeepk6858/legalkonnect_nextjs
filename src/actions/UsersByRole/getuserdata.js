@@ -19,3 +19,21 @@ export async function getUserData(params) {
         return null;
     }
 }
+export const userfavoriteToggler = async(model_id, path) => {
+    try {
+        const headers = {
+            'Authorization': `Bearer ${user_token()}`, 
+            'Content-Type': 'application/json' 
+        };
+        const body = {
+            model_id,
+            model: "qualified-attorney"
+        }
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite/set_favorite`, body, {headers});
+        
+        revalidatePath(path);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching data:", error.message);
+    }
+};
