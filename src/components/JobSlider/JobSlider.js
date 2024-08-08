@@ -5,7 +5,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link, Button } from "@nextui-org/react";
 
-const JobSlider = () => {
+const 
+JobSlider = () => {
   const PrevArrow = (props) => {
     const { className, style, onClick } = props;
     return (
@@ -82,14 +83,14 @@ const JobSlider = () => {
       {
         breakpoint: 500,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
           slidesToScroll: 1,
         },
       },
       {
         breakpoint: 400,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 2,
           slidesToScroll: 1,
         },
       },
@@ -187,13 +188,13 @@ const JobSlider = () => {
   ];
 
   return (
-    <div className="w-full m-[auto] px-[40px] max-w-[1250px] relative">
-      <Slider {...settings}>
+    <div className="w-full m-[auto] px-[15px] lg:px-[40px] max-w-[1250px] relative mt-[25px] ">
+      <Slider {...settings} className="categorySlider">
         {slides.map((slide, index) => (
-          <div key={index} className="max-w-[125px] w-full my-[25px] rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container">
+          <div key={index} className="max-w-[125px] w-full  rounded-[8px] flex flex-col items-center justify-center shadow-customSec p-[8px] relative tooltip-container min-h-[106px]">
             <Link href={slide.link} className="flex justify-center items-center flex-col gap-2">
               <img src={slide.image} className="maw-w-[38px] h-[52px]" alt="" />
-              <span className="text-[15px] text-center">{slide.title}</span>
+              <span className="text-[15px] text-center leading-[15px]">{slide.title}</span>
               <div className="tooltip_dropdown">
                 {slide.tooltip}
               </div>

@@ -35,25 +35,25 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                 <div className="flex justify-between">
                     <div className="flex relative">
                         {
-                            data.users?.isOnline ?
+                            data?.users?.isOnline ?
                             <span className="border-2 border-green-500 bg-green-500 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
                             :
                             <span className="border-2 border-white bg-gray-200 rounded-full w-4 h-4 absolute top-[8px] left-[52px] z-[5]"></span>
                         }
-                        <Avatar className="w-[68px] h-[68px]" src={(data.users?.avatar[0]?.url) ? data.users?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
+                        <Avatar className="w-[68px] h-[68px]" src={(data?.users?.avatar[0]?.url) ? data?.users?.avatar[0]?.url : "https://legalkonnect.com/img/no_avatar.jpg"} />
                     </div>
                     <div className="flex flex-col px-2 text-blackcolorcolor text-lg fill-lightgrey">
-                        <Link href={`/users/profile/${data.users.id}`} className="text-base">{data.users.first_name + " " + data.users.last_name}</Link>
+                        <Link href={`/users/profile/${data?.users.id}`} className="text-base">{data?.users.first_name + " " + data?.users.last_name}</Link>
                         <div className="flex items-center mt-[5px] gap-[10px]">
-                            <p className="text-sm">{data.users.role.name}</p>
+                            <p className="text-sm">{data?.users.role.name}</p>
                             {/* <BacthSvg className="ml-[10px]" width={`20px`} height={`20px`} color="fill-parrotgreen" /> */}
                         </div>
                         <div className="flex ">
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 1 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 2 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 3 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating >= 4 ? 'fill-current text-yellow' : ''}`} />
-                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data.users.ratings[0].rating === 5 ? 'fill-current text-yellow' : ''}`}/>
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data?.users.ratings[0].rating >= 1 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data?.users.ratings[0].rating >= 2 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data?.users.ratings[0].rating >= 3 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data?.users.ratings[0].rating >= 4 ? 'fill-current text-yellow' : ''}`} />
+                            <StarSvg width={`18px`} height={`18px`} color={`fill-silver ${data?.users.ratings[0].rating === 5 ? 'fill-current text-yellow' : ''}`}/>
                         </div>
 
                     </div>
@@ -64,23 +64,23 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                 <div className="p-5">
                     <div className="flex">
                         <h6 className="text-gray text-sm">Fee Accepted:</h6>
-                        <p className="pl-1 ">{data.users.userData.fee_type}</p>
+                        <p className="pl-1 ">{data?.users.userData.fee_type}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Rate:</h6>
-                        <p className="pl-1">${data.users.userData.rate}</p>
+                        <p className="pl-1">${data?.users.userData.rate}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">Country:</h6>
-                        <p className="pl-1">{data.users.userData.country}</p>
+                        <p className="pl-1">{data?.users.userData.country}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">State:</h6>
-                        <p className="pl-1">{data.users.userData.state}</p>
+                        <p className="pl-1">{data?.users.userData.state}</p>
                     </div>
                     <div className="flex">
                         <h6 className="text-gray text-sm">County:</h6>
-                        <p className="pl-1">{data.users.userData.county}</p>
+                        <p className="pl-1">{data?.users.userData.county}</p>
                     </div>
                 </div>
                 <Divider className="bg-lightgrey" />
@@ -89,11 +89,11 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                 <div className="w-full">
                     <div className="flex justify-between w-full">
                         <div className="flex ">
-                            <h5 className="text-sm font-bold">{data.users.userData.experience}</h5>
+                            <h5 className="text-sm font-bold">{data?.users.userData.experience}</h5>
                             <p className="text-darkgray pl-1 text-sm">yrs experience</p>
                         </div>
                         <div className="flex ">
-                            <h5 className="text-sm font-bold">${data.users.userData.earned}</h5>
+                            <h5 className="text-sm font-bold">${data?.users.userData.earned}</h5>
                             <p className="text-darkgray pl-1 text-sm">earned</p>
                         </div>
                     </div>
@@ -104,9 +104,9 @@ const SupportCard = ({ fillheart, showDiv, showDivCount, data }) => {
                         <span className="text-sm font-bold pl-1" style={{ display: showDivCount ? 'block' : 'none' }}>0</span><p className="text-gray-600 pl-1 text-sm">jobs done</p>
                     </div>
                     <div className="flex gap-1 items-center cursor-pointer">
-                    <SocialPopup socialPopupT={socialPopupT} facebook_url={data.facebook_url} twitter_url={data.twitter_url} pintrest_url={data.pinterest_url} />
+                    <SocialPopup socialPopupT={socialPopupT} facebook_url={data?.facebook_url} twitter_url={data?.twitter_url} pintrest_url={data?.pinterest_url} />
                         <ShareSvg width={`20px`} height={`20px`} fill={`fill-blueprimary`} hover={`hover:fill-bluesecondary`} SocialPopupToggle={SocialPopupToggle} />
-                        <div onClick={() => handleFavorite(data.users.id)}>
+                        <div onClick={() => handleFavorite(data?.users.id)}>
                             <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
                         </div>
                     </div>

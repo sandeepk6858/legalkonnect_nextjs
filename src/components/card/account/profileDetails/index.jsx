@@ -104,9 +104,9 @@ const ProfileDetails = ({ profileData }) => {
                     >
                         <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
                             <div className="content_group">
-                               <SlickSlider data={ profileData?.gallery}/>
+                               <SlickSlider data={profileData?.gallery}/>
                             </div>
-                            <div className="content_group">
+                            <div className="content_group mt-[30px] lg:mt-[0px">
                                 <h3 className="box-title text-[16px] font-semibold text-black">
                                     About me
                                 </h3>
@@ -285,7 +285,7 @@ const ProfileDetails = ({ profileData }) => {
                                             className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2"
                                         >
                                             <Link
-                                                href={`/storage/uploads/${doc?.preview}`} // Adjust URL based on document name or path
+                                                href={`/storage/uploads/${doc?.url}`} // Adjust URL based on document name or path
                                                 className="attached_file_item flex items-center gap-1"
                                                 download={doc?.name} // Use document name for download attribute
                                             >
