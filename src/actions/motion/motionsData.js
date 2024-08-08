@@ -9,14 +9,9 @@ export default async function fetchMotionsData(req, res) {
 
     try {
         const motions = await getMotions({
-            search,
-            sort,
-            location,
-            country,
-            state,
-            county,
             specialization_id,
-            award: award ? JSON.parse(award) : undefined,
+            location,
+            search
         });
         res.status(200).json(motions);
     } catch (error) {

@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Input,
   Button,
@@ -21,6 +21,9 @@ import { Autocomplete, AutocompleteItem } from "@nextui-org/react";
 import { counter } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
 
+//
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import FilterTab from "./Filter-Tab";
 
 export const animals = [
   { key: "cat", label: "Cat" },
@@ -57,6 +60,31 @@ const Filter = ({
   const [toogleFilter, setToogleFilter] = useState(false);
   const [courtMap, setCourtMap] = useState(false);
   const [selectedKeys, setSelectedKeys] = React.useState(new Set(["Date"]));
+
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [filters, setFilters] = useState({});
+
+  useEffect(() => {
+    const params = {};
+    searchParams.forEach((value, key) => {
+      params[key] = value;
+    });
+    setFilters(params);
+  }, [searchParams]);
+
+  const handleFilterChange = (e) => {
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const applyFilters = () => {
+    const params = new URLSearchParams(filters);
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   const handleChange = (event) => {
     setSelectedValue(event.target.value);
@@ -101,7 +129,7 @@ const Filter = ({
                 <Input
                   className="border border-lightgrey rounded-xl w-64 max-w-96"
                   type="text"
-                  placeholder="Search"
+                  name="search"
                   startContent={
                     <SearchSvg
                       width={`16px`}
@@ -109,6 +137,9 @@ const Filter = ({
                       fill={`fill-orangeprimary`}
                     />
                   }
+                  placeholder="Search"
+                  value={filters.search || ''}
+                  onChange={handleFilterChange}
                 />
               </div>
               {counrtsMap && (

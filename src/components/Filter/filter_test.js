@@ -1,9 +1,21 @@
-import { useRouter } from 'next/router';
-import { useState } from 'react';
+'use client';
+
+import { useState, useEffect } from 'react';
+import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 
 const Filter = () => {
+    const pathname = usePathname();
+    const searchParams = useSearchParams();
     const router = useRouter();
-    const [filters, setFilters] = useState(router.query);
+    const [filters, setFilters] = useState({});
+
+    useEffect(() => {
+        const params = {};
+        searchParams.forEach((value, key) => {
+            params[key] = value;
+        });
+        setFilters(params);
+    }, [searchParams]);
 
     const handleFilterChange = (e) => {
         setFilters({
@@ -13,10 +25,8 @@ const Filter = () => {
     };
 
     const applyFilters = () => {
-        router.push({
-            pathname: router.pathname,
-            query: filters,
-        });
+        const params = new URLSearchParams(filters);
+        router.push(`${pathname}?${params.toString()}`);
     };
 
     return (
