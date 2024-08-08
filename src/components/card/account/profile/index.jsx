@@ -60,7 +60,7 @@ const UserProfileCard = () => {
                         </div>
                     </div>
                     <div className="right_info">
-                        <Link href="" className="attorney_name text-[16px]">
+                        <Link href="#" className="attorney_name text-[16px]">
                             {profileData && profileData?.first_name + ' ' + profileData?.last_name}
                         </Link>
                         <div className="attorney_verif text-[14px]">
@@ -89,7 +89,7 @@ const UserProfileCard = () => {
                      {profileData?.specialization.map((item, index) => {
                             item && item != null ? (
                                 <div className="card_tags hover:bg-[#1359C3] hover:text-white rounded-[50px] px-[21px] py-[5px] text-[14px] text-center text-bluesecondary bg-[#EAF1FD] block max-w-[92px]">
-                                    <Link key={index} href="" className="card_tag">
+                                    <Link key={index} href="#" className="card_tag">
                                         {item}
                                     </Link>
                                 </div>

@@ -104,7 +104,7 @@ const ProfileDetails = ({ profileData }) => {
                     >
                         <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
                             <div className="content_group">
-                               <SlickSlider data={ profileData?.gallery}/>
+                               <SlickSlider data={profileData?.gallery}/>
                             </div>
                             <div className="content_group">
                                 <h3 className="box-title text-[16px] font-semibold text-black">
@@ -257,7 +257,7 @@ const ProfileDetails = ({ profileData }) => {
                                 <div className="blue_infos_block pt-2">
                                 
                                     <div className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2">
-                                        <Link
+                                        {/* <Link
                                             href={`${profileData?.resume && profileData?.resume}`}
                                             className="atached_file_item flex items-center gap-1"
                                             download="SB.jpg"
@@ -266,7 +266,7 @@ const ProfileDetails = ({ profileData }) => {
                                                 <AttachmentSvg />
                                             </div>
                                             <p className="name text-[#027E4A]">SB.jpg</p>
-                                        </Link>
+                                        </Link> */}
                                     </div>
 
                                 </div>
@@ -281,7 +281,7 @@ const ProfileDetails = ({ profileData }) => {
                                             key={doc.id || index} // Use unique ID or index as key
                                             className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2"
                                         >
-                                            <Link
+                                            {/* <Link
                                                 href={`/storage/uploads/${doc.preview}`} // Adjust URL based on document name or path
                                                 className="attached_file_item flex items-center gap-1"
                                                 download={doc.name} // Use document name for download attribute
@@ -290,7 +290,7 @@ const ProfileDetails = ({ profileData }) => {
                                                     <AttachmentSvg />
                                                 </div>
                                                 <p className="name text-[#027E4A]">{doc.name}</p>
-                                            </Link>
+                                            </Link> */}
                                         </div>
                                     ))}
                                 </div>
