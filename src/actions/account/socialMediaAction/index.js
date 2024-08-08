@@ -1,12 +1,16 @@
 const UserProfile = async (data) => {
     try {
-        const response = await fetch(`${process.env.API_URL}/auth/refresh-token`, {
+        const response = await fetch(`${process.env.API_URL}/socials/addsocialmedia`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Brear ${data?.token}`
             },
-            body: JSON.stringify({role:data?.role,user_id:data?.user_id}),
+            body: JSON.stringify({
+                url:data?.url,
+                user_id:data?.user_id,
+                type:data?.type
+            }),
         });
 
         const responseData = await response.json();

@@ -5,6 +5,8 @@ import { Button } from "@nextui-org/react";
 import JobSlider from "@/components/JobSlider/JobSlider";
 import { Calendar } from "@nextui-org/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
+import ResetPaswordCard from "@/components/card/account/editProfile/Password";
+import SocialMediaCard from "@/components/card/account/editProfile/socialMedia";
 
 const Settings = () => {
   const [isCardSelected, setIsCardSelected] = useState(true);
@@ -1271,165 +1273,7 @@ const Settings = () => {
                 key="Social Media"
                 title="Social Media"
               >
-                <Card>
-                  <CardBody>
-                    <div className="sm:p-[20px]">
-                      <div>
-                        <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold">
-                          Social Media
-                        </h3>
-                      </div>
-                      <div className="flex justify-between gap-3 sm:items-end border-b border-[#F7F7F7] pb-[50px] flex-col sm:flex-row">
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_76px)]">
-                          <label className="text-[#474040] text-base">
-                            Social Media
-                          </label>
-                          <div>
-                            <select className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey">
-                              <option>Choose social media</option>
-                              <option value="Instagram">Instagram</option>
-                              <option value="facebook">Facebook</option>
-                              <option value="twitter">Twitter</option>
-                              <option value="linkedin">LinkedIn</option>
-                              <option value="other">Other</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_76px)]">
-                          <label className="text-[#474040] text-base">
-                            Url
-                          </label>
-                          <div>
-                            <input
-                              type="text"
-                              className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                              placeholder="Write your url"
-                            />
-                          </div>
-                        </div>
-                        <div className="pb-[6px]">
-                        <Button
-                          radius="full"
-                          className="bg-orangeprimary text-white text-[14px]"
-                        >
-                           Add
-                        </Button>
-                        </div>
-                      </div>
-                      <div className="pt-[30px]">
-                        <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold">
-                          Refer a friend
-                        </h3>
-                        <div className="flex flex-col gap-2 pt-3 w-full">
-                          <label className="text-[#474040] text-base">
-                            Your personal referal link
-                          </label>
-                          <div>
-                            <input
-                              type="text"
-                              className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                              placeholder="https://legalkonnect.com/refer/1aedb8d9dc4751e229a335e371db8058"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div className="share-wrap pt-3">
-                        <span>Share your link</span>
-                        <div className="share-items flex items-center gap-2 pt-3">
-                          <a
-                            href="#"
-                            className="w-[30px] h-[30px] rounded-[10em] bg-[#f16622] flex items-center justify-center hover:bg-[#898989]"
-                          >
-                            <svg
-                              width="14"
-                              height="12"
-                              viewBox="0 0 14 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M1.70908 0.672852H12.288C13.2324 0.672852 14 1.44049 14 2.38483V9.61513C14 10.5595 13.2324 11.3271 12.288 11.3271H1.71198C0.767638 11.3271 0 10.5595 0 9.61513V2.38773C-0.00289726 1.44339 0.764742 0.672852 1.70908 0.672852ZM0.779225 9.61513C0.779225 10.1279 1.19636 10.545 1.70908 10.545H12.288C12.8007 10.545 13.2179 10.1279 13.2179 9.61513V2.38773C13.2179 1.875 12.8007 1.45787 12.288 1.45787H1.71198C1.19925 1.45787 0.782123 1.875 0.782123 2.38773V9.61513H0.779225Z"
-                                fill="#fff"
-                              ></path>
-                              <path
-                                d="M5.17047 5.91035L1.74651 2.8398C1.58719 2.69496 1.57271 2.44874 1.71755 2.28652C1.86238 2.1272 2.10861 2.11271 2.27083 2.25755L6.99253 6.4955L7.9137 5.67282C7.91659 5.66992 7.91949 5.66703 7.91949 5.66413C7.93977 5.64385 7.96005 5.62647 7.98322 5.60909L11.7316 2.25465C11.8938 2.10982 12.1401 2.1243 12.2849 2.28652C12.4297 2.44874 12.4153 2.69496 12.253 2.8398L8.78852 5.93643L12.2385 9.1663C12.395 9.31404 12.4037 9.56026 12.2559 9.71958C12.1777 9.80069 12.0734 9.84414 11.9692 9.84414C11.8736 9.84414 11.778 9.80938 11.7026 9.73986L8.20048 6.46363L7.25034 7.31238C7.17503 7.37901 7.08233 7.41087 6.98963 7.41087C6.89694 7.41087 6.80134 7.37611 6.72893 7.30949L5.75272 6.43467L2.27083 9.74276C2.19551 9.81518 2.09702 9.84994 2.00143 9.84994C1.89714 9.84994 1.79576 9.80938 1.71755 9.72827C1.56981 9.57185 1.5756 9.32273 1.73203 9.17499L5.17047 5.91035Z"
-                                fill="#fff"
-                              ></path>
-                            </svg>
-                          </a>
-                          <a
-                            href="#"
-                            className="w-[30px] h-[30px] rounded-[10em] bg-[#f16622] flex items-center justify-center hover:bg-[#898989]"
-                          >
-                            <svg
-                              width="6"
-                              height="14"
-                              viewBox="0 0 6 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M1.53166 14V7.43079H0V5.06556H1.53166V3.04535C1.53166 1.45785 2.43642 0 4.52117 0C5.36526 0 5.98942 0.09177 5.98942 0.09177L5.94024 2.30049C5.94024 2.30049 5.3037 2.29347 4.60907 2.29347C3.85727 2.29347 3.73683 2.68638 3.73683 3.33851V5.06556H6L5.90153 7.43079H3.73683V14H1.53166Z"
-                                fill="white"
-                              ></path>
-                            </svg>
-                          </a>
-                          <a
-                            href="#"
-                            className="w-[30px] h-[30px] rounded-[10em] bg-[#f16622] flex items-center justify-center hover:bg-[#898989]"
-                          >
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 14 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M3.17714 13.9995V4.55374H0.176084V13.9995H3.17714ZM1.677 3.2633C2.72352 3.2633 3.37493 2.53798 3.37493 1.63156C3.35543 0.704706 2.72356 -0.000488281 1.69686 -0.000488281C0.670319 -0.000488281 -0.000976562 0.70472 -0.000976562 1.63156C-0.000976562 2.53802 0.650272 3.2633 1.65741 3.2633H1.67691H1.677ZM4.83821 13.9995H7.83927V8.72454C7.83927 8.44223 7.85877 8.16021 7.93802 7.9584C8.15497 7.39435 8.64876 6.81016 9.47778 6.81016C10.5637 6.81016 10.9982 7.67637 10.9982 8.94617V13.9995H13.9991V8.58333C13.9991 5.68196 12.5185 4.33198 10.544 4.33198C8.92503 4.33198 8.2142 5.27869 7.8193 5.92349H7.83934V4.55354H4.83828C4.87767 5.43988 4.83828 13.9993 4.83828 13.9993L4.83821 13.9995Z"
-                                fill="white"
-                              ></path>
-                            </svg>
-                          </a>
-                          <a
-                            href="#"
-                            className="w-[30px] h-[30px] rounded-[10em] bg-[#f16622] flex items-center justify-center hover:bg-[#898989]"
-                          >
-                            <svg
-                              width="14"
-                              height="14"
-                              viewBox="0 0 14 14"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M7 1.26131C8.86905 1.26131 9.09043 1.26842 9.82855 1.30205C10.511 1.33323 10.8817 1.44725 11.1284 1.54312C11.4551 1.6701 11.6883 1.8218 11.9332 2.06675C12.1782 2.3117 12.3299 2.54488 12.4569 2.87159C12.5528 3.11828 12.6668 3.48895 12.6979 4.1714C12.7316 4.90957 12.7387 5.13095 12.7387 7C12.7387 8.86911 12.7316 9.09048 12.6979 9.8286C12.6668 10.5111 12.5528 10.8817 12.4569 11.1284C12.3299 11.4551 12.1782 11.6884 11.9332 11.9333C11.6883 12.1782 11.4551 12.33 11.1284 12.4569C10.8817 12.5528 10.511 12.6668 9.82855 12.6979C9.09054 12.7316 8.86916 12.7387 7 12.7387C5.13078 12.7387 4.90941 12.7316 4.1714 12.6979C3.4889 12.6668 3.11828 12.5528 2.87159 12.4569C2.54488 12.33 2.31164 12.1782 2.0667 11.9333C1.82175 11.6883 1.67005 11.4551 1.54312 11.1284C1.44725 10.8818 1.33317 10.5111 1.30205 9.8286C1.26837 9.09048 1.26126 8.86911 1.26126 7C1.26126 5.13095 1.26837 4.90957 1.30205 4.17145C1.33323 3.48895 1.44725 3.11828 1.54312 2.87159C1.67005 2.54488 1.82175 2.3117 2.0667 2.06675C2.3117 1.82175 2.54488 1.6701 2.87159 1.54312C3.11823 1.44725 3.4889 1.33323 4.1714 1.30205C4.90952 1.26842 5.13089 1.26131 7 1.26131V1.26131ZM7 0C5.0989 0 4.86052 0.00803906 4.11392 0.0421094C3.3688 0.076125 2.85994 0.194469 2.41473 0.3675C1.95437 0.546383 1.56401 0.78575 1.17485 1.17491C0.785695 1.56406 0.546383 1.95442 0.3675 2.41473C0.194414 2.85999 0.076125 3.36886 0.0421094 4.11392C0.00803906 4.86052 0 5.0989 0 7C0 8.9011 0.00803906 9.13948 0.0421094 9.88608C0.076125 10.6312 0.194414 11.1401 0.3675 11.5853C0.546328 12.0456 0.785695 12.436 1.17485 12.8251C1.56401 13.2143 1.95437 13.4536 2.41473 13.6325C2.85999 13.8056 3.3688 13.9239 4.11387 13.9579C4.86052 13.992 5.0989 14 7 14C8.9011 14 9.13948 13.992 9.88608 13.9579C10.6311 13.9239 11.14 13.8056 11.5852 13.6325C12.0456 13.4537 12.4359 13.2143 12.8251 12.8251C13.2143 12.436 13.4536 12.0456 13.6325 11.5853C13.8055 11.14 13.9239 10.6312 13.9579 9.88613C13.992 9.13948 14 8.9011 14 7C14 5.0989 13.992 4.86052 13.9579 4.11392C13.9239 3.36886 13.8055 2.85999 13.6325 2.41478C13.4536 1.95442 13.2143 1.56406 12.8251 1.17491C12.4359 0.78575 12.0456 0.546328 11.5853 0.3675C11.14 0.194469 10.6311 0.076125 9.88608 0.0421094C9.13948 0.00803906 8.9011 0 7 0ZM7 3.40539C5.01473 3.40539 3.40539 5.01484 3.40539 7C3.40539 8.98527 5.01473 10.5946 7 10.5946C8.98521 10.5946 10.5946 8.98527 10.5946 7C10.5946 5.01479 8.98521 3.40539 7 3.40539V3.40539ZM7 9.33335C5.71134 9.33335 4.66665 8.28866 4.66665 7C4.66665 5.71134 5.71134 4.66665 7 4.66665C8.28866 4.66665 9.33335 5.71134 9.33335 7C9.33335 8.28866 8.28866 9.33335 7 9.33335ZM11.5766 3.26337C11.5766 3.72734 11.2005 4.10337 10.7366 4.10337C10.2727 4.10337 9.89658 3.72734 9.89658 3.26337C9.89658 2.79945 10.2727 2.42337 10.7366 2.42337C11.2005 2.42337 11.5766 2.79945 11.5766 3.26337V3.26337Z"
-                                fill="white"
-                              ></path>
-                            </svg>
-                          </a>
-                          <a
-                            href="#"
-                            className="w-[30px] h-[30px] rounded-[10em] bg-[#f16622] flex items-center justify-center hover:bg-[#898989]"
-                          >
-                            <svg
-                              width="14"
-                              height="12"
-                              viewBox="0 0 14 12"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M12.5609 3.14844C12.5698 3.2728 12.5698 3.39719 12.5698 3.52154C12.5698 7.31467 9.68275 11.6852 4.40609 11.6852C2.78045 11.6852 1.27031 11.2144 0 10.3972C0.230973 10.4238 0.453031 10.4327 0.692891 10.4327C2.03424 10.4327 3.26903 9.97967 4.25507 9.20683C2.99365 9.18017 1.93654 8.35403 1.57232 7.21697C1.75 7.2436 1.92765 7.26138 2.11422 7.26138C2.37182 7.26138 2.62946 7.22583 2.86929 7.16368C1.55457 6.89716 0.568504 5.74235 0.568504 4.34768V4.31216C0.950469 4.52536 1.39467 4.65861 1.86545 4.67635C1.0926 4.16111 0.586277 3.28169 0.586277 2.28676C0.586277 1.75377 0.728383 1.26519 0.977129 0.838795C2.38957 2.57991 4.51268 3.71694 6.89336 3.84133C6.84895 3.62813 6.82229 3.40607 6.82229 3.18399C6.82229 1.60275 8.10149 0.314697 9.69158 0.314697C10.5177 0.314697 11.2639 0.661143 11.788 1.22079C12.4365 1.09643 13.0583 0.856568 13.6091 0.527897C13.3959 1.19415 12.9428 1.7538 12.3477 2.1091C12.9251 2.04695 13.4847 1.88702 13.9999 1.66496C13.6091 2.23346 13.1205 2.73979 12.5609 3.14844Z"
-                                fill="white"
-                              ></path>
-                            </svg>
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
+                <SocialMediaCard/>
               </Tab>
               <Tab
                 className="w-full max-w-[900px]"
@@ -1511,55 +1355,7 @@ const Settings = () => {
                 key="Password & Security"
                 title="Password & Security"
               >
-                <Card>
-                  <CardBody>
-                    <div className="sm:p-[20px]">
-                      <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold">
-                        Password
-                      </h3>
-                      <div className="flex flex-col gap-3">
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                          <label className="text-[#474040] text-base">
-                            Current password
-                          </label>
-                          <input
-                            type="password"
-                            className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                            placeholder=""
-                          />
-                        </div>
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                          <label className="text-[#474040] text-base">
-                            New password
-                          </label>
-                          <input
-                            type="password"
-                            className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                            placeholder=""
-                          />
-                        </div>
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                          <label className="text-[#474040] text-base">
-                            Confirm password
-                          </label>
-                          <input
-                            type="password"
-                            className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                            placeholder=""
-                          />
-                        </div>
-                        <div className="pt-4">
-                          <Button
-                            radius="full"
-                            className="bg-orangeprimary text-white text-[14px]"
-                            >
-                              Change Password
-                          </Button>
-                        </div>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
+               <ResetPaswordCard />
               </Tab>
               <Tab className="w-full max-w-[900px]" key="API" title="API">
                 <Card>

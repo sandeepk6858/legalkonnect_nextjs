@@ -1,12 +1,17 @@
 const UserProfile = async (data) => {
+
     try {
-        const response = await fetch(`${process.env.API_URL}/auth/refresh-token`, {
+        const response = await fetch(`${process.env.API_URL}/users/update-password`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Brear ${data?.token}`
             },
-            body: JSON.stringify({role:data?.role,user_id:data?.user_id}),
+            body: JSON.stringify({
+                user_id: data?.user_id,
+                password: data?.password,
+                current_password: data?.current_password
+            }),
         });
 
         const responseData = await response.json();
@@ -19,5 +24,5 @@ const UserProfile = async (data) => {
     } catch (error) {
         return { success: false, message: error.message };
     }
-} 
+}
 export default UserProfile;

@@ -18,7 +18,7 @@ export async function middleware(req) {
       return NextResponse.next();
     } else {
       // Token is invalid or expired, attempt to refresh
-      const dataRef = { role, user_id: userId };
+      const dataRef = { role, user_id: userId,token };
       const refreshResult = await RefreshToken(dataRef);
 
       // If refreshing token fails, redirect to login

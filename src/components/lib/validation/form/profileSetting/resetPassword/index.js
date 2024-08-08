@@ -3,7 +3,7 @@ export const validateInput = (name, value,confirmPasswordValue) => {
     let error = "";
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
     switch (name) {
-        case "password":
+        case "currentPassword":
             if (value.trim() === "") {
                 hasError = true;
                 error = "Password can't be empty";
@@ -15,7 +15,7 @@ export const validateInput = (name, value,confirmPasswordValue) => {
                 error = "";
             }
             break;
-        case "password":
+        case "newPassword":
             if (value.trim() === "") {
                 hasError = true;
                 error = "Password can't be empty";
@@ -27,7 +27,7 @@ export const validateInput = (name, value,confirmPasswordValue) => {
                 error = "";
             }
             break;
-        case "confirm_password":
+        case "confirmPassword":
             if (value.trim() === "") {
                 hasError = true;
                 error = "Confirm password can't be empty";
