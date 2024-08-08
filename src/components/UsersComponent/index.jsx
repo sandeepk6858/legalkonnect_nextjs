@@ -21,8 +21,8 @@ const UserComponent = ({ fillheart, showDiv, showDivCount, data, path }) => {
         setSocialPopupT(!socialPopupT);
     }
     const handleFavorite = async (model_id) => {
-        const res = await userfavoriteToggler(model_id,path, "account/favorites/qualified-attorney");
-        console.log(res);
+        const res = await userfavoriteToggler(model_id, path, "account/favorites/qualified-attorney");
+        // console.log(res);
     }
     
 
