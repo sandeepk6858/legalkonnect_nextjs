@@ -22,25 +22,15 @@ import Link from "next/link";
 import CourtsMapComponent from "../Court-Filter/CourtsMap";
 import CourtMapComponent from "../Court-Filter/CourtMap";
 
-//
+//new
 import { usePathname, useSearchParams, useRouter } from 'next/navigation';
 import FilterTab from "./Filter-Tab";
-
-export const animals = [
-  { key: "cat", label: "Cat" },
-  { key: "dog", label: "Dog" },
-  { key: "elephant", label: "Elephant" },
-  { key: "lion", label: "Lion" },
-  { key: "tiger", label: "Tiger" },
-  { key: "giraffe", label: "Giraffe" },
-  { key: "dolphin", label: "Dolphin" },
-  { key: "penguin", label: "Penguin" },
-  { key: "zebra", label: "Zebra" },
-  { key: "shark", label: "Shark" },
-  { key: "whale", label: "Whale" },
-  { key: "otter", label: "Otter" },
-  { key: "crocodile", label: "Crocodile" },
-];
+import SpecializationFilter from "./Filter-Components/specialization";
+import LocationFilter from "./Filter-Components/location";
+import LanguageFilter from "./Filter-Components/language";
+import { fetchSpecializationsData } from "@/actions/filter-actions/getSpecializations";
+import { fetchLocationsData } from "@/actions/filter-actions/getLocations";
+import { fetchLanguagesData } from "@/actions/filter-actions/getLanguages";
 
 export const SortBy = [
   { key: "date", label: "Date" },
@@ -104,6 +94,27 @@ const Filter = ({
     setCourtMap(!courtMap);
   };
 
+
+  //NEW
+  //Specializationaction
+  const [specializations, setSpecializations] = useState([]);
+  const [languages, setLangusges] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetchSpecializationsData();
+      setSpecializations(response.data || []);
+    };
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetchLanguagesData();
+      setLangusges(response.data || []);
+    };
+    fetchData();
+  }, []);
 
 
   return (
@@ -208,446 +219,21 @@ const Filter = ({
         <>
           <div className="container">
             <div className="filter_main_inner_select mt-10 pl-5 flex items-center justify-between flex-wrap">
-              <div className="firt_checkbox_section w-full lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4 sm:w-1/2">
+              {/* <div className="firt_checkbox_section w-full lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4 sm:w-1/2">
                 <Checkbox defaultSelected radius="none">
                   available as substitute attorney (0)
                 </Checkbox>
-              </div>
-              <div className="firt_checkbox_section w-full mt-[10px] lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4  sm:w-1/2">
-                <Select
-                  label="Specialization"
-                  placeholder="Select an animal"
-                  labelPlacement="outside"
-                  className="max-w-xs"
-                >
-                  {animals.map((animal) => (
-                    <SelectItem key={animal.key}>{animal.label}</SelectItem>
-                  ))}
-                </Select>
-              </div>
-              <div className="firt_checkbox_section w-full mt-[10px] lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4  sm:w-1/2 sm:mt-5 sm:gap-[10px] bg-transparent">
-                <Select
-                  label="Location"
-                  placeholder="Select an animal"
-                  labelPlacement="outside"
-                  className="max-w-xs border border-lightgrey rounded-xl bg-white"
-                >
-                  {animals.map((animal) => (
-                    <SelectItem key={animal.key}>{animal.label}</SelectItem>
-                  ))}
-                </Select>
-              </div>
-              <div className="firt_checkbox_section w-full mt-[10px] lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4  sm:w-1/2 sm:mt-5 sm:gap-[10px]">
-                <Select
-                  label="Language"
-                  placeholder="Select an animal"
-                  labelPlacement="outside"
-                  className="max-w-xs"
-                >
-                  {animals.map((animal) => (
-                    <SelectItem key={animal.key}>{animal.label}</SelectItem>
-                  ))}
-                </Select>
-              </div>
-            </div>
-            <div className="filter_main_inner_select mt-10 pl-5 flex items-center justify-between flex-wrap">
-              <div className="firt_checkbox_section w-full mt-[10px] md:w-1/2 lg:w-1/4 sm:w-1/2">
-                <Select
-                  label="Country"
-                  placeholder="Select an animal"
-                  labelPlacement="outside"
-                  className="max-w-xs"
-                >
-                  {animals.map((animal) => (
-                    <SelectItem key={animal.key}>{animal.label}</SelectItem>
-                  ))}
-                </Select>
-              </div>
-              <div className="firt_checkbox_section w-full mt-[10px] md:w-1/2 lg:w-1/4 sm:w-1/2">
-                <Select
-                  label="State"
-                  placeholder="Select an animal"
-                  labelPlacement="outside"
-                  className="max-w-xs"
-                >
-                  {animals.map((animal) => (
-                    <SelectItem key={animal.key}>{animal.label}</SelectItem>
-                  ))}
-                </Select>
-              </div>
-              <div className="firt_checkbox_section w-full mt-[10px] md:w-1/2 lg:w-1/4 sm:w-1/2">
-                <Select
-                  label="County"
-                  placeholder="Select an animal"
-                  labelPlacement="outside"
-                  className="max-w-xs"
-                >
-                  {animals.map((animal) => (
-                    <SelectItem key={animal.key}>{animal.label}</SelectItem>
-                  ))}
-                </Select>
-              </div>
-            </div>
-            <div className="checkbox_section flex items-center justify-between mt-10 flex-wrap pl-5">
-              <div className="form_group md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2">
-                <CheckboxGroup
-                  label="Hourly rate"
-                  defaultValue={["buenos-aires", "london"]}
-                >
-                  <Checkbox value="buenos-aires" radius="none">
-                    Buenos Aires
-                  </Checkbox>
-                  <Checkbox value="sydney" radius="none">
-                    Sydney
-                  </Checkbox>
-                  <Checkbox value="san-francisco" radius="none">
-                    San Francisco
-                  </Checkbox>
-                  <Checkbox value="london" radius="none">
-                    London
-                  </Checkbox>
-                  <Checkbox value="tokyo" radius="none">
-                    Tokyo
-                  </Checkbox>
-                </CheckboxGroup>
-              </div>
-              <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2">
-                <div className="form_group">
-                  <CheckboxGroup
-                    label="Last Activity"
-                    defaultValue={["buenos-aires", "london"]}
-                  >
-                    <Checkbox value="buenos-aires" radius="none">
-                      Buenos Aires
-                    </Checkbox>
-                    <Checkbox value="sydney" radius="none">
-                      Sydney
-                    </Checkbox>
-                    <Checkbox value="san-francisco" radius="none">
-                      San Francisco
-                    </Checkbox>
-                    <Checkbox value="london" radius="none">
-                      London
-                    </Checkbox>
-                    <Checkbox value="tokyo" radius="none">
-                      Tokyo
-                    </Checkbox>
-                  </CheckboxGroup>
-                </div>
-              </div>
-              <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2 mt-5">
-                <div className="form_group">
-                  <CheckboxGroup
-                    label="Experience"
-                    defaultValue={["buenos-aires", "london"]}
-                  >
-                    <Checkbox value="buenos-aires" radius="none">
-                      Buenos Aires
-                    </Checkbox>
-                    <Checkbox value="sydney" radius="none">
-                      Sydney
-                    </Checkbox>
-                    <Checkbox value="san-francisco" radius="none">
-                      San Francisco
-                    </Checkbox>
-                    <Checkbox value="london" radius="none">
-                      London
-                    </Checkbox>
-                    <Checkbox value="tokyo" radius="none">
-                      Tokyo
-                    </Checkbox>
-                  </CheckboxGroup>
-                </div>
-              </div>
-              <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2 mt-5">
-                <div className="form_group">
-                  <CheckboxGroup
-                    label="Talent Type"
-                    defaultValue={["buenos-aires", "london"]}
-                  >
-                    <Checkbox value="buenos-aires" radius="none">
-                      Buenos Aires
-                    </Checkbox>
-                    <Checkbox value="sydney" radius="none">
-                      Sydney
-                    </Checkbox>
-                    <Checkbox value="san-francisco" radius="none">
-                      San Francisco
-                    </Checkbox>
-                    <Checkbox value="london" radius="none">
-                      London
-                    </Checkbox>
-                    <Checkbox value="tokyo" radius="none">
-                      Tokyo
-                    </Checkbox>
-                  </CheckboxGroup>
-                </div>
-              </div>
-            </div>
+              </div> */}
 
-            <div className="checkbox_section flex items-center justify-between mt-10 flex-wrap pl-5">
-              <div className="form_group md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2">
-                <CheckboxGroup
-                  label="Rate"
-                  defaultValue={["buenos-aires", "london"]}
-                >
-                  <Checkbox value="buenos-aires" radius="none">
-                    <div className="review_rating_section flex items-center justify-between gap-[10px]">
-                      <div className="review_rating_section_inner flex items-center gap-[5px]">
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                      </div>
-                      <div className="rating_number"> (3)</div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox value="sydney" radius="none">
-                    <div className="review_rating_section flex items-center justify-between gap-[10px]">
-                      <div className="review_rating_section_inner flex items-center gap-[5px]">
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                      </div>
-                      <div className="rating_number"> (3)</div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox value="san-francisco" radius="none">
-                    <div className="review_rating_section flex items-center justify-between gap-[10px]">
-                      <div className="review_rating_section_inner flex items-center gap-[5px]">
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                      </div>
-                      <div className="rating_number"> (3)</div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox value="london" radius="none">
-                    <div className="review_rating_section flex items-center justify-between gap-[10px]">
-                      <div className="review_rating_section_inner flex items-center gap-[5px]">
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                      </div>
-                      <div className="rating_number"> (3)</div>
-                    </div>
-                  </Checkbox>
-                  <Checkbox value="tokyo" radius="none">
-                    {" "}
-                    <div className="review_rating_section flex items-center justify-between gap-[10px]">
-                      <div className="review_rating_section_inner flex items-center gap-[5px]">
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-yellow stroke-yellow`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                        <StarSvg
-                          width={`16px`}
-                          height={`16px`}
-                          color={`fill-lightgrey stroke-lightgrey`}
-                        />
-                      </div>
-                      <div className="rating_number"> (3)</div>
-                    </div>
-                  </Checkbox>
-                </CheckboxGroup>
-              </div>
-              <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2">
-                <div className="form_group">
-                  <CheckboxGroup
-                    label="Cases"
-                    defaultValue={["buenos-aires", "london"]}
-                  >
-                    <Checkbox value="buenos-aires" radius="none">
-                      Buenos Aires
-                    </Checkbox>
-                    <Checkbox value="sydney" radius="none">
-                      Sydney
-                    </Checkbox>
-                    <Checkbox value="san-francisco" radius="none">
-                      San Francisco
-                    </Checkbox>
-                    <Checkbox value="london" radius="none">
-                      London
-                    </Checkbox>
-                    <Checkbox value="tokyo" radius="none">
-                      Tokyo
-                    </Checkbox>
-                  </CheckboxGroup>
-                </div>
-              </div>
-              <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2 mt-5">
-                <div className="form_group">
-                  <CheckboxGroup
-                    label="Reviews"
-                    defaultValue={["buenos-aires", "london"]}
-                  >
-                    <Checkbox value="buenos-aires" radius="none">
-                      Buenos Aires
-                    </Checkbox>
-                    <Checkbox value="sydney" radius="none">
-                      Sydney
-                    </Checkbox>
-                    <Checkbox value="san-francisco" radius="none">
-                      San Francisco
-                    </Checkbox>
-                    <Checkbox value="london" radius="none">
-                      London
-                    </Checkbox>
-                    <Checkbox value="tokyo" radius="none">
-                      Tokyo
-                    </Checkbox>
-                  </CheckboxGroup>
-                </div>
-              </div>
-              <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2 mt-5">
-                <div className="form_group">
-                  <CheckboxGroup
-                    label="Earned amounts"
-                    defaultValue={["buenos-aires", "london"]}
-                  >
-                    <Checkbox value="buenos-aires" radius="none">
-                      Buenos Aires
-                    </Checkbox>
-                    <Checkbox value="sydney" radius="none">
-                      Sydney
-                    </Checkbox>
-                    <Checkbox value="san-francisco" radius="none">
-                      San Francisco
-                    </Checkbox>
-                    <Checkbox value="london" radius="none">
-                      London
-                    </Checkbox>
-                    <Checkbox value="tokyo" radius="none">
-                      Tokyo
-                    </Checkbox>
-                  </CheckboxGroup>
-                </div>
-              </div>
-              {Bids && (
-                <div className="hourly_rate md:w-1/2 lg:w-1/4 sm:w-1/2 w-1/2 mt-5">
-                  <div className="form_group">
-                    <CheckboxGroup
-                      label="Bids"
-                      defaultValue={["buenos-aires", "london"]}
-                    >
-                      <Checkbox value="buenos-aires" radius="none">
-                        No bids (11)
-                      </Checkbox>
-                      <Checkbox value="sydney" radius="none">
-                        1 to 9 bids (0)
-                      </Checkbox>
-                      <Checkbox value="san-francisco" radius="none">
-                        10+ bids (0)
-                      </Checkbox>
-                    </CheckboxGroup>
-                  </div>
-                </div>
-              )}
+              {/* <PostList fetchData={() => fetchPostsByTopicSlug(slug)} /> */}
+              <SpecializationFilter specializations={specializations ? specializations : specializations} />
+              <LocationFilter />
+
+              <LanguageFilter languages={languages} />
+
             </div>
           </div>
+
           <div className="bg-lightgrey mt-5 p-5">
             <div className="container">
               <div className="cards_filters_topbar flex items-center gap-5 justify-start sm:justify-end flex-wrap">
