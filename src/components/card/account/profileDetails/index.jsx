@@ -106,7 +106,7 @@ const ProfileDetails = ({ profileData }) => {
                             <div className="content_group">
                                <SlickSlider data={profileData?.gallery}/>
                             </div>
-                            <div className="content_group">
+                            <div className="content_group mt-[30px] lg:mt-[0px">
                                 <h3 className="box-title text-[16px] font-semibold text-black">
                                     About me
                                 </h3>

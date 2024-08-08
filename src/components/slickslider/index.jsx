@@ -31,7 +31,7 @@ const Sliders = ({data}) => {
   };
 
   const settingsNav = {
-    slidesToShow: 3,
+    slidesToShow: 3.4,
     slidesToScroll: 1,
     asNavFor: slider1,
     dots: false,
@@ -48,7 +48,7 @@ const Sliders = ({data}) => {
       <Slider
         ref={(slider) => setSlider1(slider)}
         {...settingsFor}
-        className=' border-0 '
+        className=' border-0'
       >
         {data && data.map((image, index) => (
           <div className=' leading-0 relative h-0 pb-[50%]' key={index}>
@@ -62,7 +62,7 @@ const Sliders = ({data}) => {
         <Slider
           ref={(slider) => setSlider2(slider)}
           {...settingsNav}
-          className="image-carousel-secondary w-[124px] important-absolute mt-[7px] !hidden lg:!block"
+          className="image-carousel-secondary w-[124px] important-absolute !hidden lg:!block"
         >
           {data && data.map((image, index) => (
             <div key={index} className='w-full  h-[69px]'>

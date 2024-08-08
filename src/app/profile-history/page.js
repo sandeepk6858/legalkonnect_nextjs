@@ -262,8 +262,8 @@ const Profilehistory = () => {
                       ))}
                     </Slider>
                   </div> */}
-                  <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
-                    <div className="content_group">
+                  <div className="tab-content-item flex flex-col gap-3 pt-[50px] ]">
+                    <div className="content_group ">
                       <h3 className="box-title text-[16px] font-semibold text-black">
                         About me
                       </h3>
