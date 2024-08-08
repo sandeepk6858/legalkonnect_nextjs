@@ -22,6 +22,7 @@ const UserComponent = ({ fillheart, showDiv, showDivCount, data }) => {
     }
     const handleFavorite = async (model_id) => {
         // const res = await favoriteToggler(model_id, "qualified-attorney", 'account/favorites/qualified-attorney');
+        console.log("favorite toggler clicked ", model_id);
     }
     
 
@@ -113,7 +114,7 @@ const UserComponent = ({ fillheart, showDiv, showDivCount, data }) => {
                         <div onClick={() => handleFavorite(data.id)}>
                             {
                                 data.favorite === 1 ?
-                                    <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : `fill-orangeprimary`} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
+                                    <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : `fill-orangeprimary`} hover={`hover:fill-transparent`} stroke={`stroke-orangeprimary`} />
                                     :
                                     <HeartSvg width={`20px`} height={`20px`} fill={fillheart ? `fill-${fillheart}` : "fill-transparent"} hover={`hover:fill-orangeprimary`} stroke={`stroke-orangeprimary`} />
                             }

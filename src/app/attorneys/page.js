@@ -4,7 +4,7 @@ import UserComponent from "@/components/UsersComponent";
 import { getUserData } from "@/actions/UsersByRole/getuserdata";
 import PaginationUi from "@/components/PaginationUI";
 
-const Attorney = async ({searchParams}) => {
+const Attorney = async ({ searchParams }) => {
 
   const params = {
     role: "attorney",
