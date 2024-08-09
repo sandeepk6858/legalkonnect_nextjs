@@ -1,22 +1,22 @@
 import "./globals.css";
 import { NextUIProvider } from '@nextui-org/react';
+import { getServerSession } from 'next-auth/next';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 import { Toaster } from "react-hot-toast";
 import { Inter } from 'next/font/google';
 import { SessionProvider } from '@/context/SessionContext';
-import { getServerSession } from "next-auth";
-import { authOptions } from '@/auth';
 import { getSessionCookie } from '@/components/utils/cookies'
+
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function RootLayout({ children  }) {
+export default async function RootLayout({ children }) {
   const Csession = getSessionCookie();
-  
   let session = await getServerSession(authOptions);
   session = {
-    ...session,
+    ...session?.session,
     user: {
       ...session?.user,
       token: Csession?.token || null,

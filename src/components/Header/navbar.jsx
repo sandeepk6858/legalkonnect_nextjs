@@ -81,7 +81,7 @@ const Navbar = ({ navItems, subNavItems }) => {
                                 </Link>
                             </li>
                             <li>
-                                {session && session?.user ? (
+                                {session && session?.user?.email ? (
                                     <Link onClick={() => handleSignOut()} href="#" className='font-normal text-base text-blackcolor hover:text-orangeprimary'>
                                         Sign out
                                     </Link>

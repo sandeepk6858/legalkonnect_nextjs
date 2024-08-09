@@ -9,7 +9,7 @@ import { UserRole } from "@/components/utils/roles";
 import { useRouter } from "next/navigation";
 import UserSvg from "@/components/Icons/user";
 import CheckSvg from "@/components/Icons/checkSvg";
-import { UserRating } from "@/components/utils/functions";
+import { UserRating } from "@/components/utils/helper/helper";
 
 const UserProfileCard = () => {
     const session = useSession();
