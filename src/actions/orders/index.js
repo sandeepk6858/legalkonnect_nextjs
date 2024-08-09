@@ -2,7 +2,7 @@
 import { user_token } from '@/components/utils/helper/helper';
 import axios from 'axios';
 
-export async function getForums(params) {
+export async function getOrders(params) {
     try {
         const headers = {
             'Authorization': `Bearer ${user_token()}`, 
@@ -10,7 +10,7 @@ export async function getForums(params) {
         };
         const queryString = new URLSearchParams(params).toString();
 
-        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/forum?${queryString}`, { headers });
+        const response = await axios.get(`${process.env.NEXT_PUBLIC_BACKEND_URL}/getOrder?${queryString}`, { headers });
 
         return response.data;
     } catch (error) {

@@ -3,9 +3,15 @@ import SearchSvg from "@/components/Icons/searchSvg";
 import OrderSvg from "@/components/Icons/orderSvg";
 import GlobalDropdownComponent from "@/components/globalDropdown";
 import Link from "next/link";
+import { getOrders } from "@/actions/orders";
 
-const Orders = ({ searchParams }) => {
+const Orders = async ({ searchParams }) => {
     const curSection = searchParams.section || "active-contracts";
+    const params = {
+        // sortValue: searchParams.sort || 'date',
+    };
+    const data = await getOrders(params);
+    
     return (
         <>
             <section className="bg-greytoolight w-full m-auto mb-6">
@@ -50,27 +56,70 @@ const Orders = ({ searchParams }) => {
 
             {curSection === "active-contracts" &&
                 <section className="px-6 flex justify-center flex-wrap">
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
+                    {
+                        (data?.data?.jobs?.active?.length > 0 || data?.data?.substituteAttorneys?.active?.length > 0) ? (
+                            <>
+                                {data?.data?.jobs?.active?.length > 0 &&
+                                    data?.data?.jobs?.active.map((item) => (
+                                        item && <OrdersCard key={item.id} data={item} />
+                                    ))
+                                }
+                                {data?.data?.substituteAttorneys?.active?.length > 0 &&
+                                    data?.data?.substituteAttorneys?.active.map((item) => (
+                                        item && <OrdersCard key={item.id} data={item} />
+                                    ))
+                                }
+                            </>
+                        ) : (
+                            <div>No item found</div>
+                        )
+                    }
+
                 </section>
             }
             {curSection === "closed-contracts" &&
                 <section className="px-6 flex justify-center flex-wrap">
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
-                    <OrdersCard />
+                    {
+                        (data?.data?.jobs?.closed?.length > 0 || data?.data?.substituteAttorneys?.closed?.length > 0) ? (
+                            <>
+                                {data?.data?.jobs?.closed?.length > 0 &&
+                                    data?.data?.jobs?.closed.map((item) => (
+                                        item && <OrdersCard key={item.id} data={item} />
+                                    ))
+                                }
+                                {data?.data?.substituteAttorneys?.closed?.length > 0 &&
+                                    data?.data?.substituteAttorneys?.closed.map((item) => (
+                                        item && <OrdersCard key={item.id} data={item} />
+                                    ))
+                                }
+                            </>
+                        ) : (
+                            <div>No item found</div>
+                        )
+                    }
+
                 </section>}
             {curSection === "submitted-jobs" &&
                 <section className="px-6 flex justify-center flex-wrap">
-                    <OrdersCard />
+                    {
+                        (data?.data?.jobs?.submitted?.length > 0 || data?.data?.substituteAttorneys?.submitted?.length > 0) ? (
+                            <>
+                                {data?.data?.jobs?.submitted?.length > 0 &&
+                                    data?.data?.jobs?.submitted.map((item) => (
+                                        item && <OrdersCard key={item.id} data={item} />
+                                    ))
+                                }
+                                {data?.data?.substituteAttorneys?.submitted?.length > 0 &&
+                                    data?.data?.substituteAttorneys?.submitted.map((item) => (
+                                        item && <OrdersCard key={item.id} data={item} />
+                                    ))
+                                }
+                            </>
+                        ) : (
+                            <div>No item found</div>
+                        )
+                    }
+
                 </section>}
         </>
     )

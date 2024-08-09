@@ -1,11 +1,13 @@
+import StarSvg from "@/components/Icons/starSvg";
+// get user token
 export const user_token = () => {
     return `${process.env.NEXT_PUBLIC_API_TOKEN}`
 }
-
+// get image default prefix url
 export const imageURL = (path) => {
     return `${process.env.IMAGES_ORIGIN}${path}`
 }
-
+// Date: dd:mm:yyyy hh:mm:ss
 export const formatDateString = (dateString) => {
     const date = new Date(dateString);
 
@@ -21,7 +23,11 @@ export const formatDateString = (dateString) => {
 
     return `${formattedDate} ${formattedTime}`;
 }
+// format: 1 year ago
 export function diffForHumans(dateString) {
+    if(!dateString){
+        return null;
+    }
     const date = new Date(dateString); 
     const now = new Date();
     const seconds = Math.floor((now - date) / 1000);
@@ -43,6 +49,7 @@ export function diffForHumans(dateString) {
     }
     return 'Just now';
 }
+// used to check whether is user is premium or not
 export function isPlanActive(id, expire_date) {
     const today = new Date();
 
@@ -50,3 +57,23 @@ export function isPlanActive(id, expire_date) {
     
     return id === 2 && expireDate > today;
 }
+/** date like: June 2024 */
+export const formatDate = (dateString) => {
+    const options = { year: 'numeric', month: 'long' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+};
+/** rating */
+export const UserRating = ({ rating }) => {
+    // Create an array with 5 elements, each representing a star
+    const stars = Array.from({ length: 5 }, (_, index) => (
+        <StarSvg
+            key={index}
+            width="18px"
+            height="18px"
+            fill={index < rating ? 'orange' : 'gray'}
+        />
+    ));
+
+    return <>{stars}</>;
+};
