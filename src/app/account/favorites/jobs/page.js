@@ -6,6 +6,7 @@ const favjobs = async ({ searchParams }) => {
     const sort = searchParams.sort || 'date';
     let jobs = await fetchData("jobs", sort);
 
+    // console.log(jobs);
     return (
         <>
             <div className="w-full">
