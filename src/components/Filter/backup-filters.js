@@ -1,3 +1,27 @@
+// useEffect(() => {
+//     const fetchData = async () => {
+//         const response = await fetchLanguagesData();
+//         setLanguages(response.data || []);
+//     };
+//     fetchData();
+// }, []);
+
+// import { fetchLocationsData } from "@/actions/filter-actions/getLocations";
+// import { fetchLanguagesData } from "@/actions/filter-actions/getLanguages";
+
+
+{/* 
+                        <div className="checkbox_section flex items-center justify-between mt-10 flex-wrap pl-5">
+                            <CountryFilter countries={countries} onCountrySelect={handleCountrySelect} />
+                            <CountryStatesCountyFilter countriesData={countries} stateAndCountiesData={statesAndCounties} />
+                            <StatesFilter data={statesAndCounties} />
+                            <CountyFilter data={statesAndCounties} />
+                        </div> */}
+
+
+
+
+
 // <div className="filter_main_inner_select mt-10 pl-5 flex items-center justify-between flex-wrap">
 //   <div className="firt_checkbox_section w-full mt-[10px] md:w-1/2 lg:w-1/4 sm:w-1/2">
 //     <Select

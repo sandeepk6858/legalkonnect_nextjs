@@ -10,18 +10,18 @@ import {
 
 export default function LanguagesFilter({ languages }) {
 
-    console.log(specializations)
+    console.log(languages)
     return (
         <div className="firt_checkbox_section w-full mt-[10px] lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4  sm:w-1/2">
             <Select
-                label={`Specialization (${specializations.length})`}
-                placeholder="Select a specialization"
+                label={`Languages (${languages.length})`}
+                placeholder="Select a Language"
                 labelPlacement="outside"
                 className="max-w-xs"
             >
                 SPECS
-                {specializations.map((specialization) => (
-                    <SelectItem key={specialization.key}>{specialization.name}</SelectItem>
+                {languages.map((language) => (
+                    <SelectItem key={language.key}>{language.name}</SelectItem>
                 ))}
             </Select>
         </div>

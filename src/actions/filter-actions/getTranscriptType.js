@@ -3,7 +3,7 @@ import { user_token } from '@/components/utils/helper/helper';
 import { revalidatePath } from 'next/cache'
 import axios from 'axios';
 
-export async function fetchSpecializationsData() {
+export async function fetchTranscriptTypeData() {
     try {
         const headers = {
             'Authorization': `Bearer ${user_token()}`,
@@ -14,7 +14,7 @@ export async function fetchSpecializationsData() {
         //     sort
         // };
         const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/specializations`,
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/transcriptType`,
             {
                 headers: {
                     ...headers
@@ -23,7 +23,7 @@ export async function fetchSpecializationsData() {
         );
         return response.data;
     } catch (error) {
-        console.error("Error fetching specializations:", error.message);
+        console.error("Error fetching Transcript Type", error.message);
         return null;
     }
 }

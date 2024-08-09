@@ -103,6 +103,7 @@ const Filter = ({
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetchSpecializationsData();
+      console.log('SPECRESPONSE === ', response)
       setSpecializations(response.data || []);
     };
     fetchData();
@@ -226,9 +227,8 @@ const Filter = ({
               </div> */}
 
               {/* <PostList fetchData={() => fetchPostsByTopicSlug(slug)} /> */}
-              <SpecializationFilter specializations={specializations ? specializations : specializations} />
+              <SpecializationFilter specializations={specializations ? specializations : []} />
               <LocationFilter />
-
               <LanguageFilter languages={languages} />
 
             </div>

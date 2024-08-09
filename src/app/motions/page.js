@@ -6,7 +6,8 @@ import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 import JobSlider from "@/components/JobSlider/JobSlider";
 // import Slider from "react-slick";
 import { fetchMotionsData } from "@/actions/motion/motionsData";
-import Filter from "@/components/Filter/Filter";
+// import Filter from "@/components/Filter/Filter";
+import MotionFilter from "@/components/Filter/Page-Filters/motion-filters";
 
 const Motions = () => {
 
@@ -20,7 +21,7 @@ const Motions = () => {
         </div>
       </section>
       <section className="text-blackcolor body-font overflow-hidden ">
-        <Filter />
+        <MotionFilter />
       </section>
       <section className="text-blackcolor body-font overflow-hidden">
         <div className="container px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">

@@ -1,20 +1,14 @@
 import React from 'react'
 import {
-    Input,
-    Button,
-    Checkbox,
-    CheckboxGroup,
-    Select,
-    SelectItem,
+    Input
 } from "@nextui-org/react";
-import { fetchSpecializationsData } from "@/actions/filter-actions/getSpecializations";
 
-const LocationFilter = ({ }) => {
+const KeywordSearchFilter = ({ }) => {
     return (
         <div className="firt_checkbox_section w-full mt-[10px] lg:w-[calc(25%_-_10px) md:w-1/2 lg:w-1/4  sm:w-1/2 sm:mt-5 sm:gap-[10px] bg-transparent">
             <Input
-                label="Location"
-                placeholder="Search location"
+                label="Search by keyword"
+                placeholder="Type Keyword"
                 labelPlacement="outside"
                 className="max-w-xs border border-lightgrey rounded-xl bg-white"
             >
@@ -23,4 +17,4 @@ const LocationFilter = ({ }) => {
     )
 }
 
-export default LocationFilter
+export default KeywordSearchFilter

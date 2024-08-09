@@ -14,7 +14,7 @@ export async function fetchLanguagesData() {
         //     sort
         // };
         const response = await axios.get(
-            `${process.env.NEXT_PUBLIC_BACKEND_URL}/locations`,
+            `${process.env.NEXT_PUBLIC_BACKEND_URL}/languages`,
             {
                 headers: {
                     ...headers
