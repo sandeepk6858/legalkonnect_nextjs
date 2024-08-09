@@ -1,7 +1,6 @@
 import { getTranscript } from "@/actions/transcript";
 import TranscriptCard from "@/components/card/transcripts";
 import Filter from "@/components/Filter/Filter";
-import ScriptsCards from "@/components/scripts_cards/scripts_cards";
 
 const Transcripts = async ({ searchParams }) => {
     const params = {}
