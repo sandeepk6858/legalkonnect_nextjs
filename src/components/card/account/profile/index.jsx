@@ -9,7 +9,7 @@ import { UserRole } from "@/components/utils/roles";
 import { useRouter } from "next/navigation";
 import UserSvg from "@/components/Icons/user";
 import CheckSvg from "@/components/Icons/checkSvg";
-import StarSvg from "@/components/Icons/starSvg";
+import { UserRating } from "@/components/utils/functions";
 
 const UserProfileCard = () => {
     const session = useSession();
@@ -45,20 +45,6 @@ const UserProfileCard = () => {
         return roleObject && roleObject.name;
     };
 
-    const UserRating = ({ rating }) => {
-        // Create an array with 5 elements, each representing a star
-        const stars = Array.from({ length: 5 }, (_, index) => (
-            <StarSvg
-                key={index}
-                width="18px"
-                height="18px"
-                fill={index < rating ? 'orange' : 'gray'}
-            />
-        ));
-
-        return <>{stars}</>;
-    };
-
     return (
         <div className="w-full max-w-[1250px] m-[auto] flex-col lg:justify-center items-center lg:items-start lg:flex-row flex gap-3 mt-16 pb-8">
             <div className="card_item attorney_card shadow-customSec p-[20px] h-[300px] w-[100%] max-w-[400px] lg:w-[30%]">
@@ -85,8 +71,8 @@ const UserProfileCard = () => {
                                 className="Stars flex"
                                 aria-label="Rating of this product is 2.3 out of 5."
                             >
-                                <UserRating rating={profileData?.rating ?? 0} />
-                                <span className="stars_rating_number pl-1"> {profileData?.rating ?? 0}</span>
+                                <UserRating rating={profileData?.rating[0]?.rating ?? 0} />
+                                <span className="stars_rating_number pl-1"> {profileData?.rating[0]?.rating ?? 0}</span>
                             </div>
                             
                         </div>

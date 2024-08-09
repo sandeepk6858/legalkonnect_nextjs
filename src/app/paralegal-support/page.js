@@ -1,24 +1,37 @@
-import SupportCard from "@/components/support";
+import React from "react";
 import Filter from "@/components/Filter/Filter";
-import Footer from "@/components/Footer/Footer";
-import JobSlider from "@/components/JobSlider/JobSlider";
-import Legaldocs from "@/components/Legaldocs/Legaldocs";
-const ParalegalSupport = () => {
-    return (
-        <>
-         <JobSlider />
-         <Filter />
-         <section className="text-blackcolor body-font overflow-hidden">
-             <div className="px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
-               <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
-               <SupportCard />
-            <SupportCard />
-            <SupportCard />
-            <SupportCard />
-               </div>
-             </div>
-           </section>
-           </>
-    )
-}
-export default ParalegalSupport;
+import UserComponent from "@/components/UsersComponent";
+import { getUserData } from "@/actions/UsersByRole/getuserdata";
+import PaginationUi from "@/components/PaginationUI";
+
+const Paralegal = async ({searchParams}) => {
+
+  const params = {
+    role: "paralegal",
+  }
+  const data = await getUserData(params);
+
+  return (
+    <>
+      <Filter />
+      <section className="text-blackcolor body-font overflow-hidden">
+        <div className="px-[15px] lg:px-[40px] py-[60px] md:py-[80px] mx-auto ">
+          <div className="flex flex-wrap lg:flex-nowrap gap-[20px] xl:gap-[30px]">
+            {data?.data?.users ?
+              data?.data?.users?.map((item) => (
+                <UserComponent key={item.id} data={item} path="paralegal-support" />
+              ))
+              :
+              <div className="w-screen flex justify-center items-center">No item found</div>
+            }
+          </div>
+        </div>
+      </section>
+      {data?.data?.pagination?.last_page > 1 && (
+        <PaginationUi pagination={data.data.pagination} searchParams={searchParams} pathname={'/paralegal-support'} />
+      )}
+    </>
+  );
+};
+
+export default Paralegal;

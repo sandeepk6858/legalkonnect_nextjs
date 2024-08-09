@@ -43,3 +43,10 @@ export function diffForHumans(dateString) {
     }
     return 'Just now';
 }
+export function isPlanActive(id, expire_date) {
+    const today = new Date();
+
+    const expireDate = new Date(expire_date);
+    
+    return id === 2 && expireDate > today;
+}
