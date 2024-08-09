@@ -58,7 +58,8 @@ const ProfileDetails = ({ profileData }) => {
         return date.getFullYear();
     };
 
-    
+   
+
     return (
         <div className="profile_s_header max-[640px]:pt-[50px] p-[20px] w-[100%] max-w-[700px] lg:w-[70%] shadow-customSec">
             <div className="flex w-full flex-col relative">
@@ -104,7 +105,7 @@ const ProfileDetails = ({ profileData }) => {
                     >
                         <div className="tab-content-item flex flex-col gap-3 pt-[50px]">
                             <div className="content_group">
-                               <SlickSlider data={profileData?.gallery}/>
+                                <SlickSlider data={profileData?.gallery} />
                             </div>
                             <div className="content_group mt-[30px] lg:mt-[0px">
                                 <h3 className="box-title text-[16px] font-semibold text-black">
@@ -148,7 +149,7 @@ const ProfileDetails = ({ profileData }) => {
                                             State
                                         </h3>
                                         <p className="text-[16px] text-bluesecondary">
-                                            Alaska
+                                            {profileData && profileData?.state?.state}
                                         </p>
                                     </div>
                                     <div className="blue_info_item bg-[#EAF1FD] rounded-[3px] py-[10px] px-[15px] max-[426px]:w-full w-[calc(50%_-_10px)] flex flex-col gap-2">
@@ -156,7 +157,7 @@ const ProfileDetails = ({ profileData }) => {
                                             County
                                         </h3>
                                         <p className="text-[16px] text-bluesecondary">
-                                            Alaska
+                                        {profileData && profileData?.county?.county}
                                         </p>
                                     </div>
                                 </div>
@@ -171,10 +172,10 @@ const ProfileDetails = ({ profileData }) => {
                                         return (
                                             <div
                                                 key={index}
-                                                className="blue_info_item bg-[#EAF1FD] text-bluesecondary rounded-[3px] py-[10px] px-[15px] max-[426px]:w-full w-[calc(50%_-_10px)] flex flex-col gap-2"
+                                                className="blue_info_item bg-[#EAF1FD] text-bluesecondary rounded-[3px] py-[10px] px-[15px] max-[426px]:w-full w-[calc(50%_-_10px)] flex flex-col gap-2 my-2"
                                             >
                                                 <p>
-                                                    {item}
+                                                    {item?.name}
                                                 </p>
                                             </div>
                                         );
@@ -247,7 +248,7 @@ const ProfileDetails = ({ profileData }) => {
                                     Description of Services offered and prices
                                 </h3>
                                 <div className="simple_p_wrapper text-[16px] font-light">
-                                {profileData && profileData?.service_description}
+                                    {profileData && profileData?.service_description}
                                 </div>
                             </div>
                             <div className="content_group">
@@ -255,23 +256,23 @@ const ProfileDetails = ({ profileData }) => {
                                     Resume/CV
                                 </h3>
                                 <div className="blue_infos_block pt-2">
-                                    {profileData?.resume?.length > 0 && profileData.resume.map((doc, index) => (
+                                    {profileData?.resume && 
                                         <div
-                                            key={doc.id || index} // Use unique ID or index as key
                                             className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2"
                                         >
                                             <Link
-                                                href={`/storage/uploads/${doc?.url}`} // Adjust URL based on document name or path
+                                                href={`/storage/uploads/${profileData?.resume?.url}`}
                                                 className="attached_file_item flex items-center gap-1"
-                                                download={doc?.name} // Use document name for download attribute
+                                                download={profileData?.resume?.name}
                                             >
                                                 <div className="icon">
                                                     <AttachmentSvg />
                                                 </div>
-                                                <p className="name text-[#027E4A]">{doc?.name}</p>
+                                                <p className="name text-[#027E4A]">{profileData?.resume?.name}</p>
                                             </Link>
                                         </div>
-                                    ))}
+                                    }
+
                                 </div>
                             </div>
                             <div className="content_group">
@@ -279,13 +280,13 @@ const ProfileDetails = ({ profileData }) => {
                                     Documents & Sertificates
                                 </h3>
                                 <div className="blue_infos_block pt-2">
-                                {profileData?.documents?.length > 0 && profileData.documents.map((doc, index) => (
+                                    {profileData?.documents?.length > 0 && profileData.documents.map((doc, index) => (
                                         <div
-                                            key={doc.id || index} // Use unique ID or index as key
+                                            key={index} // Use unique ID or index as key
                                             className="blue_info_item bg-[#EAFDEA] text-bluesecondary rounded-[3px] py-[10px] px-[15px] w-[calc(50%_-_10px)] flex flex-col gap-2"
                                         >
                                             <Link
-                                                href={`/storage/uploads/${doc?.url}`} // Adjust URL based on document name or path
+                                                href={`/storage/uploads/${doc?.preview}`} // Adjust URL based on document name or path
                                                 className="attached_file_item flex items-center gap-1"
                                                 download={doc?.name} // Use document name for download attribute
                                             >
@@ -375,7 +376,7 @@ const ProfileDetails = ({ profileData }) => {
                                     </Dropdown>
                                 </div>
                             </div>
-                            <PortfolioCard  data={profileData?.portfolios} />
+                            <PortfolioCard data={profileData?.portfolios} />
                         </div>
                     </Tab>
                 </Tabs>

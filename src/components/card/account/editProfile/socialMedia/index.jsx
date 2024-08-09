@@ -1,5 +1,5 @@
 "use client";
-import { useReducer, useCallback } from 'react';
+import { useReducer, useState,useEffect } from 'react';
 import { validateInput } from "@/components/lib/validation/form/profileSetting/socialMedia";
 import { socialMedia } from "@/components/utils";
 import { Card, CardBody, Button, Link } from "@nextui-org/react";
@@ -10,7 +10,10 @@ import InstaSvg from '@/components/Icons/socialMedia/instaSvg';
 import TwitterSvg from '@/components/Icons/socialMedia/twitterSvg';
 import { useSession } from '@/context/SessionContext';
 import { toast } from 'react-hot-toast';
-import SocialMediaAction from '@/actions/account/socialMediaAction';
+import SocialMediaActionAdd from '@/actions/account/socialMediaAction/add';
+import SocialMediaActionRemove from '@/actions/account/socialMediaAction/remove';
+import SocialMediaActionGet from '@/actions/account/socialMediaAction/get';
+import SocialMediaItem from './social';
 
 const UPDATE_FORM = 'UPDATE_FORM';
 const SET_FORM_VALIDITY = 'SET_FORM_VALIDITY';
@@ -65,11 +68,17 @@ const validateForm = (formState, dispatch) => {
     dispatch({ type: SET_FORM_VALIDITY, isFormValid });
 };
 
+
 const SocialMediaCard = () => {
+    const [items, setItems] = useState([]);
     const session = useSession();
     const token = session?.user?.token;
     const user_id = session?.user?.userId;
     const [socialMediaForm, dispatchForm] = useReducer(formReducer, initialFormState);
+
+    useEffect(() => {
+        getSocialUser();
+    }, []);
 
     const handleFieldChange = (name) => (e) => {
         const { value } = e.target;
@@ -90,6 +99,22 @@ const SocialMediaCard = () => {
         });
     };
 
+    /** 
+     * Fetch social media data and display a toast message.
+     */
+    async function getSocialUser() {
+        try {
+            const result = await SocialMediaActionGet(token);
+            if (result.success) {
+                setItems(result?.data ?? [])
+            } else {
+                toast.error(result.message);
+            }
+        } catch (error) {
+            toast.error('An error occurred while fetching social media data.');
+        }
+    }
+
     const submitHandler = async (event) => {
         event.preventDefault();
         const isValid = await new Promise((resolve) => {
@@ -108,15 +133,53 @@ const SocialMediaCard = () => {
                 "url": socialMediaForm?.url?.value,
                 "type": socialMediaForm?.type?.value,
             };
-            const result = await SocialMediaAction(data);
+            const result = await SocialMediaActionAdd(data);
 
             if (result.success) {
                 toast.success("Added successfully.");
+                getSocialUser();
             } else {
                 toast.error(result.message);
             }
         } else {
             toast.error("Please fix the errors in the form");
+        }
+    };
+
+    const getSocialMediaName = (key) => {
+        const media = socialMedia.find(item => item.key === key);
+        return media ? media.name : key; // Return key if no match is found
+    };
+
+    const socialMediaSvgs = {
+        fb: <FacebookSvg />,
+        insta: <InstaSvg />,
+        linkedin: <LinkedinSvg />,
+        twitter: <TwitterSvg  />,
+        mail: <MailSvg />,
+        facebook: <FacebookSvg />,
+        instagram: <InstaSvg />,
+      };
+      
+      const getSocialMediaSvg = (key) => {
+        return socialMediaSvgs[key] || key;
+      };
+
+
+
+    const handleRemove = async (id) => {
+        const social_media_id = id;
+        const data = {
+            token,
+            social_media_id,
+            user_id
+        };
+        const result = await SocialMediaActionRemove(data);
+        if (result.success) {
+            toast.success("Removed successfully.");
+            getSocialUser();
+        } else {
+            toast.error(result.message);
         }
     };
 
@@ -130,7 +193,7 @@ const SocialMediaCard = () => {
                         </h3>
                     </div>
                     <form onSubmit={submitHandler}>
-                        <div className="flex justify-between gap-3 sm:items-end border-b border-[#F7F7F7] pb-[50px] flex-col sm:flex-row">
+                        <div className="flex justify-between gap-3 sm:items-end border-b border-[#F7F7F7] pb-[20px] flex-col sm:flex-row">
 
                             <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_76px)]">
                                 <label className="text-[#474040] text-base">
@@ -190,9 +253,19 @@ const SocialMediaCard = () => {
                             </div>
                         </div>
                     </form>
-
-        
-
+                     
+                    <div className="flex items-selected social-items-selected flex-wrap">
+                        {items.map((item) => (
+                            <SocialMediaItem
+                                key={item?.id}
+                                nickname={item?.nickname}
+                                id={item?.id}
+                                type={getSocialMediaName(item?.type)}
+                                onRemove={handleRemove}
+                                svg={getSocialMediaSvg(item?.type)}
+                            />
+                        ))}
+                    </div>
                     <div className="pt-[30px]">
                         <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold">
                             Refer a friend

@@ -1,39 +1,38 @@
-import { NextResponse } from 'next/server';
-import { getSessionCookie } from '@/components/utils/cookies';
-import VerifyToken from '@/actions/verifyToken';
-import RefreshToken from '@/actions/refreshToken';
+export { default } from "next-auth/middleware"
+// import { NextResponse } from 'next/server';
+// import { getServerSession } from "next-auth/next"
+// import { authOptions } from "@/app/api/auth/[...nextauth]/route"
+// import VerifyToken from '@/actions/verifyToken';
+// import RefreshToken from '@/actions/refreshToken';
 
-export async function middleware(req) {
-  // Retrieve cookies from the request
-  const cookies = getSessionCookie();
-  const token = cookies?.token;
-  const userId = cookies?.userId;
-  const role = cookies?.role;
-  const sessionCookieAuth = cookies?.sessionCookieAuth;
+// export async function middleware(req) {
+//   // Retrieve cookies from the request
+//   const session = await getServerSession(authOptions);
+//   console.log("session",session);
+  
+//   // If sessionCookieAuth is true, validate token
+//   // if (session) {
+//   //   const result = await VerifyToken(token);
+//   //   if (result?.success) {
+//   //     return NextResponse.next();
+//   //   } else {
+//   //     // Token is invalid or expired, attempt to refresh
+//   //     const dataRef = { role, user_id: userId,token };
+//   //     const refreshResult = await RefreshToken(dataRef);
 
-  // If sessionCookieAuth is true, validate token
-  if (sessionCookieAuth) {
-    const result = await VerifyToken(token);
-    if (result?.success) {
-      return NextResponse.next();
-    } else {
-      // Token is invalid or expired, attempt to refresh
-      const dataRef = { role, user_id: userId,token };
-      const refreshResult = await RefreshToken(dataRef);
-
-      // If refreshing token fails, redirect to login
-      if (!refreshResult?.success) {
-        return NextResponse.redirect(new URL('/login', req.url));
-      }
+//   //     // If refreshing token fails, redirect to login
+//   //     if (!refreshResult?.success) {
+//   //       return NextResponse.redirect(new URL('/login', req.url));
+//   //     }
       
-      // Token refreshed successfully, proceed
-      return NextResponse.next();
-    }
-  } else {
-    // No valid session cookie, redirect to login
-    return NextResponse.redirect(new URL('/login', req.url));
-  }
-}
+//   //     // Token refreshed successfully, proceed
+//   //     return NextResponse.next();
+//   //   }
+//   // } else {
+//   //   // No valid session cookie, redirect to login
+//   //   return NextResponse.redirect(new URL('/login', req.url));
+//   // }
+// }
 
 export const config = {
   matcher: [

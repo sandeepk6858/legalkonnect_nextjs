@@ -13,6 +13,7 @@ import { UserRating } from "@/components/utils/functions";
 
 const UserProfileCard = () => {
     const session = useSession();
+    
     const [profileData, setProfileData] = useState(null);
     const router = useRouter();
     useEffect(() => {
@@ -37,8 +38,6 @@ const UserProfileCard = () => {
 
         fetchProfileData();
     }, [router]); // Add session as dependency
-
-
 
     const HandelRole = (roleKey) => {
         const roleObject = UserRole[roleKey];
@@ -87,13 +86,13 @@ const UserProfileCard = () => {
                 {profileData &&
                     <div className="card_row border-b py-4 border-[#F9F9F9]">
                      {profileData?.specialization.map((item, index) => {
-                            item && item != null ? (
+                            item && item != null ? 
                                 <div className="card_tags hover:bg-[#1359C3] hover:text-white rounded-[50px] px-[21px] py-[5px] text-[14px] text-center text-bluesecondary bg-[#EAF1FD] block max-w-[92px]">
                                     <Link key={index} href="#" className="card_tag">
-                                        {item}
+                                        {item?.name}
                                     </Link>
                                 </div>
-                            ) : ('')
+                             : ''
                         })}
                     </div>
                 }

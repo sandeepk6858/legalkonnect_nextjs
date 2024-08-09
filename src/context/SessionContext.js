@@ -1,4 +1,3 @@
-// /context/SessionContext.js
 'use client'
 import React, { createContext, useContext } from 'react';
 
@@ -10,11 +9,9 @@ export const useSession = () => useContext(SessionContext);
 
 // Provider component to wrap around the component tree
 export const SessionProvider = ({ session, children }) => {
-
   return (
     <SessionContext.Provider value={session}>
       {children}
     </SessionContext.Provider>
   );
 };
-
