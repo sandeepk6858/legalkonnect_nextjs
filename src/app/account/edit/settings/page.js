@@ -7,10 +7,11 @@ import { Calendar } from "@nextui-org/react";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import ResetPaswordCard from "@/components/card/account/editProfile/Password";
 import SocialMediaCard from "@/components/card/account/editProfile/socialMedia";
+import AttorneyCredentails from "@/components/card/account/editProfile/attorneyCredentials";
+import BillingCard from '@/components/card/account/editProfile/billing'
 
 const Settings = () => {
-  const [isCardSelected, setIsCardSelected] = useState(true);
-  const [isBankSelected, setIsBankSelected] = useState(false);
+
   const [isViewportLessThan1024, setIsViewportLessThan1024] = useState(false);
   const [disable2FaOpen, setDisable2FaOpen] = useState(false)
   const [showCalendar, setShowCalendar] = useState(false);
@@ -77,16 +78,6 @@ const Settings = () => {
     if (file) {
       reader.readAsDataURL(file);
     }
-  };
-
-  const handleCardCheckbox = () => {
-    setIsCardSelected(true);
-    setIsBankSelected(false);
-  };
-
-  const handleBankCheckbox = () => {
-    setIsBankSelected(true);
-    setIsCardSelected(false);
   };
 
   const timeZoneOptions = [
@@ -160,14 +151,6 @@ const Settings = () => {
     { value: "Family Low", label: "Family Low" },
     { value: "Corporate", label: "Corporate" },
   ];
-  const Arizonas = [
-    { value: "Arizpne", label: "Arizpne" },
-    { value: "Alabama", label: "Alabama" },
-    { value: "Alaska", label: "Alaska" },
-    { value: "Delaware", label: "Delaware" },
-    { value: "Florida", label: "Florida" },
-  ];
-
 
   const disable2Fa = () => {
     setDisable2FaOpen(prevState => !prevState);
@@ -929,344 +912,14 @@ const Settings = () => {
                 key="Billing Methods"
                 title="Billing Methods"
               >
-                <Card>
-                  <CardBody>
-                    <div className="sm:p-[20px]">
-                      <h3 className="box-title text-bluesecondary text-[16px] pb-[15px] font-semibold">
-                        Your Profile picture
-                      </h3>
-                      <div className="flex gap-4 flex-col">
-                        <div className="flex items-center gap-4">
-                          <input
-                            className="w-[20px] h-[20px]"
-                            type="checkbox"
-                            checked={isCardSelected}
-                            onChange={handleCardCheckbox}
-                          />
-                          <p className="text-[#474040] text-[16px]">
-                            Credit or Debit Card
-                          </p>
-                        </div>
-                        <div className="flex items-center gap-4">
-                          <input
-                            className="w-[20px] h-[20px]"
-                            type="checkbox"
-                            checked={isBankSelected}
-                            onChange={handleBankCheckbox}
-                          />
-                          <p className="text-[#474040] text-[16px]">
-                            Bank Account
-                          </p>
-                        </div>
-                      </div>
-                      <div className="p-[10px] sm:p-[20px] border border-[#EBEBEB] rounded-[3px] mt-4">
-                        <h3 className="box-title text-bluesecondary text-[16px] font-semibold">
-                          Billing Address
-                        </h3>
-                        <div className="flex flex-col gap-3 flex-wrap">
-                          <div className="flex flex-col gap-2 pt-3 w-full">
-                            <label className="text-[#474040] text-base">
-                              Street Address
-                            </label>
-                            <div>
-                              <input
-                                type="text"
-                                className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                placeholder=""
-                              />
-                            </div>
-                          </div>
-                          <div className="flex flex-wrap justify-between">
-                            <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                              <label className="text-[#474040] text-base">
-                                City
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder=""
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                              <label className="text-[#474040] text-base">
-                                State
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder=""
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                              <label className="text-[#474040] text-base">
-                                Postal Code
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder=""
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                              <label className="text-[#474040] text-base">
-                                Country
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder=""
-                                />
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      {isCardSelected && (
-                        <div className="p-[10px] sm:p-[20px] border border-[#EBEBEB] rounded-[3px] mt-4">
-                          <div className="flex flex-col gap-3 flex-wrap">
-                            <div className="flex flex-col gap-2 pt-3 w-full">
-                              <label className="text-[#474040] text-base">
-                                Card Number
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder="dTUxfZLAymIrWlOG"
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-wrap justify-between">
-                              <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                                <label className="text-[#474040] text-base">
-                                  First Name
-                                </label>
-                                <div>
-                                  <input
-                                    type="text"
-                                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                    placeholder="mGQoIkbz"
-                                  />
-                                </div>
-                              </div>
-                              <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                                <label className="text-[#474040] text-base">
-                                  Last Name
-                                </label>
-                                <div>
-                                  <input
-                                    type="text"
-                                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                    placeholder="sWtQElDZ"
-                                  />
-                                </div>
-                              </div>
-                              <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                                <label className="text-[#474040] text-base">
-                                  Expires Month
-                                </label>
-                                <div>
-                                  <input
-                                    type="number"
-                                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                    placeholder="MM"
-                                  />
-                                </div>
-                              </div>
-                              <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                                <label className="text-[#474040] text-base">
-                                  Expires Year
-                                </label>
-                                <div>
-                                  <input
-                                    type="number"
-                                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                    placeholder="YY"
-                                  />
-                                </div>
-                              </div>
-                              <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                                <label className="text-[#474040] text-base">
-                                  Security Code
-                                </label>
-                                <div>
-                                  <input
-                                    type="text"
-                                    className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                    placeholder="rkEAqaOZsIFg"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                      {isBankSelected && (
-                        <div className="p-[10px] sm:p-[20px] mt-4">
-                          <div className="flex items-center justify-between">
-                            <h3 className="box-title text-bluesecondary text-[16px] font-semibold">
-                              Account Details
-                            </h3>
-                            <div>
-                              <Button
-                                radius="full"
-                                className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                              >
-                                Delete Account
-                              </Button>
-                            </div>
-                          </div>
-                          <div className="flex flex-col gap-3">
-                            <div className="flex flex-col gap-2 pt-3 w-full">
-                              <label className="text-[#474040] text-base">
-                                Bank Name*
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder="Bank Name"
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-col gap-2 pt-3 w-full">
-                              <label className="text-[#474040] text-base">
-                                Account holder name*
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder="Name of account holder"
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-col gap-2 pt-3 w-full">
-                              <label className="text-[#474040] text-base">
-                                Account number*
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder="Account number"
-                                />
-                              </div>
-                            </div>
-                            <div className="flex flex-col gap-2 pt-3 w-full">
-                              <label className="text-[#474040] text-base">
-                                Routing number*
-                              </label>
-                              <div>
-                                <input
-                                  type="text"
-                                  className="w-full border border-[#9b9898] py-2.5 md:py-3.5 px-3.5 text-grey text-base placeholder:text-base placeholder:text-grey"
-                                  placeholder="Routing number"
-                                />
-                              </div>
-                            </div>
-                            <div className="mt-2">
-                              <Button
-                                radius="full"
-                                className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg"
-                              >
-                                Verify Bank Account
-                              </Button>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </CardBody>
-                </Card>
+                <BillingCard />
               </Tab>
               <Tab
                 className="w-full max-w-[900px]"
                 key="Attorney Credentials"
                 title="Attorney Credentials"
               >
-                <Card>
-                  <CardBody>
-                    <div className="sm:p-[20px]">
-                      <h3 className="box-title text-bluesecondary text-[16px] font-semibold">
-                        Attorney Credentials
-                      </h3>
-                      <div className="flex flex-wrap justify-between">
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                          <div className="icon absolute z-20 top-[74px] sm:top-[94px] left-[24px] sm:left-[42px]">
-                            <svg
-                              width="22"
-                              height="22"
-                              viewBox="0 0 22 22"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <path
-                                d="M21.2695 20.032L16.2078 14.9703C17.4625 13.4406 18.2188 11.4812 18.2188 9.3457C18.2188 4.44727 14.2441 0.472656 9.3457 0.472656C4.44297 0.472656 0.472656 4.44727 0.472656 9.3457C0.472656 14.2441 4.44297 18.2188 9.3457 18.2188C11.4812 18.2188 13.4363 17.4668 14.966 16.2121L20.0277 21.2695C20.3715 21.6133 20.9258 21.6133 21.2695 21.2695C21.6133 20.9301 21.6133 20.3715 21.2695 20.032ZM9.3457 16.4527C5.42266 16.4527 2.23438 13.2645 2.23438 9.3457C2.23438 5.42695 5.42266 2.23438 9.3457 2.23438C13.2645 2.23438 16.457 5.42695 16.457 9.3457C16.457 13.2645 13.2645 16.4527 9.3457 16.4527Z"
-                                fill="#909090"
-                              ></path>
-                            </svg>
-                          </div>
-                          <Autocomplete
-                            labelPlacement="outside"
-                            placeholder="Arizona"
-                            className="w-full relative"
-                            inputProps={{
-                              classNames: {
-                                input: "ml-1",
-                                inputWrapper:
-                                  "h-[54px] mt-[8px] border border-[#9b9898] rounded-none pl-8",
-                              },
-                            }}
-                          >
-                            {Arizonas.map((Arizona) => (
-                              <AutocompleteItem
-                                key={Arizona.value}
-                                value={Arizona.value}
-                              >
-                                {Arizona.label}
-                              </AutocompleteItem>
-                            ))}
-                          </Autocomplete>
-                        </div>
-                        <div className="flex flex-col gap-2 pt-3 w-full sm:w-[calc(50%_-_10px)]">
-                          <Autocomplete
-                            labelPlacement="outside"
-                            placeholder=""
-                            className="w-full"
-                            inputProps={{
-                              classNames: {
-                                input: "ml-1",
-                                inputWrapper:
-                                  "h-[54px] mt-[8px] border border-[#9b9898] rounded-none",
-                              },
-                            }}
-                          >
-                            <AutocompleteItem
-                              key=""
-                              value=""
-                            ></AutocompleteItem>
-                          </Autocomplete>
-                        </div>
-                      </div>
-                      <div className="mt-5">
-                        <Button
-                          radius="full"
-                          className="bg-orangeprimary text-white text-[14px]"
-                        >
-                           Add license number
-                        </Button>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
+                <AttorneyCredentails/>
               </Tab>
               <Tab
                 className="w-full max-w-[900px]"
